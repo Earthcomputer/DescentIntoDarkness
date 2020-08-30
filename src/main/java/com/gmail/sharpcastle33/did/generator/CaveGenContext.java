@@ -125,7 +125,10 @@ public class CaveGenContext implements AutoCloseable {
 				.distinct()
 				.collect(Collectors.toList());
 		runAsyncEdits(
-				filledChunks.stream().<Edit>map(chunk -> session -> fillChunk(session, chunk)).collect(Collectors.toList()),
+				filledChunks.stream()
+						.flatMap(chunk -> IntStream.range(0, 16).mapToObj(sectionY -> BlockVector3.at(chunk.getX(), sectionY, chunk.getZ())))
+						.<Edit>map(section -> session -> fillChunkSection(session, section))
+						.collect(Collectors.toList()),
 				progress -> Bukkit.getLogger().log(Level.INFO, String.format("Filling base chunks... %d%%", (int) (progress * 100)))
 		);
 
@@ -180,9 +183,11 @@ public class CaveGenContext implements AutoCloseable {
 		Bukkit.getLogger().log(Level.INFO, "Cave finished generating");
 	}
 
-	private void fillChunk(EditSession session, BlockVector2 chunkPos) throws WorldEditException {
-		BlockVector3 from = BlockVector3.at(chunkPos.getX() * 16, 1, chunkPos.getZ() * 16);
-		BlockVector3 to = from.add(15, 253, 15);
+	private void fillChunkSection(EditSession session, BlockVector3 sectionPos) throws WorldEditException {
+		BlockVector3 from = BlockVector3.at(sectionPos.getX() * 16, sectionPos.getY() * 16, sectionPos.getZ() * 16);
+		BlockVector3 to = from.add(15, 15, 15);
+		if (from.getY() == 0) from = from.withY(1);
+		else if (to.getY() == 255) to = to.withY(254);
 		fill(session, new CuboidRegion(from, to), style.getBaseBlock());
 	}
 
@@ -202,7 +207,7 @@ public class CaveGenContext implements AutoCloseable {
 			return;
 		}
 		Iterator<Edit> edits = editList.iterator();
-		final long MAX_TIME = 10000000; // 10ms, 1/5 of a tick
+		final long MAX_TIME = 5000000; // 10ms, 1/5 of a tick
 		AtomicInteger tickCounter = new AtomicInteger(0);
 		AtomicInteger editCounter = new AtomicInteger(0);
 		AtomicInteger taskId = new AtomicInteger();
@@ -231,7 +236,7 @@ public class CaveGenContext implements AutoCloseable {
 					progressIndicator.accept((double)editCounter.get() / editCount);
 				}
 			}
-		}, 0, 1));
+		}, 0, 2));
 		try {
 			task.get();
 		} catch (InterruptedException | ExecutionException e) {
