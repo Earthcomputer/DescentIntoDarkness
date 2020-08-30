@@ -3,6 +3,7 @@ package com.gmail.sharpcastle33.did.generator;
 import com.gmail.sharpcastle33.did.Util;
 import com.gmail.sharpcastle33.did.config.ConfigUtil;
 import com.gmail.sharpcastle33.did.config.InvalidConfigException;
+import com.sk89q.worldedit.WorldEditException;
 import com.sk89q.worldedit.math.Vector3;
 import org.bukkit.configuration.ConfigurationSection;
 

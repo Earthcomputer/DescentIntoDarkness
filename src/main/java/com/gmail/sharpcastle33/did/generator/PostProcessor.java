@@ -2,7 +2,6 @@ package com.gmail.sharpcastle33.did.generator;
 
 import com.gmail.sharpcastle33.did.Util;
 import com.gmail.sharpcastle33.did.config.BlockTypeRange;
-import com.sk89q.worldedit.MaxChangedBlocksException;
 import com.sk89q.worldedit.WorldEditException;
 import com.sk89q.worldedit.math.BlockVector3;
 import com.sk89q.worldedit.math.Vector3;
@@ -16,15 +15,15 @@ import java.util.logging.Level;
 
 public class PostProcessor {
 
-	public static void postProcess(CaveGenContext ctx, List<Centroid> centroids, List<Integer> roomStarts) throws WorldEditException {
+	public static void postProcess(CaveGenContext ctx, List<Centroid> centroids, List<Integer> roomStarts) {
 		Bukkit.getLogger().log(Level.WARNING, "Beginning smoothing pass... " + centroids.size() + " centroids.");
 
 		for (int i = 0; i < roomStarts.size(); i++) {
 			int roomStart = roomStarts.get(i);
 			int roomEnd = i == roomStarts.size() - 1 ? centroids.size() : roomStarts.get(i + 1);
 			List<Centroid> roomCentroids = centroids.subList(roomStart, roomEnd);
-			int minRoomY = roomCentroids.stream().mapToInt(centroid -> centroid.pos.getBlockY() - centroid.size).min().orElse(0);
-			int maxRoomY = roomCentroids.stream().mapToInt(centroid -> centroid.pos.getBlockY() + centroid.size).max().orElse(255);
+			int minRoomY = roomCentroids.stream().mapToInt(centroid -> (int)Math.round(centroid.pos.getY()) - centroid.size).min().orElse(0);
+			int maxRoomY = roomCentroids.stream().mapToInt(centroid -> (int)Math.round(centroid.pos.getY()) + centroid.size).max().orElse(255);
 			for (Centroid centroid : roomCentroids) {
 				smooth(ctx, centroid, minRoomY, maxRoomY);
 			}
@@ -59,10 +58,10 @@ public class PostProcessor {
 		}
 	}
 
-	public static void smooth(CaveGenContext ctx, Centroid centroid, int minRoomY, int maxRoomY) throws MaxChangedBlocksException {
-		int x = centroid.pos.getBlockX();
-		int y = centroid.pos.getBlockY();
-		int z = centroid.pos.getBlockZ();
+	public static void smooth(CaveGenContext ctx, Centroid centroid, int minRoomY, int maxRoomY) {
+		int x = (int)Math.round(centroid.pos.getX());
+		int y = (int)Math.round(centroid.pos.getY());
+		int z = (int)Math.round(centroid.pos.getZ());
 		int r = centroid.size + 2;
 
 		for(int tx = -r; tx <= r; tx++){
@@ -104,7 +103,7 @@ public class PostProcessor {
 
 
 
-	public static void generateStructure(CaveGenContext ctx, List<Centroid> centroids, Structure structure) throws WorldEditException {
+	public static void generateStructure(CaveGenContext ctx, List<Centroid> centroids, Structure structure) {
 		List<Direction> validDirections = structure.getValidDirections();
 		if (validDirections.isEmpty()) {
 			return;
@@ -192,7 +191,7 @@ public class PostProcessor {
 		return !ctx.style.isTransparentBlock(ctx.getBlock(pos));
 	}
 
-	public static void chanceReplaceFloor(CaveGenContext ctx, BlockVector3 loc, int r, BlockStateHolder<?> old, BlockStateHolder<?> m, double chance) throws MaxChangedBlocksException {
+	public static void chanceReplaceFloor(CaveGenContext ctx, BlockVector3 loc, int r, BlockStateHolder<?> old, BlockStateHolder<?> m, double chance) {
 
 		int x = loc.getBlockX();
 		int y = loc.getBlockY();
@@ -222,7 +221,7 @@ public class PostProcessor {
 
 	}
 
-	public static void chanceReplaceCeiling(CaveGenContext ctx, BlockVector3 loc, int r, BlockStateHolder<?> old, BlockStateHolder<?> m, double chance) throws MaxChangedBlocksException {
+	public static void chanceReplaceCeiling(CaveGenContext ctx, BlockVector3 loc, int r, BlockStateHolder<?> old, BlockStateHolder<?> m, double chance) {
 
 		int x = loc.getBlockX();
 		int y = loc.getBlockY();
@@ -252,7 +251,7 @@ public class PostProcessor {
 
 	}
 
-	public static void floorLayer(CaveGenContext ctx, BlockVector3 loc, int r, BlockStateHolder<?> m) throws MaxChangedBlocksException {
+	public static void floorLayer(CaveGenContext ctx, BlockVector3 loc, int r, BlockStateHolder<?> m) {
 
 		int x = loc.getBlockX();
 		int y = loc.getBlockY();
@@ -277,7 +276,7 @@ public class PostProcessor {
 
 	}
 
-	public static void ceilingLayer(CaveGenContext ctx, BlockVector3 loc, int r, BlockStateHolder<?> m) throws MaxChangedBlocksException {
+	public static void ceilingLayer(CaveGenContext ctx, BlockVector3 loc, int r, BlockStateHolder<?> m) {
 
 		int x = loc.getBlockX();
 		int y = loc.getBlockY();
@@ -302,7 +301,7 @@ public class PostProcessor {
 
 	}
 
-	public static void chanceReplaceAll(CaveGenContext ctx, BlockVector3 loc, int r, BlockStateHolder<?> old, BlockStateHolder<?> m, double chance) throws MaxChangedBlocksException {
+	public static void chanceReplaceAll(CaveGenContext ctx, BlockVector3 loc, int r, BlockStateHolder<?> old, BlockStateHolder<?> m, double chance) {
 		int x = loc.getBlockX();
 		int y = loc.getBlockY();
 		int z = loc.getBlockZ();
@@ -328,11 +327,11 @@ public class PostProcessor {
 		}
 	}
 
-	public static void radiusReplace(CaveGenContext ctx, BlockVector3 loc, int r, BlockStateHolder<?> old, BlockStateHolder<?> m) throws MaxChangedBlocksException {
+	public static void radiusReplace(CaveGenContext ctx, BlockVector3 loc, int r, BlockStateHolder<?> old, BlockStateHolder<?> m) {
 		chanceReplaceAll(ctx, loc, r, old, m, 1);
 	}
 
-	public static void replaceMesa(CaveGenContext ctx, BlockVector3 loc, int r, BlockStateHolder<?> old, BlockTypeRange<Integer> mesaLayers) throws MaxChangedBlocksException {
+	public static void replaceMesa(CaveGenContext ctx, BlockVector3 loc, int r, BlockStateHolder<?> old, BlockTypeRange<Integer> mesaLayers) {
 		int x = loc.getBlockX();
 		int y = loc.getBlockY();
 		int z = loc.getBlockZ();
@@ -391,7 +390,7 @@ public class PostProcessor {
 		return ret;
 	}
 
-	public static void genStalagmites(CaveGenContext ctx, BlockVector3 loc, int r, int amount) throws MaxChangedBlocksException {
+	public static void genStalagmites(CaveGenContext ctx, BlockVector3 loc, int r, int amount) {
 		for(int i = 0; i < amount; i++) {
 			int hozMod = Math.min(3, r);
 			int tx = ctx.rand.nextInt(hozMod)+1;

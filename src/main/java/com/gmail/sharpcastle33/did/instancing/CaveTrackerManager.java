@@ -20,7 +20,6 @@ import com.onarandombox.MultiverseCore.api.MVDestination;
 import com.onarandombox.MultiverseCore.api.MVWorldManager;
 import com.onarandombox.MultiverseCore.api.MultiverseWorld;
 import com.onarandombox.MultiverseCore.enums.TeleportResult;
-import com.sk89q.worldedit.WorldEditException;
 import com.sk89q.worldedit.bukkit.BukkitAdapter;
 import com.sk89q.worldedit.math.BlockVector2;
 import com.sk89q.worldedit.math.BlockVector3;
@@ -161,8 +160,6 @@ public class CaveTrackerManager {
 			);
 			try (CaveGenContext ctx = CaveGenContext.create(BukkitAdapter.adapt(theWorld), style, rand).limit(limit)) {
 				CaveGenerator.generateCave(ctx, spawnPos.toVector3());
-			} catch (WorldEditException e) {
-				throw new RuntimeException("Could not generate cave", e);
 			}
 			Location spawnPoint = BukkitAdapter.adapt(theWorld, spawnPos);
 			while (style.isTransparentBlock(BukkitAdapter.adapt(spawnPoint.getBlock().getBlockData()))) {

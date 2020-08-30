@@ -248,7 +248,7 @@ public class CaveStyle {
 	}
 
 	public BlockStateHolder<?> getAirBlock(int y, Centroid currentCentroid, int minRoomY, int maxRoomY) {
-		double yInCentroid = (double) (y - currentCentroid.pos.getBlockY() + currentCentroid.size) / (currentCentroid.size + currentCentroid.size);
+		double yInCentroid = (double) (y - (int)Math.round(currentCentroid.pos.getY()) + currentCentroid.size) / (currentCentroid.size + currentCentroid.size);
 		for (String tag : currentCentroid.tags) {
 			BlockTypeRange<Double> range = tagAirBlocks.get(tag);
 			if (range != null) {

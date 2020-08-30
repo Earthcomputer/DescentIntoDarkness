@@ -5,31 +5,17 @@ import java.util.List;
 import java.util.logging.Level;
 
 import com.gmail.sharpcastle33.did.Util;
-import com.sk89q.worldedit.EditSession;
-import com.sk89q.worldedit.WorldEditException;
-import com.sk89q.worldedit.math.BlockVector3;
 import com.sk89q.worldedit.math.Vector3;
-import com.sk89q.worldedit.regions.CuboidRegion;
-import com.sk89q.worldedit.world.block.BlockStateHolder;
 import org.bukkit.Bukkit;
 
 public class CaveGenerator {
-
-	public static void generateBlank(EditSession session, BlockStateHolder<?> base, int x, int y, int z, int radius, int yRadius) throws WorldEditException {
-		for (BlockVector3 pos : new CuboidRegion(
-				BlockVector3.at(x - radius, Math.max(0, y - yRadius), z - radius),
-				BlockVector3.at(x + radius, Math.min(255, y + yRadius), z + radius)
-		)) {
-			session.setBlock(pos, base);
-		}
-	}
 
 	public static String generateCave(CaveGenContext ctx, Vector3 pos) {
 		int size = ctx.style.getMinSize() + ctx.rand.nextInt(ctx.style.getMaxSize() - ctx.style.getMinSize());
 		return generateCave(ctx, pos, size);
 	}
 
-	public static String generateCave(CaveGenContext ctx, Vector3 pos, int size) throws WorldEditException {
+	public static String generateCave(CaveGenContext ctx, Vector3 pos, int size) {
 		Bukkit.getLogger().log(Level.INFO, "Generating cave of size " + size);
 		List<Centroid> centroids = new ArrayList<>();
 		List<Integer> roomStarts = new ArrayList<>();
@@ -40,7 +26,7 @@ public class CaveGenerator {
 		return caveString;
 	}
 
-	public static String generateBranch(CaveGenContext ctx, int size, Vector3 pos, int length, boolean moreBranches, Vector3 dir, List<Centroid> centroids, List<Integer> roomStarts) throws WorldEditException {
+	public static String generateBranch(CaveGenContext ctx, int size, Vector3 pos, int length, boolean moreBranches, Vector3 dir, List<Centroid> centroids, List<Integer> roomStarts) {
 		LayoutGenerator.Layout layout = LayoutGenerator.generateCave(ctx, length);
 
 		if(!moreBranches) {

@@ -3,7 +3,7 @@ package com.gmail.sharpcastle33.did.generator;
 import com.gmail.sharpcastle33.did.config.BlockTypeRange;
 import com.gmail.sharpcastle33.did.config.ConfigUtil;
 import com.gmail.sharpcastle33.did.config.InvalidConfigException;
-import com.sk89q.worldedit.MaxChangedBlocksException;
+import com.sk89q.worldedit.WorldEditException;
 import com.sk89q.worldedit.math.BlockVector3;
 import com.sk89q.worldedit.world.block.BlockStateHolder;
 
@@ -147,7 +147,7 @@ public abstract class PainterStep {
 		throw new InvalidConfigException("Invalid painter step type: " + value.getClass());
 	}
 
-	public abstract void apply(CaveGenContext ctx, BlockVector3 loc, int r) throws MaxChangedBlocksException;
+	public abstract void apply(CaveGenContext ctx, BlockVector3 loc, int r);
 
 	public static class ReplaceAll extends PainterStep {
 		private final BlockStateHolder<?> old;
@@ -171,7 +171,7 @@ public abstract class PainterStep {
 		}
 
 		@Override
-		public void apply(CaveGenContext ctx, BlockVector3 loc, int r) throws MaxChangedBlocksException {
+		public void apply(CaveGenContext ctx, BlockVector3 loc, int r) {
 			PostProcessor.chanceReplaceAll(ctx, loc, r, old, _new, chance);
 		}
 	}
@@ -198,7 +198,7 @@ public abstract class PainterStep {
 		}
 
 		@Override
-		public void apply(CaveGenContext ctx, BlockVector3 loc, int r) throws MaxChangedBlocksException {
+		public void apply(CaveGenContext ctx, BlockVector3 loc, int r) {
 			PostProcessor.chanceReplaceCeiling(ctx, loc, r, old, _new, chance);
 		}
 	}
@@ -225,7 +225,7 @@ public abstract class PainterStep {
 		}
 
 		@Override
-		public void apply(CaveGenContext ctx, BlockVector3 loc, int r) throws MaxChangedBlocksException {
+		public void apply(CaveGenContext ctx, BlockVector3 loc, int r) {
 			PostProcessor.chanceReplaceFloor(ctx, loc, r, old, _new, chance);
 		}
 	}
@@ -244,7 +244,7 @@ public abstract class PainterStep {
 		}
 
 		@Override
-		public void apply(CaveGenContext ctx, BlockVector3 loc, int r) throws MaxChangedBlocksException {
+		public void apply(CaveGenContext ctx, BlockVector3 loc, int r) {
 			PostProcessor.ceilingLayer(ctx, loc, r, block);
 		}
 	}
@@ -263,7 +263,7 @@ public abstract class PainterStep {
 		}
 
 		@Override
-		public void apply(CaveGenContext ctx, BlockVector3 loc, int r) throws MaxChangedBlocksException {
+		public void apply(CaveGenContext ctx, BlockVector3 loc, int r) {
 			PostProcessor.floorLayer(ctx, loc, r, block);
 		}
 	}
@@ -284,7 +284,7 @@ public abstract class PainterStep {
 		}
 
 		@Override
-		public void apply(CaveGenContext ctx, BlockVector3 loc, int r) throws MaxChangedBlocksException {
+		public void apply(CaveGenContext ctx, BlockVector3 loc, int r) {
 			PostProcessor.replaceMesa(ctx, loc, r, old, mesaLayers);
 		}
 	}

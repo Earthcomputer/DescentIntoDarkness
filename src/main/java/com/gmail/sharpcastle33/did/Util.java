@@ -6,14 +6,17 @@ import com.sk89q.jnbt.ListTagBuilder;
 import com.sk89q.jnbt.NBTInputStream;
 import com.sk89q.jnbt.NBTOutputStream;
 import com.sk89q.jnbt.NamedTag;
+import com.sk89q.worldedit.bukkit.BukkitAdapter;
 import com.sk89q.worldedit.math.Vector3;
 import com.sk89q.worldedit.util.Direction;
 import com.sk89q.worldedit.world.block.BlockState;
+import com.sk89q.worldedit.world.block.BlockStateHolder;
 import com.sk89q.worldedit.world.block.BlockType;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.OfflinePlayer;
 import org.bukkit.World;
+import org.bukkit.block.data.BlockData;
 import org.bukkit.scoreboard.Score;
 import org.bukkit.scoreboard.Scoreboard;
 
@@ -124,9 +127,10 @@ public class Util {
 				new DoubleTag(destination.getY()),
 				new DoubleTag(destination.getZ())).build()).build();
 
-		try (NBTOutputStream out = new NBTOutputStream(new GZIPOutputStream(new FileOutputStream(playerFile)))) {
+		try (GZIPOutputStream gzipOut = new GZIPOutputStream(new FileOutputStream(playerFile));
+			 NBTOutputStream out = new NBTOutputStream(gzipOut)) {
 			out.writeNamedTag("", playerTag);
-			out.flush();
+			gzipOut.flush();
 		} catch (IOException e) {
 			Bukkit.getLogger().log(Level.SEVERE, "Could not teleport offline player", e);
 			return false;
@@ -147,6 +151,11 @@ public class Util {
 		for (Score otherScore : otherScores) {
 			otherScore.getObjective().getScore(otherScore.getEntry()).setScore(otherScore.getScore());
 		}
+	}
+
+	@SuppressWarnings("unchecked")
+	public static <B extends BlockStateHolder<B>> BlockData state2BlockData(BlockStateHolder<?> state) {
+		return BukkitAdapter.adapt((B) state);
 	}
 
 }

@@ -7,7 +7,6 @@ import com.gmail.sharpcastle33.did.instancing.CaveTrackerManager;
 import com.gmail.sharpcastle33.did.listeners.MobSpawnManager;
 import com.gmail.sharpcastle33.did.listeners.PlayerListener;
 import com.onarandombox.MultiverseCore.api.Core;
-import com.sk89q.worldedit.bukkit.BukkitAdapter;
 import com.sk89q.worldedit.extent.clipboard.Clipboard;
 import com.sk89q.worldedit.extent.clipboard.io.ClipboardFormat;
 import com.sk89q.worldedit.extent.clipboard.io.ClipboardFormats;
@@ -37,14 +36,10 @@ import org.jetbrains.annotations.Nullable;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FilenameFilter;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.StandardCopyOption;
-import java.util.AbstractMap;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedHashMap;
@@ -59,7 +54,6 @@ import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
 import java.util.function.Supplier;
 import java.util.logging.Level;
-import java.util.stream.Collectors;
 
 public class DescentIntoDarkness extends JavaPlugin {
 
@@ -89,7 +83,7 @@ public class DescentIntoDarkness extends JavaPlugin {
 			} catch (InvalidConfigException e) {
 				return null;
 			}
-			BlockData data = BukkitAdapter.adapt(state);
+			BlockData data = Util.state2BlockData(state);
 			return new ChunkGenerator() {
 				@Override
 				public @NotNull ChunkData generateChunkData(@NotNull World world, @NotNull Random random, int x, int z, @NotNull BiomeGrid biome) {

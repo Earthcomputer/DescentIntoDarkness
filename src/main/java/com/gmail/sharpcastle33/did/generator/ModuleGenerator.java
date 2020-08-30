@@ -6,7 +6,7 @@ import java.util.Map;
 import java.util.logging.Level;
 import java.util.stream.Collectors;
 
-import com.sk89q.worldedit.MaxChangedBlocksException;
+import com.sk89q.worldedit.WorldEditException;
 import com.sk89q.worldedit.math.BlockVector3;
 import com.sk89q.worldedit.math.Vector3;
 import com.sk89q.worldedit.world.block.BlockState;
@@ -41,8 +41,8 @@ public class ModuleGenerator {
 			int roomStart = roomStarts.get(i);
 			int roomEnd = i == roomStarts.size() - 1 ? centroids.size() : roomStarts.get(i + 1);
 			List<Centroid> roomCentroids = centroids.subList(roomStart, roomEnd);
-			int minRoomY = roomCentroids.stream().mapToInt(centroid -> centroid.pos.getBlockY() - centroid.size).min().orElse(0);
-			int maxRoomY = roomCentroids.stream().mapToInt(centroid -> centroid.pos.getBlockY() + centroid.size).max().orElse(255);
+			int minRoomY = roomCentroids.stream().mapToInt(centroid -> (int)Math.round(centroid.pos.getY()) - centroid.size).min().orElse(0);
+			int maxRoomY = roomCentroids.stream().mapToInt(centroid -> (int)Math.round(centroid.pos.getY()) + centroid.size).max().orElse(255);
 			for (Centroid centroid : roomCentroids) {
 				deleteCentroid(ctx, centroid, minRoomY, maxRoomY);
 			}
@@ -50,9 +50,9 @@ public class ModuleGenerator {
 	}
 
 	private static void deleteCentroid(CaveGenContext ctx, Centroid centroid, int minRoomY, int maxRoomY) {
-		int x = centroid.pos.getBlockX();
-		int y = centroid.pos.getBlockY();
-		int z = centroid.pos.getBlockZ();
+		int x = (int)Math.round(centroid.pos.getX());
+		int y = (int)Math.round(centroid.pos.getY());
+		int z = (int)Math.round(centroid.pos.getZ());
 		int r = centroid.size;
 
 		for(int ty = -r; ty <= r; ty++) {
@@ -76,7 +76,7 @@ public class ModuleGenerator {
 		return loc.add(x,y,z);
 	}
 
-	public static int generateOreCluster(CaveGenContext ctx, BlockVector3 loc, int radius, List<BlockStateHolder<?>> oldBlocks, BlockStateHolder<?> ore) throws MaxChangedBlocksException {
+	public static int generateOreCluster(CaveGenContext ctx, BlockVector3 loc, int radius, List<BlockStateHolder<?>> oldBlocks, BlockStateHolder<?> ore) {
 		int x = loc.getBlockX();
 		int y = loc.getBlockY();
 		int z = loc.getBlockZ();

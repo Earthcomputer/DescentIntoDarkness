@@ -11,14 +11,16 @@ import com.sk89q.worldedit.extent.transform.BlockTransformExtent;
 import com.sk89q.worldedit.function.operation.Operation;
 import com.sk89q.worldedit.function.operation.Operations;
 import com.sk89q.worldedit.math.BlockVector3;
+import com.sk89q.worldedit.math.Vector3;
 import com.sk89q.worldedit.math.transform.AffineTransform;
 import com.sk89q.worldedit.math.transform.Transform;
-import com.sk89q.worldedit.registry.state.PropertyKey;
+import com.sk89q.worldedit.registry.state.Property;
 import com.sk89q.worldedit.session.ClipboardHolder;
 import com.sk89q.worldedit.util.Direction;
 import com.sk89q.worldedit.world.block.BlockStateHolder;
 import com.sk89q.worldedit.world.block.BlockType;
 import com.sk89q.worldedit.world.block.BlockTypes;
+import org.bukkit.Bukkit;
 import org.bukkit.configuration.ConfigurationSection;
 
 import java.util.ArrayList;
@@ -28,6 +30,7 @@ import java.util.List;
 import java.util.Set;
 import java.util.function.BiFunction;
 import java.util.function.Function;
+import java.util.logging.Level;
 
 public abstract class Structure {
 	private final String name;
@@ -148,7 +151,7 @@ public abstract class Structure {
 		return ConfigUtil.deserializeSingleableList(rule, ConfigUtil::parseBlock, () -> null);
 	}
 
-	public abstract void place(CaveGenContext ctx, BlockVector3 pos, Direction side) throws WorldEditException;
+	public abstract void place(CaveGenContext ctx, BlockVector3 pos, Direction side);
 
 	protected boolean canReplace(CaveGenContext ctx, BlockStateHolder<?> block) {
 		if (canReplace == null) {
@@ -203,7 +206,7 @@ public abstract class Structure {
 		}
 
 		@Override
-		public void place(CaveGenContext ctx, BlockVector3 pos, Direction side) throws WorldEditException {
+		public void place(CaveGenContext ctx, BlockVector3 pos, Direction side) {
 			Schematic chosenSchematic = schematics.get(ctx.rand.nextInt(schematics.size()));
 			ClipboardHolder clipboardHolder = new ClipboardHolder(chosenSchematic.data);
 			AffineTransform transform = new AffineTransform();
@@ -258,7 +261,11 @@ public abstract class Structure {
 			BlockVector3 to = pos.subtract(side.toBlockVector());
 			if (canPlace(ctx, to, chosenSchematic.data, clipboardHolder.getTransform())) {
 				Operation paste = clipboardHolder.createPaste(ctx.asExtent()).to(to).ignoreAirBlocks(ignoreAir).build();
-				Operations.complete(paste);
+				try {
+					Operations.complete(paste);
+				} catch (WorldEditException e) {
+					Bukkit.getLogger().log(Level.SEVERE, "An error occurred placing a schematic", e);
+				}
 				if (ctx.isDebug()) {
 					ctx.setBlock(to, Util.requireDefaultState(BlockTypes.DIAMOND_BLOCK));
 				}
@@ -313,7 +320,7 @@ public abstract class Structure {
 		}
 
 		@Override
-		public void place(CaveGenContext ctx, BlockVector3 pos, Direction side) throws WorldEditException {
+		public void place(CaveGenContext ctx, BlockVector3 pos, Direction side) {
 			ModuleGenerator.generateOreCluster(ctx, pos, radius, canReplace, ore);
 		}
 	}
@@ -352,7 +359,7 @@ public abstract class Structure {
 		}
 
 		@Override
-		public void place(CaveGenContext ctx, BlockVector3 pos, Direction side) throws WorldEditException {
+		public void place(CaveGenContext ctx, BlockVector3 pos, Direction side) {
 			BlockVector3 origin = pos.subtract(side.toBlockVector());
 			for (int i = 0; i < tries; i++) {
 				BlockVector3 offsetPos = origin.add(
@@ -524,8 +531,9 @@ public abstract class Structure {
 		}
 
 		@Override
-		public void place(CaveGenContext ctx, BlockVector3 pos, Direction side) throws WorldEditException {
-			Direction xAxis = side.isUpright() ? Direction.EAST : side.getRight();
+		public void place(CaveGenContext ctx, BlockVector3 pos, Direction side) {
+			Direction xAxis = side.isUpright() ? Direction.EAST : Direction.findClosest(side.toVector().cross(Vector3.UNIT_Y), Direction.Flag.CARDINAL | Direction.Flag.UPRIGHT);
+			assert xAxis != null;
 			Direction zAxis = Direction.findClosest(side.toVector().cross(xAxis.toVector()), Direction.Flag.CARDINAL | Direction.Flag.UPRIGHT);
 			assert zAxis != null;
 
@@ -568,7 +576,7 @@ public abstract class Structure {
 		}
 
 		@Override
-		public void place(CaveGenContext ctx, BlockVector3 pos, Direction side) throws WorldEditException {
+		public void place(CaveGenContext ctx, BlockVector3 pos, Direction side) {
 			int wallCount = 0;
 			for (Direction dir : Direction.valuesOf(Direction.Flag.CARDINAL | Direction.Flag.UPRIGHT)) {
 				if (canPlaceOn(ctx, ctx.getBlock(pos.add(dir.toBlockVector())))) {
@@ -586,7 +594,7 @@ public abstract class Structure {
 
 		private void simulateFluidTick(CaveGenContext ctx, BlockVector3 pos) {
 			BlockStateHolder<?> state = ctx.getBlock(pos);
-			int level = state.<Integer>getState(PropertyKey.LEVEL);
+			int level = state.<Integer>getState(fluid.levelProperty);
 			int levelDecrease = fluid == FluidType.LAVA ? 2 : 1;
 
 			if (level > 0) {
@@ -622,7 +630,7 @@ public abstract class Structure {
 					BlockStateHolder<?> stateBelow = ctx.getBlock(pos.add(0, -1, 0));
 					if (!canReplace(ctx, stateBelow)) {
 						newLevel = 0;
-					} else if (stateBelow.getBlockType() == fluid.block.getBlockType() && stateBelow.<Integer>getState(PropertyKey.LEVEL) == 0) {
+					} else if (stateBelow.getBlockType() == fluid.block.getBlockType() && stateBelow.<Integer>getState(fluid.levelProperty) == 0) {
 						newLevel = 0;
 					}
 				}
@@ -633,7 +641,7 @@ public abstract class Structure {
 					if (newLevel < 0) {
 						ctx.setBlock(pos, Util.requireDefaultState(BlockTypes.AIR));
 					} else {
-						if (ctx.setBlock(pos, fluid.block.with(PropertyKey.LEVEL, newLevel))) {
+						if (ctx.setBlock(pos, fluid.block.with(fluid.levelProperty, newLevel))) {
 							simulateFluidTick(ctx, pos);
 						}
 					}
@@ -667,7 +675,7 @@ public abstract class Structure {
 		}
 
 		private int getDepth(BlockStateHolder<?> state) {
-			return state.getBlockType() == fluid.block.getBlockType() ? state.<Integer>getState(PropertyKey.LEVEL) : -1;
+			return state.getBlockType() == fluid.block.getBlockType() ? state.<Integer>getState(fluid.levelProperty) : -1;
 		}
 
 		private boolean canFlowInto(CaveGenContext ctx, BlockVector3 pos, BlockStateHolder<?> block) {
@@ -681,7 +689,7 @@ public abstract class Structure {
 			}
 
 			// skipped: trigger mix effects and block dropping
-			if (ctx.setBlock(pos, fluid.block.with(PropertyKey.LEVEL, level))) {
+			if (ctx.setBlock(pos, fluid.block.with(fluid.levelProperty, level))) {
 				simulateFluidTick(ctx, pos);
 			}
 		}
@@ -698,7 +706,7 @@ public abstract class Structure {
 				BlockVector3 offsetPos = pos.add(dir.toBlockVector());
 				BlockStateHolder<?> offsetState = ctx.getBlock(offsetPos);
 
-				if (!isBlocked(ctx, offsetPos, offsetState) && (offsetState.getBlockType() != fluid.block.getBlockType() || offsetState.<Integer>getState(PropertyKey.LEVEL) > 0)) {
+				if (!isBlocked(ctx, offsetPos, offsetState) && (offsetState.getBlockType() != fluid.block.getBlockType() || offsetState.<Integer>getState(fluid.levelProperty) > 0)) {
 					int distanceToLower;
 					BlockVector3 posBelow = offsetPos.add(0, -1, 0);
 					if (isBlocked(ctx, posBelow, ctx.getBlock(posBelow))) {
@@ -732,7 +740,7 @@ public abstract class Structure {
 				BlockVector3 offsetPos = pos.add(dir.toBlockVector());
 				BlockStateHolder<?> offsetState = ctx.getBlock(offsetPos);
 
-				if (!isBlocked(ctx, offsetPos, offsetState) && (offsetState.getBlockType() != fluid.block.getBlockType() || offsetState.<Integer>getState(PropertyKey.LEVEL) > 0)) {
+				if (!isBlocked(ctx, offsetPos, offsetState) && (offsetState.getBlockType() != fluid.block.getBlockType() || offsetState.<Integer>getState(fluid.levelProperty) > 0)) {
 					if (!isBlocked(ctx, offsetPos.add(0, -1, 0), offsetState)) {
 						return distance;
 					}
@@ -762,9 +770,11 @@ public abstract class Structure {
 			WATER(Util.requireDefaultState(BlockTypes.WATER)),
 			LAVA(Util.requireDefaultState(BlockTypes.LAVA));
 			public final BlockStateHolder<?> block;
+			public final Property<Integer> levelProperty;
 
 			FluidType(BlockStateHolder<?> block) {
 				this.block = block;
+				this.levelProperty = block.getBlockType().getProperty("level");
 			}
 		}
 	}

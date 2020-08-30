@@ -1,19 +1,12 @@
 package com.gmail.sharpcastle33.did.listeners;
 
 import com.gmail.sharpcastle33.did.DescentIntoDarkness;
-import com.gmail.sharpcastle33.did.Util;
 import com.gmail.sharpcastle33.did.config.CaveStyle;
-import com.gmail.sharpcastle33.did.config.ConfigUtil;
 import com.gmail.sharpcastle33.did.generator.CaveGenContext;
 import com.gmail.sharpcastle33.did.instancing.CaveTracker;
 import com.gmail.sharpcastle33.did.instancing.CaveTrackerManager;
-import com.sk89q.worldedit.EditSession;
-import com.sk89q.worldedit.WorldEdit;
 import com.sk89q.worldedit.bukkit.BukkitAdapter;
-import com.sk89q.worldedit.world.block.BlockStateHolder;
-import com.sk89q.worldedit.world.block.BlockTypes;
 import org.bukkit.Bukkit;
-import org.bukkit.Location;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.TabExecutor;
@@ -95,11 +88,7 @@ public class CommandListener implements TabExecutor {
 			return;
 		}
 
-		if (args[1].equals("cave")) {
-			generateCave(p, args);
-		} else if (args[1].equals("blank")) {
-			generateBlank(p, args);
-		}
+		generateCave(p, args);
 	}
 
 	private void join(Player p, String[] args) {
@@ -181,40 +170,15 @@ public class CommandListener implements TabExecutor {
 				p.sendMessage(ChatColor.YELLOW + String.format("%d: %s", cave.getId(), cave.getStyle().getName()));
 			}
 		}
-
-	}
-
-	private void generateBlank(Player p, String[] args) {
-		BlockStateHolder<?> base = args.length <= 2 ? Util.requireDefaultState(BlockTypes.STONE) : ConfigUtil.parseBlock(args[2]);
-		OptionalInt radius = args.length <= 3 ? OptionalInt.of(200) : parseInt(p, args[3]);
-		if (!radius.isPresent()) return;
-		OptionalInt yRadius = args.length <= 4 ? OptionalInt.of(120) : parseInt(p, args[4]);
-		if (!yRadius.isPresent()) return;
-
-		p.sendMessage(ChatColor.DARK_RED + "Generating...");
-
-		Location pos = p.getLocation();
-		DescentIntoDarkness.plugin.runAsync(() -> {
-			try (EditSession session = WorldEdit.getInstance().getEditSessionFactory().getEditSession(BukkitAdapter.adapt(p.getWorld()), -1)) {
-				CaveGenerator.generateBlank(session, base, pos.getBlockX(), pos.getBlockY(), pos.getBlockZ(), radius.getAsInt(), yRadius.getAsInt());
-			}
-		}).whenComplete((v, throwable) -> {
-			if (throwable != null) {
-				DescentIntoDarkness.plugin.runSyncLater(() -> p.sendMessage(ChatColor.DARK_RED + "Failed"));
-				Bukkit.getLogger().log(Level.SEVERE, "Failed to generate blank", throwable);
-			} else {
-				DescentIntoDarkness.plugin.runSyncLater(() -> p.sendMessage(ChatColor.GREEN + "Done!"));
-			}
-		});
 	}
 
 	private void generateCave(Player p, String[] args) {
-		String styleName = args.length <= 2 ? "default" : args[2];
-		OptionalInt size = args.length <= 3 ? OptionalInt.of(7) : parseInt(p, args[3]);
+		String styleName = args.length <= 1 ? "default" : args[1];
+		OptionalInt size = args.length <= 2 ? OptionalInt.of(7) : parseInt(p, args[2]);
 		if (!size.isPresent()) return;
-		OptionalLong seed = args.length <= 4 ? OptionalLong.of(new Random().nextLong()) : parseLong(p, args[4]);
+		OptionalLong seed = args.length <= 3 ? OptionalLong.of(new Random().nextLong()) : parseLong(p, args[3]);
 		if (!seed.isPresent()) return;
-		boolean debug = args.length > 5 && Boolean.parseBoolean(args[5]);
+		boolean debug = args.length > 4 && Boolean.parseBoolean(args[4]);
 
 		CaveStyle style = DescentIntoDarkness.plugin.getCaveStyles().get(styleName);
 		if (style == null) {
@@ -251,23 +215,13 @@ public class CommandListener implements TabExecutor {
 			switch (args[0]) {
 				case "generate":
 					if (args.length == 2) {
-						return StringUtil.copyPartialMatches(args[1], Arrays.asList("cave", "blank"), new ArrayList<>());
-					} else {
-						if (args[1].equals("cave")) {
-							if (args.length == 3) {
-								return StringUtil.copyPartialMatches(
-										args[2],
-										DescentIntoDarkness.plugin.getCaveStyles().entrySet().stream().filter(entry -> !entry.getValue().isAbstract()).map(Map.Entry::getKey).collect(Collectors.toList()),
-										new ArrayList<>()
-								);
-							} else if (args.length == 6) {
-								return StringUtil.copyPartialMatches(args[5], Arrays.asList("false", "true"), new ArrayList<>());
-							}
-						} else if (args[1].equals("blank")) {
-							if (args.length == 3) {
-								return StringUtil.copyPartialMatches(args[2], DescentIntoDarkness.getAllMaterials().stream().map(material -> material.getKey().getKey()).collect(Collectors.toList()), new ArrayList<>());
-							}
-						}
+						return StringUtil.copyPartialMatches(
+								args[1],
+								DescentIntoDarkness.plugin.getCaveStyles().entrySet().stream().filter(entry -> !entry.getValue().isAbstract()).map(Map.Entry::getKey).collect(Collectors.toList()),
+								new ArrayList<>()
+						);
+					} else if (args.length == 5) {
+						return StringUtil.copyPartialMatches(args[4], Arrays.asList("false", "true"), new ArrayList<>());
 					}
 					break;
 				case "join":
