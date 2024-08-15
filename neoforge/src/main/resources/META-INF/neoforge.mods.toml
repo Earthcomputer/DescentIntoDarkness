@@ -1,0 +1,45 @@
+modLoader = "javafml"
+loaderVersion = "[4,)"
+#issueTrackerURL = ""
+license = "LGPL-3.0-or-later"
+
+[[mods]]
+modId = "descent_into_darkness"
+version = "${version}"
+displayName = "Descent Into Darkness"
+authors = ["Earthcomputer", "samnrad"]
+description = '''
+Generates cave dimensions for players to explore
+'''
+#logoFile = ""
+
+[[dependencies.descent_into_darkness]]
+modId = "neoforge"
+type = "required"
+versionRange = "[21.0,)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.descent_into_darkness]]
+modId = "minecraft"
+type = "required"
+versionRange = "[1.21,)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.descent_into_darkness]]
+modId = "architectury"
+type = "required"
+versionRange = "[13.0.2,)"
+ordering = "AFTER"
+side = "BOTH"
+
+[[dependencies.descent_into_darkness]]
+modId = "infiniverse"
+type = "required"
+versionRange = "[2.0,)"
+ordering = "NONE"
+side = "SERVER"
+
+[[mixins]]
+config = "descent_into_darkness.mixins.json"
