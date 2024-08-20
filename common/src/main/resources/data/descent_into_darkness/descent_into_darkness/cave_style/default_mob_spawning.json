@@ -1,0 +1,37 @@
+{
+  "__builtin_no_default_inherit": true,
+  "abstract": true,
+
+  "spawn_entries": {
+    "zombie": {
+      "mob": "minecraft:zombie",
+      "single_mob_cost": 50,
+      "pack_cost": [100, 300],
+      "weight": 10,
+      "min_distance": 10,
+      "max_distance": 20,
+      "cooldown": 20,
+      "despawn_range": 48
+    },
+    "skeleton": {
+      "mob": "minecraft:skeleton",
+      "single_mob_cost": 70,
+      "pack_cost": [100, 300],
+      "weight": 10,
+      "min_distance": 15,
+      "max_distance": 25,
+      "cooldown": 20,
+      "despawn_range": 48
+    },
+    "creeper": {
+      "mob": "minecraft:creeper",
+      "single_mob_cost": 100,
+      "pack_cost": [100, 300],
+      "weight": 20,
+      "min_distance": 15,
+      "max_distance": 25,
+      "cooldown": 20,
+      "despawn_range": 48
+    }
+  }
+}

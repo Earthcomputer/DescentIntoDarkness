@@ -1,0 +1,70 @@
+{
+  "display_name": {
+    "translate": "descent_into_darkness.cave_style.debug"
+  },
+
+  "painter_steps": [
+    {
+      "type": "descent_into_darkness:replace_all",
+      "old": "minecraft:stone",
+      "new": "minecraft:white_wool",
+      "tags": "forward"
+    },
+    {
+      "type": "descent_into_darkness:replace_all",
+      "old": "minecraft:stone",
+      "new": "minecraft:orange_wool",
+      "tags": "turn_left"
+    },
+    {
+      "type": "descent_into_darkness:replace_all",
+      "old": "minecraft:stone",
+      "new": "minecraft:magenta_wool",
+      "tags": "turn_right"
+    },
+    {
+      "type": "descent_into_darkness:replace_all",
+      "old": "minecraft:stone",
+      "new": "minecraft:light_blue_wool",
+      "tags": "branch"
+    },
+    {
+      "type": "descent_into_darkness:replace_all",
+      "old": "minecraft:stone",
+      "new": "minecraft:yellow_wool",
+      "tags": "small_branch"
+    },
+    {
+      "type": "descent_into_darkness:replace_all",
+      "old": "minecraft:stone",
+      "new": "minecraft:lime_wool",
+      "tags": "dropshaft"
+    },
+    {
+      "type": "descent_into_darkness:replace_all",
+      "old": "minecraft:stone",
+      "new": "minecraft:pink_wool",
+      "tags": "large_cavern"
+    },
+    {
+      "type": "descent_into_darkness:replace_all",
+      "old": "minecraft:stone",
+      "new": "minecraft:gray_wool",
+      "tags": "cavern"
+    },
+    {
+      "type": "descent_into_darkness:replace_all",
+      "old": "minecraft:stone",
+      "new": "minecraft:light_gray_wool",
+      "tags": "shelf"
+    },
+    {
+      "type": "descent_into_darkness:replace_all",
+      "old": "minecraft:stone",
+      "new": "minecraft:cyan_wool",
+      "tags": "ravine"
+    }
+  ],
+  "structures": [],
+  "spawn_entries": {}
+}

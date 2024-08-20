@@ -1,0 +1,71 @@
+{
+  "__builtin_no_default_inherit": true,
+  "abstract": true,
+  "rooms": {
+    "w": {
+      "type": "descent_into_darkness:simple",
+      "tags": "forward"
+    },
+    "a": {
+      "type": "descent_into_darkness:turn",
+      "tags": "turn_left",
+      "angle": [15, 30]
+    },
+    "d": {
+      "type": "descent_into_darkness:turn",
+      "tags": "turn_right",
+      "angle": [-30, -15]
+    },
+    "x": {
+      "type": "descent_into_darkness:branch",
+      "tags": "branch",
+      "angle": 90,
+      "size_reduction": 1,
+      "branch_length": [20, 39]
+    },
+    "y": {
+      "type": "descent_into_darkness:branch",
+      "tags": "small_branch",
+      "angle": [45, 180],
+      "size_reduction": [2, 6],
+      "branch_length": [20, 39]
+    },
+    "o": {
+      "type": "descent_into_darkness:dropshaft",
+      "tags": "dropshaft",
+      "depth": [8, 11],
+      "step": [2, 3]
+    },
+    "l": {
+      "type": "descent_into_darkness:cavern",
+      "tags": "large_cavern",
+      "centroids": [3, 7],
+      "min_spread": 1,
+      "max_spread": 2147483647,
+      "centroid_size_variance": [-1, 1]
+    },
+    "r": {
+      "type": "descent_into_darkness:cavern",
+      "tags": "cavern",
+      "centroids": [4, 7],
+      "min_spread": 2,
+      "max_spread": 2147483647,
+      "centroid_size_variance": 0
+    },
+    "h": {
+      "type": "descent_into_darkness:shelf",
+      "tags": "shelf",
+      "shelf_height": [6, 10],
+      "shelf_size": 3
+    },
+    "c": {
+      "type": "descent_into_darkness:ravine",
+      "tags": "ravine",
+      "length": [80, 120],
+      "height": [80, 120],
+      "width": [10, 20],
+      "turn": [0, 30],
+      "height_vary_chance": 0.2
+    }
+  }
+}

@@ -46,6 +46,10 @@ dependencies {
     shadowBundle project(path: ':common', configuration: 'transformProductionFabric')
 }
 
+loom {
+    accessWidenerPath = project(':common').loom.accessWidenerPath
+}
+
 processResources {
     inputs.property 'version', project.version
 
@@ -60,5 +64,6 @@ shadowJar {
 }
 
 remapJar {
-    input.set shadowJar.archiveFile
+    inputFile = shadowJar.archiveFile
+    injectAccessWidener = true
 }

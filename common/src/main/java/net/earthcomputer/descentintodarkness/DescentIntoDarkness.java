@@ -6,16 +6,22 @@ import net.earthcomputer.descentintodarkness.instancing.CaveTrackerManager;
 import net.minecraft.commands.CommandBuildContext;
 import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.commands.Commands;
+import net.minecraft.resources.ResourceLocation;
 
 public final class DescentIntoDarkness {
     public static final String MOD_ID = "descent_into_darkness";
 
     public static void init() {
+        DIDRegistries.register();
         CommandRegistrationEvent.EVENT.register(DescentIntoDarkness::registerCommands);
+        CaveTrackerManager.registerEvents();
     }
 
     private static void registerCommands(CommandDispatcher<CommandSourceStack> dispatcher, CommandBuildContext context, Commands.CommandSelection selection) {
-        DIDCommand.register(dispatcher);
-        CaveTrackerManager.registerEvents();
+        DIDCommand.register(dispatcher, context);
+    }
+
+    public static ResourceLocation id(String path) {
+        return ResourceLocation.fromNamespaceAndPath(MOD_ID, path);
     }
 }

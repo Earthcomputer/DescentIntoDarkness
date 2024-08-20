@@ -1,7 +1,7 @@
 package net.earthcomputer.descentintodarkness.instancing;
 
 import dev.architectury.event.events.common.LifecycleEvent;
-import net.earthcomputer.descentintodarkness.DescentIntoDarknessPlatform;
+import net.earthcomputer.descentintodarkness.DIDPlatform;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.world.level.Level;
@@ -19,7 +19,7 @@ public final class CaveTrackerManager {
 
     private static void cleanup(MinecraftServer server) {
         for (ResourceKey<Level> levelKey : caves.keySet()) {
-            DescentIntoDarknessPlatform.deleteCustomDimension(server, levelKey);
+            DIDPlatform.deleteCustomDimension(server, levelKey);
         }
         caves.clear();
     }
@@ -43,14 +43,14 @@ public final class CaveTrackerManager {
         if (oldTracker != null) {
             throw new IllegalStateException("Duplicate cave tracker: " + levelKey);
         }
-        DescentIntoDarknessPlatform.registerCustomDimension(server, levelKey);
+        DIDPlatform.registerCustomDimension(server, levelKey);
         return tracker;
     }
 
     public static void deleteCave(MinecraftServer server, ResourceKey<Level> levelKey) {
         CaveTracker tracker = caves.remove(levelKey);
         if (tracker != null) {
-            DescentIntoDarknessPlatform.deleteCustomDimension(server, levelKey);
+            DIDPlatform.deleteCustomDimension(server, levelKey);
         }
     }
 }

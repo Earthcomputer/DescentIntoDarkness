@@ -1,0 +1,27 @@
+{
+  "__builtin_no_default_inherit": true,
+  "inherit": [
+    "descent_into_darkness:default_block_types",
+    "descent_into_darkness:default_grammar",
+    "descent_into_darkness:default_rooms",
+    "descent_into_darkness:default_painter_steps",
+    "descent_into_darkness:default_structures",
+    "descent_into_darkness:default_portals",
+    "descent_into_darkness:default_mob_spawning"
+  ],
+
+  "display_name": {
+    "translate": "descent_into_darkness.cave_style.default"
+  },
+
+  "length": 90,
+  "size": [5, 9],
+  "start_y": 210,
+  "random_rotation": true,
+  "centroid_vary_horizontal": [-1, 1],
+  "centroid_vary_vertical": [-1, 0],
+
+  "lifetime": 120,
+
+  "nether": false
+}

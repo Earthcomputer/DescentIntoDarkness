@@ -1,0 +1,53 @@
+{
+  "__builtin_no_default_inherit": true,
+  "abstract": true,
+  "grammar": {
+    "A": {
+      "w": 60,
+      "a": 15,
+      "d": 15,
+      "x": 2,
+      "o": 2,
+      "r": 7,
+      "yr": 2
+    },
+    "B": {
+      "w": 80,
+      "a": 20,
+      "d": 20,
+      "x": 5,
+      "o": 2,
+      "c": 2,
+      "r": 19,
+      "l": 29,
+      "h": 8
+    },
+    "C": {
+      "SSS": 1,
+      "SSSS": 1,
+      "SSSSS": 1,
+      "SSSSSS": 1
+    },
+    "S": {
+      "XY": 1
+    },
+    "X": {
+      "AAAA": 1,
+      "AAAAA": 1,
+      "AAAAAA": 1,
+      "AAAAAAA": 1,
+      "AAAAAAAA": 1,
+      "AAAAAAAAA": 1,
+      "AAAAAAAAAA": 1
+    },
+    "Y": {
+      "BBBBB": 1,
+      "BBBBBB": 1,
+      "BBBBBBB": 1,
+      "BBBBBBBB": 1,
+      "BBBBBBBBB": 1
+    }
+  },
+  "continuation_symbol": "Y",
+  "truncate_caves": true
+}

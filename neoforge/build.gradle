@@ -24,6 +24,10 @@ configurations {
     }
 }
 
+loom {
+    accessWidenerPath = project(':common').loom.accessWidenerPath
+}
+
 repositories {
     maven {
         name = 'NeoForged'
@@ -60,5 +64,6 @@ shadowJar {
 }
 
 remapJar {
-    input.set shadowJar.archiveFile
+    inputFile = shadowJar.archiveFile
+    atAccessWideners.add('descent_into_darkness.accesswidener')
 }
