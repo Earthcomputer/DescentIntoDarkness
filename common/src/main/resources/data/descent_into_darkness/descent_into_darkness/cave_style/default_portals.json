@@ -2,5 +2,9 @@
   "__builtin_no_default_inherit": true,
   "abstract": true,
 
-  "portals": []
+  "portals": {
+    "default_portal": {
+      "type": "descent_into_darkness:floor_portal"
+    }
+  }
 }

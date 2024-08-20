@@ -18,6 +18,7 @@ import net.earthcomputer.descentintodarkness.generator.Centroid;
 import net.earthcomputer.descentintodarkness.generator.GrammarGraph;
 import net.earthcomputer.descentintodarkness.generator.painter.PainterStep;
 import net.earthcomputer.descentintodarkness.generator.room.Room;
+import net.earthcomputer.descentintodarkness.generator.structure.Structure;
 import net.minecraft.Util;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
@@ -50,7 +51,6 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate;
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
-import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 
 import java.io.Reader;
 import java.util.ArrayList;
@@ -104,7 +104,7 @@ public record CaveStyle(
         new MetaProperties(Optional.empty(), List.of(), true, 0),
         new BlockProperties(BlockTypeRange.simpleInt(BlockStateProvider.simple(Blocks.AIR)), Map.of(), Map.of(), Blocks.STONE.defaultBlockState(), BlockPredicate.not(BlockPredicate.alwaysTrue()), HolderSet.empty()),
         new SpawningProperties(Map.of(), Map.of(), 0, 0, 0, 0, 0),
-        new GenProperties(ConstantInt.of(1), ConstantInt.of(1), 0, true, ConstantInt.of(0), ConstantInt.of(0), Optional.empty(), false, Map.of(), Optional.empty(), Optional.empty(), true, List.of(), HolderSet.empty(), HolderSet.empty())
+        new GenProperties(ConstantInt.of(1), ConstantInt.of(1), 0, true, ConstantInt.of(0), ConstantInt.of(0), Optional.empty(), false, Map.of(), Optional.empty(), Optional.empty(), true, List.of(), Map.of(), Map.of())
     ));
 
     public static void loadCaveStyles(
@@ -435,11 +435,11 @@ public record CaveStyle(
         return gen.painterSteps;
     }
 
-    public HolderSet<PlacedFeature> structures() {
+    public Map<String, Structure> structures() {
         return gen.structures;
     }
 
-    public HolderSet<PlacedFeature> portals() {
+    public Map<String, Structure> portals() {
         return gen.portals;
     }
 
@@ -517,8 +517,8 @@ public record CaveStyle(
         Optional<Character> continuationSymbol,
         boolean truncateCaves,
         List<PainterStep> painterSteps,
-        HolderSet<PlacedFeature> structures,
-        HolderSet<PlacedFeature> portals
+        Map<String, Structure> structures,
+        Map<String, Structure> portals
     ) {
         static final MapCodec<GenProperties> CODEC = RecordCodecBuilder.mapCodec(instance -> instance.group(
             DIDCodecs.POSITIVE_INT_PROVIDER.optionalFieldOf("length", ConstantInt.of(90)).forGetter(GenProperties::length),
@@ -537,8 +537,8 @@ public record CaveStyle(
             ).optionalFieldOf("continuation_symbol", Optional.of('Y')).forGetter(GenProperties::continuationSymbol),
             Codec.BOOL.optionalFieldOf("truncate_caves", true).forGetter(GenProperties::truncateCaves),
             PainterStep.CODEC.listOf().optionalFieldOf("painter_steps", List.of()).forGetter(GenProperties::painterSteps),
-            PlacedFeature.LIST_CODEC.optionalFieldOf("structures", HolderSet.empty()).forGetter(GenProperties::structures),
-            PlacedFeature.LIST_CODEC.optionalFieldOf("portals", HolderSet.empty()).forGetter(GenProperties::portals)
+            Codec.unboundedMap(Codec.STRING, Structure.CODEC).optionalFieldOf("structures", Map.of()).forGetter(GenProperties::structures),
+            Codec.unboundedMap(Codec.STRING, Structure.CODEC).optionalFieldOf("portals", Map.of()).forGetter(GenProperties::portals)
         ).apply(instance, GenProperties::new));
     }
 }

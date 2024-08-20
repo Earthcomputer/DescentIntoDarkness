@@ -8,7 +8,7 @@ import net.earthcomputer.descentintodarkness.style.DIDCodecs;
 import java.util.List;
 
 public abstract class PainterStep {
-    private static final RecordCodecBuilder<PainterStep, List<String>> TAGS_CODEC = DIDCodecs.singleableListCodec(Codec.STRING).optionalFieldOf("tags", List.of()).forGetter(PainterStep::tags);
+    private static final RecordCodecBuilder<PainterStep, List<String>> TAGS_CODEC = DIDCodecs.singleableList(Codec.STRING).optionalFieldOf("tags", List.of()).forGetter(PainterStep::tags);
     @SuppressWarnings("unchecked")
     protected static <PS extends PainterStep> RecordCodecBuilder<PS, List<String>> tagsCodec() {
         return (RecordCodecBuilder<PS, List<String>>) TAGS_CODEC;

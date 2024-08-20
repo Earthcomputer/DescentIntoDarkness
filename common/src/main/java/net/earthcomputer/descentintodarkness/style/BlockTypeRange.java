@@ -24,7 +24,7 @@ public final class BlockTypeRange<T extends Comparable<T>> {
     private final List<Entry<T>> entries;
 
     private static <T extends Comparable<T>> Codec<BlockTypeRange<T>> codec(Codec<T> tCodec, T min, T max, UnaryOperator<T> nextDown, UnaryOperator<T> nextUp) {
-        return DIDCodecs.singleableListCodec(Entry.codec(tCodec, min, max))
+        return DIDCodecs.singleableList(Entry.codec(tCodec, min, max))
             .xmap(BlockTypeRange::new, range -> range.entries)
             .validate(range -> range.validateRange(min, max, nextDown, nextUp));
     }

@@ -8,7 +8,7 @@ import net.earthcomputer.descentintodarkness.style.DIDCodecs;
 import java.util.List;
 
 public abstract class Room {
-    private static final RecordCodecBuilder<Room, List<String>> TAGS_CODEC = DIDCodecs.singleableListCodec(Codec.STRING).optionalFieldOf("tags", List.of()).forGetter(Room::tags);
+    private static final RecordCodecBuilder<Room, List<String>> TAGS_CODEC = DIDCodecs.singleableList(Codec.STRING).optionalFieldOf("tags", List.of()).forGetter(Room::tags);
     @SuppressWarnings("unchecked")
     protected static <R extends Room> RecordCodecBuilder<R, List<String>> tagsCodec() {
         return (RecordCodecBuilder<R, List<String>>) TAGS_CODEC;

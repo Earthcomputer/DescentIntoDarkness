@@ -80,7 +80,7 @@ public final class DIDCodecs {
         return codec.validate(value -> value >= min && value <= max ? DataResult.success(value) : DataResult.error(() -> message.apply(value)));
     }
 
-    public static <T> Codec<List<T>> singleableListCodec(Codec<T> elementCodec) {
+    public static <T> Codec<List<T>> singleableList(Codec<T> elementCodec) {
         return Codec.either(elementCodec.listOf(), elementCodec).xmap(
             either -> either.map(Function.identity(), List::of),
             list -> list.size() == 1 ? Either.right(list.getFirst()) : Either.left(list)
