@@ -20,9 +20,9 @@ import org.jetbrains.annotations.Nullable;
 import java.util.ArrayList;
 import java.util.List;
 
-@EventBusSubscriber(modid = DescentIntoDarkness.MOD_ID)
+@EventBusSubscriber(bus = EventBusSubscriber.Bus.MOD, modid = DescentIntoDarkness.MOD_ID)
 public final class DIDPlatformImpl {
-    private static final List<DynamicRegistry<?>> dynamicRegistries = new ArrayList<>();
+    private static List<DynamicRegistry<?>> dynamicRegistries = new ArrayList<>();
 
     public static void registerCustomDimension(MinecraftServer server, ResourceKey<Level> id) {
         Registry<DimensionType> dimTypeRegistry = server.registryAccess().registryOrThrow(Registries.DIMENSION_TYPE);
@@ -35,6 +35,9 @@ public final class DIDPlatformImpl {
     }
 
     public static <T> void registerDynamicRegistry(ResourceKey<Registry<T>> id, Codec<T> codec, @Nullable Codec<T> networkCodec) {
+        if (dynamicRegistries == null) {
+            throw new IllegalStateException("Too late to register a dynamic registry");
+        }
         dynamicRegistries.add(new DynamicRegistry<>(id, codec, networkCodec));
     }
 
@@ -43,6 +46,7 @@ public final class DIDPlatformImpl {
         for (DynamicRegistry<?> registry : dynamicRegistries) {
             registry.register(event);
         }
+        dynamicRegistries = null;
     }
 
     private record DynamicRegistry<T>(ResourceKey<Registry<T>> id, Codec<T> codec, @Nullable Codec<T> networkCodec) {

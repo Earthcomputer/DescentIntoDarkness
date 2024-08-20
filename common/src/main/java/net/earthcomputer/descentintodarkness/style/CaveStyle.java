@@ -114,7 +114,7 @@ public record CaveStyle(
         Decoder<CaveStyle> decoder,
         Map<ResourceKey<?>, Exception> loadingErrors
     ) {
-        String dirPath = DescentIntoDarkness.MOD_ID + "/" + Registries.elementsDirPath(DIDRegistries.CAVE_STYLE);
+        String dirPath = DescentIntoDarkness.MOD_ID + "/cave_style";
         FileToIdConverter fileToIdConverter = FileToIdConverter.json(dirPath);
         RegistryOps<JsonElement> registryOps = RegistryOps.create(JsonOps.INSTANCE, infoLookup);
 

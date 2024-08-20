@@ -43,6 +43,3 @@ side = "SERVER"
 
 [[mixins]]
 config = "descent_into_darkness.mixins.json"
-
-[[mixins]]
-config = "descent_into_darkness_neoforge.mixins.json"
