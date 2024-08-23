@@ -1,0 +1,23 @@
+{
+  "temperature": 0.8,
+  "downfall": 0.4,
+  "effects": {
+    "sky_color": 16768256,
+    "fog_color": 16772608,
+    "water_color": 16756224,
+    "water_fog_color": 16756224,
+    "grass_color": 16772608,
+    "foliage_color": 16768256,
+    "particle": {
+      "options": {
+        "type": "dripping_honey"
+      },
+      "probability": 0.003
+    }
+  },
+  "spawners": {},
+  "spawn_costs": {},
+  "carvers": {},
+  "features": [],
+  "has_precipitation": true
+}

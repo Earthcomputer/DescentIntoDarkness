@@ -1,0 +1,23 @@
+{
+  "temperature": 0.8,
+  "downfall": 0.4,
+  "effects": {
+    "sky_color": 4566514,
+    "fog_color": 4566514,
+    "water_color": 4566514,
+    "water_fog_color": 267827,
+    "grass_color": 4566514,
+    "foliage_color": 22932,
+    "particle": {
+      "options": {
+        "type": "dolphin"
+      },
+      "probability": 0.2
+    }
+  },
+  "spawners": {},
+  "spawn_costs": {},
+  "carvers": {},
+  "features": [],
+  "has_precipitation": true
+}

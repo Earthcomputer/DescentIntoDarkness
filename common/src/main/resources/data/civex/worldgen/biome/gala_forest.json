@@ -1,0 +1,23 @@
+{
+  "temperature": 0.8,
+  "downfall": 0.4,
+  "effects": {
+    "sky_color": 16777215,
+    "fog_color": 1710618,
+    "water_color": 151602,
+    "water_fog_color": 26151,
+    "grass_color": 79471,
+    "foliage_color": 537786,
+    "particle": {
+      "options": {
+        "type": "underwater"
+      },
+      "probability": 0.1
+    }
+  },
+  "spawners": {},
+  "spawn_costs": {},
+  "carvers": {},
+  "features": [],
+  "has_precipitation": true
+}

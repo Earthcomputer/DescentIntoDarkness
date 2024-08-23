@@ -1,0 +1,23 @@
+{
+  "temperature": 0.8,
+  "downfall": 0.4,
+  "effects": {
+    "sky_color": 13772840,
+    "fog_color": 14233657,
+    "water_color": 15410212,
+    "water_fog_color": 14036526,
+    "grass_color": 14490909,
+    "foliage_color": 13307920,
+    "additions_sound": {
+      "sound": {
+        "sound_id": "whalemoan.ambience"
+      },
+      "tick_chance": 0.0004
+    }
+  },
+  "spawners": {},
+  "spawn_costs": {},
+  "carvers": {},
+  "features": [],
+  "has_precipitation": true
+}

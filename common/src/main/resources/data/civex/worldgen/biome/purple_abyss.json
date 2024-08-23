@@ -1,0 +1,23 @@
+{
+  "temperature": 0.8,
+  "downfall": 0.4,
+  "effects": {
+    "sky_color": 9840850,
+    "fog_color": 10367193,
+    "water_color": 10167531,
+    "water_fog_color": 9708784,
+    "grass_color": 11738589,
+    "foliage_color": 10031307,
+    "particle": {
+      "options": {
+        "type": "dripping_obsidian_tear"
+      },
+      "probability": 0.002
+    }
+  },
+  "spawners": {},
+  "spawn_costs": {},
+  "carvers": {},
+  "features": [],
+  "has_precipitation": true
+}

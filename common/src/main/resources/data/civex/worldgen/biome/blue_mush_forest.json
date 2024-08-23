@@ -1,0 +1,23 @@
+{
+  "temperature": 0.8,
+  "downfall": 0.4,
+  "effects": {
+    "sky_color": 1714687,
+    "fog_color": 4082149,
+    "water_color": 10439,
+    "water_fog_color": 10439,
+    "grass_color": 4374783,
+    "foliage_color": 4026111,
+    "particle": {
+      "options": {
+        "type": "warped_spore"
+      },
+      "probability": 0.2
+    }
+  },
+  "spawners": {},
+  "spawn_costs": {},
+  "carvers": {},
+  "features": [],
+  "has_precipitation": true
+}
