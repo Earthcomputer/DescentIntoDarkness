@@ -18,15 +18,20 @@ import java.util.function.UnaryOperator;
 import java.util.stream.Collectors;
 
 public final class BlockTypeRange<T extends Comparable<T>> {
-    public static final Codec<BlockTypeRange<Integer>> INT_CODEC = codec(Codec.INT, DIDConstants.MIN_Y, DIDConstants.MAX_Y, i -> i - 1, i -> i + 1);
-    public static final Codec<BlockTypeRange<Double>> DOUBLE_CODEC = codec(Codec.DOUBLE, 0.0, 1.0, Math::nextDown, Math::nextUp);
+    public static final Codec<BlockTypeRange<Integer>> INCOMPLETE_INT_CODEC = incompleteCodec(Codec.INT, DIDConstants.MIN_Y, DIDConstants.MAX_Y);
+    public static final Codec<BlockTypeRange<Double>> INCOMPLETE_DOUBLE_CODEC = incompleteCodec(Codec.DOUBLE, 0.0, 1.0);
+    public static final Codec<BlockTypeRange<Integer>> INT_CODEC = codec(INCOMPLETE_INT_CODEC, DIDConstants.MIN_Y, DIDConstants.MAX_Y, i -> i - 1, i -> i + 1);
+    public static final Codec<BlockTypeRange<Double>> DOUBLE_CODEC = codec(INCOMPLETE_DOUBLE_CODEC, 0.0, 1.0, Math::nextDown, Math::nextUp);
 
     private final List<Entry<T>> entries;
 
-    private static <T extends Comparable<T>> Codec<BlockTypeRange<T>> codec(Codec<T> tCodec, T min, T max, UnaryOperator<T> nextDown, UnaryOperator<T> nextUp) {
+    private static <T extends Comparable<T>> Codec<BlockTypeRange<T>> incompleteCodec(Codec<T> tCodec, T min, T max) {
         return DIDCodecs.singleableList(Entry.codec(tCodec, min, max))
-            .xmap(BlockTypeRange::new, range -> range.entries)
-            .validate(range -> range.validateRange(min, max, nextDown, nextUp));
+            .xmap(BlockTypeRange::new, range -> range.entries);
+    }
+
+    private static <T extends Comparable<T>> Codec<BlockTypeRange<T>> codec(Codec<BlockTypeRange<T>> incompleteCodec, T min, T max, UnaryOperator<T> nextDown, UnaryOperator<T> nextUp) {
+        return incompleteCodec.validate(range -> range.validateRange(min, max, nextDown, nextUp));
     }
 
     private BlockTypeRange(List<Entry<T>> entries) {

@@ -465,7 +465,7 @@ public record CaveStyle(
         BlockPredicate transparentBlocks,
         HolderSet<Item> cannotPlace
     ) {
-        private static final Codec<Map<String, BlockTypeRange<Double>>> AIR_BLOCKS_BY_KEY_CODEC = Codec.unboundedMap(Codec.STRING, BlockTypeRange.DOUBLE_CODEC).xmap(
+        private static final Codec<Map<String, BlockTypeRange<Double>>> AIR_BLOCKS_BY_KEY_CODEC = Codec.unboundedMap(Codec.STRING, BlockTypeRange.INCOMPLETE_DOUBLE_CODEC).xmap(
             combinedMap -> combinedMap.entrySet().stream().flatMap(entry -> Arrays.stream(entry.getKey().split(" ")).map(key -> Map.entry(key, entry.getValue()))).collect(Util.toMap()),
             uncombinedMap -> uncombinedMap.entrySet().stream()
                 .collect(Collectors.groupingBy(Map.Entry::getValue))
@@ -531,9 +531,9 @@ public record CaveStyle(
             Codec.BOOL.optionalFieldOf("nether", false).forGetter(GenProperties::nether),
             Codec.unboundedMap(DIDCodecs.CHAR, Room.CODEC).optionalFieldOf("rooms", Map.of()).forGetter(GenProperties::rooms),
             GrammarGraph.CODEC.optionalFieldOf("grammar").forGetter(GenProperties::grammar),
-            Codec.either(DIDCodecs.CHAR, ExtraCodecs.intRange(0, 0)).<Optional<Character>>xmap(
+            Codec.either(DIDCodecs.CHAR, Codec.STRING.validate(str -> str.isEmpty() ? DataResult.success(str) : DataResult.error(() -> "String must be empty for no continuation character"))).<Optional<Character>>xmap(
                 either -> either.map(Optional::of, x -> Optional.empty()),
-                opt -> opt.<Either<Character, Integer>>map(Either::left).orElseGet(() -> Either.right(0))
+                opt -> opt.<Either<Character, String>>map(Either::left).orElseGet(() -> Either.right(""))
             ).optionalFieldOf("continuation_symbol", Optional.of('Y')).forGetter(GenProperties::continuationSymbol),
             Codec.BOOL.optionalFieldOf("truncate_caves", true).forGetter(GenProperties::truncateCaves),
             PainterStep.CODEC.listOf().optionalFieldOf("painter_steps", List.of()).forGetter(GenProperties::painterSteps),

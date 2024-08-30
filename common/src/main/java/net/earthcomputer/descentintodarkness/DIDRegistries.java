@@ -2,6 +2,7 @@ package net.earthcomputer.descentintodarkness;
 
 import dev.architectury.registry.registries.RegistrarManager;
 import net.earthcomputer.descentintodarkness.blockpredicate.DIDBlockPredicateTypes;
+import net.earthcomputer.descentintodarkness.blockstateprovider.DIDBlockStateProviderTypes;
 import net.earthcomputer.descentintodarkness.generator.painter.PainterStepType;
 import net.earthcomputer.descentintodarkness.generator.room.RoomType;
 import net.earthcomputer.descentintodarkness.generator.structure.StructureType;
@@ -51,5 +52,6 @@ public final class DIDRegistries {
         StructureType.register();
 
         DIDBlockPredicateTypes.register();
+        DIDBlockStateProviderTypes.register();
     }
 }

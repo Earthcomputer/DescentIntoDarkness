@@ -33,5 +33,72 @@
       "cooldown": 20,
       "despawn_range": 48
     }
+  },
+
+  "ores": {
+    "coal_ore": {
+      "block": "minecraft:coal_ore",
+      "drop_table": {
+        "rolls": 1,
+        "entries": [
+          {
+            "type": "minecraft:item",
+            "name": "minecraft:coal_block"
+          },
+          {
+            "type": "minecraft:item",
+            "name": "minecraft:coal",
+            "weight": 10
+          },
+          {
+            "type": "minecraft:item",
+            "name": "minecraft:charcoal",
+            "weight": 10
+          }
+        ]
+      },
+      "pollution": 5,
+      "break_amount": 5
+    },
+    "diamond_ore": {
+      "block": "minecraft:diamond_ore",
+      "pollution": 15,
+      "break_amount": 5
+    },
+    "emerald_ore": {
+      "block": "minecraft:emerald_ore",
+      "pollution": 15,
+      "break_amount": 5
+    },
+    "redstone_ore": {
+      "block": "minecraft:redstone_ore",
+      "pollution": 5,
+      "break_amount": 5
+    },
+    "lapis_ore": {
+      "block": "minecraft:lapis_ore",
+      "pollution": 5,
+      "break_amount": 5
+    },
+    "gold_ore": {
+      "block": "minecraft:gold_ore",
+      "pollution": 5,
+      "break_amount": 5
+    },
+    "iron_ore": {
+      "block": "minecraft:iron_ore",
+      "pollution": 5,
+      "break_amount": 5
+    },
+    "nether_quartz_ore": {
+      "block": "minecraft:nether_quartz_ore",
+      "pollution": 5,
+      "break_amount": 5
+    },
+    "nether_gold_ore": {
+      "block": "minecraft:nether_gold_ore",
+      "pollution": 5,
+      "break_amount": 5
+    }
   }
 }

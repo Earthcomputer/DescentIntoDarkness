@@ -46,6 +46,7 @@ public final class DIDCodecs {
         either -> either.map(list -> UniformFloat.of(list.getFirst(), list.getLast()), Function.identity()),
         provider -> provider instanceof UniformFloat uniform ? Either.left(List.of(uniform.getMinValue(), uniform.getMaxValue())) : Either.right(provider)
     );
+    public static final Codec<FloatProvider> NON_NEGATIVE_FLOAT_PROVIDER = floatProviderRange(0, Float.POSITIVE_INFINITY);
 
     public static final Codec<BlockState> BLOCK_STATE = Codec.either(BuiltInRegistries.BLOCK.byNameCodec(), BlockState.CODEC).xmap(
         either -> either.map(Block::defaultBlockState, Function.identity()),

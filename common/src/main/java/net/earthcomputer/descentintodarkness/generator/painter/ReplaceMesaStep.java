@@ -13,7 +13,7 @@ public final class ReplaceMesaStep extends PainterStep {
         tagsCodec(),
         tagsInvertedCodec(),
         DIDCodecs.BLOCK_PREDICATE.fieldOf("old").forGetter(step -> step.old),
-        BlockTypeRange.INT_CODEC.fieldOf("layers").forGetter(step -> step.mesaLayers)
+        BlockTypeRange.INCOMPLETE_INT_CODEC.fieldOf("layers").forGetter(step -> step.mesaLayers)
     ).apply(instance, ReplaceMesaStep::new));
 
     private final BlockPredicate old;
