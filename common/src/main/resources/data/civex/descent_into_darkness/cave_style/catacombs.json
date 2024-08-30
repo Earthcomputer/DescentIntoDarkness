@@ -1,0 +1,263 @@
+{
+  "nether": true,
+  "biome": "civex:voidyssal",
+  "inherit": [
+    "civex:tora",
+    {
+      "name": "civex:illager_pack",
+      "merge": {
+        "lore": "bottom"
+      }
+    },
+    {
+      "name": "civex:high_gem_low_metal",
+      "merge": {
+        "structures": "top",
+        "lore": "bottom"
+      }
+    }
+  ],
+  "lore": [
+    {
+      "text": "Difficulty: ☆☆☆",
+      "color": "yellow"
+    }
+  ],
+  "base_block": "minecraft:stone_bricks",
+  "painter_steps": [
+    {
+      "type": "descent_into_darkness:replace_all",
+      "old": "minecraft:stone_bricks",
+      "new": "minecraft:cracked_stone_bricks",
+      "chance": 0.1
+    },
+    {
+      "type": "descent_into_darkness:replace_all",
+      "old": "minecraft:stone_bricks",
+      "new": "minecraft:chiseled_stone_bricks",
+      "chance": 0.1
+    },
+    {
+      "type": "descent_into_darkness:replace_all",
+      "old": "minecraft:stone_bricks",
+      "new": "minecraft:mossy_stone_bricks",
+      "chance": 0.2
+    }
+  ],
+  "structures": {
+    "pillars2": {
+      "block": {
+        "type": "minecraft:weighted_state_provider",
+        "entries": [
+          {
+            "weight": 5,
+            "data": {
+              "Name": "minecraft:stone_bricks"
+            }
+          },
+          {
+            "weight": 5,
+            "data": {
+              "Name": "minecraft:mossy_stone_bricks"
+            }
+          },
+          {
+            "weight": 2,
+            "data": {
+              "Name": "minecraft:air"
+            }
+          }
+        ]
+      },
+      "type": "descent_into_darkness:stalagmite",
+      "floor_to_ceiling_search_range": 512,
+      "max_column_radius_to_cave_height_ratio": 1,
+      "has_stalactite": true,
+      "min_bluntness_for_wind": 0,
+      "min_radius_for_wind": 1,
+      "count": 0.2,
+      "edges": [
+        "ceiling",
+        "floor"
+      ],
+      "height_scale": [
+        10,
+        20
+      ],
+      "column_radius": 2,
+      "wind_speed": 0
+    },
+    "crate": {
+      "random_rotation": false,
+      "type": "descent_into_darkness:template",
+      "edges": [
+        "south"
+      ],
+      "count": 0.1,
+      "templates": [
+        "descent_into_darkness:catacombs/crate4"
+      ],
+      "can_replace": [
+        "minecraft:air"
+      ],
+      "origin_side": "down",
+      "can_place_on": [
+        "minecraft:stone_bricks",
+        "minecraft:mossy_stone_bricks",
+        "minecraft:chiseled_stone_bricks",
+        "minecraft:cracked_stone_bricks"
+      ]
+    },
+    "crate2": {
+      "random_rotation": false,
+      "type": "descent_into_darkness:template",
+      "edges": [
+        "north"
+      ],
+      "count": 0.1,
+      "templates": [
+        "descent_into_darkness:catacombs/crate4"
+      ],
+      "can_replace": [
+        "minecraft:air"
+      ],
+      "origin_side": "up",
+      "can_place_on": [
+        "minecraft:stone_bricks",
+        "minecraft:mossy_stone_bricks",
+        "minecraft:chiseled_stone_bricks",
+        "minecraft:cracked_stone_bricks"
+      ]
+    },
+    "crate3": {
+      "random_rotation": false,
+      "type": "descent_into_darkness:template",
+      "edges": [
+        "east"
+      ],
+      "count": 0.1,
+      "templates": [
+        "descent_into_darkness:catacombs/crate5"
+      ],
+      "can_replace": [
+        "minecraft:air"
+      ],
+      "origin_side": "down",
+      "can_place_on": [
+        "minecraft:stone_bricks",
+        "minecraft:mossy_stone_bricks",
+        "minecraft:chiseled_stone_bricks",
+        "minecraft:cracked_stone_bricks"
+      ]
+    },
+    "crate4": {
+      "random_rotation": false,
+      "type": "descent_into_darkness:template",
+      "edges": [
+        "west"
+      ],
+      "count": 0.1,
+      "templates": [
+        "descent_into_darkness:catacombs/crate5"
+      ],
+      "can_replace": [
+        "minecraft:air"
+      ],
+      "origin_side": "up",
+      "can_place_on": [
+        "minecraft:stone_bricks",
+        "minecraft:mossy_stone_bricks",
+        "minecraft:chiseled_stone_bricks",
+        "minecraft:cracked_stone_bricks"
+      ]
+    },
+    "lantern": {
+      "type": "descent_into_darkness:patch",
+      "block": {
+        "type": "minecraft:simple_state_provider",
+        "state": {
+          "Name": "minecraft:lantern",
+          "Properties": {
+            "hanging": true
+          }
+        }
+      },
+      "edges": "ceiling",
+      "spread_x": 64,
+      "spread_z": 64,
+      "count": 0.03
+    },
+    "cobwebs": {
+      "type": "descent_into_darkness:patch",
+      "edges": [
+        "ceiling"
+      ],
+      "block": "minecraft:cobweb",
+      "spread_x": 32,
+      "spread_z": 32,
+      "count": 0.1
+    },
+    "slab": {
+      "type": "descent_into_darkness:patch",
+      "edges": [
+        "floor"
+      ],
+      "block": {
+        "type": "minecraft:weighted_state_provider",
+        "entries": [
+          {
+            "weight": 1,
+            "data": {
+              "Name": "minecraft:stone_brick_slab"
+            }
+          },
+          {
+            "weight": 1,
+            "data": {
+              "Name": "minecraft:mossy_stone_brick_slab"
+            }
+          },
+          {
+            "weight": 30,
+            "data": {
+              "Name": "minecraft:air"
+            }
+          }
+        ]
+      },
+      "count": 1,
+      "can_place_on": [
+        "minecraft:stone_bricks",
+        "minecraft:chiseled_stone_bricks",
+        "minecraft:cracked_stone_bricks",
+        "minecraft:mossy_stone_bricks"
+      ]
+    },
+    "slab2": {
+      "type": "descent_into_darkness:patch",
+      "block": "minecraft:redstone_wire",
+      "spread_x": 32,
+      "spread_z": 32,
+      "count": 0.1,
+      "edges": [
+        "floor"
+      ],
+      "can_place_on": [
+        "minecraft:stone_bricks",
+        "minecraft:chiseled_stone_bricks",
+        "minecraft:cracked_stone_bricks",
+        "minecraft:mossy_stone_bricks"
+      ]
+    },
+    "glowstone": {
+      "type": "descent_into_darkness:glowstone",
+      "edges": [
+        "ceiling"
+      ],
+      "chance": 0.004,
+      "density": 6000,
+      "block": "minecraft:cobweb",
+      "height": 12
+    }
+  }
+}

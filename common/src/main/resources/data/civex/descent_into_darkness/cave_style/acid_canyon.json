@@ -1,0 +1,128 @@
+{
+  "inherit": [
+    "civex:mega_canyon"
+  ],
+  "biome": "civex:acid",
+  "nether": true,
+  "base_block": "descent_into_darkness:igneous_block",
+  "start_y": 165,
+  "air_block": [
+    {
+      "min": 0,
+      "max": 90,
+      "block": "water"
+    },
+    {
+      "min": 91,
+      "max": 255,
+      "block": "air"
+    }
+  ],
+  "structures": {
+    "glowstone": {
+      "type": "descent_into_darkness:glowstone",
+      "block": "minecraft:glowstone",
+      "edges": "ceiling",
+      "spread_x": 16,
+      "spread_z": 16,
+      "height": 18,
+      "density": 20000,
+      "count": 0.08,
+      "can_place_on": [
+        "descent_into_darkness:igneous_block"
+      ]
+    },
+    "stags3": {
+      "block": "descent_into_darkness:igneous_block",
+      "type": "descent_into_darkness:stalagmite",
+      "floor_to_ceiling_search_range": 150,
+      "max_column_radius_to_cave_height_ratio": 1,
+      "has_stalactite": true,
+      "min_bluntness_for_wind": 0,
+      "min_radius_for_wind": 1,
+      "count": 0.006,
+      "edges": [
+        "floor",
+        "ceiling"
+      ],
+      "height_scale": [
+        5,
+        10
+      ],
+      "column_radius": 17,
+      "wind_speed": [
+        0,
+        0.07
+      ]
+    },
+    "stags2": {
+      "type": "descent_into_darkness:stalagmite",
+      "block": "descent_into_darkness:igneous_block",
+      "count": 0.1,
+      "floor_to_ceiling_search_range": 220,
+      "edges": [
+        "ceiling"
+      ],
+      "has_stalactite": false
+    },
+    "stags": {
+      "block": "descent_into_darkness:igneous_block",
+      "type": "descent_into_darkness:stalagmite",
+      "edges": [
+        "floor",
+        "ceiling"
+      ],
+      "floor_to_ceiling_search_range": 100,
+      "max_column_radius_to_cave_height_ratio": 1,
+      "max_column_radius": 10,
+      "has_stalactite": true,
+      "min_bluntness_for_wind": 0.5,
+      "min_radius_for_wind": 1,
+      "count": 0.1,
+      "wind_speed": [
+        0,
+        0.1
+      ]
+    },
+    "ustal": {
+      "type": "descent_into_darkness:patch",
+      "block": "descent_into_darkness:stalup",
+      "edges": [
+        "floor"
+      ],
+      "can_place_on": "descent_into_darkness:igneous_block",
+      "can_replace": "minecraft:air",
+      "count": 0.25
+    },
+    "ustal2": {
+      "type": "descent_into_darkness:patch",
+      "block": "descent_into_darkness:stalsup",
+      "edges": [
+        "floor"
+      ],
+      "can_place_on": "descent_into_darkness:igneous_block",
+      "can_replace": "minecraft:air",
+      "count": 0.25
+    },
+    "ustal3": {
+      "type": "descent_into_darkness:patch",
+      "block": "descent_into_darkness:staldown",
+      "edges": [
+        "ceiling"
+      ],
+      "can_place_on": "descent_into_darkness:igneous_block",
+      "can_replace": "minecraft:air",
+      "count": 0.25
+    },
+    "ustal4": {
+      "type": "descent_into_darkness:patch",
+      "block": "descent_into_darkness:stalsdown",
+      "edges": [
+        "ceiling"
+      ],
+      "can_place_on": "descent_into_darkness:igneous_block",
+      "can_replace": "minecraft:air",
+      "count": 0.25
+    }
+  }
+}

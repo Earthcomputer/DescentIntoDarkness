@@ -1,0 +1,102 @@
+{
+  "inherit": [
+    {
+      "name": "civex:nether_pack",
+      "merge": {
+        "lore": "bottom"
+      }
+    },
+    {
+      "name": "civex:high_metal_low_fuel",
+      "merge": {
+        "structures": "top",
+        "lore": "bottom"
+      }
+    },
+    "civex:cavernous"
+  ],
+  "display_name": {
+    "text": "Soul Sand Valley",
+    "color": "dark_aqua"
+  },
+  "lore": [
+    {
+      "text": "Difficulty: ☆☆☆",
+      "color": "yellow"
+    }
+  ],
+  "base_block": "minecraft:soul_soil",
+  "nether": true,
+  "biome": "soul_sand_valley",
+  "transparent_blocks": [
+    "minecraft:air",
+    "minecraft:wither_rose"
+  ],
+  "start_y": 210,
+  "structures": {
+    "lavafall": {
+      "type": "descent_into_darkness:waterfall",
+      "fluid_type": "block",
+      "block": "basalt",
+      "flow_distance": 4,
+      "edges": [
+        "wall",
+        "ceiling"
+      ],
+      "chance": 0.15
+    },
+    "glowstone": {
+      "type": "descent_into_darkness:glowstone",
+      "edges": [
+        "ceiling"
+      ],
+      "chance": 0.1,
+      "block": "glowstone",
+      "can_place_on": [
+        "minecraft:netherrack"
+      ],
+      "height": 12,
+      "density": 1500
+    },
+    "soul_sand": {
+      "type": "descent_into_darkness:vein",
+      "edges": [
+        "floor"
+      ],
+      "can_replace": [
+        "minecraft:soul_soil"
+      ],
+      "chance": 0.1,
+      "ore": "minecraft:soul_sand",
+      "radius": 7
+    },
+    "mpatch": {
+      "type": "descent_into_darkness:patch",
+      "edges": [
+        "floor"
+      ],
+      "chance": 0.1,
+      "spread_x": 4,
+      "spread_z": 4,
+      "can_place_on": [
+        "minecraft:soul_soil",
+        "minecraft:soul_sand"
+      ],
+      "block": "minecraft:nether_wart"
+    },
+    "mpatch2": {
+      "type": "descent_into_darkness:patch",
+      "edges": [
+        "floor"
+      ],
+      "chance": 0.05,
+      "spread_x": 16,
+      "spread_z": 16,
+      "block": "minecraft:soul_fire",
+      "can_place_on": [
+        "minecraft:soul_soil",
+        "minecraft:soul_sand"
+      ]
+    }
+  }
+}

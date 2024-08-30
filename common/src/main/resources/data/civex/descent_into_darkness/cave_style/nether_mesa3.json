@@ -1,0 +1,1467 @@
+{
+  "biome": "civex:purple_abyss",
+  "nether": true,
+  "inherit": [
+    {
+      "name": "civex:fuel1",
+      "merge": {
+        "structures": "top"
+      }
+    },
+    "civex:canyons"
+  ],
+  "start_y": 200,
+  "painter_steps": [
+    {
+      "type": "descent_into_darkness:replace_mesa",
+      "old": "minecraft:blackstone",
+      "layers": [
+        {
+          "min": 0,
+          "max": 10,
+          "block": "minecraft:blackstone"
+        },
+        {
+          "min": 11,
+          "max": 13,
+          "block": {
+            "type": "minecraft:weighted_state_provider",
+            "entries": [
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "minecraft:black_concrete"
+                }
+              },
+              {
+                "weight": 2,
+                "data": {
+                  "Name": "minecraft:blackstone"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "min": 14,
+          "max": 14,
+          "block": {
+            "type": "minecraft:weighted_state_provider",
+            "entries": [
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "minecraft:black_concrete"
+                }
+              },
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "minecraft:blackstone"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "min": 15,
+          "max": 15,
+          "block": {
+            "type": "minecraft:weighted_state_provider",
+            "entries": [
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "minecraft:black_concrete"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "min": 16,
+          "max": 16,
+          "block": {
+            "type": "minecraft:weighted_state_provider",
+            "entries": [
+              {
+                "weight": 5,
+                "data": {
+                  "Name": "minecraft:black_concrete"
+                }
+              },
+              {
+                "weight": 2,
+                "data": {
+                  "Name": "minecraft:obsidian"
+                }
+              },
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "minecraft:crying_obsidian"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "min": 17,
+          "max": 17,
+          "block": {
+            "type": "minecraft:weighted_state_provider",
+            "entries": [
+              {
+                "weight": 2,
+                "data": {
+                  "Name": "minecraft:obsidian"
+                }
+              },
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "minecraft:crying_obsidian"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "min": 18,
+          "max": 19,
+          "block": "minecraft:crying_obsidian"
+        },
+        {
+          "min": 20,
+          "max": 20,
+          "block": {
+            "type": "minecraft:weighted_state_provider",
+            "entries": [
+              {
+                "weight": 2,
+                "data": {
+                  "Name": "minecraft:obsidian"
+                }
+              },
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "minecraft:crying_obsidian"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "min": 21,
+          "max": 21,
+          "block": {
+            "type": "minecraft:weighted_state_provider",
+            "entries": [
+              {
+                "weight": 5,
+                "data": {
+                  "Name": "minecraft:black_concrete"
+                }
+              },
+              {
+                "weight": 2,
+                "data": {
+                  "Name": "minecraft:gray_terracotta"
+                }
+              },
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "minecraft:crying_obsidian"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "min": 22,
+          "max": 22,
+          "block": {
+            "type": "minecraft:weighted_state_provider",
+            "entries": [
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "minecraft:black_concrete"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "min": 23,
+          "max": 23,
+          "block": {
+            "type": "minecraft:weighted_state_provider",
+            "entries": [
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "minecraft:black_concrete"
+                }
+              },
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "minecraft:blackstone"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "min": 24,
+          "max": 27,
+          "block": {
+            "type": "minecraft:weighted_state_provider",
+            "entries": [
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "minecraft:black_concrete"
+                }
+              },
+              {
+                "weight": 2,
+                "data": {
+                  "Name": "minecraft:blackstone"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "min": 28,
+          "max": 48,
+          "block": "minecraft:blackstone"
+        },
+        {
+          "min": 49,
+          "max": 52,
+          "block": {
+            "type": "minecraft:weighted_state_provider",
+            "entries": [
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "minecraft:black_concrete"
+                }
+              },
+              {
+                "weight": 2,
+                "data": {
+                  "Name": "minecraft:blackstone"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "min": 53,
+          "max": 53,
+          "block": {
+            "type": "minecraft:weighted_state_provider",
+            "entries": [
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "minecraft:black_concrete"
+                }
+              },
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "minecraft:blackstone"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "min": 54,
+          "max": 54,
+          "block": {
+            "type": "minecraft:weighted_state_provider",
+            "entries": [
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "minecraft:black_concrete"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "min": 55,
+          "max": 55,
+          "block": {
+            "type": "minecraft:weighted_state_provider",
+            "entries": [
+              {
+                "weight": 5,
+                "data": {
+                  "Name": "minecraft:black_concrete"
+                }
+              },
+              {
+                "weight": 2,
+                "data": {
+                  "Name": "minecraft:obsidian"
+                }
+              },
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "minecraft:crying_obsidian"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "min": 56,
+          "max": 56,
+          "block": {
+            "type": "minecraft:weighted_state_provider",
+            "entries": [
+              {
+                "weight": 2,
+                "data": {
+                  "Name": "minecraft:obsidian"
+                }
+              },
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "minecraft:crying_obsidian"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "min": 57,
+          "max": 58,
+          "block": "minecraft:crying_obsidian"
+        },
+        {
+          "min": 59,
+          "max": 59,
+          "block": {
+            "type": "minecraft:weighted_state_provider",
+            "entries": [
+              {
+                "weight": 2,
+                "data": {
+                  "Name": "minecraft:obsidian"
+                }
+              },
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "minecraft:crying_obsidian"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "min": 60,
+          "max": 60,
+          "block": {
+            "type": "minecraft:weighted_state_provider",
+            "entries": [
+              {
+                "weight": 5,
+                "data": {
+                  "Name": "minecraft:black_concrete"
+                }
+              },
+              {
+                "weight": 2,
+                "data": {
+                  "Name": "minecraft:gray_terracotta"
+                }
+              },
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "minecraft:crying_obsidian"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "min": 61,
+          "max": 61,
+          "block": {
+            "type": "minecraft:weighted_state_provider",
+            "entries": [
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "minecraft:black_concrete"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "min": 62,
+          "max": 62,
+          "block": {
+            "type": "minecraft:weighted_state_provider",
+            "entries": [
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "minecraft:black_concrete"
+                }
+              },
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "minecraft:blackstone"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "min": 63,
+          "max": 67,
+          "block": {
+            "type": "minecraft:weighted_state_provider",
+            "entries": [
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "minecraft:black_concrete"
+                }
+              },
+              {
+                "weight": 2,
+                "data": {
+                  "Name": "minecraft:blackstone"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "min": 68,
+          "max": 88,
+          "block": {
+            "type": "minecraft:weighted_state_provider",
+            "entries": [
+              {
+                "weight": 2,
+                "data": {
+                  "Name": "minecraft:blackstone"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "min": 89,
+          "max": 91,
+          "block": {
+            "type": "minecraft:weighted_state_provider",
+            "entries": [
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "minecraft:black_concrete"
+                }
+              },
+              {
+                "weight": 2,
+                "data": {
+                  "Name": "minecraft:blackstone"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "min": 92,
+          "max": 92,
+          "block": {
+            "type": "minecraft:weighted_state_provider",
+            "entries": [
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "minecraft:black_concrete"
+                }
+              },
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "minecraft:blackstone"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "min": 93,
+          "max": 93,
+          "block": {
+            "type": "minecraft:weighted_state_provider",
+            "entries": [
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "minecraft:black_concrete"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "min": 94,
+          "max": 94,
+          "block": {
+            "type": "minecraft:weighted_state_provider",
+            "entries": [
+              {
+                "weight": 5,
+                "data": {
+                  "Name": "minecraft:black_concrete"
+                }
+              },
+              {
+                "weight": 2,
+                "data": {
+                  "Name": "minecraft:obsidian"
+                }
+              },
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "minecraft:crying_obsidian"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "min": 95,
+          "max": 95,
+          "block": {
+            "type": "minecraft:weighted_state_provider",
+            "entries": [
+              {
+                "weight": 2,
+                "data": {
+                  "Name": "minecraft:obsidian"
+                }
+              },
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "minecraft:crying_obsidian"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "min": 96,
+          "max": 97,
+          "block": "minecraft:crying_obsidian"
+        },
+        {
+          "min": 98,
+          "max": 98,
+          "block": {
+            "type": "minecraft:weighted_state_provider",
+            "entries": [
+              {
+                "weight": 2,
+                "data": {
+                  "Name": "minecraft:obsidian"
+                }
+              },
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "minecraft:crying_obsidian"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "min": 99,
+          "max": 99,
+          "block": {
+            "type": "minecraft:weighted_state_provider",
+            "entries": [
+              {
+                "weight": 5,
+                "data": {
+                  "Name": "minecraft:black_concrete"
+                }
+              },
+              {
+                "weight": 2,
+                "data": {
+                  "Name": "minecraft:gray_terracotta"
+                }
+              },
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "minecraft:crying_obsidian"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "min": 100,
+          "max": 100,
+          "block": {
+            "type": "minecraft:weighted_state_provider",
+            "entries": [
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "minecraft:black_concrete"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "min": 101,
+          "max": 101,
+          "block": {
+            "type": "minecraft:weighted_state_provider",
+            "entries": [
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "minecraft:black_concrete"
+                }
+              },
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "minecraft:blackstone"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "min": 102,
+          "max": 105,
+          "block": {
+            "type": "minecraft:weighted_state_provider",
+            "entries": [
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "minecraft:black_concrete"
+                }
+              },
+              {
+                "weight": 2,
+                "data": {
+                  "Name": "minecraft:blackstone"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "min": 106,
+          "max": 126,
+          "block": "minecraft:blackstone"
+        },
+        {
+          "min": 127,
+          "max": 129,
+          "block": {
+            "type": "minecraft:weighted_state_provider",
+            "entries": [
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "minecraft:black_concrete"
+                }
+              },
+              {
+                "weight": 2,
+                "data": {
+                  "Name": "minecraft:blackstone"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "min": 130,
+          "max": 130,
+          "block": {
+            "type": "minecraft:weighted_state_provider",
+            "entries": [
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "minecraft:black_concrete"
+                }
+              },
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "minecraft:blackstone"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "min": 131,
+          "max": 131,
+          "block": {
+            "type": "minecraft:weighted_state_provider",
+            "entries": [
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "minecraft:black_concrete"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "min": 132,
+          "max": 132,
+          "block": {
+            "type": "minecraft:weighted_state_provider",
+            "entries": [
+              {
+                "weight": 5,
+                "data": {
+                  "Name": "minecraft:black_concrete"
+                }
+              },
+              {
+                "weight": 2,
+                "data": {
+                  "Name": "minecraft:obsidian"
+                }
+              },
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "minecraft:crying_obsidian"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "min": 133,
+          "max": 133,
+          "block": {
+            "type": "minecraft:weighted_state_provider",
+            "entries": [
+              {
+                "weight": 2,
+                "data": {
+                  "Name": "minecraft:obsidian"
+                }
+              },
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "minecraft:crying_obsidian"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "min": 134,
+          "max": 135,
+          "block": "minecraft:crying_obsidian"
+        },
+        {
+          "min": 136,
+          "max": 136,
+          "block": {
+            "type": "minecraft:weighted_state_provider",
+            "entries": [
+              {
+                "weight": 2,
+                "data": {
+                  "Name": "minecraft:obsidian"
+                }
+              },
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "minecraft:crying_obsidian"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "min": 137,
+          "max": 137,
+          "block": {
+            "type": "minecraft:weighted_state_provider",
+            "entries": [
+              {
+                "weight": 5,
+                "data": {
+                  "Name": "minecraft:black_concrete"
+                }
+              },
+              {
+                "weight": 2,
+                "data": {
+                  "Name": "minecraft:gray_terracotta"
+                }
+              },
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "minecraft:crying_obsidian"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "min": 138,
+          "max": 138,
+          "block": {
+            "type": "minecraft:weighted_state_provider",
+            "entries": [
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "minecraft:black_concrete"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "min": 139,
+          "max": 139,
+          "block": {
+            "type": "minecraft:weighted_state_provider",
+            "entries": [
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "minecraft:black_concrete"
+                }
+              },
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "minecraft:blackstone"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "min": 140,
+          "max": 143,
+          "block": {
+            "type": "minecraft:weighted_state_provider",
+            "entries": [
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "minecraft:black_concrete"
+                }
+              },
+              {
+                "weight": 2,
+                "data": {
+                  "Name": "minecraft:blackstone"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "min": 144,
+          "max": 164,
+          "block": "minecraft:blackstone"
+        },
+        {
+          "min": 165,
+          "max": 167,
+          "block": {
+            "type": "minecraft:weighted_state_provider",
+            "entries": [
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "minecraft:black_concrete"
+                }
+              },
+              {
+                "weight": 2,
+                "data": {
+                  "Name": "minecraft:blackstone"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "min": 168,
+          "max": 168,
+          "block": {
+            "type": "minecraft:weighted_state_provider",
+            "entries": [
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "minecraft:black_concrete"
+                }
+              },
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "minecraft:blackstone"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "min": 169,
+          "max": 169,
+          "block": {
+            "type": "minecraft:weighted_state_provider",
+            "entries": [
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "minecraft:black_concrete"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "min": 170,
+          "max": 170,
+          "block": {
+            "type": "minecraft:weighted_state_provider",
+            "entries": [
+              {
+                "weight": 5,
+                "data": {
+                  "Name": "minecraft:black_concrete"
+                }
+              },
+              {
+                "weight": 2,
+                "data": {
+                  "Name": "minecraft:obsidian"
+                }
+              },
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "minecraft:crying_obsidian"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "min": 171,
+          "max": 171,
+          "block": {
+            "type": "minecraft:weighted_state_provider",
+            "entries": [
+              {
+                "weight": 2,
+                "data": {
+                  "Name": "minecraft:obsidian"
+                }
+              },
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "minecraft:crying_obsidian"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "min": 172,
+          "max": 173,
+          "block": "minecraft:crying_obsidian"
+        },
+        {
+          "min": 174,
+          "max": 174,
+          "block": {
+            "type": "minecraft:weighted_state_provider",
+            "entries": [
+              {
+                "weight": 2,
+                "data": {
+                  "Name": "minecraft:obsidian"
+                }
+              },
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "minecraft:crying_obsidian"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "min": 175,
+          "max": 175,
+          "block": {
+            "type": "minecraft:weighted_state_provider",
+            "entries": [
+              {
+                "weight": 5,
+                "data": {
+                  "Name": "minecraft:black_concrete"
+                }
+              },
+              {
+                "weight": 2,
+                "data": {
+                  "Name": "minecraft:gray_terracotta"
+                }
+              },
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "minecraft:crying_obsidian"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "min": 176,
+          "max": 176,
+          "block": {
+            "type": "minecraft:weighted_state_provider",
+            "entries": [
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "minecraft:black_concrete"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "min": 177,
+          "max": 177,
+          "block": {
+            "type": "minecraft:weighted_state_provider",
+            "entries": [
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "minecraft:black_concrete"
+                }
+              },
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "minecraft:blackstone"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "min": 178,
+          "max": 181,
+          "block": {
+            "type": "minecraft:weighted_state_provider",
+            "entries": [
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "minecraft:black_concrete"
+                }
+              },
+              {
+                "weight": 2,
+                "data": {
+                  "Name": "minecraft:blackstone"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "min": 182,
+          "max": 202,
+          "block": "minecraft:blackstone"
+        },
+        {
+          "min": 203,
+          "max": 205,
+          "block": {
+            "type": "minecraft:weighted_state_provider",
+            "entries": [
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "minecraft:black_concrete"
+                }
+              },
+              {
+                "weight": 2,
+                "data": {
+                  "Name": "minecraft:blackstone"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "min": 206,
+          "max": 206,
+          "block": {
+            "type": "minecraft:weighted_state_provider",
+            "entries": [
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "minecraft:black_concrete"
+                }
+              },
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "minecraft:blackstone"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "min": 207,
+          "max": 207,
+          "block": {
+            "type": "minecraft:weighted_state_provider",
+            "entries": [
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "minecraft:black_concrete"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "min": 208,
+          "max": 208,
+          "block": {
+            "type": "minecraft:weighted_state_provider",
+            "entries": [
+              {
+                "weight": 5,
+                "data": {
+                  "Name": "minecraft:black_concrete"
+                }
+              },
+              {
+                "weight": 2,
+                "data": {
+                  "Name": "minecraft:obsidian"
+                }
+              },
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "minecraft:crying_obsidian"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "min": 209,
+          "max": 209,
+          "block": {
+            "type": "minecraft:weighted_state_provider",
+            "entries": [
+              {
+                "weight": 2,
+                "data": {
+                  "Name": "minecraft:obsidian"
+                }
+              },
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "minecraft:crying_obsidian"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "min": 210,
+          "max": 211,
+          "block": "minecraft:crying_obsidian"
+        },
+        {
+          "min": 212,
+          "max": 212,
+          "block": {
+            "type": "minecraft:weighted_state_provider",
+            "entries": [
+              {
+                "weight": 2,
+                "data": {
+                  "Name": "minecraft:obsidian"
+                }
+              },
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "minecraft:crying_obsidian"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "min": 213,
+          "max": 213,
+          "block": {
+            "type": "minecraft:weighted_state_provider",
+            "entries": [
+              {
+                "weight": 5,
+                "data": {
+                  "Name": "minecraft:black_concrete"
+                }
+              },
+              {
+                "weight": 2,
+                "data": {
+                  "Name": "minecraft:gray_terracotta"
+                }
+              },
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "minecraft:crying_obsidian"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "min": 214,
+          "max": 214,
+          "block": {
+            "type": "minecraft:weighted_state_provider",
+            "entries": [
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "minecraft:black_concrete"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "min": 215,
+          "max": 215,
+          "block": {
+            "type": "minecraft:weighted_state_provider",
+            "entries": [
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "minecraft:black_concrete"
+                }
+              },
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "minecraft:blackstone"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "min": 216,
+          "max": 219,
+          "block": {
+            "type": "minecraft:weighted_state_provider",
+            "entries": [
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "minecraft:black_concrete"
+                }
+              },
+              {
+                "weight": 2,
+                "data": {
+                  "Name": "minecraft:blackstone"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "min": 220,
+          "max": 255,
+          "block": "minecraft:blackstone"
+        }
+      ]
+    },
+    {
+      "type": "descent_into_darkness:replace_floor",
+      "old": "minecraft:blackstone",
+      "new": "minecraft:black_concrete_powder"
+    },
+    {
+      "type": "descent_into_darkness:replace_ceiling",
+      "old": [
+        "minecraft:black_concrete",
+        "minecraft:crying_obsidian"
+      ],
+      "new": "minecraft:blackstone"
+    }
+  ],
+  "base_block": "blackstone",
+  "air_block": "air",
+  "structures": {
+    "mpatch1": {
+      "type": "descent_into_darkness:vine_patch",
+      "edges": [
+        "ceiling"
+      ],
+      "count": 1,
+      "spread_x": 16,
+      "spread_z": 16,
+      "vine": "minecraft:weeping_vines_plant",
+      "last_block": {
+        "type": "minecraft:simple_state_provider",
+        "state": {
+          "Name": "weeping_vines",
+          "Properties": {
+            "age": 0
+          }
+        }
+      },
+      "can_place_on": "minecraft:red_concrete_powder",
+      "height": [
+        3,
+        7
+      ]
+    },
+    "mpatch": {
+      "type": "descent_into_darkness:patch",
+      "edges": [
+        "floor"
+      ],
+      "count": 0.2,
+      "spread_x": 16,
+      "spread_z": 16,
+      "can_place_on": [
+        "minecraft:black_concrete_powder"
+      ],
+      "block": {
+        "type": "minecraft:simple_state_provider",
+        "state": {
+          "Name": "minecraft:bubble_coral_fan",
+          "Properties": {
+            "waterlogged": false
+          }
+        }
+      }
+    },
+    "mpatch2": {
+      "type": "descent_into_darkness:patch",
+      "edges": [
+        "floor"
+      ],
+      "count": 0.2,
+      "spread_x": 16,
+      "spread_z": 16,
+      "can_place_on": [
+        "minecraft:black_concrete_powder"
+      ],
+      "block": {
+        "type": "minecraft:simple_state_provider",
+        "state": {
+          "Name": "minecraft:bubble_coral",
+          "Properties": {
+            "waterlogged": false
+          }
+        }
+      }
+    },
+    "tree": {
+      "type": "descent_into_darkness:tree",
+      "edges": "floor",
+      "can_place_on": "minecraft:black_concrete_powder",
+      "dirt": "descent_into_darkness:chalked_stem",
+      "leaf": "minecraft:basalt",
+      "log": "descent_into_darkness:chalked_stem",
+      "hanging_vine": "minecraft:basalt",
+      "hanging_vine_chance": 0.5,
+      "count": 0.8,
+      "height": 8,
+      "leaf_height": 4
+    },
+    "lavafall": {
+      "type": "descent_into_darkness:waterfall",
+      "fluid_type": "block",
+      "block": "basalt",
+      "edges": [
+        "wall",
+        "ceiling"
+      ],
+      "can_place_on": [
+        "minecraft:blackstone",
+        "minecraft:black_concrete_powder"
+      ],
+      "chance": 0.1
+    }
+  }
+}

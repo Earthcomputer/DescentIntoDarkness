@@ -1,0 +1,530 @@
+{
+  "natural_pollution_increase": 0.1,
+  "spawn_attempts_per_tick": 10,
+  "sprinting_penalty": 1,
+  "block_place_pollution": 1,
+  "block_break_pollution": 1,
+  "ores": {
+    "coal_ore": {
+      "block": [
+        "minecraft:coal_ore",
+        "descent_into_darkness:indurated_coal_ore"
+      ],
+      "drop_table": {
+        "pools": [
+          {
+            "rolls": 1,
+            "entries": [
+              {
+                "type": "minecraft:item",
+                "name": "minecraft:coal_ore",
+                "weight": 15
+              },
+              {
+                "type": "minecraft:item",
+                "name": "descent_into_darkness:coal_chunk",
+                "weight": 5
+              },
+              {
+                "type": "minecraft:item",
+                "name": "descent_into_darkness:coal_lump",
+                "weight": 12
+              },
+              {
+                "type": "minecraft:item",
+                "name": "descent_into_darkness:coal_nugget",
+                "weight": 20
+              }
+            ]
+          }
+        ]
+      },
+      "pollution": 5,
+      "break_amount": 2
+    },
+    "obsidian": {
+      "break_amount": 1,
+      "pollution": 5,
+      "block": [
+        "minecraft:obsidian"
+      ],
+      "drop_table": {
+        "pools": [
+          {
+            "rolls": 1,
+            "entries": [
+              {
+                "type": "minecraft:item",
+                "name": "minecraft:cobblestone",
+                "weight": 2
+              },
+              {
+                "type": "minecraft:item",
+                "name": "minecraft:obsidian"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "redstone_ore": {
+      "block": [
+        "minecraft:redstone_ore",
+        "descent_into_darkness:indurated_redstone_ore"
+      ],
+      "pollution": 10,
+      "drop_table": {
+        "pools": [
+          {
+            "rolls": 1,
+            "entries": [
+              {
+                "type": "minecraft:item",
+                "name": "descent_into_darkness:magma_ore",
+                "weight": 15
+              },
+              {
+                "type": "minecraft:item",
+                "name": "descent_into_darkness:magma_chunk",
+                "weight": 5
+              },
+              {
+                "type": "minecraft:item",
+                "name": "descent_into_darkness:magma_lump",
+                "weight": 12
+              },
+              {
+                "type": "minecraft:item",
+                "name": "descent_into_darkness:magma_nugget",
+                "weight": 20
+              }
+            ]
+          }
+        ]
+      },
+      "break_amount": 3
+    },
+    "infernum_ore": {
+      "break_amount": 3,
+      "block": [
+        "descent_into_darkness:infernum_ore",
+        "descent_into_darkness:indurated_infernum_ore"
+      ],
+      "pollution": 20,
+      "drop_table": {
+        "pools": [
+          {
+            "rolls": 1,
+            "entries": [
+              {
+                "type": "minecraft:item",
+                "name": "descent_into_darkness:infernum_ore_drop",
+                "weight": 15
+              },
+              {
+                "type": "minecraft:item",
+                "name": "descent_into_darkness:infernum_chunk",
+                "weight": 5
+              },
+              {
+                "type": "minecraft:item",
+                "name": "descent_into_darkness:infernum_lump",
+                "weight": 12
+              },
+              {
+                "type": "minecraft:item",
+                "name": "descent_into_darkness:infernum_nugget",
+                "weight": 20
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "lapis_ore": {
+      "block": [
+        "minecraft:lapis_ore",
+        "descent_into_darkness:indurated_lapis_ore"
+      ],
+      "pollution": 10,
+      "break_amount": 2,
+      "drop_table": {
+        "pools": [
+          {
+            "rolls": 1,
+            "entries": [
+              {
+                "type": "minecraft:item",
+                "name": "descent_into_darkness:sapphire_ore",
+                "weight": 15
+              },
+              {
+                "type": "minecraft:item",
+                "name": "descent_into_darkness:sapphire_chunk",
+                "weight": 5
+              },
+              {
+                "type": "minecraft:item",
+                "name": "descent_into_darkness:sapphire_shard",
+                "weight": 12
+              },
+              {
+                "type": "minecraft:item",
+                "name": "descent_into_darkness:sapphire_nugget",
+                "weight": 20
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "diamond_ore": {
+      "block": [
+        "minecraft:diamond_ore",
+        "descent_into_darkness:indurated_diamond_ore"
+      ],
+      "pollution": 20,
+      "break_amount": 3,
+      "drop_table": {
+        "pools": [
+          {
+            "rolls": 1,
+            "entries": [
+              {
+                "type": "minecraft:item",
+                "name": "minecraft:diamond_ore",
+                "weight": 15
+              },
+              {
+                "type": "minecraft:item",
+                "name": "descent_into_darkness:diamond_chunk",
+                "weight": 5
+              },
+              {
+                "type": "minecraft:item",
+                "name": "descent_into_darkness:diamond_shard",
+                "weight": 12
+              },
+              {
+                "type": "minecraft:item",
+                "name": "descent_into_darkness:diamond_nugget",
+                "weight": 20
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "astral_ore": {
+      "block": [
+        "descent_into_darkness:astral_ore",
+        "descent_into_darkness:indurated_astral_ore"
+      ],
+      "break_amount": 3,
+      "pollution": 40,
+      "drop_table": {
+        "pools": [
+          {
+            "rolls": 1,
+            "entries": [
+              {
+                "type": "minecraft:item",
+                "name": "descent_into_darkness:astral_ore_drop",
+                "weight": 15
+              },
+              {
+                "type": "minecraft:item",
+                "name": "descent_into_darkness:astral_chunk",
+                "weight": 5
+              },
+              {
+                "type": "minecraft:item",
+                "name": "descent_into_darkness:astral_shard",
+                "weight": 12
+              },
+              {
+                "type": "minecraft:item",
+                "name": "descent_into_darkness:astral_nugget",
+                "weight": 20
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "iron_ore": {
+      "block": [
+        "minecraft:iron_ore",
+        "descent_into_darkness:indurated_iron_ore"
+      ],
+      "pollution": 15,
+      "break_amount": 2,
+      "drop_table": {
+        "pools": [
+          {
+            "rolls": 1,
+            "entries": [
+              {
+                "type": "minecraft:item",
+                "name": "minecraft:iron_ore",
+                "weight": 15
+              },
+              {
+                "type": "minecraft:item",
+                "name": "descent_into_darkness:iron_chunk",
+                "weight": 5
+              },
+              {
+                "type": "minecraft:item",
+                "name": "descent_into_darkness:iron_ore_nugget",
+                "weight": 12
+              },
+              {
+                "type": "minecraft:item",
+                "name": "minecraft:iron_nugget",
+                "weight": 20
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "gold_ore": {
+      "block": [
+        "minecraft:gold_ore",
+        "descent_into_darkness:indurated_gold_ore"
+      ],
+      "pollution": 10,
+      "break_amount": 3,
+      "drop_table": {
+        "pools": [
+          {
+            "rolls": 1,
+            "entries": [
+              {
+                "type": "minecraft:item",
+                "name": "minecraft:gold_ore",
+                "weight": 15
+              },
+              {
+                "type": "minecraft:item",
+                "name": "descent_into_darkness:gold_chunk",
+                "weight": 5
+              },
+              {
+                "type": "minecraft:item",
+                "name": "descent_into_darkness:gold_ore_nugget",
+                "weight": 12
+              },
+              {
+                "type": "minecraft:item",
+                "name": "minecraft:gold_nugget",
+                "weight": 20
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "adamantine_ore": {
+      "block": [
+        "descent_into_darkness:adamantine_ore",
+        "descent_into_darkness:indurated_adamantine_ore"
+      ],
+      "pollution": 20,
+      "break_amount": 3,
+      "drop_table": {
+        "pools": [
+          {
+            "rolls": 1,
+            "entries": [
+              {
+                "type": "minecraft:item",
+                "name": "descent_into_darkness:adamantine_ore_drop",
+                "weight": 15
+              },
+              {
+                "type": "minecraft:item",
+                "name": "descent_into_darkness:adamantine_chunk",
+                "weight": 5
+              },
+              {
+                "type": "minecraft:item",
+                "name": "descent_into_darkness:adamantine_nugget",
+                "weight": 6
+              },
+              {
+                "type": "minecraft:item",
+                "name": "descent_into_darkness:adamantine_nugget",
+                "weight": 20
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "lapis_extras": {
+      "block": [
+        "minecraft:lapis_block",
+        "descent_into_darkness:lapis_plant",
+        "descent_into_darkness:lapis_stalac",
+        "descent_into_darkness:lapis_stalag"
+      ],
+      "pollution": 5,
+      "break_amount": 1,
+      "drop1": {
+        "item": "lapis_lazuli",
+        "amount": [
+          5,
+          9
+        ]
+      }
+    },
+    "nether_gold_ore": {
+      "block": "minecraft:nether_gold_ore",
+      "pollution": 30,
+      "break_amount": 1
+    },
+    "emerald_ore": {
+      "block": "minecraft:emerald_ore",
+      "pollution": 50,
+      "break_amount": 3,
+      "drop_table": {
+        "pools": [
+          {
+            "rolls": 1,
+            "entries": [
+              {
+                "type": "minecraft:item",
+                "name": "minecraft:emerald"
+              },
+              {
+                "type": "minecraft:item",
+                "name": "minecraft:stone",
+                "weight": 20,
+                "functions": [
+                  {
+                    "function": "minecraft:set_count",
+                    "count": 0
+                  }
+                ]
+              },
+              {
+                "type": "minecraft:item",
+                "name": "minecraft:experience_bottle",
+                "weight": 10
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "nether_quartz_ore": {
+      "block": "minecraft:nether_quartz_ore",
+      "pollution": 15,
+      "break_amount": 6,
+      "drop_table": {
+        "pools": [
+          {
+            "rolls": 1,
+            "entries": [
+              {
+                "type": "minecraft:item",
+                "name": "minecraft:quartz"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "coal_block": {
+      "block": "minecraft:coal_block",
+      "pollution": 10,
+      "break_amount": 1,
+      "drop_table": {
+        "pools": [
+          {
+            "rolls": 1,
+            "entries": [
+              {
+                "type": "minecraft:item",
+                "name": "minecraft:charcoal",
+                "functions": [
+                  {
+                    "function": "minecraft:set_count",
+                    "count": {
+                      "type": "minecraft:uniform",
+                      "min": 1,
+                      "max": 6
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "crate": {
+      "block": "descent_into_darkness:crate",
+      "pollution": 25,
+      "break_amount": 1,
+      "drop_table": {
+        "pools": [
+          {
+            "rolls": 1,
+            "entries": [
+              {
+                "type": "minecraft:item",
+                "name": "descent_into_darkness:crate",
+                "functions": [
+                  {
+                    "function": "minecraft:set_count",
+                    "count": {
+                      "type": "minecraft:uniform",
+                      "min": 1,
+                      "max": 2
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "cocoa": {
+      "block": "minecraft:cocoa",
+      "pollution": 5,
+      "break_amount": 1,
+      "drop_table": {
+        "pools": [
+          {
+            "rolls": 1,
+            "entries": [
+              {
+                "type": "minecraft:item",
+                "name": "minecraft:cocoa_beans",
+                "weight": 9999,
+                "functions": [
+                  {
+                    "function": "minecraft:set_count",
+                    "count": {
+                      "type": "minecraft:uniform",
+                      "min": 2,
+                      "max": 5
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "minecraft:item",
+                "name": "descent_into_darkness:banana_mold"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,152 @@
+{
+  "inherit": [
+    {
+      "name": "civex:wooden_pack",
+      "merge": {
+        "lore": "bottom"
+      }
+    },
+    {
+      "name": "civex:high_metal_low_fuel",
+      "merge": {
+        "structures": "top",
+        "lore": "bottom"
+      }
+    }
+  ],
+  "display_name": "Taiga Caves",
+  "lore": [
+    {
+      "text": "Difficulty: ☆☆☆",
+      "color": "yellow"
+    }
+  ],
+  "biome": "civex:white_forest",
+  "nether": true,
+  "base_block": "minecraft:dirt",
+  "sprinting_penalty": 5,
+  "transparent_blocks": [
+    "minecraft:air",
+    "minecraft:snow",
+    "minecraft:fern",
+    "minecraft:large_fern"
+  ],
+  "natural_pollution_increase": 0.10000000149011612,
+  "painter_steps": [
+    {
+      "type": "descent_into_darkness:replace_floor",
+      "old": "minecraft:dirt",
+      "new": {
+        "type": "minecraft:simple_state_provider",
+        "state": {
+          "Name": "minecraft:grass_block",
+          "Properties": {
+            "snowy": true
+          }
+        }
+      }
+    },
+    {
+      "type": "descent_into_darkness:replace_all",
+      "old": "minecraft:dirt",
+      "new": "minecraft:coarse_dirt",
+      "chance": 0.1
+    },
+    {
+      "type": "descent_into_darkness:floor_layer",
+      "block": "minecraft:snow",
+      "can_place_on": {
+        "type": "minecraft:not",
+        "predicate": {
+          "type": "minecraft:matching_blocks",
+          "blocks": "minecraft:snow"
+        }
+      }
+    }
+  ],
+  "structures": {
+    "trees": {
+      "type": "descent_into_darkness:template",
+      "templates": [
+        {
+          "template": "descent_into_darkness:podzol1/sprucetree1",
+          "origin": [
+            1,
+            0,
+            1
+          ]
+        },
+        {
+          "template": "descent_into_darkness:podzol1/sprucetree2",
+          "origin": [
+            2,
+            0,
+            2
+          ]
+        },
+        {
+          "template": "descent_into_darkness:podzol1/sprucetree3",
+          "origin": [
+            2,
+            0,
+            2
+          ]
+        },
+        {
+          "template": "descent_into_darkness:podzol1/sprucetree4",
+          "origin": [
+            3,
+            0,
+            3
+          ]
+        }
+      ],
+      "edges": "floor",
+      "can_place_on": "minecraft:grass_block",
+      "count": 1
+    },
+    "bigtree": {
+      "type": "descent_into_darkness:template",
+      "templates": [
+        {
+          "template": "descent_into_darkness:podzol1/bsprucetree1",
+          "origin": [
+            3,
+            0,
+            3
+          ]
+        }
+      ],
+      "edges": "floor",
+      "can_place_on": "minecraft:grass_block",
+      "count": 1
+    },
+    "fern": {
+      "type": "descent_into_darkness:tree",
+      "log": "minecraft:fern",
+      "dirt": "minecraft:grass_block",
+      "edges": "floor",
+      "count": 5,
+      "can_place_on": "minecraft:grass_block",
+      "height": 1,
+      "leaf_height": 0
+    },
+    "fern2": {
+      "type": "descent_into_darkness:tree",
+      "log": "minecraft:large_fern",
+      "dirt": "minecraft:grass_block",
+      "edges": "floor",
+      "count": 5,
+      "can_place_on": "minecraft:grass_block",
+      "height": 1,
+      "leaf_height": 0
+    },
+    "snow": {
+      "type": "descent_into_darkness:patch",
+      "block": "minecraft:snow",
+      "edges": "floor",
+      "count": 10,
+      "can_place_on": "minecraft:spruce_leaves"
+    }
+  }
+}

@@ -1,0 +1,94 @@
+{
+  "inherit": [
+    "civex:halfwater"
+  ],
+  "air_block": "water",
+  "base_block": "minecraft:prismarine",
+  "painter_steps": [
+    {
+      "type": "descent_into_darkness:replace_floor",
+      "old": "minecraft:prismarine",
+      "new": "minecraft:sand"
+    },
+    {
+      "type": "descent_into_darkness:replace_all",
+      "old": "minecraft:prismarine",
+      "new": "prismarine_bricks",
+      "chance": 0.5
+    },
+    {
+      "type": "descent_into_darkness:replace_all",
+      "old": "minecraft:prismarine",
+      "new": "dark_prismarine",
+      "chance": 0.1
+    }
+  ],
+  "structures": {
+    "prispiral": {
+      "type": "descent_into_darkness:vine_patch",
+      "edges": [
+        "floor",
+        "ceiling"
+      ],
+      "vine": "descent_into_darkness:prispiral",
+      "vine_random_rotation": false,
+      "spread_x": 16,
+      "spread_z": 16,
+      "count": 0.03,
+      "height": 100
+    },
+    "bprispiral": {
+      "type": "descent_into_darkness:vine_patch",
+      "edges": [
+        "floor"
+      ],
+      "vine": {
+        "type": "minecraft:simple_state_provider",
+        "state": {
+          "Name": "minecraft:red_nether_brick_wall",
+          "Properties": {
+            "east": "none",
+            "north": "none",
+            "south": "none",
+            "up": false,
+            "waterlogged": true,
+            "west": "none"
+          }
+        }
+      },
+      "vine_random_rotation": false,
+      "spread_x": 32,
+      "spread_z": 32,
+      "last_block": "descent_into_darkness:bprispiral",
+      "count": 0.03,
+      "height": 2
+    },
+    "2bprispiral": {
+      "type": "descent_into_darkness:vine_patch",
+      "can_place_on": "descent_into_darkness:bprispiral",
+      "edges": [
+        "floor"
+      ],
+      "vine": {
+        "type": "minecraft:simple_state_provider",
+        "state": {
+          "Name": "minecraft:red_nether_brick_wall",
+          "Properties": {
+            "east": "none",
+            "north": "none",
+            "south": "none",
+            "up": false,
+            "waterlogged": true,
+            "west": "none"
+          }
+        }
+      },
+      "vine_random_rotation": false,
+      "spread_x": 16,
+      "spread_z": 16,
+      "last_block": "descent_into_darkness:bprispiral",
+      "count": 100,
+      "height": 3
+    }
+  }
+}

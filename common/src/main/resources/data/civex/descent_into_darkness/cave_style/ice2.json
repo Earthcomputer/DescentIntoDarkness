@@ -1,0 +1,223 @@
+{
+  "inherit": [
+    "civex:vanilla",
+    {
+      "name": "civex:snow_pack",
+      "merge": {
+        "lore": "bottom"
+      }
+    },
+    {
+      "name": "civex:high_gem_low_metal",
+      "merge": {
+        "structures": "top",
+        "lore": "bottom"
+      }
+    }
+  ],
+  "display_name": "Snow Cavity",
+  "lore": [
+    {
+      "text": "Difficulty: ☆☆☆",
+      "color": "yellow"
+    }
+  ],
+  "nether": true,
+  "biome": "civex:ice_trees",
+  "base_block": "minecraft:snow_block",
+  "painter_steps": [
+    {
+      "type": "descent_into_darkness:replace_all",
+      "old": "minecraft:snow_block",
+      "new": "minecraft:ice",
+      "chance": 0.1
+    },
+    {
+      "type": "descent_into_darkness:replace_floor",
+      "old": "minecraft:ice",
+      "new": "minecraft:snow_block"
+    }
+  ],
+  "structures": {
+    "icicles": {
+      "type": "descent_into_darkness:template",
+      "edges": [
+        "floor",
+        "ceiling"
+      ],
+      "can_place_on": [
+        "minecraft:snow_block"
+      ],
+      "templates": [
+        {
+          "template": "descent_into_darkness:ice2/icesp0",
+          "origin": [
+            -1,
+            0,
+            1
+          ]
+        },
+        {
+          "template": "descent_into_darkness:ice2/icesp1",
+          "origin": [
+            1,
+            0,
+            1
+          ]
+        },
+        {
+          "template": "descent_into_darkness:ice2/icesp2",
+          "origin": [
+            1,
+            0,
+            1
+          ]
+        }
+      ]
+    },
+    "pillars1": {
+      "block": {
+        "type": "minecraft:weighted_state_provider",
+        "entries": [
+          {
+            "weight": 10,
+            "data": {
+              "Name": "minecraft:snow_block"
+            }
+          },
+          {
+            "weight": 1,
+            "data": {
+              "Name": "minecraft:air"
+            }
+          }
+        ]
+      },
+      "type": "descent_into_darkness:stalagmite",
+      "floor_to_ceiling_search_range": 512,
+      "max_column_radius_to_cave_height_ratio": 1,
+      "has_stalactite": true,
+      "min_bluntness_for_wind": 0,
+      "min_radius_for_wind": 1,
+      "count": 0.1,
+      "edges": [
+        "ceiling",
+        "floor"
+      ],
+      "height_scale": [
+        1,
+        2
+      ],
+      "column_radius": 3,
+      "wind_speed": 0
+    },
+    "snow": {
+      "type": "descent_into_darkness:template",
+      "edges": [
+        "floor"
+      ],
+      "can_place_on": [
+        "minecraft:snow_block"
+      ],
+      "templates": [
+        {
+          "template": "descent_into_darkness:ice2/sdrift0",
+          "origin": [
+            2,
+            0,
+            2
+          ]
+        },
+        {
+          "template": "descent_into_darkness:ice2/sdrift1",
+          "origin": [
+            2,
+            0,
+            2
+          ]
+        },
+        {
+          "template": "descent_into_darkness:ice2/snowspike0",
+          "origin": [
+            1,
+            0,
+            1
+          ]
+        },
+        {
+          "template": "descent_into_darkness:ice2/snowspike1",
+          "origin": [
+            1,
+            0,
+            1
+          ]
+        }
+      ]
+    },
+    "snow1": {
+      "type": "descent_into_darkness:patch",
+      "block": {
+        "type": "minecraft:simple_state_provider",
+        "state": {
+          "Name": "minecraft:snow",
+          "Properties": {
+            "layers": 1
+          }
+        }
+      },
+      "edges": "floor",
+      "spread_x": 16,
+      "spread_z": 16,
+      "can_place_on": "minecraft:snow_block",
+      "count": 20
+    },
+    "snow2": {
+      "type": "descent_into_darkness:patch",
+      "block": {
+        "type": "minecraft:simple_state_provider",
+        "state": {
+          "Name": "minecraft:snow",
+          "Properties": {
+            "layers": 2
+          }
+        }
+      },
+      "edges": "floor",
+      "spread_x": 16,
+      "spread_z": 16,
+      "can_place_on": "minecraft:snow_block"
+    },
+    "snow3": {
+      "type": "descent_into_darkness:patch",
+      "block": {
+        "type": "minecraft:simple_state_provider",
+        "state": {
+          "Name": "minecraft:snow",
+          "Properties": {
+            "layers": 3
+          }
+        }
+      },
+      "edges": "floor",
+      "spread_x": 16,
+      "spread_z": 16,
+      "can_place_on": "minecraft:snow_block"
+    },
+    "snow4": {
+      "type": "descent_into_darkness:patch",
+      "block": {
+        "type": "minecraft:simple_state_provider",
+        "state": {
+          "Name": "minecraft:snow",
+          "Properties": {
+            "layers": 4
+          }
+        }
+      },
+      "edges": "floor",
+      "spread_x": 16,
+      "spread_z": 16,
+      "can_place_on": "minecraft:snow_block"
+    }
+  }
+}

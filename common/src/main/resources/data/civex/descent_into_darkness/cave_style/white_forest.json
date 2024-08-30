@@ -1,0 +1,103 @@
+{
+  "biome": "civex:white_forest",
+  "nether": true,
+  "inherit": [
+    {
+      "name": "civex:marbler_pack",
+      "merge": {
+        "lore": "bottom"
+      }
+    },
+    "civex:halfwater",
+    {
+      "name": "civex:high_gem_low_metal",
+      "merge": {
+        "structures": "top",
+        "lore": "bottom"
+      }
+    }
+  ],
+  "display_name": "White Forest",
+  "lore": [
+    {
+      "text": "Difficulty: ☆☆☆☆",
+      "color": "yellow"
+    }
+  ],
+  "base_block": "minecraft:dirt",
+  "air_block": "minecraft:water",
+  "painter_steps": [
+    {
+      "type": "descent_into_darkness:replace_floor",
+      "old": "minecraft:dirt",
+      "new": "minecraft:grass_block"
+    },
+    {
+      "type": "descent_into_darkness:replace_all",
+      "old": "minecraft:dirt",
+      "new": "minecraft:coarse_dirt",
+      "chance": 0.2
+    }
+  ],
+  "structures": {
+    "chorus": {
+      "type": "descent_into_darkness:chorus_plant",
+      "stem_block": "birch_wood",
+      "flower_block": "minecraft:birch_wood",
+      "flower_chance": 0,
+      "initial_flower_chance": 0,
+      "edges": [
+        "ceiling"
+      ],
+      "can_place_on": [
+        "minecraft:dirt",
+        "minecraft:coarse_dirt"
+      ],
+      "count": 0.2,
+      "radius": 25,
+      "branch_factor": 2,
+      "h_length": [
+        1,
+        5
+      ],
+      "v_length": [
+        1,
+        5
+      ],
+      "num_layers": 10
+    },
+    "leavese": {
+      "type": "descent_into_darkness:patch",
+      "block": "minecraft:shroomlight",
+      "chance": 0.01,
+      "can_place_on": [
+        "minecraft:birch_wood"
+      ],
+      "can_replace": [
+        "minecraft:water"
+      ]
+    },
+    "grass": {
+      "type": "descent_into_darkness:patch",
+      "block": "minecraft:dead_brain_coral",
+      "chance": 0.2,
+      "edges": [
+        "floor"
+      ],
+      "can_place_on": [
+        "minecraft:grass_block"
+      ]
+    },
+    "grass2": {
+      "type": "descent_into_darkness:patch",
+      "block": "minecraft:dead_fire_coral",
+      "chance": 0.2,
+      "edges": [
+        "floor"
+      ],
+      "can_place_on": [
+        "minecraft:grass_block"
+      ]
+    }
+  }
+}

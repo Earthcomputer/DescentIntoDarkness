@@ -1,0 +1,185 @@
+{
+  "start_y": 175,
+  "nether": true,
+  "inherit": [
+    "civex:halfwater",
+    {
+      "name": "civex:high_gem_low_metal",
+      "merge": {
+        "structures": "top",
+        "lore": "bottom"
+      }
+    }
+  ],
+  "display_name": {
+    "text": "Violet Beach",
+    "color": "dark_purple"
+  },
+  "lore": [
+    {
+      "text": "Difficulty: ☆☆☆☆",
+      "color": "yellow"
+    }
+  ],
+  "base_block": "minecraft:obsidian",
+  "biome": "civex:purple_abyss",
+  "air_block": [
+    {
+      "min": 0,
+      "max": 155,
+      "block": "water"
+    },
+    {
+      "min": 156,
+      "max": 255,
+      "block": "air"
+    }
+  ],
+  "painter_steps": [
+    {
+      "type": "descent_into_darkness:replace_floor",
+      "old": "minecraft:obsidian",
+      "new": "minecraft:black_concrete_powder"
+    },
+    {
+      "type": "descent_into_darkness:replace_all",
+      "old": "minecraft:obsidian",
+      "new": "minecraft:crying_obsidian",
+      "chance": 0.1
+    }
+  ],
+  "structures": {
+    "glowstone1": {
+      "type": "descent_into_darkness:glowstone",
+      "edges": [
+        "ceiling"
+      ],
+      "chance": 0.05,
+      "block": "minecraft:sea_lantern",
+      "can_replace": "minecraft:water",
+      "height": 12,
+      "density": 2000
+    },
+    "palmtrees": {
+      "type": "descent_into_darkness:template",
+      "templates": [
+        {
+          "template": "descent_into_darkness:beach1/ptree0",
+          "origin": [
+            1,
+            0,
+            1
+          ]
+        },
+        {
+          "template": "descent_into_darkness:beach1/ptree1",
+          "origin": [
+            3,
+            0,
+            3
+          ]
+        },
+        {
+          "template": "descent_into_darkness:beach1/ptree3",
+          "origin": [
+            4,
+            0,
+            6
+          ]
+        }
+      ],
+      "can_place_on": "minecraft:black_concrete_powder",
+      "can_replace": "minecraft:air",
+      "edges": [
+        "floor"
+      ],
+      "count": 0.2
+    },
+    "chains": {
+      "type": "descent_into_darkness:vine_patch",
+      "vine": {
+        "type": "minecraft:simple_state_provider",
+        "state": {
+          "Name": "minecraft:chain",
+          "Properties": {
+            "axis": "y",
+            "waterlogged": true
+          }
+        }
+      },
+      "last_block": {
+        "type": "minecraft:simple_state_provider",
+        "state": {
+          "Name": "minecraft:soul_lantern",
+          "Properties": {
+            "waterlogged": true,
+            "hanging": true
+          }
+        }
+      },
+      "spread_x": 32,
+      "spread_z": 32,
+      "chance": 0.2,
+      "can_replace": "minecraft:water",
+      "edges": [
+        "ceiling"
+      ],
+      "height": [
+        4,
+        7
+      ]
+    },
+    "chains2": {
+      "type": "descent_into_darkness:vine_patch",
+      "vine": {
+        "type": "minecraft:simple_state_provider",
+        "state": {
+          "Name": "minecraft:chain",
+          "Properties": {
+            "axis": "y"
+          }
+        }
+      },
+      "last_block": {
+        "type": "minecraft:simple_state_provider",
+        "state": {
+          "Name": "minecraft:soul_lantern",
+          "Properties": {
+            "hanging": true
+          }
+        }
+      },
+      "spread_x": 32,
+      "spread_z": 32,
+      "chance": 0.07,
+      "can_replace": "minecraft:air",
+      "edges": [
+        "ceiling"
+      ],
+      "can_place_on": [
+        "minecraft:obsidian",
+        "minecraft:crying_obsidian"
+      ],
+      "height": [
+        3,
+        6
+      ]
+    },
+    "plant": {
+      "type": "descent_into_darkness:patch",
+      "block": "minecraft:bubble_coral",
+      "chance": 0.1,
+      "spread_x": 32,
+      "spread_z": 32,
+      "edges": [
+        "floor"
+      ],
+      "can_place_on": [
+        "minecraft:black_concrete_powder"
+      ],
+      "can_replace": [
+        "minecraft:water"
+      ]
+    }
+  }
+}

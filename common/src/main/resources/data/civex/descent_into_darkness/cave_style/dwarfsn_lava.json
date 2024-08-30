@@ -1,0 +1,378 @@
+{
+  "nether": true,
+  "biome": "basalt_deltas",
+  "inherit": [
+    "civex:halfwater",
+    {
+      "name": "civex:plague_pack",
+      "merge": {
+        "lore": "bottom"
+      }
+    },
+    {
+      "name": "civex:high_metal_low_gem",
+      "merge": {
+        "structures": "top",
+        "lore": "bottom"
+      }
+    }
+  ],
+  "display_name": {
+    "text": "Dwarven City",
+    "color": "gray"
+  },
+  "lore": [
+    {
+      "text": "Difficulty: ☆☆☆☆",
+      "color": "yellow"
+    }
+  ],
+  "base_block": "minecraft:stone",
+  "start_y": 175,
+  "air_block": [
+    {
+      "min": 0,
+      "max": 155,
+      "block": "lava"
+    },
+    {
+      "min": 156,
+      "max": 255,
+      "block": "air"
+    }
+  ],
+  "painter_steps": [
+    {
+      "type": "descent_into_darkness:replace_all",
+      "old": "minecraft:stone",
+      "new": "andesite",
+      "chance": 0.2
+    },
+    {
+      "type": "descent_into_darkness:replace_all",
+      "old": "minecraft:stone",
+      "new": "polished_andesite",
+      "chance": 0.1
+    }
+  ],
+  "room_air_blocks": {
+    "pit_mine": [
+      {
+        "min": 0.0,
+        "max": 0.4,
+        "block": "water"
+      }
+    ]
+  },
+  "structures": {
+    "crossbar": {
+      "count": 0.1,
+      "type": "descent_into_darkness:vine_patch",
+      "vine": "minecraft:stone_bricks",
+      "spread_x": 1,
+      "spread_y": 0,
+      "spread_z": 1,
+      "tries": 50,
+      "edges": "wall",
+      "can_replace": "minecraft:lava",
+      "height": 1000
+    },
+    "pillars": {
+      "chance": 0.003,
+      "type": "descent_into_darkness:vine_patch",
+      "edges": [
+        "floor",
+        "ceiling"
+      ],
+      "vine": "minecraft:stone_bricks",
+      "first_block": "minecraft:chiseled_stone_bricks",
+      "last_block": "minecraft:chiseled_stone_bricks",
+      "spread_x": 2,
+      "spread_y": 0,
+      "spread_z": 2,
+      "tries": 100,
+      "height": 1000
+    },
+    "pillars2": {
+      "chance": 0.0003,
+      "type": "descent_into_darkness:vine_patch",
+      "edges": [
+        "floor",
+        "ceiling"
+      ],
+      "vine": "minecraft:stone_bricks",
+      "first_block": "minecraft:chiseled_stone_bricks",
+      "last_block": "minecraft:chiseled_stone_bricks",
+      "spread_x": 5,
+      "spread_y": 0,
+      "spread_z": 5,
+      "tries": 1000,
+      "height": 1000
+    },
+    "houses": {
+      "type": "descent_into_darkness:template",
+      "chance": 0.3,
+      "edges": [
+        "floor"
+      ],
+      "templates": [
+        {
+          "template": "descent_into_darkness:dwarfsnlava/druins0",
+          "origin": [
+            2,
+            1,
+            2
+          ]
+        },
+        {
+          "template": "descent_into_darkness:dwarfsnlava/druins1",
+          "origin": [
+            3,
+            1,
+            3
+          ]
+        },
+        {
+          "template": "descent_into_darkness:dwarfsnlava/druins2",
+          "origin": [
+            2,
+            1,
+            2
+          ]
+        },
+        {
+          "template": "descent_into_darkness:dwarfsnlava/druins3",
+          "origin": [
+            2,
+            1,
+            2
+          ]
+        },
+        {
+          "template": "descent_into_darkness:dwarfsnlava/druins4",
+          "origin": [
+            3,
+            1,
+            2
+          ]
+        },
+        {
+          "template": "descent_into_darkness:dwarfsnlava/druins5",
+          "origin": [
+            2,
+            1,
+            2
+          ]
+        },
+        {
+          "template": "descent_into_darkness:dwarfsnlava/druins6",
+          "origin": [
+            1,
+            1,
+            2
+          ]
+        },
+        {
+          "template": "descent_into_darkness:dwarfsnlava/druins7",
+          "origin": [
+            2,
+            1,
+            2
+          ]
+        },
+        {
+          "template": "descent_into_darkness:dwarfsnlava/1druins0",
+          "origin": [
+            2,
+            0,
+            2
+          ]
+        },
+        {
+          "template": "descent_into_darkness:dwarfsnlava/1druins1",
+          "origin": [
+            2,
+            0,
+            2
+          ]
+        },
+        {
+          "template": "descent_into_darkness:dwarfsnlava/1druins2",
+          "origin": [
+            3,
+            0,
+            2
+          ]
+        },
+        {
+          "template": "descent_into_darkness:dwarfsnlava/1druins3",
+          "origin": [
+            3,
+            0,
+            5
+          ]
+        },
+        {
+          "template": "descent_into_darkness:dwarfsnlava/1druins4",
+          "origin": [
+            3,
+            1,
+            2
+          ]
+        },
+        {
+          "template": "descent_into_darkness:dwarfsnlava/1druins5",
+          "origin": [
+            2,
+            0,
+            3
+          ]
+        }
+      ],
+      "can_place_on": [
+        "minecraft:stone",
+        "minecraft:andesite",
+        "minecraft:polished_andesite"
+      ],
+      "can_replace": [
+        "minecraft:air",
+        "minecraft:stone",
+        "minecraft:andesite",
+        "minecraft:polished_andesite"
+      ]
+    },
+    "wallhouse12": {
+      "type": "descent_into_darkness:template",
+      "chance": 0.5,
+      "origin_side": "east",
+      "edges": [
+        "wall"
+      ],
+      "templates": [
+        {
+          "template": "descent_into_darkness:dwarfsnlava/wdruins0",
+          "origin": [
+            1,
+            1,
+            2
+          ]
+        },
+        {
+          "template": "descent_into_darkness:dwarfsnlava/wdruins1",
+          "origin": [
+            0,
+            1,
+            1
+          ]
+        },
+        {
+          "template": "descent_into_darkness:dwarfsnlava/wdruins2",
+          "origin": [
+            1,
+            1,
+            2
+          ]
+        },
+        {
+          "template": "descent_into_darkness:dwarfsnlava/wdruins3",
+          "origin": [
+            1,
+            1,
+            2
+          ]
+        },
+        {
+          "template": "descent_into_darkness:dwarfsnlava/wdruins4",
+          "origin": [
+            2,
+            1,
+            2
+          ]
+        }
+      ],
+      "can_place_on": [
+        "minecraft:stone",
+        "minecraft:andesite",
+        "minecraft:polished_andesite"
+      ],
+      "can_replace": [
+        "minecraft:air",
+        "minecraft:stone",
+        "minecraft:andesite",
+        "minecraft:polished_andesite"
+      ]
+    },
+    "fountain": {
+      "type": "descent_into_darkness:template",
+      "chance": 0.005,
+      "edges": [
+        "floor"
+      ],
+      "templates": [
+        {
+          "template": "descent_into_darkness:dwarfsnlava/dfount",
+          "origin": [
+            2,
+            0,
+            2
+          ]
+        },
+        {
+          "template": "descent_into_darkness:dwarfsnlava/dfont2",
+          "origin": [
+            1,
+            0,
+            2
+          ]
+        }
+      ],
+      "can_replace": [
+        "minecraft:air",
+        "minecraft:stone",
+        "minecraft:andesite",
+        "minecraft:polished_andesite"
+      ],
+      "can_place_on": [
+        "minecraft:stone",
+        "minecraft:andesite",
+        "minecraft:polished_andesite"
+      ]
+    },
+    "cracks": {
+      "type": "descent_into_darkness:vein",
+      "chance": 0.3,
+      "ore": "minecraft:cracked_stone_bricks",
+      "can_replace": [
+        "minecraft:stone_bricks"
+      ]
+    },
+    "crate": {
+      "count": 0.7,
+      "type": "descent_into_darkness:template",
+      "templates": [
+        "descent_into_darkness:crate/singlecrate"
+      ],
+      "edges": [
+        "floor"
+      ],
+      "can_place_on": [
+        "minecraft:stone_bricks",
+        "minecraft:cracked_stone_bricks"
+      ],
+      "can_replace": "minecraft:air"
+    },
+    "diamond": {
+      "type": "descent_into_darkness:vine_patch",
+      "vine": "minecraft:diamond_ore",
+      "spread_x": 2,
+      "spread_y": 0,
+      "spread_z": 2,
+      "chance": 0.0002,
+      "edges": "ceiling",
+      "height": [
+        1,
+        7
+      ]
+    }
+  }
+}

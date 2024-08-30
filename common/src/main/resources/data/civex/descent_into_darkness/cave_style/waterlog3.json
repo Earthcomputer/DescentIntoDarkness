@@ -1,0 +1,220 @@
+{
+  "start_y": 220,
+  "inherit": [
+    "civex:cylid",
+    {
+      "name": "civex:ocean_pack",
+      "merge": {
+        "lore": "bottom"
+      }
+    },
+    {
+      "name": "civex:high_fuel_low_gem",
+      "merge": {
+        "structures": "top",
+        "lore": "bottom"
+      }
+    }
+  ],
+  "display_name": {
+    "text": " Coral Lake",
+    "color": "dark_blue"
+  },
+  "lore": [
+    {
+      "text": "Difficulty: ☆☆☆☆☆",
+      "color": "yellow"
+    }
+  ],
+  "painter_steps": [
+    {
+      "type": "descent_into_darkness:replace_floor",
+      "old": "minecraft:stone",
+      "new": "minecraft:gravel"
+    },
+    {
+      "type": "descent_into_darkness:replace_all",
+      "old": "minecraft:stone",
+      "new": "minecraft:andesite",
+      "chance": 0.2
+    },
+    {
+      "type": "descent_into_darkness:replace_all",
+      "old": "minecraft:stone",
+      "new": "minecraft:cobblestone",
+      "chance": 0.2
+    }
+  ],
+  "room_air_blocks": {
+    "ravine": [
+      {
+        "min": 0,
+        "max": 0.9,
+        "block": "water"
+      }
+    ]
+  },
+  "structures": {
+    "stags": {
+      "block": "minecraft:brain_coral_block",
+      "type": "descent_into_darkness:stalagmite",
+      "floor_to_ceiling_search_range": 100,
+      "max_column_radius_to_cave_height_ratio": 1,
+      "has_stalactite": true,
+      "min_bluntness_for_wind": 0,
+      "min_radius_for_wind": 1,
+      "count": 0.01,
+      "can_replace": [
+        "minecraft:water"
+      ],
+      "edges": "wall",
+      "tags": "ravine",
+      "height_scale": [
+        5,
+        10
+      ],
+      "column_radius": [
+        4,
+        7
+      ],
+      "wind_speed": [
+        0,
+        1
+      ]
+    },
+    "stags2": {
+      "block": "minecraft:horn_coral_block",
+      "type": "descent_into_darkness:stalagmite",
+      "floor_to_ceiling_search_range": 100,
+      "max_column_radius_to_cave_height_ratio": 1,
+      "has_stalactite": true,
+      "min_bluntness_for_wind": 0,
+      "min_radius_for_wind": 1,
+      "count": 0.01,
+      "can_replace": [
+        "minecraft:water"
+      ],
+      "edges": "wall",
+      "tags": "ravine",
+      "height_scale": [
+        5,
+        10
+      ],
+      "column_radius": [
+        4,
+        7
+      ],
+      "wind_speed": [
+        0,
+        1
+      ]
+    },
+    "stags3": {
+      "block": "minecraft:fire_coral_block",
+      "type": "descent_into_darkness:stalagmite",
+      "floor_to_ceiling_search_range": 100,
+      "max_column_radius_to_cave_height_ratio": 1,
+      "has_stalactite": true,
+      "min_bluntness_for_wind": 0,
+      "min_radius_for_wind": 1,
+      "count": 0.01,
+      "can_replace": [
+        "minecraft:water"
+      ],
+      "edges": "wall",
+      "tags": "ravine",
+      "height_scale": [
+        5,
+        10
+      ],
+      "column_radius": [
+        4,
+        7
+      ],
+      "wind_speed": [
+        0,
+        1
+      ]
+    },
+    "stags4": {
+      "block": "minecraft:tube_coral_block",
+      "type": "descent_into_darkness:stalagmite",
+      "floor_to_ceiling_search_range": 100,
+      "max_column_radius_to_cave_height_ratio": 1,
+      "has_stalactite": true,
+      "min_bluntness_for_wind": 0,
+      "min_radius_for_wind": 1,
+      "count": 0.01,
+      "can_replace": [
+        "minecraft:water"
+      ],
+      "edges": "wall",
+      "tags": "ravine",
+      "height_scale": [
+        5,
+        10
+      ],
+      "column_radius": [
+        4,
+        7
+      ],
+      "wind_speed": [
+        0,
+        1
+      ]
+    },
+    "mpatch1": {
+      "type": "descent_into_darkness:patch",
+      "edges": [
+        "floor"
+      ],
+      "count": 2,
+      "spread_x": 16,
+      "spread_z": 16,
+      "block": {
+        "type": "minecraft:weighted_state_provider",
+        "entries": [
+          {
+            "weight": 5,
+            "data": {
+              "Name": "horn_coral"
+            }
+          },
+          {
+            "weight": 5,
+            "data": {
+              "Name": "fire_coral"
+            }
+          },
+          {
+            "weight": 5,
+            "data": {
+              "Name": "brain_coral"
+            }
+          },
+          {
+            "weight": 5,
+            "data": {
+              "Name": "tube_coral"
+            }
+          }
+        ]
+      },
+      "tags": "ravine",
+      "can_replace": "minecraft:water",
+      "can_place_on": {
+        "type": "minecraft:not",
+        "predicate": {
+          "type": "minecraft:matching_blocks",
+          "blocks": [
+            "minecraft:tube_coral",
+            "minecraft:horn_coral",
+            "minecraft:fire_coral",
+            "minecraft:brain_coral",
+            "minecraft:water"
+          ]
+        }
+      }
+    }
+  }
+}

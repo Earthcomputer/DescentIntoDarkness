@@ -1,0 +1,120 @@
+{
+  "nether": true,
+  "biome": "civex:blue_mush_forest",
+  "inherit": [
+    "civex:halfwater",
+    {
+      "name": "civex:mush_pack",
+      "merge": {
+        "lore": "bottom"
+      }
+    },
+    {
+      "name": "civex:high_gem_low_fuel",
+      "merge": {
+        "structures": "top",
+        "lore": "bottom"
+      }
+    }
+  ],
+  "lore": [
+    {
+      "text": "Difficulty: ☆☆☆",
+      "color": "yellow"
+    }
+  ],
+  "base_block": "minecraft:dirt",
+  "transparent_blocks": [
+    "minecraft:air",
+    "minecraft:wither_rose"
+  ],
+  "start_y": 210,
+  "painter_steps": [
+    {
+      "type": "descent_into_darkness:replace_floor",
+      "old": "minecraft:dirt",
+      "new": "minecraft:grass_block"
+    },
+    {
+      "type": "descent_into_darkness:replace_all",
+      "old": "minecraft:dirt",
+      "new": "minecraft:coarse_dirt",
+      "chance": 0.1
+    }
+  ],
+  "structures": {
+    "mpatch": {
+      "type": "descent_into_darkness:patch",
+      "edges": [
+        "floor"
+      ],
+      "chance": 0.1,
+      "spread_x": 16,
+      "spread_z": 16,
+      "can_place_on": [
+        "minecraft:grass_block"
+      ],
+      "block": "minecraft:short_grass"
+    },
+    "tree": {
+      "type": "descent_into_darkness:tree",
+      "edges": "floor",
+      "can_place_on": "minecraft:grass_block",
+      "dirt": "minecraft:mushroom_stem",
+      "leaf": "descent_into_darkness:blue_mushroom_block",
+      "log": "minecraft:mushroom_stem",
+      "chance": 0.05,
+      "hanging_vine": "descent_into_darkness:blue_mushroom_block",
+      "hanging_vine_chance": 0.5,
+      "height": 8,
+      "leaf_height": 4
+    },
+    "shroomlight": {
+      "type": "descent_into_darkness:patch",
+      "block": "minecraft:shroomlight",
+      "edges": [
+        "ceiling"
+      ],
+      "can_place_on": "descent_into_darkness:blue_mushroom_block",
+      "count": 6
+    },
+    "water": {
+      "type": "descent_into_darkness:vein",
+      "ore": "minecraft:water",
+      "edges": [
+        "floor"
+      ],
+      "chance": 0.01,
+      "can_replace": [
+        "minecraft:dirt",
+        "minecraft:grass_block"
+      ]
+    },
+    "vines": {
+      "type": "descent_into_darkness:vine_patch",
+      "vine": "minecraft:vine",
+      "edges": [
+        "ceiling"
+      ],
+      "chance": 0.05,
+      "height": [
+        8,
+        12
+      ]
+    },
+    "twistvines": {
+      "type": "descent_into_darkness:vine_patch",
+      "vine": "minecraft:twisting_vines_plant",
+      "chance": 0.03,
+      "edges": "floor",
+      "can_place_on": [
+        "minecraft:grass_block"
+      ],
+      "last_block": "minecraft:twisting_vines",
+      "height": [
+        5,
+        15
+      ]
+    }
+  }
+}

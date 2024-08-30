@@ -1,0 +1,110 @@
+{
+  "base_block": "dirt",
+  "painter_steps": [
+    {
+      "type": "descent_into_darkness:replace_floor",
+      "old": "minecraft:dirt",
+      "new": "minecraft:grass_block"
+    },
+    {
+      "type": "descent_into_darkness:replace_all",
+      "old": "minecraft:dirt",
+      "new": "minecraft:coarse_dirt",
+      "chance": 0.2
+    }
+  ],
+  "nether": true,
+  "inherit": [
+    "civex:mega_canyon",
+    {
+      "name": "civex:gem1",
+      "merge": {
+        "structures": "top"
+      }
+    }
+  ],
+  "biome": "civex:purple_abyss",
+  "structures": {
+    "waterfall": {
+      "type": "descent_into_darkness:waterfall",
+      "fluid_type": "water",
+      "edges": [
+        "ceiling",
+        "wall"
+      ],
+      "count": 0.09
+    },
+    "tree": {
+      "type": "descent_into_darkness:tree",
+      "edges": [
+        "floor",
+        "wall",
+        "ceiling"
+      ],
+      "dirt": {
+        "type": "minecraft:simple_state_provider",
+        "state": {
+          "Name": "minecraft:oak_log",
+          "Properties": {
+            "axis": "y"
+          }
+        }
+      },
+      "count": 5,
+      "can_place_on": [
+        "minecraft:grass_block",
+        "minecraft:dirt",
+        "minecraft:coarse_dirt"
+      ],
+      "height": [
+        5,
+        8
+      ],
+      "leaf_height": 4
+    },
+    "water": {
+      "type": "descent_into_darkness:vein",
+      "ore": "minecraft:water",
+      "edges": "floor",
+      "radius": 5,
+      "chance": 0.08,
+      "can_place_on": [
+        "minecraft:grass_block"
+      ]
+    },
+    "grass": {
+      "type": "descent_into_darkness:patch",
+      "block": "minecraft:short_grass",
+      "edges": [
+        "floor"
+      ],
+      "can_place_on": "minecraft:grass_block"
+    },
+    "grass2": {
+      "type": "descent_into_darkness:vine_patch",
+      "vine": {
+        "type": "minecraft:simple_state_provider",
+        "state": {
+          "Name": "minecraft:tall_grass",
+          "Properties": {
+            "half": "lower"
+          }
+        }
+      },
+      "edges": [
+        "floor"
+      ],
+      "last_block": {
+        "type": "minecraft:simple_state_provider",
+        "state": {
+          "Name": "minecraft:tall_grass",
+          "Properties": {
+            "half": "upper"
+          }
+        }
+      },
+      "can_place_on": "minecraft:grass_block",
+      "height": 2
+    }
+  }
+}

@@ -1,0 +1,231 @@
+{
+  "inherit": [
+    "civex:vanilla",
+    {
+      "name": "civex:ocean_pack",
+      "merge": {
+        "lore": "bottom"
+      }
+    },
+    {
+      "name": "civex:metal1",
+      "merge": {
+        "structures": "top",
+        "lore": "bottom"
+      }
+    }
+  ],
+  "display_name": {
+    "text": "Coral Cave",
+    "color": "dark_blue"
+  },
+  "lore": [
+    {
+      "text": "Difficulty: ☆☆☆",
+      "color": "yellow"
+    }
+  ],
+  "painter_steps": [
+    {
+      "type": "descent_into_darkness:replace_floor",
+      "old": "minecraft:andesite",
+      "new": "minecraft:sand"
+    },
+    {
+      "type": "descent_into_darkness:replace_all",
+      "old": "minecraft:andesite",
+      "new": "minecraft:polished_andesite",
+      "chance": 0.1
+    },
+    {
+      "type": "descent_into_darkness:replace_floor",
+      "old": "minecraft:sand",
+      "new": "minecraft:obsidian",
+      "chance": 0.7,
+      "tags": "ravine"
+    },
+    {
+      "type": "descent_into_darkness:replace_floor",
+      "old": "minecraft:sand",
+      "new": "minecraft:magma_block",
+      "chance": 1.0,
+      "tags": "ravine"
+    }
+  ],
+  "base_block": "andesite",
+  "air_block": "water",
+  "transparent_blocks": [
+    "minecraft:water",
+    "minecraft:kelp"
+  ],
+  "structures": {
+    "mpatch": {
+      "type": "descent_into_darkness:patch",
+      "edges": [
+        "floor"
+      ],
+      "chance": 0.1,
+      "spread_x": 16,
+      "spread_z": 16,
+      "can_place_on": [
+        "minecraft:sand"
+      ],
+      "block": "minecraft:seagrass"
+    },
+    "mpatch1": {
+      "type": "descent_into_darkness:patch",
+      "edges": [
+        "floor"
+      ],
+      "chance": 0.1,
+      "spread_x": 16,
+      "spread_z": 16,
+      "can_place_on": [
+        "minecraft:sand"
+      ],
+      "block": "minecraft:sea_pickle"
+    },
+    "kelp": {
+      "type": "descent_into_darkness:vine_patch",
+      "edges": [
+        "floor"
+      ],
+      "chance": 0.1,
+      "can_place_on": [
+        "minecraft:sand"
+      ],
+      "vine": "minecraft:kelp_plant",
+      "last_block": "minecraft:kelp"
+    },
+    "coral0": {
+      "type": "descent_into_darkness:glowstone",
+      "edges": [
+        "floor"
+      ],
+      "chance": 0.02,
+      "block": "minecraft:tube_coral_block",
+      "can_place_on": [
+        "minecraft:sand"
+      ],
+      "height": 12,
+      "density": 3000
+    },
+    "coral1": {
+      "type": "descent_into_darkness:glowstone",
+      "edges": [
+        "floor"
+      ],
+      "chance": 0.02,
+      "block": "minecraft:horn_coral_block",
+      "can_place_on": [
+        "minecraft:sand"
+      ],
+      "height": 12,
+      "density": 3000
+    },
+    "coral2": {
+      "type": "descent_into_darkness:glowstone",
+      "edges": [
+        "floor"
+      ],
+      "chance": 0.02,
+      "block": "minecraft:fire_coral_block",
+      "can_place_on": [
+        "minecraft:sand"
+      ],
+      "height": 12,
+      "density": 3000
+    },
+    "coral3": {
+      "type": "descent_into_darkness:glowstone",
+      "edges": [
+        "floor"
+      ],
+      "chance": 0.02,
+      "block": "minecraft:bubble_coral_block",
+      "can_place_on": [
+        "minecraft:sand"
+      ],
+      "height": 12,
+      "density": 3000
+    },
+    "coral4": {
+      "type": "descent_into_darkness:glowstone",
+      "edges": [
+        "floor"
+      ],
+      "chance": 0.02,
+      "block": "minecraft:brain_coral_block",
+      "can_place_on": [
+        "minecraft:sand"
+      ],
+      "height": 12,
+      "density": 3000
+    },
+    "coral5": {
+      "type": "descent_into_darkness:glowstone",
+      "edges": [
+        "floor"
+      ],
+      "chance": 0.2,
+      "block": "minecraft:tube_coral_block",
+      "can_place_on": [
+        "minecraft:sand"
+      ],
+      "height": 12,
+      "density": 1000
+    },
+    "coral6": {
+      "type": "descent_into_darkness:glowstone",
+      "edges": [
+        "floor"
+      ],
+      "chance": 0.2,
+      "block": "minecraft:horn_coral_block",
+      "can_place_on": [
+        "minecraft:sand"
+      ],
+      "height": 12,
+      "density": 1000
+    },
+    "coral7": {
+      "type": "descent_into_darkness:glowstone",
+      "edges": [
+        "floor"
+      ],
+      "chance": 0.2,
+      "block": "minecraft:fire_coral_block",
+      "can_place_on": [
+        "minecraft:sand"
+      ],
+      "height": 12,
+      "density": 1000
+    },
+    "coral8": {
+      "type": "descent_into_darkness:glowstone",
+      "edges": [
+        "floor"
+      ],
+      "chance": 0.2,
+      "block": "minecraft:bubble_coral_block",
+      "can_place_on": [
+        "minecraft:sand"
+      ],
+      "height": 12,
+      "density": 1000
+    },
+    "coral9": {
+      "type": "descent_into_darkness:glowstone",
+      "edges": [
+        "floor"
+      ],
+      "chance": 0.2,
+      "block": "minecraft:brain_coral_block",
+      "can_place_on": [
+        "minecraft:sand"
+      ],
+      "height": 12,
+      "density": 1000
+    }
+  }
+}

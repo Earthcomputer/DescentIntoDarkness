@@ -1,0 +1,141 @@
+{
+  "lore": [
+    {
+      "text": "Fuel ✪✪✪",
+      "color": "dark_red"
+    }
+  ],
+  "inherit": "civex:master_ore_table",
+  "structures": {
+    "coal_ore": {
+      "type": "descent_into_darkness:vein",
+      "edges": [
+        "floor",
+        "ceiling",
+        "wall"
+      ],
+      "chance": 0.05,
+      "ore": {
+        "type": "minecraft:weighted_state_provider",
+        "entries": [
+          {
+            "weight": 2,
+            "data": {
+              "Name": "minecraft:stone"
+            }
+          },
+          {
+            "weight": 3,
+            "data": {
+              "Name": "minecraft:coal_ore"
+            }
+          }
+        ]
+      },
+      "radius": 5
+    },
+    "redstone_ore": {
+      "type": "descent_into_darkness:vein",
+      "edges": [
+        "floor",
+        "ceiling",
+        "wall"
+      ],
+      "chance": 0.025,
+      "ore": {
+        "type": "minecraft:weighted_state_provider",
+        "entries": [
+          {
+            "weight": 3,
+            "data": {
+              "Name": "minecraft:stone"
+            }
+          },
+          {
+            "weight": 7,
+            "data": {
+              "Name": "minecraft:redstone_ore"
+            }
+          }
+        ]
+      },
+      "radius": 4
+    },
+    "infernum_ore": {
+      "type": "descent_into_darkness:vein",
+      "edges": [
+        "floor",
+        "ceiling",
+        "wall"
+      ],
+      "chance": 0.01,
+      "ore": "descent_into_darkness:infernum_ore",
+      "radius": 3
+    },
+    "redstone_ore2": {
+      "type": "descent_into_darkness:vein",
+      "edges": [
+        "floor",
+        "ceiling",
+        "wall"
+      ],
+      "chance": 0.008,
+      "ore": {
+        "type": "minecraft:weighted_state_provider",
+        "entries": [
+          {
+            "weight": 1,
+            "data": {
+              "Name": "minecraft:stone"
+            }
+          },
+          {
+            "weight": 4,
+            "data": {
+              "Name": "minecraft:redstone_ore"
+            }
+          }
+        ]
+      },
+      "radius": 4
+    },
+    "infernum_ore2": {
+      "type": "descent_into_darkness:vein",
+      "edges": [
+        "floor",
+        "ceiling",
+        "wall"
+      ],
+      "chance": 0.005,
+      "ore": {
+        "type": "minecraft:weighted_state_provider",
+        "entries": [
+          {
+            "weight": 3,
+            "data": {
+              "Name": "minecraft:stone"
+            }
+          },
+          {
+            "weight": 17,
+            "data": {
+              "Name": "descent_into_darkness:infernum_ore"
+            }
+          }
+        ]
+      },
+      "radius": 4
+    },
+    "emerald_ore": {
+      "type": "descent_into_darkness:vein",
+      "edges": [
+        "floor",
+        "ceiling",
+        "wall"
+      ],
+      "chance": 0.005,
+      "radius": 3,
+      "ore": "emerald_ore"
+    }
+  }
+}

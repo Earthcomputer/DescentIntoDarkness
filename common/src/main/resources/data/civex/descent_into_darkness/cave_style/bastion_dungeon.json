@@ -1,0 +1,266 @@
+{
+  "inherit": [
+    "civex:big_flat3"
+  ],
+  "transparent_blocks": [
+    "minecraft:air",
+    "minecraft:polished_blackstone_slab",
+    "minecraft:polished_blackstone_brick_slab",
+    "minecraft:cobweb"
+  ],
+  "biome": "civex:voidyssal",
+  "nether": true,
+  "base_block": "minecraft:blackstone",
+  "painter_steps": [
+    {
+      "type": "descent_into_darkness:replace_floor",
+      "old": "minecraft:blackstone",
+      "new": {
+        "type": "minecraft:weighted_state_provider",
+        "entries": [
+          {
+            "weight": 10,
+            "data": {
+              "Name": "minecraft:polished_blackstone_bricks"
+            }
+          },
+          {
+            "weight": 10,
+            "data": {
+              "Name": "minecraft:polished_blackstone"
+            }
+          },
+          {
+            "weight": 10,
+            "data": {
+              "Name": "minecraft:cracked_polished_blackstone_bricks"
+            }
+          },
+          {
+            "weight": 10,
+            "data": {
+              "Name": "minecraft:chiseled_polished_blackstone"
+            }
+          },
+          {
+            "weight": 1,
+            "data": {
+              "Name": "minecraft:lava"
+            }
+          }
+        ]
+      },
+      "chance": 1
+    },
+    {
+      "type": "descent_into_darkness:replace_ceiling",
+      "old": "minecraft:blackstone",
+      "new": {
+        "type": "minecraft:weighted_state_provider",
+        "entries": [
+          {
+            "weight": 1,
+            "data": {
+              "Name": "minecraft:polished_blackstone_bricks"
+            }
+          },
+          {
+            "weight": 1,
+            "data": {
+              "Name": "minecraft:polished_blackstone"
+            }
+          },
+          {
+            "weight": 1,
+            "data": {
+              "Name": "minecraft:cracked_polished_blackstone_bricks"
+            }
+          },
+          {
+            "weight": 1,
+            "data": {
+              "Name": "minecraft:chiseled_polished_blackstone"
+            }
+          }
+        ]
+      },
+      "chance": 1
+    },
+    {
+      "type": "descent_into_darkness:floor_layer",
+      "block": {
+        "type": "minecraft:weighted_state_provider",
+        "entries": [
+          {
+            "weight": 1,
+            "data": {
+              "Name": "minecraft:polished_blackstone_slab"
+            }
+          },
+          {
+            "weight": 1,
+            "data": {
+              "Name": "minecraft:polished_blackstone_brick_slab"
+            }
+          },
+          {
+            "weight": 10,
+            "data": {
+              "Name": "minecraft:air"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "descent_into_darkness:ceiling_layer",
+      "block": {
+        "type": "minecraft:weighted_state_provider",
+        "entries": [
+          {
+            "weight": 1,
+            "data": {
+              "Name": "minecraft:polished_blackstone_slab",
+              "Properties": {
+                "type": "descent_into_darkness:top"
+              }
+            }
+          },
+          {
+            "weight": 1,
+            "data": {
+              "Name": "minecraft:polished_blackstone_brick_slab",
+              "Properties": {
+                "type": "descent_into_darkness:top"
+              }
+            }
+          },
+          {
+            "weight": 10,
+            "data": {
+              "Name": "minecraft:air"
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "structures": {
+    "pillars": {
+      "block": {
+        "type": "minecraft:weighted_state_provider",
+        "entries": [
+          {
+            "weight": 3,
+            "data": {
+              "Name": "minecraft:polished_blackstone_bricks"
+            }
+          },
+          {
+            "weight": 3,
+            "data": {
+              "Name": "minecraft:polished_blackstone"
+            }
+          },
+          {
+            "weight": 2,
+            "data": {
+              "Name": "minecraft:cracked_polished_blackstone_bricks"
+            }
+          },
+          {
+            "weight": 2,
+            "data": {
+              "Name": "minecraft:chiseled_polished_blackstone"
+            }
+          },
+          {
+            "weight": 1,
+            "data": {
+              "Name": "minecraft:air"
+            }
+          }
+        ]
+      },
+      "type": "descent_into_darkness:stalagmite",
+      "floor_to_ceiling_search_range": 512,
+      "max_column_radius_to_cave_height_ratio": 1,
+      "has_stalactite": true,
+      "min_bluntness_for_wind": 0,
+      "min_radius_for_wind": 1,
+      "count": 0.1,
+      "edges": [
+        "ceiling",
+        "floor"
+      ],
+      "height_scale": [
+        10,
+        20
+      ],
+      "column_radius": 2,
+      "wind_speed": 0
+    },
+    "pillars2": {
+      "block": {
+        "type": "minecraft:weighted_state_provider",
+        "entries": [
+          {
+            "weight": 3,
+            "data": {
+              "Name": "minecraft:polished_blackstone_bricks"
+            }
+          },
+          {
+            "weight": 3,
+            "data": {
+              "Name": "minecraft:polished_blackstone"
+            }
+          },
+          {
+            "weight": 2,
+            "data": {
+              "Name": "minecraft:cracked_polished_blackstone_bricks"
+            }
+          },
+          {
+            "weight": 2,
+            "data": {
+              "Name": "minecraft:chiseled_polished_blackstone"
+            }
+          },
+          {
+            "weight": 1,
+            "data": {
+              "Name": "minecraft:air"
+            }
+          }
+        ]
+      },
+      "type": "descent_into_darkness:stalagmite",
+      "floor_to_ceiling_search_range": 512,
+      "max_column_radius_to_cave_height_ratio": 1,
+      "has_stalactite": true,
+      "min_bluntness_for_wind": 0,
+      "min_radius_for_wind": 1,
+      "count": 0.2,
+      "edges": [
+        "ceiling",
+        "floor"
+      ],
+      "height_scale": [
+        10,
+        20
+      ],
+      "column_radius": 2,
+      "wind_speed": 0
+    },
+    "lava": {
+      "type": "descent_into_darkness:waterfall",
+      "fluid_type": "lava",
+      "edges": [
+        "wall"
+      ],
+      "count": 0.04
+    }
+  }
+}

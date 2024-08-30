@@ -1,0 +1,252 @@
+{
+  "base_block": "minecraft:dirt",
+  "nether": true,
+  "biome": "civex:rose_jungle",
+  "inherit": [
+    "civex:mega_canyon"
+  ],
+  "transparent_blocks": [
+    "minecraft:air",
+    "minecraft:water",
+    "minecraft:lava",
+    "minecraft:dandelion",
+    "minecraft:poppy",
+    "minecraft:cornflower",
+    "minecraft:allium",
+    "minecraft:oxeye_daisy",
+    "minecraft:orange_tulip",
+    "minecraft:vine",
+    "minecraft:bamboo"
+  ],
+  "painter_steps": [
+    {
+      "type": "descent_into_darkness:replace_floor",
+      "old": "minecraft:dirt",
+      "new": "minecraft:grass_block"
+    },
+    {
+      "type": "descent_into_darkness:replace_all",
+      "old": "minecraft:dirt",
+      "new": "minecraft:coarse_dirt",
+      "chance": 0.5
+    }
+  ],
+  "structures": {
+    "jbig": {
+      "type": "descent_into_darkness:template",
+      "templates": [
+        {
+          "template": "descent_into_darkness:jungle1/jbig0",
+          "origin": [
+            5,
+            0,
+            6
+          ]
+        },
+        {
+          "template": "descent_into_darkness:jungle1/jbig1",
+          "origin": [
+            6,
+            0,
+            6
+          ]
+        }
+      ],
+      "edges": "floor",
+      "chance": 0.4,
+      "can_place_on": "minecraft:grass_block"
+    },
+    "jtrees": {
+      "type": "descent_into_darkness:template",
+      "templates": [
+        {
+          "template": "descent_into_darkness:jungle1/jtree0",
+          "origin": [
+            1,
+            0,
+            1
+          ]
+        },
+        {
+          "template": "descent_into_darkness:jungle1/jtree1",
+          "origin": [
+            2,
+            0,
+            2
+          ]
+        },
+        {
+          "template": "descent_into_darkness:jungle1/jtree2",
+          "origin": [
+            2,
+            0,
+            2
+          ]
+        },
+        {
+          "template": "descent_into_darkness:jungle1/jtree3",
+          "origin": [
+            2,
+            0,
+            2
+          ]
+        }
+      ],
+      "edges": "floor",
+      "chance": 0.6,
+      "can_place_on": "minecraft:grass_block"
+    },
+    "jbush": {
+      "type": "descent_into_darkness:template",
+      "templates": {
+        "template": "descent_into_darkness:jungle1/jbush",
+        "origin": [
+          1,
+          0,
+          1
+        ]
+      },
+      "edges": "floor",
+      "count": 0.4,
+      "can_place_on": "minecraft:grass_block"
+    },
+    "cocoa": {
+      "type": "descent_into_darkness:template",
+      "origin_side": "north",
+      "templates": [
+        "descent_into_darkness:jungle1/co1",
+        "descent_into_darkness:jungle1/co2",
+        "descent_into_darkness:jungle1/co3"
+      ],
+      "edges": "wall",
+      "chance": 0.4,
+      "can_place_on": "minecraft:jungle_log"
+    },
+    "ravine_leaves": {
+      "type": "descent_into_darkness:glowstone",
+      "block": {
+        "type": "minecraft:simple_state_provider",
+        "state": {
+          "Name": "minecraft:jungle_leaves",
+          "Properties": {
+            "persistent": true
+          }
+        }
+      },
+      "edges": "wall",
+      "can_place_on": [
+        "minecraft:dirt",
+        "minecraft:coarse_dirt"
+      ],
+      "chance": 0.05
+    },
+    "ravine_leaves_ceiling": {
+      "type": "descent_into_darkness:glowstone",
+      "block": {
+        "type": "minecraft:simple_state_provider",
+        "state": {
+          "Name": "minecraft:jungle_leaves",
+          "Properties": {
+            "persistent": true
+          }
+        }
+      },
+      "edges": "ceiling",
+      "can_place_on": [
+        "minecraft:dirt",
+        "minecraft:coarse_dirt"
+      ],
+      "chance": 0.7
+    },
+    "vine": {
+      "type": "descent_into_darkness:vine_patch",
+      "vine": {
+        "type": "minecraft:simple_state_provider",
+        "state": {
+          "Name": "minecraft:vine",
+          "Properties": {
+            "north": true
+          }
+        }
+      },
+      "chance": 0.2,
+      "edges": "ceiling",
+      "can_place_on": [
+        "minecraft:dirt",
+        "minecraft:coarse_dirt",
+        "minecraft:jungle_leaves"
+      ],
+      "height": [
+        10,
+        25
+      ]
+    },
+    "leaves": {
+      "type": "descent_into_darkness:patch",
+      "block": "minecraft:jungle_leaves",
+      "edges": "floor",
+      "chance": 0.3,
+      "can_place_on": "minecraft:grass_block"
+    },
+    "grass": {
+      "type": "descent_into_darkness:patch",
+      "block": "minecraft:short_grass",
+      "edges": "floor",
+      "chance": 0.23,
+      "can_place_on": "minecraft:grass_block"
+    },
+    "waterfall": {
+      "type": "descent_into_darkness:waterfall",
+      "fluid_type": "water",
+      "edges": "wall",
+      "chance": 0.05,
+      "can_place_on": [
+        "minecraft:dirt",
+        "minecraft:coarse_dirt"
+      ]
+    },
+    "bamboo2": {
+      "type": "descent_into_darkness:vine_patch",
+      "vine": {
+        "type": "minecraft:simple_state_provider",
+        "state": {
+          "Name": "minecraft:bamboo",
+          "Properties": {
+            "leaves": "small"
+          }
+        }
+      },
+      "chance": 0.2,
+      "edges": "floor",
+      "can_place_on": [
+        "minecraft:grass_block"
+      ],
+      "height": [
+        5,
+        10
+      ]
+    },
+    "bamboo0": {
+      "type": "descent_into_darkness:vine_patch",
+      "vine": {
+        "type": "minecraft:simple_state_provider",
+        "state": {
+          "Name": "minecraft:bamboo",
+          "Properties": {
+            "age": 1,
+            "leaves": "large"
+          }
+        }
+      },
+      "chance": 0.05,
+      "edges": "floor",
+      "can_place_on": [
+        "minecraft:grass_block"
+      ],
+      "height": [
+        10,
+        15
+      ]
+    }
+  }
+}

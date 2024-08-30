@@ -1,0 +1,111 @@
+{
+  "air_block": "minecraft:water",
+  "nether": true,
+  "biome": "civex:white_forest",
+  "inherit": [
+    {
+      "name": "civex:high_gem_low_metal",
+      "merge": {
+        "structures": "top",
+        "lore": "bottom"
+      }
+    },
+    "civex:cavernous"
+  ],
+  "display_name": "Chalked Abyss",
+  "lore": [
+    {
+      "text": "Difficulty: ☆☆☆☆",
+      "color": "yellow"
+    }
+  ],
+  "base_block": "descent_into_darkness:chalked_stem",
+  "structures": {
+    "hyphaeclump": {
+      "type": "descent_into_darkness:vein",
+      "radius": 4,
+      "ore": "descent_into_darkness:chalked_wart_block",
+      "edges": [
+        "floor",
+        "ceiling"
+      ],
+      "chance": 0.3,
+      "can_replace": [
+        "descent_into_darkness:chalked_stem"
+      ]
+    },
+    "hyphaeclump2": {
+      "type": "descent_into_darkness:vein",
+      "radius": 4,
+      "ore": "descent_into_darkness:chalked_wart_block",
+      "edges": [
+        "floor",
+        "ceiling"
+      ],
+      "can_place_on": [
+        "descent_into_darkness:chalked_wart_block"
+      ],
+      "can_replace": [
+        "minecraft:water",
+        "descent_into_darkness:chalked_wart_block"
+      ],
+      "count": 5
+    },
+    "hyphaeclump3": {
+      "type": "descent_into_darkness:vein",
+      "radius": 4,
+      "ore": "descent_into_darkness:chalked_wart_block",
+      "edges": [
+        "floor",
+        "ceiling"
+      ],
+      "can_place_on": [
+        "descent_into_darkness:chalked_wart_block"
+      ],
+      "can_replace": [
+        "minecraft:water",
+        "descent_into_darkness:chalked_wart_block"
+      ],
+      "count": 10
+    },
+    "hyphaeclump4": {
+      "type": "descent_into_darkness:vein",
+      "radius": 4,
+      "ore": "descent_into_darkness:chalked_wart_block",
+      "edges": [
+        "floor",
+        "ceiling"
+      ],
+      "can_place_on": [
+        "descent_into_darkness:chalked_wart_block"
+      ],
+      "can_replace": [
+        "minecraft:water",
+        "descent_into_darkness:chalked_wart_block"
+      ],
+      "count": 10
+    },
+    "kelp": {
+      "type": "descent_into_darkness:vine_patch",
+      "edges": [
+        "floor"
+      ],
+      "chance": 0.3,
+      "can_place_on": [
+        "descent_into_darkness:chalked_stem"
+      ],
+      "vine": "descent_into_darkness:white_vine"
+    },
+    "kelp2": {
+      "type": "descent_into_darkness:vine_patch",
+      "edges": [
+        "ceiling"
+      ],
+      "chance": 0.3,
+      "can_place_on": [
+        "descent_into_darkness:chalked_stem"
+      ],
+      "vine": "descent_into_darkness:white_vine"
+    }
+  }
+}

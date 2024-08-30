@@ -1,0 +1,120 @@
+{
+  "base_block": {
+    "Name": "minecraft:crimson_stem",
+    "Properties": {
+      "axis": "y"
+    }
+  },
+  "biome": "minecraft:crimson_forest",
+  "nether": true,
+  "inherit": [
+    {
+      "name": "civex:piglin_pack",
+      "merge": {
+        "lore": "bottom"
+      }
+    },
+    {
+      "name": "civex:high_gem_low_metal",
+      "merge": {
+        "structures": "top",
+        "lore": "bottom"
+      }
+    }
+  ],
+  "display_name": {
+    "text": "Crimson Roots",
+    "color": "dark_red"
+  },
+  "lore": [
+    {
+      "text": "Difficulty: ☆☆☆",
+      "color": "yellow"
+    }
+  ],
+  "painter_steps": [
+    {
+      "type": "descent_into_darkness:replace_all",
+      "old": {
+        "type": "descent_into_darkness:matches_state",
+        "name": "minecraft:crimson_stem",
+        "properties": {
+          "axis": "y"
+        }
+      },
+      "new": {
+        "type": "minecraft:simple_state_provider",
+        "state": {
+          "Name": "minecraft:crimson_stem",
+          "Properties": {
+            "axis": "x"
+          }
+        }
+      },
+      "chance": 0.33
+    },
+    {
+      "type": "descent_into_darkness:replace_all",
+      "old": {
+        "type": "descent_into_darkness:matches_state",
+        "name": "minecraft:crimson_stem",
+        "properties": {
+          "axis": "y"
+        }
+      },
+      "new": {
+        "type": "minecraft:simple_state_provider",
+        "state": {
+          "Name": "minecraft:crimson_stem",
+          "Properties": {
+            "axis": "z"
+          }
+        }
+      },
+      "chance": 0.5
+    },
+    {
+      "type": "descent_into_darkness:replace_floor",
+      "old": "minecraft:crimson_stem",
+      "new": "minecraft:crimson_nylium"
+    }
+  ],
+  "structures": {
+    "mpatch": {
+      "type": "descent_into_darkness:patch",
+      "edges": [
+        "floor"
+      ],
+      "chance": 0.6,
+      "spread_x": 16,
+      "spread_z": 16,
+      "can_place_on": [
+        "minecraft:crimson_nylium"
+      ],
+      "block": "minecraft:crimson_fungus"
+    },
+    "mpatch2": {
+      "type": "descent_into_darkness:patch",
+      "edges": [
+        "floor"
+      ],
+      "chance": 0.8,
+      "spread_x": 16,
+      "spread_z": 16,
+      "can_place_on": [
+        "minecraft:crimson_nylium"
+      ],
+      "block": "minecraft:crimson_roots"
+    },
+    "glowstone": {
+      "type": "descent_into_darkness:glowstone",
+      "edges": [
+        "ceiling"
+      ],
+      "block": "minecraft:stripped_crimson_hyphae",
+      "can_place_on": "minecraft:crimson_stem",
+      "height": 12,
+      "density": 1000
+    }
+  }
+}

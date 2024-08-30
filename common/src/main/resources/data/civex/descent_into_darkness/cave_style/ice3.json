@@ -1,0 +1,116 @@
+{
+  "inherit": [
+    "civex:vanilla",
+    {
+      "name": "civex:snow_pack",
+      "merge": {
+        "lore": "bottom"
+      }
+    },
+    {
+      "name": "civex:high_fuel_low_metal",
+      "merge": {
+        "structures": "top"
+      }
+    }
+  ],
+  "display_name": {
+    "text": "Ice Cave",
+    "color": "aqua"
+  },
+  "lore": [
+    {
+      "text": "Difficulty: ☆☆☆",
+      "color": "yellow"
+    }
+  ],
+  "nether": true,
+  "biome": "civex:ice_trees",
+  "structures": {
+    "bigicicles": {
+      "type": "descent_into_darkness:template",
+      "edges": [
+        "floor",
+        "ceiling"
+      ],
+      "chance": 0.5,
+      "can_place_on": [
+        "minecraft:packed_ice",
+        "minecraft:blue_ice"
+      ],
+      "templates": [
+        {
+          "template": "descent_into_darkness:ice1/iceb0",
+          "origin": [
+            2,
+            0,
+            3
+          ]
+        },
+        {
+          "template": "descent_into_darkness:ice1/iceb1",
+          "origin": [
+            2,
+            0,
+            1
+          ]
+        }
+      ]
+    },
+    "icepillar": {
+      "type": "descent_into_darkness:template",
+      "edges": [
+        "floor",
+        "ceiling"
+      ],
+      "chance": 0.09,
+      "can_place_on": [
+        "minecraft:packed_ice",
+        "minecraft:blue_ice"
+      ],
+      "can_replace": [
+        "minecraft:air",
+        "minecraft:ice",
+        "minecraft:packed_ice",
+        "minecraft:blue_ice",
+        "minecraft:stone"
+      ],
+      "templates": [
+        {
+          "template": "descent_into_darkness:ice1/icep1",
+          "origin": [
+            3,
+            0,
+            2
+          ]
+        }
+      ]
+    }
+  },
+  "base_block": "minecraft:stone",
+  "painter_steps": [
+    {
+      "type": "descent_into_darkness:replace_floor",
+      "old": "minecraft:stone",
+      "new": "minecraft:packed_ice"
+    },
+    {
+      "type": "descent_into_darkness:replace_all",
+      "old": "minecraft:stone",
+      "new": "minecraft:ice",
+      "chance": 0.6
+    },
+    {
+      "type": "descent_into_darkness:replace_all",
+      "old": "minecraft:stone",
+      "new": "minecraft:packed_ice",
+      "chance": 0.9
+    },
+    {
+      "type": "descent_into_darkness:replace_all",
+      "old": "minecraft:stone",
+      "new": "minecraft:blue_ice",
+      "chance": 1.0
+    }
+  ]
+}

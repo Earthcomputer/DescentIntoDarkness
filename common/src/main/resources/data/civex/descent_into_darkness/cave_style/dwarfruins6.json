@@ -1,0 +1,98 @@
+{
+  "base_block": "minecraft:end_stone",
+  "painter_steps": [
+    {
+      "type": "descent_into_darkness:replace_all",
+      "old": "minecraft:end_stone",
+      "new": "minecraft:obsidian",
+      "chance": 0.01
+    }
+  ],
+  "inherit": [
+    "civex:cavernous",
+    {
+      "name": "civex:high_metal_low_fuel",
+      "merge": {
+        "structures": "top"
+      }
+    }
+  ],
+  "structures": {
+    "crossbar": {
+      "chance": 0.1,
+      "type": "descent_into_darkness:vine_patch",
+      "vine": "minecraft:purpur_block",
+      "spread_x": 1,
+      "spread_y": 0,
+      "spread_z": 1,
+      "tries": 50,
+      "edges": "wall",
+      "height": 1000
+    },
+    "crossbar2": {
+      "chance": 0.3,
+      "type": "descent_into_darkness:vine_patch",
+      "vine": "minecraft:purpur_block",
+      "spread_x": 1,
+      "spread_y": 0,
+      "spread_z": 1,
+      "tries": 50,
+      "edges": "wall",
+      "can_place_on": "minecraft:purpur_block",
+      "height": 1000
+    },
+    "support": {
+      "chance": 0.3,
+      "type": "descent_into_darkness:vine_patch",
+      "vine": "minecraft:purpur_block",
+      "spread_x": 2,
+      "spread_y": 0,
+      "spread_z": 2,
+      "tries": 20,
+      "edges": "ceiling",
+      "can_place_on": "minecraft:purpur_block",
+      "height": 1000
+    },
+    "support2": {
+      "chance": 0.05,
+      "type": "descent_into_darkness:vine_patch",
+      "vine": "minecraft:purpur_block",
+      "spread_x": 2,
+      "spread_y": 0,
+      "spread_z": 2,
+      "tries": 30,
+      "edges": "floor",
+      "height": 1000
+    },
+    "cracked_brick": {
+      "type": "descent_into_darkness:vein",
+      "edges": [
+        "floor",
+        "wall",
+        "ceiling"
+      ],
+      "ore": "minecraft:purpur_pillar",
+      "radius": 3,
+      "can_place_on": "minecraft:purpur_block"
+    },
+    "chiseled_brick": {
+      "type": "descent_into_darkness:vein",
+      "edges": [
+        "floor"
+      ],
+      "ore": "minecraft:purpur_slab",
+      "radius": 3,
+      "can_place_on": "minecraft:purpur_block"
+    },
+    "broke_brick": {
+      "type": "descent_into_darkness:vein",
+      "edges": [
+        "floor",
+        "ceiling"
+      ],
+      "ore": "minecraft:air",
+      "radius": 3,
+      "can_place_on": "minecraft:purpur_block"
+    }
+  }
+}

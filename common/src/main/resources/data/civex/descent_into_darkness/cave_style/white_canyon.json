@@ -1,0 +1,83 @@
+{
+  "inherit": [
+    "civex:canyons"
+  ],
+  "biome": "civex:white_forest",
+  "nether": true,
+  "base_block": "minecraft:stone",
+  "painter_steps": [
+    {
+      "type": "descent_into_darkness:replace_all",
+      "old": "minecraft:stone",
+      "new": "descent_into_darkness:igneous_block"
+    }
+  ],
+  "start_y": 165,
+  "structures": {
+    "sphere": {
+      "type": "descent_into_darkness:vein",
+      "ore": "descent_into_darkness:igneous_block",
+      "radius": 20,
+      "count": 0.01,
+      "can_place_on": [
+        "minecraft:stone"
+      ]
+    },
+    "stags4": {
+      "block": "minecraft:dirt",
+      "type": "descent_into_darkness:stalagmite",
+      "floor_to_ceiling_search_range": 512,
+      "max_column_radius_to_cave_height_ratio": 1,
+      "has_stalactite": false,
+      "min_bluntness_for_wind": 0,
+      "min_radius_for_wind": 1,
+      "count": 10,
+      "can_place_on": "descent_into_darkness:igneous_block",
+      "column_radius": 4,
+      "wind_speed": [
+        0.5,
+        1
+      ]
+    },
+    "ustal": {
+      "type": "descent_into_darkness:patch",
+      "block": "descent_into_darkness:stalup",
+      "edges": [
+        "floor"
+      ],
+      "can_place_on": "descent_into_darkness:igneous_block",
+      "can_replace": "minecraft:air",
+      "count": 0.25
+    },
+    "ustal2": {
+      "type": "descent_into_darkness:patch",
+      "block": "descent_into_darkness:stalsup",
+      "edges": [
+        "floor"
+      ],
+      "can_place_on": "descent_into_darkness:igneous_block",
+      "can_replace": "minecraft:air",
+      "count": 0.25
+    },
+    "ustal3": {
+      "type": "descent_into_darkness:patch",
+      "block": "descent_into_darkness:staldown",
+      "edges": [
+        "ceiling"
+      ],
+      "can_place_on": "descent_into_darkness:igneous_block",
+      "can_replace": "minecraft:air",
+      "count": 0.25
+    },
+    "ustal4": {
+      "type": "descent_into_darkness:patch",
+      "block": "descent_into_darkness:stalsdown",
+      "edges": [
+        "ceiling"
+      ],
+      "can_place_on": "descent_into_darkness:igneous_block",
+      "can_replace": "minecraft:air",
+      "count": 0.25
+    }
+  }
+}

@@ -1,0 +1,80 @@
+{
+  "lore": [
+    {
+      "text": "Corrupted",
+      "color": "dark_purple"
+    }
+  ],
+  "spawn_entries": {
+    "plagued_boar": {
+      "mob": "descent_into_darkness:plagued_boar",
+      "single_mob_cost": 200,
+      "weight": 10,
+      "cooldown": 20,
+      "pack_cost": [
+        200,
+        800
+      ],
+      "distance": [
+        10,
+        20
+      ]
+    },
+    "plague_victim": {
+      "mob": "descent_into_darkness:plague_victim",
+      "single_mob_cost": 250,
+      "weight": 10,
+      "cooldown": 20,
+      "pack_cost": [
+        250,
+        1000
+      ],
+      "distance": [
+        15,
+        25
+      ]
+    },
+    "plague_wretch": {
+      "mob": "descent_into_darkness:plague_wretch",
+      "single_mob_cost": 400,
+      "weight": 20,
+      "cooldown": 20,
+      "pack_cost": [
+        400,
+        1200
+      ],
+      "distance": [
+        15,
+        25
+      ]
+    },
+    "plagued_guardsman": {
+      "mob": "descent_into_darkness:plagued_guardsman",
+      "single_mob_cost": 300,
+      "weight": 10,
+      "cooldown": 20,
+      "pack_cost": [
+        300,
+        1200
+      ],
+      "distance": [
+        15,
+        25
+      ]
+    },
+    "plague_doctor": {
+      "mob": "descent_into_darkness:plague_doctor",
+      "single_mob_cost": 500,
+      "weight": 10,
+      "cooldown": 20,
+      "pack_cost": [
+        500,
+        1000
+      ],
+      "distance": [
+        15,
+        25
+      ]
+    }
+  }
+}

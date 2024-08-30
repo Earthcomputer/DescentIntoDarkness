@@ -1,0 +1,115 @@
+{
+  "inherit": [
+    "civex:mega_canyon"
+  ],
+  "base_block": "minecraft:stone",
+  "structures": {
+    "stags4": {
+      "block": "minecraft:andesite",
+      "type": "descent_into_darkness:stalagmite",
+      "floor_to_ceiling_search_range": 512,
+      "max_column_radius_to_cave_height_ratio": 1,
+      "has_stalactite": true,
+      "min_bluntness_for_wind": 0,
+      "min_radius_for_wind": 1,
+      "count": 0.01,
+      "edges": "ceiling",
+      "height_scale": [
+        10,
+        20
+      ],
+      "column_radius": 15,
+      "wind_speed": [
+        0,
+        0.1
+      ]
+    },
+    "stags": {
+      "block": "minecraft:andesite",
+      "type": "descent_into_darkness:stalagmite",
+      "floor_to_ceiling_search_range": 100,
+      "max_column_radius_to_cave_height_ratio": 1,
+      "max_column_radius": 10,
+      "has_stalactite": true,
+      "min_bluntness_for_wind": 0,
+      "min_radius_for_wind": 1,
+      "count": 0.3,
+      "wind_speed": [
+        0,
+        1
+      ]
+    },
+    "stags2": {
+      "block": "minecraft:iron_ore",
+      "type": "descent_into_darkness:stalagmite",
+      "floor_to_ceiling_search_range": 100,
+      "max_column_radius_to_cave_height_ratio": 1,
+      "max_column_radius": 10,
+      "has_stalactite": true,
+      "min_bluntness_for_wind": 0,
+      "min_radius_for_wind": 1,
+      "count": 0.01,
+      "wind_speed": [
+        0,
+        1
+      ]
+    },
+    "stals": {
+      "type": "descent_into_darkness:template",
+      "count": 3,
+      "edges": [
+        "floor",
+        "ceiling"
+      ],
+      "can_place_on": [
+        "minecraft:stone",
+        "minecraft:cobblestone",
+        "minecraft:gravel",
+        "minecraft:mossy_cobblestone",
+        "minecraft:andesite"
+      ],
+      "templates": [
+        {
+          "template": "descent_into_darkness:scave1/stal0",
+          "origin": [
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "template": "descent_into_darkness:scave1/stal1",
+          "origin": [
+            1,
+            0,
+            1
+          ]
+        },
+        {
+          "template": "descent_into_darkness:scave1/stal2",
+          "origin": [
+            1,
+            0,
+            2
+          ]
+        },
+        {
+          "template": "descent_into_darkness:scave1/stal3",
+          "origin": [
+            1,
+            0,
+            2
+          ]
+        },
+        {
+          "template": "descent_into_darkness:scave1/stal4",
+          "origin": [
+            1,
+            0,
+            1
+          ]
+        }
+      ]
+    }
+  }
+}

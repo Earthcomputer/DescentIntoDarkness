@@ -1,0 +1,156 @@
+{
+  "base_block": "minecraft:blackstone",
+  "nether": true,
+  "biome": "minecraft:basalt_deltas",
+  "painter_steps": [
+    {
+      "type": "descent_into_darkness:replace_all",
+      "old": "minecraft:blackstone",
+      "new": "minecraft:polished_blackstone",
+      "chance": 0.2
+    },
+    {
+      "type": "descent_into_darkness:replace_all",
+      "old": "minecraft:blackstone",
+      "new": "minecraft:obsidian",
+      "chance": 0.05
+    }
+  ],
+  "inherit": [
+    "civex:cavernous",
+    {
+      "name": "civex:piglin_pack",
+      "merge": {
+        "lore": "bottom"
+      }
+    },
+    {
+      "name": "civex:metal1",
+      "merge": {
+        "structures": "top",
+        "lore": "bottom"
+      }
+    }
+  ],
+  "display_name": {
+    "text": "Bastion Ruins",
+    "color": "dark_gray"
+  },
+  "lore": [
+    {
+      "text": "Difficulty: ☆☆☆☆",
+      "color": "yellow"
+    }
+  ],
+  "structures": {
+    "crossbar": {
+      "chance": 0.1,
+      "type": "descent_into_darkness:vine_patch",
+      "vine": "minecraft:polished_blackstone_bricks",
+      "spread_x": 1,
+      "spread_y": 0,
+      "spread_z": 1,
+      "tries": 50,
+      "edges": "wall",
+      "height": 1000
+    },
+    "crossbar2": {
+      "chance": 0.3,
+      "type": "descent_into_darkness:vine_patch",
+      "vine": "minecraft:polished_blackstone_bricks",
+      "spread_x": 1,
+      "spread_y": 0,
+      "spread_z": 1,
+      "tries": 50,
+      "edges": "wall",
+      "can_place_on": "minecraft:polished_blackstone_bricks",
+      "height": 1000
+    },
+    "support": {
+      "chance": 0.3,
+      "type": "descent_into_darkness:vine_patch",
+      "vine": "minecraft:polished_blackstone_bricks",
+      "spread_x": 2,
+      "spread_y": 0,
+      "spread_z": 2,
+      "tries": 20,
+      "edges": "ceiling",
+      "can_place_on": "minecraft:polished_blackstone_bricks",
+      "height": 1000
+    },
+    "support2": {
+      "chance": 0.05,
+      "type": "descent_into_darkness:vine_patch",
+      "vine": "minecraft:polished_blackstone_bricks",
+      "spread_x": 2,
+      "spread_y": 0,
+      "spread_z": 2,
+      "tries": 30,
+      "edges": "floor",
+      "height": 1000
+    },
+    "cracked_brick": {
+      "type": "descent_into_darkness:vein",
+      "edges": [
+        "floor",
+        "wall",
+        "ceiling"
+      ],
+      "ore": "minecraft:cracked_polished_blackstone_bricks",
+      "radius": 3,
+      "can_place_on": "minecraft:polished_blackstone_bricks"
+    },
+    "chiseled_brick": {
+      "type": "descent_into_darkness:vein",
+      "edges": [
+        "floor",
+        "wall",
+        "ceiling"
+      ],
+      "ore": "minecraft:chiseled_polished_blackstone",
+      "radius": 3,
+      "can_place_on": "minecraft:polished_blackstone_bricks"
+    },
+    "broke_brick": {
+      "type": "descent_into_darkness:vein",
+      "edges": [
+        "floor",
+        "ceiling"
+      ],
+      "ore": "minecraft:air",
+      "radius": 3,
+      "can_place_on": "minecraft:polished_blackstone_bricks"
+    },
+    "crate": {
+      "count": 0.3,
+      "type": "descent_into_darkness:template",
+      "templates": [
+        "descent_into_darkness:crate/singlecrate"
+      ],
+      "edges": [
+        "floor"
+      ],
+      "can_place_on": [
+        "minecraft:polished_blackstone_bricks",
+        "minecraft:chiseled_polished_blackstone",
+        "minecraft:cracked_polished_blackstone_bricks"
+      ]
+    },
+    "basalt": {
+      "type": "descent_into_darkness:glowstone",
+      "edges": [
+        "ceiling"
+      ],
+      "block": "minecraft:basalt",
+      "count": 0.1
+    },
+    "lava": {
+      "type": "descent_into_darkness:waterfall",
+      "fluid_type": "lava",
+      "edges": [
+        "ceiling"
+      ],
+      "count": 0.1
+    }
+  }
+}

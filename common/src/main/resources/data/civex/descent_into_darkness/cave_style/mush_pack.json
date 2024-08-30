@@ -1,0 +1,103 @@
+{
+  "lore": [
+    {
+      "text": "Nature",
+      "color": "green"
+    }
+  ],
+  "spawn_entries": {
+    "shrider": {
+      "mob": "descent_into_darkness:shrider",
+      "single_mob_cost": 200,
+      "weight": 10,
+      "despawn_range": 200,
+      "y_size": 4,
+      "cooldown": 5,
+      "centered_spawn": true,
+      "can_spawn_on": "minecraft:mycelium",
+      "random_rotation": false,
+      "can_spawnin": [
+        "minecraft:red_mushroom",
+        "minecraft:brown_mushroom"
+      ],
+      "pack_cost": [
+        200,
+        1000
+      ],
+      "distance": [
+        20,
+        150
+      ]
+    },
+    "tallgi": {
+      "mob": "descent_into_darkness:tallgi",
+      "single_mob_cost": 140,
+      "weight": 10,
+      "cooldown": 20,
+      "pack_cost": [
+        140,
+        560
+      ],
+      "distance": [
+        15,
+        25
+      ]
+    },
+    "mushbulb": {
+      "mob": "descent_into_darkness:mushbulb",
+      "single_mob_cost": 300,
+      "weight": 10,
+      "cooldown": 20,
+      "pack_cost": [
+        300,
+        900
+      ],
+      "distance": [
+        15,
+        25
+      ]
+    },
+    "mushbulbr": {
+      "mob": "descent_into_darkness:mushbulbr",
+      "single_mob_cost": 300,
+      "weight": 10,
+      "cooldown": 20,
+      "pack_cost": [
+        300,
+        900
+      ],
+      "distance": [
+        15,
+        25
+      ]
+    },
+    "fungoid": {
+      "mob": "descent_into_darkness:fungoid",
+      "single_mob_cost": 200,
+      "weight": 10,
+      "cooldown": 20,
+      "pack_cost": [
+        200,
+        800
+      ],
+      "distance": [
+        15,
+        25
+      ]
+    },
+    "toadstool": {
+      "mob": "descent_into_darkness:toadstool",
+      "single_mob_cost": 100,
+      "weight": 10,
+      "cooldown": 10,
+      "pack_cost": [
+        100,
+        400
+      ],
+      "distance": [
+        15,
+        25
+      ]
+    }
+  }
+}

@@ -1,0 +1,100 @@
+{
+  "air_block": "minecraft:water",
+  "biome": "minecraft:swamp",
+  "inherit": [
+    "civex:vanilla",
+    {
+      "name": "civex:wooden_pack",
+      "merge": {
+        "lore": "bottom"
+      }
+    },
+    {
+      "name": "civex:fuel1",
+      "merge": {
+        "structures": "top",
+        "lore": "bottom"
+      }
+    }
+  ],
+  "base_block": "minecraft:dirt",
+  "painter_steps": [
+    {
+      "type": "descent_into_darkness:replace_all",
+      "old": "minecraft:dirt",
+      "new": "minecraft:coarse_dirt",
+      "chance": 0.1
+    },
+    {
+      "type": "descent_into_darkness:replace_floor",
+      "old": "minecraft:dirt",
+      "new": "minecraft:grass_block"
+    }
+  ],
+  "structures": {
+    "chorus": {
+      "type": "descent_into_darkness:chorus_plant",
+      "stem_block": "oak_wood",
+      "flower_block": "minecraft:oak_wood",
+      "flower_chance": 0,
+      "initial_flower_chance": 0,
+      "edges": [
+        "ceiling"
+      ],
+      "can_place_on": [
+        "minecraft:dirt",
+        "minecraft:coarse_dirt"
+      ],
+      "count": 0.8,
+      "radius": 25,
+      "branch_factor": 2,
+      "h_length": [
+        1,
+        5
+      ],
+      "v_length": [
+        1,
+        5
+      ],
+      "num_layers": 10
+    },
+    "grass": {
+      "type": "descent_into_darkness:vine_patch",
+      "vine": {
+        "type": "minecraft:simple_state_provider",
+        "state": {
+          "Name": "minecraft:tall_seagrass",
+          "Properties": {
+            "half": "lower"
+          }
+        }
+      },
+      "edges": "floor",
+      "last_block": {
+        "type": "minecraft:simple_state_provider",
+        "state": {
+          "Name": "minecraft:tall_seagrass",
+          "Properties": {
+            "half": "upper"
+          }
+        }
+      },
+      "can_place_on": [
+        "minecraft:grass_block"
+      ],
+      "height": 2
+    },
+    "grass2": {
+      "type": "descent_into_darkness:patch",
+      "block": "minecraft:seagrass",
+      "edges": "floor",
+      "can_place_on": [
+        "minecraft:grass_block"
+      ]
+    }
+  },
+  "size": [
+    7,
+    9
+  ]
+}

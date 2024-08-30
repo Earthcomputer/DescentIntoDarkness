@@ -1,0 +1,157 @@
+{
+  "inherit": [
+    {
+      "name": "civex:wooden_pack",
+      "merge": {
+        "lore": "bottom"
+      }
+    },
+    "civex:halfwater",
+    {
+      "name": "civex:fuel1",
+      "merge": {
+        "structures": "top",
+        "lore": "bottom"
+      }
+    }
+  ],
+  "display_name": {
+    "text": "Gala Forest",
+    "color": "dark_blue"
+  },
+  "lore": [
+    {
+      "text": "Difficulty: ☆☆☆☆",
+      "color": "yellow"
+    }
+  ],
+  "base_block": "descent_into_darkness:gala_wood",
+  "biome": "civex:gala_forest",
+  "nether": true,
+  "transparent_blocks": [
+    "minecraft:air"
+  ],
+  "painter_steps": [
+    {
+      "type": "descent_into_darkness:replace_floor",
+      "old": "descent_into_darkness:gala_wood",
+      "new": "minecraft:grass_block"
+    }
+  ],
+  "structures": {
+    "water": {
+      "type": "descent_into_darkness:vein",
+      "ore": "minecraft:water",
+      "edges": "floor",
+      "radius": 5,
+      "count": 0.04,
+      "can_replace": [
+        "minecraft:grass_block",
+        "minecraft:dirt",
+        "minecraft:coarse_dirt"
+      ]
+    },
+    "watervein": {
+      "type": "descent_into_darkness:vine_patch",
+      "vine": "minecraft:water",
+      "count": 0.3,
+      "edges": [
+        "floor"
+      ],
+      "can_place_on": [
+        "minecraft:water"
+      ],
+      "spread_x": 0,
+      "spread_z": 0,
+      "height": 100
+    },
+    "waterfall": {
+      "type": "descent_into_darkness:waterfall",
+      "fluid_type": "water",
+      "edges": [
+        "ceiling"
+      ],
+      "count": 0.001
+    },
+    "grass": {
+      "type": "descent_into_darkness:patch",
+      "block": "minecraft:short_grass",
+      "edges": [
+        "floor"
+      ],
+      "can_place_on": "minecraft:grass_block"
+    },
+    "grass2": {
+      "type": "descent_into_darkness:vine_patch",
+      "vine": {
+        "type": "minecraft:simple_state_provider",
+        "state": {
+          "Name": "minecraft:tall_grass",
+          "Properties": {
+            "half": "lower"
+          }
+        }
+      },
+      "edges": [
+        "floor"
+      ],
+      "last_block": {
+        "type": "minecraft:simple_state_provider",
+        "state": {
+          "Name": "minecraft:tall_grass",
+          "Properties": {
+            "half": "upper"
+          }
+        }
+      },
+      "can_place_on": "minecraft:grass_block",
+      "height": 2
+    },
+    "tree": {
+      "count": 2,
+      "type": "descent_into_darkness:tree",
+      "edges": "floor",
+      "can_place_on": "minecraft:grass_block",
+      "dirt": "descent_into_darkness:gala_wood",
+      "leaf": "minecraft:oak_leaves",
+      "log": "descent_into_darkness:gala_wood",
+      "hanging_vine": "minecraft:oak_leaves",
+      "hanging_vine_chance": 0.5,
+      "height": [
+        8,
+        16
+      ],
+      "leaf_height": 4
+    },
+    "vine": {
+      "type": "descent_into_darkness:vine_patch",
+      "vine": {
+        "type": "minecraft:simple_state_provider",
+        "state": {
+          "Name": "minecraft:vine",
+          "Properties": {
+            "north": true
+          }
+        }
+      },
+      "chance": 0.03,
+      "edges": "ceiling",
+      "height": [
+        5,
+        15
+      ]
+    },
+    "glowstone": {
+      "type": "descent_into_darkness:glowstone",
+      "edges": [
+        "ceiling"
+      ],
+      "chance": 0.01,
+      "block": "minecraft:shroomlight",
+      "height": 12,
+      "can_place_on": [
+        "descent_into_darkness:gala_wood"
+      ]
+    }
+  }
+}

@@ -1,0 +1,149 @@
+{
+  "lore": [
+    {
+      "text": "Fire",
+      "color": "red"
+    },
+    {
+      "text": "Underwater",
+      "color": "dark_blue"
+    }
+  ],
+  "spawn_entries": {
+    "blood_fish": {
+      "mob": "descent_into_darkness:blood_fish",
+      "single_mob_cost": 50,
+      "weight": 1,
+      "cooldown": 20,
+      "can_spawn_in": [
+        "minecraft:water",
+        "minecraft:kelp"
+      ],
+      "can_spawn_on": [
+        "minecraft:water",
+        "minecraft:kelp",
+        "minecraft:sand"
+      ],
+      "pack_cost": [
+        50,
+        250
+      ],
+      "distance": [
+        10,
+        20
+      ]
+    },
+    "crimson_spitter": {
+      "mob": "descent_into_darkness:crimson_spitter",
+      "single_mob_cost": 300,
+      "weight": 10,
+      "cooldown": 20,
+      "can_spawn_in": [
+        "minecraft:water",
+        "minecraft:kelp"
+      ],
+      "can_spawn_on": [
+        "minecraft:water",
+        "minecraft:kelp",
+        "minecraft:sand"
+      ],
+      "pack_cost": [
+        300,
+        800
+      ],
+      "distance": [
+        15,
+        25
+      ]
+    },
+    "blood_jellyfish": {
+      "mob": "descent_into_darkness:blood_jellyfish",
+      "single_mob_cost": 150,
+      "weight": 10,
+      "cooldown": 20,
+      "can_spawn_in": [
+        "minecraft:water",
+        "minecraft:kelp"
+      ],
+      "can_spawn_on": [
+        "minecraft:water",
+        "minecraft:kelp",
+        "minecraft:sand"
+      ],
+      "pack_cost": [
+        150,
+        800
+      ],
+      "distance": [
+        15,
+        25
+      ]
+    },
+    "blood_shark": {
+      "mob": "descent_into_darkness:blood_shark",
+      "single_mob_cost": 250,
+      "weight": 10,
+      "cooldown": 20,
+      "can_spawn_in": [
+        "minecraft:water",
+        "minecraft:kelp"
+      ],
+      "can_spawn_on": [
+        "minecraft:water",
+        "minecraft:kelp",
+        "minecraft:sand"
+      ],
+      "pack_cost": [
+        250,
+        900
+      ],
+      "distance": [
+        15,
+        25
+      ]
+    },
+    "push_pulsar": {
+      "mob": "descent_into_darkness:push_pulsar",
+      "single_mob_cost": 400,
+      "weight": 10,
+      "cooldown": 20,
+      "can_spawn_in": [
+        "minecraft:water",
+        "minecraft:kelp"
+      ],
+      "can_spawn_on": [
+        "minecraft:water"
+      ],
+      "pack_cost": [
+        400,
+        800
+      ],
+      "distance": [
+        15,
+        25
+      ]
+    },
+    "blowab": {
+      "mob": "descent_into_darkness:blowab",
+      "single_mob_cost": 200,
+      "weight": 10,
+      "cooldown": 20,
+      "can_spawn_in": [
+        "minecraft:water",
+        "minecraft:kelp"
+      ],
+      "can_spawn_on": [
+        "minecraft:crimson_hyphae",
+        "minecraft:nether_wart_block"
+      ],
+      "pack_cost": [
+        200,
+        800
+      ],
+      "distance": [
+        15,
+        25
+      ]
+    }
+  }
+}

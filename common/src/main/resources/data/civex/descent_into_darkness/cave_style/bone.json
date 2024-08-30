@@ -1,0 +1,133 @@
+{
+  "base_block": {
+    "Name": "minecraft:bone_block",
+    "Properties": {
+      "axis": "y"
+    }
+  },
+  "biome": "civex:white_forest",
+  "inherit": [
+    {
+      "name": "civex:high_fuel_low_gem",
+      "merge": {
+        "structures": "top",
+        "lore": "bottom"
+      }
+    }
+  ],
+  "painter_steps": [
+    {
+      "type": "descent_into_darkness:replace_floor",
+      "old": "minecraft:bone_block",
+      "new": "minecraft:white_concrete_powder",
+      "chance": 1.0
+    },
+    {
+      "type": "descent_into_darkness:replace_all",
+      "old": {
+        "type": "descent_into_darkness:matches_state",
+        "name": "minecraft:bone_block",
+        "properties": {
+          "axis": "y"
+        }
+      },
+      "new": {
+        "type": "minecraft:simple_state_provider",
+        "state": {
+          "Name": "minecraft:bone_block",
+          "Properties": {
+            "axis": "x"
+          }
+        }
+      },
+      "chance": 0.33
+    },
+    {
+      "type": "descent_into_darkness:replace_all",
+      "old": {
+        "type": "descent_into_darkness:matches_state",
+        "name": "minecraft:bone_block",
+        "properties": {
+          "axis": "y"
+        }
+      },
+      "new": {
+        "type": "minecraft:simple_state_provider",
+        "state": {
+          "Name": "minecraft:bone_block",
+          "Properties": {
+            "axis": "z"
+          }
+        }
+      },
+      "chance": 0.5
+    }
+  ],
+  "structures": {
+    "tree": {
+      "type": "descent_into_darkness:tree",
+      "edges": "floor",
+      "can_place_on": "minecraft:white_concrete_powder",
+      "dirt": "minecraft:mushroom_stem",
+      "log": "minecraft:mushroom_stem",
+      "height": [
+        4,
+        6
+      ],
+      "leaf_height": 4
+    },
+    "bone1": {
+      "type": "descent_into_darkness:vine_patch",
+      "vine": {
+        "type": "minecraft:simple_state_provider",
+        "state": {
+          "Name": "bone_block",
+          "Properties": {
+            "axis": "y"
+          }
+        }
+      },
+      "last_block": "minecraft:moving_piston",
+      "spread_x": 0,
+      "spread_z": 0,
+      "edges": "floor",
+      "can_place_on": "minecraft:white_concrete_powder",
+      "chance": 0.1,
+      "height": [
+        4,
+        5
+      ]
+    },
+    "bone2": {
+      "type": "descent_into_darkness:vine_patch",
+      "vine": {
+        "type": "minecraft:simple_state_provider",
+        "state": {
+          "Name": "bone_block",
+          "Properties": {
+            "axis": "y"
+          }
+        }
+      },
+      "can_place_on": "minecraft:moving_piston",
+      "edges": [
+        "wall"
+      ],
+      "spread_x": 0,
+      "spread_z": 0,
+      "count": 50,
+      "height": [
+        2,
+        3
+      ]
+    },
+    "grass": {
+      "type": "descent_into_darkness:patch",
+      "block": "minecraft:short_grass",
+      "can_place_on": "minecraft:white_concrete_powder",
+      "edges": [
+        "floor"
+      ]
+    }
+  }
+}

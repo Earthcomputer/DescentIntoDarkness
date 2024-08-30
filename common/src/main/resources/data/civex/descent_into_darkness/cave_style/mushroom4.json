@@ -1,0 +1,111 @@
+{
+  "base_block": "minecraft:dirt",
+  "nether": true,
+  "biome": "civex:yellowshroom",
+  "painter_steps": [
+    {
+      "type": "descent_into_darkness:replace_floor",
+      "old": "minecraft:dirt",
+      "new": "minecraft:mycelium"
+    },
+    {
+      "type": "descent_into_darkness:replace_all",
+      "old": "minecraft:dirt",
+      "new": "minecraft:coarse_dirt",
+      "chance": 0.1
+    }
+  ],
+  "inherit": [
+    "civex:mega_canyon",
+    "civex:mush_pack"
+  ],
+  "structures": {
+    "stags": {
+      "block": "minecraft:mushroom_stem",
+      "type": "descent_into_darkness:stalagmite",
+      "floor_to_ceiling_search_range": 100,
+      "max_column_radius_to_cave_height_ratio": 1,
+      "has_stalactite": true,
+      "min_bluntness_for_wind": 0,
+      "min_radius_for_wind": 1,
+      "count": 0.009,
+      "edges": [
+        "floor"
+      ],
+      "can_replace": [
+        "minecraft:air"
+      ],
+      "height_scale": 5,
+      "column_radius": 20,
+      "wind_speed": [
+        0,
+        0.3
+      ]
+    },
+    "mushvein": {
+      "type": "descent_into_darkness:vein",
+      "ore": "descent_into_darkness:yellow_mushroom_block",
+      "can_place_on": "mushroom_stem",
+      "edges": "wall",
+      "radius": 6,
+      "can_replace": [
+        "minecraft:air"
+      ],
+      "count": 0.06
+    },
+    "mottle": {
+      "type": "descent_into_darkness:vein",
+      "ore": "minecraft:air",
+      "can_place_on": "descent_into_darkness:yellow_mushroom_block",
+      "can_replace": "descent_into_darkness:yellow_mushroom_block",
+      "count": 1
+    },
+    "tree": {
+      "type": "descent_into_darkness:tree",
+      "edges": "floor",
+      "can_place_on": [
+        "minecraft:mycelium",
+        "minecraft:dirt",
+        "minecraft:coarse_dirt"
+      ],
+      "dirt": "minecraft:mushroom_stem",
+      "leaf": "descent_into_darkness:yellow_mushroom_block",
+      "log": "minecraft:mushroom_stem",
+      "hanging_vine": "descent_into_darkness:yellow_mushroom_block",
+      "hanging_vine_chance": 0.3,
+      "leaf_step_height": 6,
+      "count": 0.35,
+      "height": [
+        14,
+        18
+      ],
+      "leaf_height": 10
+    },
+    "mushroom_stem": {
+      "type": "descent_into_darkness:vein",
+      "edges": [
+        "ceiling"
+      ],
+      "count": 1,
+      "ore": {
+        "type": "minecraft:simple_state_provider",
+        "state": {
+          "Name": "minecraft:mushroom_stem",
+          "Properties": {
+            "down": false,
+            "east": false,
+            "north": false,
+            "south": false,
+            "up": false,
+            "west": false
+          }
+        }
+      },
+      "radius": 3,
+      "can_replace": [
+        "minecraft:dirt",
+        "minecraft:coarse_dirt"
+      ]
+    }
+  }
+}

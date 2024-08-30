@@ -1,0 +1,94 @@
+{
+  "lore": [
+    {
+      "text": "Nature",
+      "color": "green"
+    }
+  ],
+  "spawn_entries": {
+    "baby_bee": {
+      "mob": "descent_into_darkness:baby_bee",
+      "single_mob_cost": 150,
+      "weight": 5,
+      "cooldown": 20,
+      "pack_cost": [
+        150,
+        500
+      ],
+      "distance": [
+        10,
+        20
+      ]
+    },
+    "honey_slime2": {
+      "mob": "descent_into_darkness:honey_slime2",
+      "single_mob_cost": 150,
+      "weight": 5,
+      "cooldown": 20,
+      "pack_cost": [
+        150,
+        500
+      ],
+      "distance": [
+        10,
+        20
+      ]
+    },
+    "bee1": {
+      "mob": "descent_into_darkness:bee1",
+      "single_mob_cost": 200,
+      "weight": 10,
+      "cooldown": 20,
+      "pack_cost": [
+        200,
+        800
+      ],
+      "distance": [
+        15,
+        25
+      ]
+    },
+    "enraged_bee": {
+      "mob": "descent_into_darkness:enraged_bee",
+      "single_mob_cost": 400,
+      "weight": 10,
+      "cooldown": 20,
+      "pack_cost": [
+        400,
+        1200
+      ],
+      "distance": [
+        15,
+        25
+      ]
+    },
+    "honey_slime": {
+      "mob": "descent_into_darkness:honey_slime",
+      "single_mob_cost": 200,
+      "weight": 10,
+      "cooldown": 20,
+      "pack_cost": [
+        200,
+        600
+      ],
+      "distance": [
+        15,
+        25
+      ]
+    },
+    "queen_bee": {
+      "mob": "descent_into_darkness:queen_bee",
+      "single_mob_cost": 600,
+      "weight": 10,
+      "cooldown": 20,
+      "pack_cost": [
+        600,
+        1000
+      ],
+      "distance": [
+        15,
+        25
+      ]
+    }
+  }
+}

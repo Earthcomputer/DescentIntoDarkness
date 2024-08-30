@@ -1,0 +1,207 @@
+{
+  "biome": "civex:beehive",
+  "nether": true,
+  "start_y": 175,
+  "inherit": [
+    {
+      "name": "civex:bee_pack",
+      "merge": {
+        "lore": "bottom"
+      }
+    },
+    "civex:halfwater",
+    {
+      "name": "civex:high_metal_low_gem",
+      "merge": {
+        "structures": "top",
+        "lore": "bottom"
+      }
+    }
+  ],
+  "lore": [
+    {
+      "text": "Difficulty: ☆☆☆",
+      "color": "yellow"
+    }
+  ],
+  "base_block": "minecraft:honeycomb_block",
+  "air_block": [
+    {
+      "min": 0,
+      "max": 155,
+      "block": "water"
+    },
+    {
+      "min": 156,
+      "max": 255,
+      "block": "air"
+    }
+  ],
+  "painter_steps": [
+    {
+      "type": "descent_into_darkness:replace_floor",
+      "old": "minecraft:honeycomb_block",
+      "new": "descent_into_darkness:hardened_honeycomb_block"
+    },
+    {
+      "type": "descent_into_darkness:replace_all",
+      "old": "minecraft:honeycomb_block",
+      "new": "descent_into_darkness:hardened_honeycomb_block",
+      "chance": 0.05
+    }
+  ],
+  "structures": {
+    "stags": {
+      "block": "minecraft:honeycomb_block",
+      "type": "descent_into_darkness:stalagmite",
+      "floor_to_ceiling_search_range": 100,
+      "max_column_radius_to_cave_height_ratio": 1,
+      "has_stalactite": true,
+      "min_bluntness_for_wind": 0,
+      "min_radius_for_wind": 1,
+      "count": 0.007,
+      "edges": [
+        "floor",
+        "ceiling"
+      ],
+      "height_scale": [
+        5,
+        10
+      ],
+      "column_radius": [
+        5,
+        7
+      ],
+      "wind_speed": [
+        0.1,
+        0.2
+      ]
+    },
+    "honey2": {
+      "type": "descent_into_darkness:vein",
+      "ore": "minecraft:honey_block",
+      "radius": 5,
+      "chance": 0.05,
+      "edges": [
+        "wall",
+        "ceiling"
+      ]
+    },
+    "hive": {
+      "type": "descent_into_darkness:vein",
+      "ore": "minecraft:bee_nest",
+      "radius": 10,
+      "chance": 0.001,
+      "edges": [
+        "ceiling"
+      ],
+      "can_replace": [
+        "minecraft:air"
+      ]
+    },
+    "water": {
+      "type": "descent_into_darkness:waterfall",
+      "fluid_type": "water",
+      "edges": [
+        "ceiling"
+      ],
+      "chance": 0.005,
+      "can_place_on": [
+        "minecraft:honeycomb_block"
+      ]
+    },
+    "honey": {
+      "type": "descent_into_darkness:waterfall",
+      "fluid_type": "block",
+      "block": "honey_block",
+      "edges": [
+        "ceiling"
+      ],
+      "chance": 0.009,
+      "can_place_on": [
+        "minecraft:honeycomb_block"
+      ]
+    },
+    "octocombs": {
+      "type": "descent_into_darkness:patch",
+      "block": "descent_into_darkness:octocomb",
+      "edges": [
+        "floor"
+      ],
+      "count": 0.05,
+      "can_replace": [
+        "minecraft:air"
+      ],
+      "cannot_place_on": [
+        "minecraft:air",
+        "descent_into_darkness:octocomb",
+        "minecraft:water",
+        "minecraft:honey_block"
+      ]
+    },
+    "polyp": {
+      "type": "descent_into_darkness:patch",
+      "block": "descent_into_darkness:honey_polyp",
+      "edges": [
+        "floor"
+      ],
+      "count": 0.15,
+      "spread_x": 32,
+      "spread_z": 32,
+      "can_replace": [
+        {
+          "type": "descent_into_darkness:matches_state",
+          "name": "minecraft:water",
+          "properties": {
+            "level": 0
+          }
+        }
+      ],
+      "can_place_on": [
+        "descent_into_darkness:hardened_honeycomb_block"
+      ]
+    },
+    "coral6": {
+      "type": "descent_into_darkness:glowstone",
+      "edges": [
+        "floor"
+      ],
+      "count": 2,
+      "block": "minecraft:horn_coral_block",
+      "can_replace": [
+        {
+          "type": "descent_into_darkness:matches_state",
+          "name": "minecraft:water",
+          "properties": {
+            "level": 0
+          }
+        }
+      ],
+      "can_place_on": "minecraft:honeycomb_block",
+      "height": 12,
+      "density": 1000
+    },
+    "polyp2": {
+      "type": "descent_into_darkness:patch",
+      "block": "minecraft:horn_coral",
+      "edges": [
+        "floor"
+      ],
+      "count": 0.15,
+      "spread_x": 32,
+      "spread_z": 32,
+      "can_replace": [
+        {
+          "type": "descent_into_darkness:matches_state",
+          "name": "minecraft:water",
+          "properties": {
+            "level": 0
+          }
+        }
+      ],
+      "can_place_on": [
+        "descent_into_darkness:hardened_honeycomb_block"
+      ]
+    }
+  }
+}

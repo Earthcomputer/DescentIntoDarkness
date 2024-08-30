@@ -1,0 +1,69 @@
+{
+  "inherit": [
+    "civex:vanilla"
+  ],
+  "base_block": "minecraft:wet_sponge",
+  "air_block": "minecraft:water",
+  "biome": "civex:white_forest",
+  "painter_steps": [
+    {
+      "type": "descent_into_darkness:replace_floor",
+      "old": "minecraft:wet_sponge",
+      "new": "minecraft:yellow_concrete_powder"
+    },
+    {
+      "type": "descent_into_darkness:replace_all",
+      "old": "minecraft:wet_sponge",
+      "new": "minecraft:yellow_concrete",
+      "chance": 0.5
+    }
+  ],
+  "structures": {
+    "coral2": {
+      "type": "descent_into_darkness:glowstone",
+      "block": {
+        "type": "minecraft:weighted_state_provider",
+        "entries": [
+          {
+            "weight": 1,
+            "data": {
+              "Name": "horn_coral_block"
+            }
+          }
+        ]
+      },
+      "edges": [
+        "floor"
+      ],
+      "chance": 0.1,
+      "density": 3000
+    },
+    "coral": {
+      "type": "descent_into_darkness:patch",
+      "block": {
+        "type": "minecraft:weighted_state_provider",
+        "entries": [
+          {
+            "weight": 1,
+            "data": {
+              "Name": "horn_coral_fan"
+            }
+          },
+          {
+            "weight": 1,
+            "data": {
+              "Name": "horn_coral"
+            }
+          }
+        ]
+      },
+      "edges": [
+        "floor"
+      ],
+      "chance": 0.5,
+      "can_place_on": [
+        "minecraft:yellow_concrete_powder"
+      ]
+    }
+  }
+}

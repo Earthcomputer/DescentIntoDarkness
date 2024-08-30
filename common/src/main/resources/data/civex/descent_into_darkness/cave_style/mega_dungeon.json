@@ -1,0 +1,830 @@
+{
+  "inherit": [
+    "civex:bign_flatn_tall2"
+  ],
+  "transparent_blocks": [
+    "minecraft:air",
+    "minecraft:cobblestone_slab",
+    "minecraft:mossy_cobblestone_slab",
+    "minecraft:cobweb"
+  ],
+  "biome": "civex:voidyssal",
+  "start_y": 132,
+  "nether": true,
+  "base_block": "minecraft:cobblestone",
+  "air_block": [
+    {
+      "min": 0,
+      "max": 64,
+      "block": "air"
+    },
+    {
+      "min": 65,
+      "max": 65,
+      "block": {
+        "type": "minecraft:weighted_state_provider",
+        "entries": [
+          {
+            "weight": 1,
+            "data": {
+              "Name": "minecraft:cobblestone_slab",
+              "Properties": {
+                "type": "descent_into_darkness:top"
+              }
+            }
+          },
+          {
+            "weight": 1,
+            "data": {
+              "Name": "minecraft:mossy_cobblestone_slab",
+              "Properties": {
+                "type": "descent_into_darkness:top"
+              }
+            }
+          },
+          {
+            "weight": 10,
+            "data": {
+              "Name": "minecraft:air"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "min": 66,
+      "max": 67,
+      "block": "minecraft:cobblestone"
+    },
+    {
+      "min": 68,
+      "max": 68,
+      "block": {
+        "type": "minecraft:weighted_state_provider",
+        "entries": [
+          {
+            "weight": 1,
+            "data": {
+              "Name": "minecraft:cobblestone_slab"
+            }
+          },
+          {
+            "weight": 1,
+            "data": {
+              "Name": "minecraft:mossy_cobblestone_slab"
+            }
+          },
+          {
+            "weight": 10,
+            "data": {
+              "Name": "air"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "min": 69,
+      "max": 80,
+      "block": "air"
+    },
+    {
+      "min": 81,
+      "max": 81,
+      "block": {
+        "type": "minecraft:weighted_state_provider",
+        "entries": [
+          {
+            "weight": 1,
+            "data": {
+              "Name": "minecraft:cobblestone_slab",
+              "Properties": {
+                "type": "descent_into_darkness:top"
+              }
+            }
+          },
+          {
+            "weight": 1,
+            "data": {
+              "Name": "minecraft:mossy_cobblestone_slab",
+              "Properties": {
+                "type": "descent_into_darkness:top"
+              }
+            }
+          },
+          {
+            "weight": 10,
+            "data": {
+              "Name": "air"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "min": 82,
+      "max": 83,
+      "block": "minecraft:cobblestone"
+    },
+    {
+      "min": 84,
+      "max": 84,
+      "block": {
+        "type": "minecraft:weighted_state_provider",
+        "entries": [
+          {
+            "weight": 1,
+            "data": {
+              "Name": "minecraft:cobblestone_slab"
+            }
+          },
+          {
+            "weight": 1,
+            "data": {
+              "Name": "minecraft:mossy_cobblestone_slab"
+            }
+          },
+          {
+            "weight": 10,
+            "data": {
+              "Name": "air"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "min": 85,
+      "max": 96,
+      "block": "air"
+    },
+    {
+      "min": 97,
+      "max": 97,
+      "block": {
+        "type": "minecraft:weighted_state_provider",
+        "entries": [
+          {
+            "weight": 1,
+            "data": {
+              "Name": "minecraft:cobblestone_slab",
+              "Properties": {
+                "type": "descent_into_darkness:top"
+              }
+            }
+          },
+          {
+            "weight": 1,
+            "data": {
+              "Name": "minecraft:mossy_cobblestone_slab",
+              "Properties": {
+                "type": "descent_into_darkness:top"
+              }
+            }
+          },
+          {
+            "weight": 10,
+            "data": {
+              "Name": "air"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "min": 98,
+      "max": 99,
+      "block": "minecraft:cobblestone"
+    },
+    {
+      "min": 100,
+      "max": 100,
+      "block": {
+        "type": "minecraft:weighted_state_provider",
+        "entries": [
+          {
+            "weight": 1,
+            "data": {
+              "Name": "minecraft:cobblestone_slab"
+            }
+          },
+          {
+            "weight": 1,
+            "data": {
+              "Name": "minecraft:mossy_cobblestone_slab"
+            }
+          },
+          {
+            "weight": 10,
+            "data": {
+              "Name": "air"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "min": 101,
+      "max": 112,
+      "block": "air"
+    },
+    {
+      "min": 113,
+      "max": 113,
+      "block": {
+        "type": "minecraft:weighted_state_provider",
+        "entries": [
+          {
+            "weight": 1,
+            "data": {
+              "Name": "minecraft:cobblestone_slab",
+              "Properties": {
+                "type": "descent_into_darkness:top"
+              }
+            }
+          },
+          {
+            "weight": 1,
+            "data": {
+              "Name": "minecraft:mossy_cobblestone_slab",
+              "Properties": {
+                "type": "descent_into_darkness:top"
+              }
+            }
+          },
+          {
+            "weight": 10,
+            "data": {
+              "Name": "air"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "min": 114,
+      "max": 115,
+      "block": "minecraft:cobblestone"
+    },
+    {
+      "min": 116,
+      "max": 116,
+      "block": {
+        "type": "minecraft:weighted_state_provider",
+        "entries": [
+          {
+            "weight": 1,
+            "data": {
+              "Name": "minecraft:cobblestone_slab"
+            }
+          },
+          {
+            "weight": 1,
+            "data": {
+              "Name": "minecraft:mossy_cobblestone_slab"
+            }
+          },
+          {
+            "weight": 10,
+            "data": {
+              "Name": "air"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "min": 117,
+      "max": 128,
+      "block": "air"
+    },
+    {
+      "min": 129,
+      "max": 129,
+      "block": {
+        "type": "minecraft:weighted_state_provider",
+        "entries": [
+          {
+            "weight": 1,
+            "data": {
+              "Name": "minecraft:cobblestone_slab",
+              "Properties": {
+                "type": "descent_into_darkness:top"
+              }
+            }
+          },
+          {
+            "weight": 1,
+            "data": {
+              "Name": "minecraft:mossy_cobblestone_slab",
+              "Properties": {
+                "type": "descent_into_darkness:top"
+              }
+            }
+          },
+          {
+            "weight": 10,
+            "data": {
+              "Name": "air"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "min": 130,
+      "max": 131,
+      "block": "minecraft:cobblestone"
+    },
+    {
+      "min": 132,
+      "max": 132,
+      "block": {
+        "type": "minecraft:weighted_state_provider",
+        "entries": [
+          {
+            "weight": 1,
+            "data": {
+              "Name": "minecraft:cobblestone_slab"
+            }
+          },
+          {
+            "weight": 1,
+            "data": {
+              "Name": "minecraft:mossy_cobblestone_slab"
+            }
+          },
+          {
+            "weight": 10,
+            "data": {
+              "Name": "air"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "min": 133,
+      "max": 144,
+      "block": "air"
+    },
+    {
+      "min": 145,
+      "max": 145,
+      "block": {
+        "type": "minecraft:weighted_state_provider",
+        "entries": [
+          {
+            "weight": 1,
+            "data": {
+              "Name": "minecraft:cobblestone_slab",
+              "Properties": {
+                "type": "descent_into_darkness:top"
+              }
+            }
+          },
+          {
+            "weight": 1,
+            "data": {
+              "Name": "minecraft:mossy_cobblestone_slab",
+              "Properties": {
+                "type": "descent_into_darkness:top"
+              }
+            }
+          },
+          {
+            "weight": 10,
+            "data": {
+              "Name": "air"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "min": 146,
+      "max": 147,
+      "block": "minecraft:cobblestone"
+    },
+    {
+      "min": 148,
+      "max": 148,
+      "block": {
+        "type": "minecraft:weighted_state_provider",
+        "entries": [
+          {
+            "weight": 1,
+            "data": {
+              "Name": "minecraft:cobblestone_slab"
+            }
+          },
+          {
+            "weight": 1,
+            "data": {
+              "Name": "minecraft:mossy_cobblestone_slab"
+            }
+          },
+          {
+            "weight": 10,
+            "data": {
+              "Name": "air"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "min": 149,
+      "max": 160,
+      "block": "air"
+    },
+    {
+      "min": 161,
+      "max": 161,
+      "block": {
+        "type": "minecraft:weighted_state_provider",
+        "entries": [
+          {
+            "weight": 1,
+            "data": {
+              "Name": "minecraft:cobblestone_slab",
+              "Properties": {
+                "type": "descent_into_darkness:top"
+              }
+            }
+          },
+          {
+            "weight": 1,
+            "data": {
+              "Name": "minecraft:mossy_cobblestone_slab",
+              "Properties": {
+                "type": "descent_into_darkness:top"
+              }
+            }
+          },
+          {
+            "weight": 10,
+            "data": {
+              "Name": "air"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "min": 162,
+      "max": 163,
+      "block": "minecraft:cobblestone"
+    },
+    {
+      "min": 164,
+      "max": 164,
+      "block": {
+        "type": "minecraft:weighted_state_provider",
+        "entries": [
+          {
+            "weight": 1,
+            "data": {
+              "Name": "minecraft:cobblestone_slab"
+            }
+          },
+          {
+            "weight": 1,
+            "data": {
+              "Name": "minecraft:mossy_cobblestone_slab"
+            }
+          },
+          {
+            "weight": 10,
+            "data": {
+              "Name": "air"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "min": 165,
+      "max": 176,
+      "block": "air"
+    },
+    {
+      "min": 177,
+      "max": 177,
+      "block": {
+        "type": "minecraft:weighted_state_provider",
+        "entries": [
+          {
+            "weight": 1,
+            "data": {
+              "Name": "minecraft:cobblestone_slab",
+              "Properties": {
+                "type": "descent_into_darkness:top"
+              }
+            }
+          },
+          {
+            "weight": 1,
+            "data": {
+              "Name": "minecraft:mossy_cobblestone_slab",
+              "Properties": {
+                "type": "descent_into_darkness:top"
+              }
+            }
+          },
+          {
+            "weight": 10,
+            "data": {
+              "Name": "air"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "min": 178,
+      "max": 179,
+      "block": "minecraft:cobblestone"
+    },
+    {
+      "min": 180,
+      "max": 180,
+      "block": {
+        "type": "minecraft:weighted_state_provider",
+        "entries": [
+          {
+            "weight": 1,
+            "data": {
+              "Name": "minecraft:cobblestone_slab"
+            }
+          },
+          {
+            "weight": 1,
+            "data": {
+              "Name": "minecraft:mossy_cobblestone_slab"
+            }
+          },
+          {
+            "weight": 10,
+            "data": {
+              "Name": "air"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "min": 181,
+      "max": 192,
+      "block": "air"
+    },
+    {
+      "min": 193,
+      "max": 193,
+      "block": {
+        "type": "minecraft:weighted_state_provider",
+        "entries": [
+          {
+            "weight": 1,
+            "data": {
+              "Name": "minecraft:cobblestone_slab",
+              "Properties": {
+                "type": "descent_into_darkness:top"
+              }
+            }
+          },
+          {
+            "weight": 1,
+            "data": {
+              "Name": "minecraft:mossy_cobblestone_slab",
+              "Properties": {
+                "type": "descent_into_darkness:top"
+              }
+            }
+          },
+          {
+            "weight": 10,
+            "data": {
+              "Name": "air"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "min": 194,
+      "max": 195,
+      "block": "minecraft:cobblestone"
+    },
+    {
+      "min": 196,
+      "max": 196,
+      "block": {
+        "type": "minecraft:weighted_state_provider",
+        "entries": [
+          {
+            "weight": 1,
+            "data": {
+              "Name": "minecraft:cobblestone_slab"
+            }
+          },
+          {
+            "weight": 1,
+            "data": {
+              "Name": "minecraft:mossy_cobblestone_slab"
+            }
+          },
+          {
+            "weight": 10,
+            "data": {
+              "Name": "air"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "min": 197,
+      "max": 255,
+      "block": "air"
+    }
+  ],
+  "painter_steps": [
+    {
+      "type": "descent_into_darkness:replace_all",
+      "old": "minecraft:cobblestone",
+      "new": "minecraft:mossy_cobblestone",
+      "chance": 0.5
+    },
+    {
+      "type": "descent_into_darkness:floor_layer",
+      "block": {
+        "type": "minecraft:weighted_state_provider",
+        "entries": [
+          {
+            "weight": 1,
+            "data": {
+              "Name": "minecraft:cobblestone_slab"
+            }
+          },
+          {
+            "weight": 1,
+            "data": {
+              "Name": "minecraft:mossy_cobblestone_slab"
+            }
+          },
+          {
+            "weight": 10,
+            "data": {
+              "Name": "minecraft:air"
+            }
+          }
+        ]
+      },
+      "can_place_on": [
+        "minecraft:cobblestone",
+        "minecraft:mossy_cobblestone"
+      ]
+    },
+    {
+      "type": "descent_into_darkness:ceiling_layer",
+      "block": {
+        "type": "minecraft:weighted_state_provider",
+        "entries": [
+          {
+            "weight": 1,
+            "data": {
+              "Name": "minecraft:cobblestone_slab",
+              "Properties": {
+                "type": "descent_into_darkness:top"
+              }
+            }
+          },
+          {
+            "weight": 1,
+            "data": {
+              "Name": "minecraft:mossy_cobblestone_slab",
+              "Properties": {
+                "type": "descent_into_darkness:top"
+              }
+            }
+          },
+          {
+            "weight": 10,
+            "data": {
+              "Name": "minecraft:air"
+            }
+          }
+        ]
+      },
+      "can_place_on": [
+        "minecraft:cobblestone",
+        "minecraft:mossy_cobblestone"
+      ]
+    }
+  ],
+  "structures": {
+    "pillars": {
+      "block": {
+        "type": "minecraft:weighted_state_provider",
+        "entries": [
+          {
+            "weight": 5,
+            "data": {
+              "Name": "minecraft:cobblestone"
+            }
+          },
+          {
+            "weight": 5,
+            "data": {
+              "Name": "minecraft:mossy_cobblestone"
+            }
+          },
+          {
+            "weight": 1,
+            "data": {
+              "Name": "minecraft:air"
+            }
+          }
+        ]
+      },
+      "type": "descent_into_darkness:stalagmite",
+      "floor_to_ceiling_search_range": 512,
+      "max_column_radius_to_cave_height_ratio": 1,
+      "has_stalactite": true,
+      "min_bluntness_for_wind": 0,
+      "min_radius_for_wind": 1,
+      "count": 0.2,
+      "edges": [
+        "ceiling",
+        "floor"
+      ],
+      "height_scale": [
+        10,
+        20
+      ],
+      "column_radius": 2,
+      "wind_speed": 0
+    },
+    "cobwebs": {
+      "type": "descent_into_darkness:patch",
+      "edges": [
+        "ceiling"
+      ],
+      "block": "minecraft:cobweb",
+      "spread_x": 32,
+      "spread_z": 32,
+      "count": 0.3
+    },
+    "glowstone": {
+      "type": "descent_into_darkness:glowstone",
+      "edges": [
+        "ceiling"
+      ],
+      "chance": 0.02,
+      "block": "minecraft:cobweb",
+      "height": 12
+    },
+    "glowstone2": {
+      "type": "descent_into_darkness:glowstone",
+      "edges": [
+        "floor"
+      ],
+      "chance": 0.004,
+      "density": 2000,
+      "block": "minecraft:cobweb",
+      "height": 12
+    },
+    "chains": {
+      "type": "descent_into_darkness:vine_patch",
+      "vine": {
+        "type": "minecraft:simple_state_provider",
+        "state": {
+          "Name": "minecraft:chain",
+          "Properties": {
+            "axis": "y"
+          }
+        }
+      },
+      "last_block": {
+        "type": "minecraft:simple_state_provider",
+        "state": {
+          "Name": "minecraft:lantern",
+          "Properties": {
+            "hanging": true
+          }
+        }
+      },
+      "spread_x": 32,
+      "spread_z": 32,
+      "chance": 0.002,
+      "edges": [
+        "ceiling"
+      ],
+      "height": [
+        4,
+        7
+      ]
+    }
+  }
+}

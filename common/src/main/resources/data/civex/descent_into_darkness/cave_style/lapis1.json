@@ -1,0 +1,187 @@
+{
+  "biome": "civex:lapis",
+  "base_block": "minecraft:stone",
+  "inherit": [
+    "civex:vanilla",
+    "civex:master_ore_table",
+    {
+      "name": "civex:slime_pack",
+      "merge": {
+        "lore": "bottom"
+      }
+    }
+  ],
+  "display_name": {
+    "text": "Lapis Cave",
+    "color": "dark_blue"
+  },
+  "lore": [
+    {
+      "text": "Lapis",
+      "color": "dark_blue"
+    },
+    {
+      "text": "Difficulty: ☆☆☆",
+      "color": "yellow"
+    }
+  ],
+  "painter_steps": [
+    {
+      "type": "descent_into_darkness:replace_all",
+      "old": "minecraft:stone",
+      "new": "minecraft:andesite",
+      "chance": 0.2
+    }
+  ],
+  "structures": {
+    "grass2": {
+      "type": "descent_into_darkness:vein",
+      "ore": "minecraft:grass_block",
+      "edges": "floor",
+      "chance": 0.005,
+      "radius": 6,
+      "can_replace": [
+        "minecraft:stone",
+        "minecraft:andesite"
+      ]
+    },
+    "diamond_ore": {
+      "type": "descent_into_darkness:vein",
+      "edges": [
+        "floor",
+        "ceiling",
+        "wall"
+      ],
+      "chance": 0.01,
+      "ore": "minecraft:diamond_ore",
+      "radius": 3
+    },
+    "redstone_ore": {
+      "type": "descent_into_darkness:vein",
+      "edges": [
+        "floor",
+        "ceiling",
+        "wall"
+      ],
+      "chance": 0.1,
+      "ore": "minecraft:lapis_ore",
+      "radius": 2
+    },
+    "redstone_ore2": {
+      "type": "descent_into_darkness:vein",
+      "edges": [
+        "floor",
+        "ceiling",
+        "wall"
+      ],
+      "chance": 0.05,
+      "ore": "minecraft:lapis_ore",
+      "radius": 4
+    },
+    "orecrystals2": {
+      "type": "descent_into_darkness:template",
+      "origin_side": "up",
+      "templates": [
+        {
+          "template": "descent_into_darkness:lapis1/lc90",
+          "origin": [
+            2,
+            11,
+            2
+          ]
+        }
+      ],
+      "edges": [
+        "floor",
+        "ceiling"
+      ],
+      "can_place_on": [
+        "minecraft:stone",
+        "minecraft:andesite"
+      ],
+      "can_replace": [
+        "minecraft:stone",
+        "minecraft:andesite",
+        "minecraft:air"
+      ],
+      "count": 0.5
+    },
+    "orecrystals3": {
+      "type": "descent_into_darkness:template",
+      "origin_side": "up",
+      "edges": [
+        "wall"
+      ],
+      "can_place_on": [
+        "minecraft:stone",
+        "minecraft:andesite"
+      ],
+      "can_replace": [
+        "minecraft:stone",
+        "minecraft:andesite",
+        "minecraft:air"
+      ],
+      "templates": [
+        {
+          "template": "descent_into_darkness:lapis1/lc0",
+          "origin": [
+            2,
+            3,
+            11
+          ]
+        }
+      ],
+      "count": 0.5
+    },
+    "stalac": {
+      "type": "descent_into_darkness:patch",
+      "chance": 0.1,
+      "edges": [
+        "ceiling"
+      ],
+      "block": "descent_into_darkness:lapis_stalac",
+      "can_place_on": [
+        "minecraft:andesite",
+        "minecraft:stone"
+      ]
+    },
+    "stalag": {
+      "type": "descent_into_darkness:patch",
+      "chance": 0.1,
+      "edges": [
+        "floor"
+      ],
+      "block": "descent_into_darkness:lapis_stalag",
+      "can_place_on": [
+        "minecraft:andesite",
+        "minecraft:stone"
+      ]
+    },
+    "laplant": {
+      "type": "descent_into_darkness:patch",
+      "edges": [
+        "floor"
+      ],
+      "spread_x": 8,
+      "spread_z": 8,
+      "block": "descent_into_darkness:lapis_plant",
+      "can_place_on": [
+        "minecraft:grass_block"
+      ],
+      "count": 5
+    },
+    "grass": {
+      "type": "descent_into_darkness:patch",
+      "edges": [
+        "floor"
+      ],
+      "spread_x": 8,
+      "spread_z": 8,
+      "block": "minecraft:short_grass",
+      "can_place_on": [
+        "minecraft:grass_block"
+      ],
+      "count": 4
+    }
+  }
+}

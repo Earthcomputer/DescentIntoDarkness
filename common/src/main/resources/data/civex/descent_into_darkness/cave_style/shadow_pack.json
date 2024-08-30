@@ -1,0 +1,94 @@
+{
+  "lore": [
+    {
+      "text": "Void",
+      "color": "black"
+    }
+  ],
+  "spawn_entries": {
+    "damned_soul": {
+      "mob": "descent_into_darkness:damned_soul",
+      "single_mob_cost": 150,
+      "weight": 1,
+      "cooldown": 20,
+      "can_spawnin": [
+        "minecraft:air",
+        "minecraft:water"
+      ],
+      "can_spawn_on": [
+        "minecraft:air"
+      ],
+      "pack_cost": [
+        150,
+        2000
+      ],
+      "distance": [
+        10,
+        20
+      ]
+    },
+    "cursed_spirit": {
+      "mob": "descent_into_darkness:cursed_spirit",
+      "single_mob_cost": 300,
+      "weight": 1,
+      "cooldown": 20,
+      "can_spawnin": [
+        "minecraft:air",
+        "minecraft:water"
+      ],
+      "can_spawn_on": [
+        "minecraft:air"
+      ],
+      "pack_cost": [
+        300,
+        2000
+      ],
+      "distance": [
+        10,
+        20
+      ]
+    },
+    "deranged_soul": {
+      "mob": "descent_into_darkness:deranged_soul",
+      "single_mob_cost": 400,
+      "weight": 1,
+      "cooldown": 20,
+      "can_spawnin": [
+        "minecraft:air",
+        "minecraft:water"
+      ],
+      "can_spawn_on": [
+        "minecraft:air"
+      ],
+      "pack_cost": [
+        400,
+        1600
+      ],
+      "distance": [
+        10,
+        20
+      ]
+    },
+    "waterman": {
+      "mob": "descent_into_darkness:waterman",
+      "single_mob_cost": 150,
+      "weight": 1,
+      "cooldown": 20,
+      "can_spawn_in": [
+        "minecraft:air",
+        "minecraft:water"
+      ],
+      "can_spawn_on": [
+        "minecraft:water"
+      ],
+      "pack_cost": [
+        150,
+        2000
+      ],
+      "distance": [
+        10,
+        20
+      ]
+    }
+  }
+}

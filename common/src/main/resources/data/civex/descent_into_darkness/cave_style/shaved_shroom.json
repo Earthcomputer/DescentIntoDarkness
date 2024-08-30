@@ -1,0 +1,69 @@
+{
+  "base_block": {
+    "Name": "minecraft:red_mushroom_block",
+    "Properties": {
+      "north": false,
+      "south": false,
+      "west": false,
+      "east": false,
+      "up": false,
+      "down": false
+    }
+  },
+  "painter_steps": [
+    {
+      "type": "descent_into_darkness:replace_all",
+      "old": "minecraft:red_mushroom_block",
+      "new": {
+        "type": "minecraft:simple_state_provider",
+        "state": {
+          "Name": "minecraft:red_mushroom_block",
+          "Properties": {
+            "north": false,
+            "south": false,
+            "west": false,
+            "east": false,
+            "up": false,
+            "down": false
+          }
+        }
+      }
+    },
+    {
+      "type": "descent_into_darkness:replace_floor",
+      "old": "minecraft:red_mushroom_block",
+      "new": {
+        "type": "minecraft:weighted_state_provider",
+        "entries": [
+          {
+            "weight": 1,
+            "data": {
+              "Name": "minecraft:stripped_birch_wood",
+              "Properties": {
+                "axis": "y"
+              }
+            }
+          },
+          {
+            "weight": 1,
+            "data": {
+              "Name": "minecraft:stripped_birch_wood",
+              "Properties": {
+                "axis": "x"
+              }
+            }
+          },
+          {
+            "weight": 1,
+            "data": {
+              "Name": "minecraft:stripped_birch_wood",
+              "Properties": {
+                "axis": "z"
+              }
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

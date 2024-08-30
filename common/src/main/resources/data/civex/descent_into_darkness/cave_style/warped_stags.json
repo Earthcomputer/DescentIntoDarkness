@@ -1,0 +1,116 @@
+{
+  "inherit": [
+    "civex:halfwater",
+    {
+      "name": "civex:restoration_pack",
+      "merge": {
+        "lore": "bottom"
+      }
+    },
+    {
+      "name": "civex:high_gem_low_metal",
+      "merge": {
+        "structures": "top",
+        "lore": "bottom"
+      }
+    }
+  ],
+  "display_name": {
+    "text": "Rooted Warped Forest",
+    "color": "aqua"
+  },
+  "lore": [
+    {
+      "text": "Difficulty: ☆☆☆☆",
+      "color": "yellow"
+    }
+  ],
+  "biome": "minecraft:warped_forest",
+  "nether": true,
+  "base_block": "minecraft:netherrack",
+  "painter_steps": [
+    {
+      "type": "descent_into_darkness:replace_floor",
+      "old": "minecraft:netherrack",
+      "new": "minecraft:warped_nylium"
+    }
+  ],
+  "structures": {
+    "stags": {
+      "block": "minecraft:warped_hyphae",
+      "edges": "ceiling",
+      "type": "descent_into_darkness:stalagmite",
+      "floor_to_ceiling_search_range": 100,
+      "max_column_radius_to_cave_height_ratio": 1,
+      "max_column_radius": 10,
+      "has_stalactite": true,
+      "min_bluntness_for_wind": 0,
+      "min_radius_for_wind": 1,
+      "count": 0.05,
+      "wind_speed": [
+        0,
+        1
+      ]
+    },
+    "tree": {
+      "type": "descent_into_darkness:tree",
+      "edges": "floor",
+      "can_place_on": "minecraft:warped_nylium",
+      "dirt": {
+        "type": "minecraft:simple_state_provider",
+        "state": {
+          "Name": "minecraft:warped_stem",
+          "Properties": {
+            "axis": "y"
+          }
+        }
+      },
+      "leaf": "minecraft:warped_wart_block",
+      "log": "minecraft:warped_stem",
+      "hanging_vine": "minecraft:warped_wart_block",
+      "hanging_vine_chance": 0.5,
+      "count": 0.15,
+      "height": 8,
+      "leaf_height": 4
+    },
+    "mpatch": {
+      "type": "descent_into_darkness:patch",
+      "edges": [
+        "floor"
+      ],
+      "spread_x": 16,
+      "spread_z": 16,
+      "count": 0.2,
+      "can_place_on": [
+        "minecraft:warped_nylium"
+      ],
+      "block": "minecraft:warped_fungus"
+    },
+    "mpatch2": {
+      "type": "descent_into_darkness:patch",
+      "edges": [
+        "floor"
+      ],
+      "count": 0.2,
+      "spread_x": 16,
+      "spread_z": 16,
+      "can_place_on": [
+        "minecraft:warped_nylium"
+      ],
+      "block": "minecraft:warped_roots"
+    },
+    "vine": {
+      "type": "descent_into_darkness:vine_patch",
+      "vine": "minecraft:twisting_vines_plant",
+      "count": 0.05,
+      "edges": "ceiling",
+      "can_place_on": [
+        "minecraft:warped_hyphae"
+      ],
+      "height": [
+        5,
+        15
+      ]
+    }
+  }
+}

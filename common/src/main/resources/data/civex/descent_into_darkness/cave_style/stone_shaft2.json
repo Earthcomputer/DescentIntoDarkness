@@ -1,0 +1,95 @@
+{
+  "start_y": 220,
+  "inherit": [
+    {
+      "name": "civex:clockwork_pack",
+      "merge": {
+        "lore": "bottom"
+      }
+    },
+    "civex:cylid",
+    {
+      "name": "civex:high_gem_low_fuel",
+      "merge": {
+        "structures": "top",
+        "lore": "bottom"
+      }
+    }
+  ],
+  "display_name": {
+    "text": "Ravine Mineshaft",
+    "color": "gray"
+  },
+  "lore": [
+    {
+      "text": "Difficulty: ☆☆☆☆",
+      "color": "yellow"
+    }
+  ],
+  "painter_steps": [
+    {
+      "type": "descent_into_darkness:replace_floor",
+      "old": "minecraft:stone",
+      "new": "minecraft:gravel"
+    },
+    {
+      "type": "descent_into_darkness:replace_all",
+      "old": "minecraft:stone",
+      "new": "minecraft:andesite",
+      "chance": 0.2
+    },
+    {
+      "type": "descent_into_darkness:replace_all",
+      "old": "minecraft:stone",
+      "new": "minecraft:cobblestone",
+      "chance": 0.2
+    }
+  ],
+  "structures": {
+    "crossbar": {
+      "chance": 0.07,
+      "type": "descent_into_darkness:vine_patch",
+      "vine": "minecraft:oak_planks",
+      "spread_x": 1,
+      "spread_y": 0,
+      "spread_z": 1,
+      "tries": 50,
+      "edges": "wall",
+      "can_place_on": [
+        "minecraft:stone",
+        "minecraft:andesite",
+        "minecraft:gravel",
+        "minecraft:cobblestone"
+      ],
+      "tags": "ravine",
+      "height": 1000
+    },
+    "crate": {
+      "count": 1,
+      "type": "descent_into_darkness:template",
+      "templates": [
+        "descent_into_darkness:crate/singlecrate"
+      ],
+      "edges": [
+        "floor"
+      ],
+      "can_place_on": [
+        "minecraft:oak_planks"
+      ]
+    },
+    "rails2": {
+      "count": 10,
+      "tries": 20,
+      "type": "descent_into_darkness:patch",
+      "block": "minecraft:rail",
+      "spread_x": 8,
+      "spread_z": 8,
+      "edges": [
+        "floor"
+      ],
+      "can_place_on": [
+        "minecraft:oak_planks"
+      ]
+    }
+  }
+}

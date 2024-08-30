@@ -1,0 +1,66 @@
+{
+  "lore": [
+    {
+      "text": "Corrupted",
+      "color": "dark_purple"
+    }
+  ],
+  "spawn_entries": {
+    "spore_sac": {
+      "mob": "descent_into_darkness:spore_sac",
+      "single_mob_cost": 300,
+      "weight": 10,
+      "cooldown": 20,
+      "pack_cost": [
+        300,
+        1200
+      ],
+      "distance": [
+        10,
+        20
+      ]
+    },
+    "sporespitter": {
+      "mob": "descent_into_darkness:sporespitter",
+      "single_mob_cost": 400,
+      "weight": 10,
+      "cooldown": 20,
+      "pack_cost": [
+        400,
+        1200
+      ],
+      "distance": [
+        15,
+        25
+      ]
+    },
+    "thrall_taskmaster": {
+      "mob": "descent_into_darkness:thrall_taskmaster",
+      "single_mob_cost": 500,
+      "weight": 10,
+      "cooldown": 20,
+      "pack_cost": [
+        500,
+        1200
+      ],
+      "distance": [
+        15,
+        25
+      ]
+    },
+    "beast_thrall": {
+      "mob": "descent_into_darkness:beast_thrall",
+      "single_mob_cost": 300,
+      "weight": 10,
+      "cooldown": 20,
+      "pack_cost": [
+        300,
+        1200
+      ],
+      "distance": [
+        15,
+        25
+      ]
+    }
+  }
+}

@@ -1,0 +1,325 @@
+{
+  "inherit": [
+    "civex:mega_canyon"
+  ],
+  "biome": "civex:crevice",
+  "nether": true,
+  "transparent_blocks": [
+    "minecraft:air",
+    "minecraft:glowstone",
+    "minecraft:water",
+    "minecraft:lava"
+  ],
+  "painter_steps": [
+    {
+      "type": "descent_into_darkness:replace_all",
+      "old": "minecraft:stone",
+      "new": "minecraft:dead_tube_coral_block",
+      "chance": 0.25
+    },
+    {
+      "type": "descent_into_darkness:replace_all",
+      "old": "minecraft:stone",
+      "new": "minecraft:dead_fire_coral_block",
+      "chance": 0.33
+    },
+    {
+      "type": "descent_into_darkness:replace_all",
+      "old": "minecraft:stone",
+      "new": "minecraft:dead_bubble_coral_block",
+      "chance": 0.5
+    },
+    {
+      "type": "descent_into_darkness:replace_all",
+      "old": "minecraft:stone",
+      "new": "minecraft:dead_horn_coral_block",
+      "chance": 1.0
+    }
+  ],
+  "natural_pollution_increase": 0.10000000149011612,
+  "structures": {
+    "slime": {
+      "type": "descent_into_darkness:vein",
+      "edges": [
+        "floor",
+        "ceiling",
+        "wall"
+      ],
+      "ore": "minecraft:slime_block",
+      "radius": 3
+    },
+    "stags": {
+      "block": {
+        "type": "minecraft:weighted_state_provider",
+        "entries": [
+          {
+            "weight": 5,
+            "data": {
+              "Name": "minecraft:lime_concrete"
+            }
+          },
+          {
+            "weight": 5,
+            "data": {
+              "Name": "minecraft:lime_concrete_powder"
+            }
+          },
+          {
+            "weight": 5,
+            "data": {
+              "Name": "minecraft:lime_glazed_terracotta"
+            }
+          },
+          {
+            "weight": 1,
+            "data": {
+              "Name": "minecraft:emerald_ore"
+            }
+          }
+        ]
+      },
+      "type": "descent_into_darkness:stalagmite",
+      "floor_to_ceiling_search_range": 150,
+      "max_column_radius_to_cave_height_ratio": 0.1,
+      "has_stalactite": false,
+      "min_bluntness_for_wind": 0,
+      "min_radius_for_wind": 1,
+      "count": 0.08,
+      "edges": [
+        "floor",
+        "ceiling"
+      ],
+      "can_replace": [
+        "minecraft:air"
+      ],
+      "height_scale": 0.5,
+      "column_radius": 20,
+      "wind_speed": [
+        0.2,
+        0.7
+      ]
+    },
+    "mushvein": {
+      "type": "descent_into_darkness:vein",
+      "ore": "descent_into_darkness:yellow_mushroom_block",
+      "can_place_on": "mushroom_stem",
+      "edges": "wall",
+      "radius": 6,
+      "can_replace": [
+        "minecraft:air"
+      ],
+      "count": 0.06
+    },
+    "stals": {
+      "type": "descent_into_darkness:template",
+      "origin_side": "up",
+      "edges": [
+        "floor",
+        "ceiling"
+      ],
+      "can_place_on": [
+        "minecraft:slime_block",
+        "minecraft:dead_horn_coral_block",
+        "minecraft:dead_bubble_coral_block",
+        "minecraft:dead_fire_coral_block",
+        "minecraft:dead_tube_coral_block"
+      ],
+      "can_replace": [
+        "minecraft:slime_block",
+        "minecraft:dead_horn_coral_block",
+        "minecraft:dead_bubble_coral_block",
+        "minecraft:dead_fire_coral_block",
+        "minecraft:dead_tube_coral_block",
+        "minecraft:stone"
+      ],
+      "templates": [
+        {
+          "template": "descent_into_darkness:crystal1/cbig90",
+          "origin": [
+            2,
+            11,
+            3
+          ]
+        }
+      ],
+      "count": 0.2
+    },
+    "stals0": {
+      "type": "descent_into_darkness:template",
+      "origin_side": "up",
+      "edges": [
+        "floor",
+        "ceiling"
+      ],
+      "chance": 0.1,
+      "can_place_on": [
+        "minecraft:slime_block",
+        "minecraft:dead_horn_coral_block",
+        "minecraft:dead_bubble_coral_block",
+        "minecraft:dead_fire_coral_block",
+        "minecraft:dead_tube_coral_block"
+      ],
+      "can_replace": [
+        "minecraft:slime_block",
+        "minecraft:dead_horn_coral_block",
+        "minecraft:dead_bubble_coral_block",
+        "minecraft:dead_fire_coral_block",
+        "minecraft:dead_tube_coral_block",
+        "minecraft:stone",
+        "minecraft:air"
+      ],
+      "templates": [
+        {
+          "template": "descent_into_darkness:crystal1/cbig90",
+          "origin": [
+            2,
+            11,
+            3
+          ]
+        }
+      ]
+    },
+    "stals1": {
+      "type": "descent_into_darkness:template",
+      "origin_side": "up",
+      "edges": [
+        "wall"
+      ],
+      "chance": 0.5,
+      "can_place_on": [
+        "minecraft:slime_block",
+        "minecraft:dead_horn_coral_block",
+        "minecraft:dead_bubble_coral_block",
+        "minecraft:dead_fire_coral_block",
+        "minecraft:dead_tube_coral_block"
+      ],
+      "can_replace": [
+        "minecraft:slime_block",
+        "minecraft:dead_horn_coral_block",
+        "minecraft:dead_bubble_coral_block",
+        "minecraft:dead_fire_coral_block",
+        "minecraft:dead_tube_coral_block",
+        "minecraft:stone",
+        "minecraft:air"
+      ],
+      "templates": [
+        {
+          "template": "descent_into_darkness:crystal1/cbig0",
+          "origin": [
+            2,
+            3,
+            11
+          ]
+        }
+      ]
+    },
+    "stals2": {
+      "type": "descent_into_darkness:template",
+      "origin_side": "up",
+      "edges": [
+        "floor",
+        "ceiling",
+        "wall"
+      ],
+      "chance": 0.5,
+      "can_place_on": [
+        "minecraft:slime_block",
+        "minecraft:dead_horn_coral_block",
+        "minecraft:dead_bubble_coral_block",
+        "minecraft:dead_fire_coral_block",
+        "minecraft:dead_tube_coral_block"
+      ],
+      "can_replace": [
+        "minecraft:slime_block",
+        "minecraft:dead_horn_coral_block",
+        "minecraft:dead_bubble_coral_block",
+        "minecraft:dead_fire_coral_block",
+        "minecraft:dead_tube_coral_block",
+        "minecraft:stone",
+        "minecraft:air"
+      ],
+      "templates": [
+        {
+          "template": "descent_into_darkness:crystal1/cbig22",
+          "origin": [
+            2,
+            5,
+            11
+          ]
+        }
+      ]
+    },
+    "stals3": {
+      "type": "descent_into_darkness:template",
+      "origin_side": "up",
+      "edges": [
+        "floor",
+        "ceiling",
+        "wall"
+      ],
+      "chance": 0.5,
+      "can_place_on": [
+        "minecraft:slime_block",
+        "minecraft:dead_horn_coral_block",
+        "minecraft:dead_bubble_coral_block",
+        "minecraft:dead_fire_coral_block",
+        "minecraft:dead_tube_coral_block"
+      ],
+      "can_replace": [
+        "minecraft:slime_block",
+        "minecraft:dead_horn_coral_block",
+        "minecraft:dead_bubble_coral_block",
+        "minecraft:dead_fire_coral_block",
+        "minecraft:dead_tube_coral_block",
+        "minecraft:stone",
+        "minecraft:air"
+      ],
+      "templates": [
+        {
+          "template": "descent_into_darkness:crystal1/cbig45",
+          "origin": [
+            2,
+            9,
+            7
+          ]
+        }
+      ]
+    },
+    "stals4": {
+      "type": "descent_into_darkness:template",
+      "origin_side": "up",
+      "edges": [
+        "floor",
+        "ceiling",
+        "wall"
+      ],
+      "chance": 0.5,
+      "can_place_on": [
+        "minecraft:slime_block",
+        "minecraft:dead_horn_coral_block",
+        "minecraft:dead_bubble_coral_block",
+        "minecraft:dead_fire_coral_block",
+        "minecraft:dead_tube_coral_block"
+      ],
+      "can_replace": [
+        "minecraft:slime_block",
+        "minecraft:dead_horn_coral_block",
+        "minecraft:dead_bubble_coral_block",
+        "minecraft:dead_fire_coral_block",
+        "minecraft:dead_tube_coral_block",
+        "minecraft:stone",
+        "minecraft:air"
+      ],
+      "templates": [
+        {
+          "template": "descent_into_darkness:crystal1/cbig67.5",
+          "origin": [
+            2,
+            10,
+            4
+          ]
+        }
+      ]
+    }
+  }
+}

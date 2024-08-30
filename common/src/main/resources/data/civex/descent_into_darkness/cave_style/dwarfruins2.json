@@ -1,0 +1,170 @@
+{
+  "nether": true,
+  "biome": "civex:white_forest",
+  "base_block": "minecraft:diorite",
+  "inherit": [
+    "civex:cavernous",
+    {
+      "name": "civex:marbler_pack",
+      "merge": {
+        "lore": "bottom"
+      }
+    },
+    {
+      "name": "civex:high_fuel_low_gem",
+      "merge": {
+        "structures": "top",
+        "lore": "bottom"
+      }
+    }
+  ],
+  "display_name": "Marbler Ruins",
+  "lore": [
+    {
+      "text": "Difficulty: ☆☆☆☆",
+      "color": "yellow"
+    }
+  ],
+  "painter_steps": [
+    {
+      "type": "descent_into_darkness:replace_all",
+      "old": "minecraft:diorite",
+      "new": "minecraft:polished_diorite",
+      "chance": 0.5
+    },
+    {
+      "type": "descent_into_darkness:replace_all",
+      "old": "minecraft:diorite",
+      "new": "minecraft:smooth_quartz",
+      "chance": 0.3
+    }
+  ],
+  "air_block": [
+    {
+      "min": 0,
+      "max": 120,
+      "block": "water"
+    },
+    {
+      "min": 121,
+      "max": 255,
+      "block": "air"
+    }
+  ],
+  "transparent_blocks": [
+    "minecraft:air",
+    "minecraft:water"
+  ],
+  "structures": {
+    "crossbar": {
+      "chance": 0.1,
+      "type": "descent_into_darkness:vine_patch",
+      "vine": "minecraft:quartz_block",
+      "spread_x": 1,
+      "spread_y": 0,
+      "spread_z": 1,
+      "tries": 50,
+      "edges": "wall",
+      "can_place_on": [
+        "minecraft:diorite",
+        "minecraft:polished_diorite"
+      ],
+      "height": 1000
+    },
+    "crossbar2": {
+      "chance": 0.3,
+      "type": "descent_into_darkness:vine_patch",
+      "vine": "minecraft:quartz_block",
+      "spread_x": 1,
+      "spread_y": 0,
+      "spread_z": 1,
+      "tries": 50,
+      "edges": "wall",
+      "can_place_on": "minecraft:quartz_block",
+      "height": 1000
+    },
+    "support": {
+      "chance": 0.3,
+      "type": "descent_into_darkness:vine_patch",
+      "vine": "minecraft:quartz_block",
+      "spread_x": 2,
+      "spread_y": 0,
+      "spread_z": 2,
+      "tries": 20,
+      "edges": "ceiling",
+      "can_place_on": "minecraft:quartz_block",
+      "height": 1000
+    },
+    "support2": {
+      "chance": 0.05,
+      "type": "descent_into_darkness:vine_patch",
+      "vine": "minecraft:quartz_block",
+      "spread_x": 2,
+      "spread_y": 0,
+      "spread_z": 2,
+      "tries": 30,
+      "edges": "floor",
+      "height": 1000
+    },
+    "cracked_brick": {
+      "type": "descent_into_darkness:vein",
+      "edges": [
+        "floor",
+        "wall",
+        "ceiling"
+      ],
+      "ore": "minecraft:chiseled_quartz_block",
+      "radius": 3,
+      "can_place_on": "minecraft:quartz_block"
+    },
+    "mossy_brick": {
+      "type": "descent_into_darkness:vein",
+      "edges": [
+        "floor",
+        "wall",
+        "ceiling"
+      ],
+      "ore": "minecraft:quartz_pillar",
+      "radius": 3,
+      "can_place_on": "minecraft:quartz_block",
+      "can_replace": [
+        "minecraft:water"
+      ]
+    },
+    "broke_brick": {
+      "type": "descent_into_darkness:vein",
+      "edges": [
+        "floor",
+        "ceiling"
+      ],
+      "ore": "minecraft:air",
+      "radius": 3,
+      "can_place_on": "minecraft:quartz_block",
+      "count": 2
+    },
+    "broke_brick2": {
+      "type": "descent_into_darkness:vein",
+      "edges": [
+        "wall"
+      ],
+      "ore": "minecraft:air",
+      "radius": 3,
+      "can_place_on": "minecraft:quartz_block"
+    },
+    "crate": {
+      "count": 0.3,
+      "type": "descent_into_darkness:template",
+      "templates": [
+        "descent_into_darkness:crate/singlecrate"
+      ],
+      "edges": [
+        "floor"
+      ],
+      "can_place_on": [
+        "minecraft:quartz_block",
+        "minecraft:quartz_pillar",
+        "minecraft:chiseled_quartz_block"
+      ]
+    }
+  }
+}

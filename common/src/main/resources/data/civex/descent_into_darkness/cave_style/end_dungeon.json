@@ -1,0 +1,131 @@
+{
+  "inherit": [
+    "civex:big_flat3"
+  ],
+  "transparent_blocks": [
+    "minecraft:air",
+    "minecraft:end_stone_brick_slab",
+    "minecraft:purpur_slab",
+    "minecraft:cobweb"
+  ],
+  "biome": "civex:voidyssal",
+  "nether": true,
+  "base_block": "minecraft:end_stone",
+  "painter_steps": [
+    {
+      "type": "descent_into_darkness:replace_all",
+      "old": "minecraft:end_stone",
+      "new": "minecraft:end_stone_bricks",
+      "chance": 1
+    },
+    {
+      "type": "descent_into_darkness:floor_layer",
+      "block": {
+        "type": "minecraft:weighted_state_provider",
+        "entries": [
+          {
+            "weight": 1,
+            "data": {
+              "Name": "minecraft:end_stone_brick_slab"
+            }
+          },
+          {
+            "weight": 1,
+            "data": {
+              "Name": "minecraft:purpur_slab"
+            }
+          },
+          {
+            "weight": 10,
+            "data": {
+              "Name": "minecraft:air"
+            }
+          }
+        ]
+      },
+      "can_place_on": [
+        "minecraft:end_stone_bricks"
+      ]
+    },
+    {
+      "type": "descent_into_darkness:ceiling_layer",
+      "block": {
+        "type": "minecraft:weighted_state_provider",
+        "entries": [
+          {
+            "weight": 1,
+            "data": {
+              "Name": "minecraft:end_stone_brick_slab",
+              "Properties": {
+                "type": "descent_into_darkness:top"
+              }
+            }
+          },
+          {
+            "weight": 1,
+            "data": {
+              "Name": "minecraft:purpur_slab",
+              "Properties": {
+                "type": "descent_into_darkness:top"
+              }
+            }
+          },
+          {
+            "weight": 10,
+            "data": {
+              "Name": "minecraft:air"
+            }
+          }
+        ]
+      },
+      "can_place_on": [
+        "minecraft:end_stone_bricks",
+        "minecraft:mossy_cobblestone"
+      ]
+    }
+  ],
+  "structures": {
+    "pillars": {
+      "block": {
+        "type": "minecraft:weighted_state_provider",
+        "entries": [
+          {
+            "weight": 5,
+            "data": {
+              "Name": "minecraft:purpur_block"
+            }
+          },
+          {
+            "weight": 5,
+            "data": {
+              "Name": "minecraft:purpur_pillar"
+            }
+          },
+          {
+            "weight": 1,
+            "data": {
+              "Name": "minecraft:air"
+            }
+          }
+        ]
+      },
+      "type": "descent_into_darkness:stalagmite",
+      "floor_to_ceiling_search_range": 512,
+      "max_column_radius_to_cave_height_ratio": 1,
+      "has_stalactite": true,
+      "min_bluntness_for_wind": 0,
+      "min_radius_for_wind": 1,
+      "count": 0.3,
+      "edges": [
+        "ceiling",
+        "floor"
+      ],
+      "height_scale": [
+        10,
+        20
+      ],
+      "column_radius": 2,
+      "wind_speed": 0
+    }
+  }
+}

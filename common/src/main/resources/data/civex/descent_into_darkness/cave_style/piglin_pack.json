@@ -1,0 +1,80 @@
+{
+  "lore": [
+    {
+      "text": "Fire",
+      "color": "red"
+    }
+  ],
+  "spawn_entries": {
+    "piglin_grunt": {
+      "mob": "descent_into_darkness:piglin_grunt",
+      "single_mob_cost": 300,
+      "weight": 10,
+      "cooldown": 20,
+      "pack_cost": [
+        300,
+        1200
+      ],
+      "distance": [
+        10,
+        20
+      ]
+    },
+    "piglin_rider": {
+      "mob": "descent_into_darkness:piglin_rider",
+      "single_mob_cost": 400,
+      "weight": 10,
+      "cooldown": 20,
+      "pack_cost": [
+        400,
+        1200
+      ],
+      "distance": [
+        15,
+        25
+      ]
+    },
+    "piglin_warrior": {
+      "mob": "descent_into_darkness:piglin_warrior",
+      "single_mob_cost": 400,
+      "weight": 20,
+      "cooldown": 20,
+      "pack_cost": [
+        400,
+        1300
+      ],
+      "distance": [
+        15,
+        25
+      ]
+    },
+    "piglin_shaman": {
+      "mob": "descent_into_darkness:piglin_shaman",
+      "single_mob_cost": 500,
+      "weight": 10,
+      "cooldown": 20,
+      "pack_cost": [
+        500,
+        1200
+      ],
+      "distance": [
+        15,
+        25
+      ]
+    },
+    "piglin_flier": {
+      "mob": "descent_into_darkness:piglin_flier",
+      "single_mob_cost": 300,
+      "weight": 10,
+      "cooldown": 20,
+      "pack_cost": [
+        300,
+        1200
+      ],
+      "distance": [
+        15,
+        25
+      ]
+    }
+  }
+}

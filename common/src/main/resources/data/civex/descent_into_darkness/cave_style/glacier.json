@@ -1,0 +1,26 @@
+{
+  "base_block": "minecraft:blue_ice",
+  "inherit": [
+    "civex:big_flat4",
+    "civex:snow_pack"
+  ],
+  "painter_steps": [
+    {
+      "type": "descent_into_darkness:replace_all",
+      "old": "minecraft:blue_ice",
+      "new": "minecraft:packed_ice",
+      "chance": 0.06
+    }
+  ],
+  "structures": {
+    "snowfall": {
+      "type": "descent_into_darkness:waterfall",
+      "fluid_type": "block",
+      "block": "minecraft:snow_block",
+      "fluid": "water",
+      "edges": "ceiling",
+      "count": 0.01,
+      "flow_distance": 8
+    }
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "base_block": "minecraft:dirt",
+  "painter_steps": [
+    {
+      "type": "descent_into_darkness:replace_all",
+      "old": "minecraft:dirt",
+      "new": "minecraft:coarse_dirt",
+      "chance": 0.3
+    }
+  ],
+  "inherit": [
+    "civex:mega_canyon"
+  ],
+  "structures": {
+    "tree": {
+      "type": "descent_into_darkness:tree",
+      "edges": [
+        "floor",
+        "ceiling"
+      ],
+      "can_place_on": [
+        "minecraft:dirt",
+        "minecraft:coarse_dirt"
+      ],
+      "dirt": "minecraft:dirt",
+      "leaf": "minecraft:coarse_dirt",
+      "log": "minecraft:dirt",
+      "corner_chance": 0.5,
+      "hanging_vine": "minecraft:coarse_dirt",
+      "hanging_vine_chance": 0.3,
+      "leaf_step_height": 5,
+      "count": 0.04,
+      "height": 50,
+      "leaf_height": [
+        50,
+        100
+      ]
+    }
+  }
+}

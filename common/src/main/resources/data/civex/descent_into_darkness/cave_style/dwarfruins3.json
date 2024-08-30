@@ -1,0 +1,159 @@
+{
+  "base_block": "minecraft:granite",
+  "painter_steps": [
+    {
+      "type": "descent_into_darkness:replace_all",
+      "old": "minecraft:granite",
+      "new": "minecraft:polished_granite",
+      "chance": 0.5
+    },
+    {
+      "type": "descent_into_darkness:replace_all",
+      "old": "minecraft:granite",
+      "new": "minecraft:smooth_red_sandstone",
+      "chance": 0.3
+    }
+  ],
+  "transparent_blocks": [
+    "minecraft:air",
+    "minecraft:water"
+  ],
+  "inherit": [
+    {
+      "name": "civex:desert_pack",
+      "merge": {
+        "lore": "bottom"
+      }
+    },
+    "civex:cavernous",
+    {
+      "name": "civex:high_fuel_low_gem",
+      "merge": {
+        "structures": "top",
+        "lore": "bottom"
+      }
+    }
+  ],
+  "display_name": {
+    "text": "Mesa Ruins",
+    "color": "gold"
+  },
+  "lore": [
+    {
+      "text": "Difficulty: ☆☆☆☆",
+      "color": "yellow"
+    }
+  ],
+  "structures": {
+    "crossbar": {
+      "count": 0.1,
+      "type": "descent_into_darkness:vine_patch",
+      "vine": "minecraft:smooth_red_sandstone",
+      "spread_x": 1,
+      "spread_y": 0,
+      "spread_z": 1,
+      "tries": 50,
+      "edges": "wall",
+      "can_place_on": [
+        "minecraft:granite",
+        "minecraft:polished_granite"
+      ],
+      "height": 1000
+    },
+    "crossbar2": {
+      "count": 0.05,
+      "type": "descent_into_darkness:vine_patch",
+      "vine": "minecraft:smooth_red_sandstone",
+      "spread_x": 1,
+      "spread_y": 0,
+      "spread_z": 1,
+      "tries": 50,
+      "edges": "wall",
+      "can_place_on": "minecraft:smooth_red_sandstone",
+      "height": 1000
+    },
+    "support": {
+      "count": 0.2,
+      "type": "descent_into_darkness:vine_patch",
+      "vine": "minecraft:smooth_red_sandstone",
+      "spread_x": 2,
+      "spread_y": 0,
+      "spread_z": 2,
+      "tries": 20,
+      "edges": "ceiling",
+      "can_place_on": "minecraft:smooth_red_sandstone",
+      "height": 1000
+    },
+    "support2": {
+      "count": 0.02,
+      "type": "descent_into_darkness:vine_patch",
+      "vine": "minecraft:smooth_red_sandstone",
+      "spread_x": 2,
+      "spread_y": 0,
+      "spread_z": 2,
+      "tries": 30,
+      "edges": "floor",
+      "height": 1000
+    },
+    "cracked_brick": {
+      "type": "descent_into_darkness:vein",
+      "edges": [
+        "floor",
+        "wall",
+        "ceiling"
+      ],
+      "ore": "minecraft:chiseled_red_sandstone",
+      "radius": 3,
+      "can_place_on": "minecraft:smooth_red_sandstone"
+    },
+    "mossy_brick": {
+      "type": "descent_into_darkness:vein",
+      "edges": [
+        "floor",
+        "wall",
+        "ceiling"
+      ],
+      "ore": "minecraft:cut_red_sandstone",
+      "radius": 3,
+      "can_place_on": "minecraft:smooth_red_sandstone",
+      "can_replace": [
+        "minecraft:water"
+      ]
+    },
+    "broke_brick": {
+      "type": "descent_into_darkness:vein",
+      "edges": [
+        "floor",
+        "ceiling"
+      ],
+      "ore": "minecraft:air",
+      "radius": 3,
+      "can_place_on": "minecraft:smooth_red_sandstone"
+    },
+    "broke_brick2": {
+      "type": "descent_into_darkness:vein",
+      "edges": [
+        "wall"
+      ],
+      "ore": "minecraft:air",
+      "radius": 3,
+      "can_place_on": "minecraft:smooth_red_sandstone"
+    },
+    "crate": {
+      "count": 0.3,
+      "type": "descent_into_darkness:template",
+      "templates": [
+        "descent_into_darkness:crate/singlecrate"
+      ],
+      "edges": [
+        "floor"
+      ],
+      "can_place_on": [
+        "minecraft:smooth_red_sandstone",
+        "minecraft:chiseled_red_sandstone",
+        "minecraft:cut_red_sandstone",
+        "minecraft:chiseled_quartz_block"
+      ]
+    }
+  }
+}

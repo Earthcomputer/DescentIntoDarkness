@@ -1,0 +1,781 @@
+{
+  "base_block": "minecraft:terracotta",
+  "inherit": [
+    {
+      "name": "civex:desert_pack",
+      "merge": {
+        "lore": "bottom"
+      }
+    },
+    "civex:mineshaft",
+    {
+      "name": "civex:high_fuel_low_gem",
+      "merge": {
+        "structures": "top",
+        "lore": "bottom"
+      }
+    }
+  ],
+  "display_name": {
+    "text": "Mesa Mineshaft",
+    "color": "gold"
+  },
+  "lore": [
+    {
+      "text": "Difficulty: ☆☆☆",
+      "color": "yellow"
+    }
+  ],
+  "painter_steps": [
+    {
+      "type": "descent_into_darkness:replace_mesa",
+      "old": "minecraft:terracotta",
+      "layers": [
+        {
+          "min": 0,
+          "max": 10,
+          "block": "minecraft:terracotta"
+        },
+        {
+          "min": 11,
+          "max": 14,
+          "block": "minecraft:brown_terracotta"
+        },
+        {
+          "min": 15,
+          "max": 15,
+          "block": "minecraft:terracotta"
+        },
+        {
+          "min": 16,
+          "max": 16,
+          "block": "minecraft:light_gray_terracotta"
+        },
+        {
+          "min": 17,
+          "max": 17,
+          "block": "minecraft:white_terracotta"
+        },
+        {
+          "min": 18,
+          "max": 19,
+          "block": "minecraft:terracotta"
+        },
+        {
+          "min": 20,
+          "max": 20,
+          "block": "minecraft:orange_terracotta"
+        },
+        {
+          "min": 21,
+          "max": 23,
+          "block": "minecraft:terracotta"
+        },
+        {
+          "min": 24,
+          "max": 24,
+          "block": "minecraft:orange_terracotta"
+        },
+        {
+          "min": 25,
+          "max": 26,
+          "block": "minecraft:red_terracotta"
+        },
+        {
+          "min": 27,
+          "max": 27,
+          "block": "minecraft:light_gray_terracotta"
+        },
+        {
+          "min": 28,
+          "max": 28,
+          "block": "minecraft:white_terracotta"
+        },
+        {
+          "min": 29,
+          "max": 30,
+          "block": "minecraft:red_terracotta"
+        },
+        {
+          "min": 31,
+          "max": 31,
+          "block": "minecraft:orange_terracotta"
+        },
+        {
+          "min": 32,
+          "max": 32,
+          "block": "minecraft:terracotta"
+        },
+        {
+          "min": 33,
+          "max": 35,
+          "block": "minecraft:yellow_terracotta"
+        },
+        {
+          "min": 36,
+          "max": 36,
+          "block": "minecraft:terracotta"
+        },
+        {
+          "min": 37,
+          "max": 37,
+          "block": "minecraft:orange_terracotta"
+        },
+        {
+          "min": 38,
+          "max": 39,
+          "block": "minecraft:terracotta"
+        },
+        {
+          "min": 40,
+          "max": 40,
+          "block": "minecraft:red_terracotta"
+        },
+        {
+          "min": 41,
+          "max": 41,
+          "block": "minecraft:orange_terracotta"
+        },
+        {
+          "min": 42,
+          "max": 47,
+          "block": "minecraft:terracotta"
+        },
+        {
+          "min": 48,
+          "max": 48,
+          "block": "minecraft:white_terracotta"
+        },
+        {
+          "min": 49,
+          "max": 50,
+          "block": "minecraft:light_gray_terracotta"
+        },
+        {
+          "min": 51,
+          "max": 53,
+          "block": "minecraft:terracotta"
+        },
+        {
+          "min": 54,
+          "max": 54,
+          "block": "minecraft:orange_terracotta"
+        },
+        {
+          "min": 55,
+          "max": 56,
+          "block": "minecraft:red_terracotta"
+        },
+        {
+          "min": 57,
+          "max": 57,
+          "block": "minecraft:terracotta"
+        },
+        {
+          "min": 58,
+          "max": 60,
+          "block": "minecraft:yellow_terracotta"
+        },
+        {
+          "min": 61,
+          "max": 61,
+          "block": "minecraft:terracotta"
+        },
+        {
+          "min": 62,
+          "max": 62,
+          "block": "minecraft:orange_terracotta"
+        },
+        {
+          "min": 63,
+          "max": 63,
+          "block": "minecraft:terracotta"
+        },
+        {
+          "min": 64,
+          "max": 74,
+          "block": "minecraft:terracotta"
+        },
+        {
+          "min": 75,
+          "max": 78,
+          "block": "minecraft:brown_terracotta"
+        },
+        {
+          "min": 79,
+          "max": 79,
+          "block": "minecraft:terracotta"
+        },
+        {
+          "min": 80,
+          "max": 80,
+          "block": "minecraft:light_gray_terracotta"
+        },
+        {
+          "min": 81,
+          "max": 81,
+          "block": "minecraft:white_terracotta"
+        },
+        {
+          "min": 82,
+          "max": 83,
+          "block": "minecraft:terracotta"
+        },
+        {
+          "min": 84,
+          "max": 84,
+          "block": "minecraft:orange_terracotta"
+        },
+        {
+          "min": 85,
+          "max": 87,
+          "block": "minecraft:terracotta"
+        },
+        {
+          "min": 88,
+          "max": 88,
+          "block": "minecraft:orange_terracotta"
+        },
+        {
+          "min": 89,
+          "max": 90,
+          "block": "minecraft:red_terracotta"
+        },
+        {
+          "min": 91,
+          "max": 91,
+          "block": "minecraft:light_gray_terracotta"
+        },
+        {
+          "min": 92,
+          "max": 92,
+          "block": "minecraft:white_terracotta"
+        },
+        {
+          "min": 93,
+          "max": 94,
+          "block": "minecraft:red_terracotta"
+        },
+        {
+          "min": 95,
+          "max": 95,
+          "block": "minecraft:orange_terracotta"
+        },
+        {
+          "min": 96,
+          "max": 96,
+          "block": "minecraft:terracotta"
+        },
+        {
+          "min": 97,
+          "max": 99,
+          "block": "minecraft:yellow_terracotta"
+        },
+        {
+          "min": 100,
+          "max": 100,
+          "block": "minecraft:terracotta"
+        },
+        {
+          "min": 101,
+          "max": 101,
+          "block": "minecraft:orange_terracotta"
+        },
+        {
+          "min": 102,
+          "max": 103,
+          "block": "minecraft:terracotta"
+        },
+        {
+          "min": 104,
+          "max": 104,
+          "block": "minecraft:red_terracotta"
+        },
+        {
+          "min": 105,
+          "max": 105,
+          "block": "minecraft:orange_terracotta"
+        },
+        {
+          "min": 106,
+          "max": 111,
+          "block": "minecraft:terracotta"
+        },
+        {
+          "min": 112,
+          "max": 112,
+          "block": "minecraft:white_terracotta"
+        },
+        {
+          "min": 113,
+          "max": 114,
+          "block": "minecraft:light_gray_terracotta"
+        },
+        {
+          "min": 115,
+          "max": 117,
+          "block": "minecraft:terracotta"
+        },
+        {
+          "min": 118,
+          "max": 118,
+          "block": "minecraft:orange_terracotta"
+        },
+        {
+          "min": 119,
+          "max": 120,
+          "block": "minecraft:red_terracotta"
+        },
+        {
+          "min": 121,
+          "max": 121,
+          "block": "minecraft:terracotta"
+        },
+        {
+          "min": 122,
+          "max": 124,
+          "block": "minecraft:yellow_terracotta"
+        },
+        {
+          "min": 125,
+          "max": 125,
+          "block": "minecraft:terracotta"
+        },
+        {
+          "min": 126,
+          "max": 126,
+          "block": "minecraft:orange_terracotta"
+        },
+        {
+          "min": 127,
+          "max": 127,
+          "block": "minecraft:terracotta"
+        },
+        {
+          "min": 128,
+          "max": 138,
+          "block": "minecraft:terracotta"
+        },
+        {
+          "min": 139,
+          "max": 142,
+          "block": "minecraft:brown_terracotta"
+        },
+        {
+          "min": 143,
+          "max": 143,
+          "block": "minecraft:terracotta"
+        },
+        {
+          "min": 144,
+          "max": 144,
+          "block": "minecraft:light_gray_terracotta"
+        },
+        {
+          "min": 145,
+          "max": 145,
+          "block": "minecraft:white_terracotta"
+        },
+        {
+          "min": 146,
+          "max": 147,
+          "block": "minecraft:terracotta"
+        },
+        {
+          "min": 148,
+          "max": 148,
+          "block": "minecraft:orange_terracotta"
+        },
+        {
+          "min": 149,
+          "max": 151,
+          "block": "minecraft:terracotta"
+        },
+        {
+          "min": 152,
+          "max": 152,
+          "block": "minecraft:orange_terracotta"
+        },
+        {
+          "min": 153,
+          "max": 154,
+          "block": "minecraft:red_terracotta"
+        },
+        {
+          "min": 155,
+          "max": 155,
+          "block": "minecraft:light_gray_terracotta"
+        },
+        {
+          "min": 156,
+          "max": 156,
+          "block": "minecraft:white_terracotta"
+        },
+        {
+          "min": 157,
+          "max": 158,
+          "block": "minecraft:red_terracotta"
+        },
+        {
+          "min": 159,
+          "max": 159,
+          "block": "minecraft:orange_terracotta"
+        },
+        {
+          "min": 160,
+          "max": 160,
+          "block": "minecraft:terracotta"
+        },
+        {
+          "min": 161,
+          "max": 163,
+          "block": "minecraft:yellow_terracotta"
+        },
+        {
+          "min": 164,
+          "max": 164,
+          "block": "minecraft:terracotta"
+        },
+        {
+          "min": 165,
+          "max": 165,
+          "block": "minecraft:orange_terracotta"
+        },
+        {
+          "min": 166,
+          "max": 167,
+          "block": "minecraft:terracotta"
+        },
+        {
+          "min": 168,
+          "max": 168,
+          "block": "minecraft:red_terracotta"
+        },
+        {
+          "min": 169,
+          "max": 169,
+          "block": "minecraft:orange_terracotta"
+        },
+        {
+          "min": 170,
+          "max": 175,
+          "block": "minecraft:terracotta"
+        },
+        {
+          "min": 176,
+          "max": 176,
+          "block": "minecraft:white_terracotta"
+        },
+        {
+          "min": 177,
+          "max": 178,
+          "block": "minecraft:light_gray_terracotta"
+        },
+        {
+          "min": 179,
+          "max": 181,
+          "block": "minecraft:terracotta"
+        },
+        {
+          "min": 182,
+          "max": 182,
+          "block": "minecraft:orange_terracotta"
+        },
+        {
+          "min": 183,
+          "max": 184,
+          "block": "minecraft:red_terracotta"
+        },
+        {
+          "min": 185,
+          "max": 185,
+          "block": "minecraft:terracotta"
+        },
+        {
+          "min": 186,
+          "max": 188,
+          "block": "minecraft:yellow_terracotta"
+        },
+        {
+          "min": 189,
+          "max": 189,
+          "block": "minecraft:terracotta"
+        },
+        {
+          "min": 190,
+          "max": 190,
+          "block": "minecraft:orange_terracotta"
+        },
+        {
+          "min": 191,
+          "max": 191,
+          "block": "minecraft:terracotta"
+        },
+        {
+          "min": 192,
+          "max": 202,
+          "block": "minecraft:terracotta"
+        },
+        {
+          "min": 203,
+          "max": 206,
+          "block": "minecraft:brown_terracotta"
+        },
+        {
+          "min": 207,
+          "max": 207,
+          "block": "minecraft:terracotta"
+        },
+        {
+          "min": 208,
+          "max": 208,
+          "block": "minecraft:light_gray_terracotta"
+        },
+        {
+          "min": 209,
+          "max": 209,
+          "block": "minecraft:white_terracotta"
+        },
+        {
+          "min": 210,
+          "max": 211,
+          "block": "minecraft:terracotta"
+        },
+        {
+          "min": 212,
+          "max": 212,
+          "block": "minecraft:orange_terracotta"
+        },
+        {
+          "min": 213,
+          "max": 215,
+          "block": "minecraft:terracotta"
+        },
+        {
+          "min": 216,
+          "max": 216,
+          "block": "minecraft:orange_terracotta"
+        },
+        {
+          "min": 217,
+          "max": 218,
+          "block": "minecraft:red_terracotta"
+        },
+        {
+          "min": 219,
+          "max": 219,
+          "block": "minecraft:light_gray_terracotta"
+        },
+        {
+          "min": 220,
+          "max": 220,
+          "block": "minecraft:white_terracotta"
+        },
+        {
+          "min": 221,
+          "max": 222,
+          "block": "minecraft:red_terracotta"
+        },
+        {
+          "min": 223,
+          "max": 223,
+          "block": "minecraft:orange_terracotta"
+        },
+        {
+          "min": 224,
+          "max": 224,
+          "block": "minecraft:terracotta"
+        },
+        {
+          "min": 225,
+          "max": 227,
+          "block": "minecraft:yellow_terracotta"
+        },
+        {
+          "min": 228,
+          "max": 228,
+          "block": "minecraft:terracotta"
+        },
+        {
+          "min": 229,
+          "max": 229,
+          "block": "minecraft:orange_terracotta"
+        },
+        {
+          "min": 230,
+          "max": 231,
+          "block": "minecraft:terracotta"
+        },
+        {
+          "min": 232,
+          "max": 232,
+          "block": "minecraft:red_terracotta"
+        },
+        {
+          "min": 233,
+          "max": 233,
+          "block": "minecraft:orange_terracotta"
+        },
+        {
+          "min": 234,
+          "max": 239,
+          "block": "minecraft:terracotta"
+        },
+        {
+          "min": 240,
+          "max": 240,
+          "block": "minecraft:white_terracotta"
+        },
+        {
+          "min": 241,
+          "max": 242,
+          "block": "minecraft:light_gray_terracotta"
+        },
+        {
+          "min": 243,
+          "max": 245,
+          "block": "minecraft:terracotta"
+        },
+        {
+          "min": 246,
+          "max": 246,
+          "block": "minecraft:orange_terracotta"
+        },
+        {
+          "min": 247,
+          "max": 248,
+          "block": "minecraft:red_terracotta"
+        },
+        {
+          "min": 249,
+          "max": 249,
+          "block": "minecraft:terracotta"
+        },
+        {
+          "min": 250,
+          "max": 252,
+          "block": "minecraft:yellow_terracotta"
+        },
+        {
+          "min": 253,
+          "max": 253,
+          "block": "minecraft:terracotta"
+        },
+        {
+          "min": 254,
+          "max": 254,
+          "block": "minecraft:orange_terracotta"
+        },
+        {
+          "min": 255,
+          "max": 255,
+          "block": "minecraft:terracotta"
+        }
+      ]
+    },
+    {
+      "type": "descent_into_darkness:replace_floor",
+      "old": "minecraft:terracotta",
+      "new": "minecraft:red_sand",
+      "chance": 1
+    }
+  ],
+  "structures": {
+    "crossbar": {
+      "chance": 0.1,
+      "type": "descent_into_darkness:vine_patch",
+      "vine": "minecraft:oak_planks",
+      "spread_x": 1,
+      "spread_y": 0,
+      "spread_z": 1,
+      "tries": 50,
+      "edges": "wall",
+      "height": 1000
+    },
+    "support": {
+      "chance": 0.1,
+      "type": "descent_into_darkness:vine_patch",
+      "vine": "minecraft:oak_fence",
+      "spread_x": 0,
+      "spread_y": 0,
+      "spread_z": 0,
+      "tries": 20,
+      "edges": "floor",
+      "can_place_on": [
+        "minecraft:terracotta",
+        "minecraft:red_sand"
+      ],
+      "height": 1000
+    },
+    "crate": {
+      "count": 2,
+      "type": "descent_into_darkness:template",
+      "templates": [
+        "descent_into_darkness:crate/singlecrate"
+      ],
+      "edges": [
+        "floor"
+      ],
+      "can_place_on": [
+        "minecraft:oak_planks"
+      ]
+    },
+    "crate2": {
+      "count": 0.07,
+      "type": "descent_into_darkness:template",
+      "templates": [
+        "descent_into_darkness:crate/singlecrate"
+      ],
+      "edges": [
+        "floor"
+      ]
+    },
+    "rails": {
+      "count": 0.1,
+      "type": "descent_into_darkness:patch",
+      "block": "minecraft:rail",
+      "spread_x": 32,
+      "spread_z": 32,
+      "edges": [
+        "floor"
+      ]
+    },
+    "rails2": {
+      "count": 10,
+      "tries": 20,
+      "type": "descent_into_darkness:patch",
+      "block": "minecraft:rail",
+      "spread_x": 8,
+      "spread_z": 8,
+      "edges": [
+        "floor"
+      ],
+      "can_place_on": [
+        "minecraft:oak_planks"
+      ]
+    },
+    "gold_ore": {
+      "type": "descent_into_darkness:vein",
+      "edges": [
+        "floor",
+        "ceiling",
+        "wall"
+      ],
+      "can_replace": {
+        "type": "minecraft:not",
+        "predicate": {
+          "type": "minecraft:matching_blocks",
+          "blocks": [
+            "minecraft:oak_planks",
+            "minecraft:oak_fence",
+            "minecraft:air",
+            "minecraft:rail"
+          ]
+        }
+      },
+      "chance": 0.05,
+      "ore": "minecraft:gold_ore",
+      "radius": 4
+    }
+  }
+}

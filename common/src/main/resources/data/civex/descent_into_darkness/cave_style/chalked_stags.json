@@ -1,0 +1,141 @@
+{
+  "inherit": [
+    {
+      "name": "civex:marbler_pack",
+      "merge": {
+        "lore": "bottom"
+      }
+    },
+    "civex:halfwater",
+    {
+      "name": "civex:high_gem_low_fuel",
+      "merge": {
+        "structures": "top",
+        "lore": "bottom"
+      }
+    }
+  ],
+  "display_name": "Chalked Forest",
+  "lore": [
+    {
+      "text": "Difficulty: ☆☆☆☆",
+      "color": "yellow"
+    }
+  ],
+  "biome": "civex:white_forest",
+  "nether": true,
+  "base_block": "minecraft:diorite",
+  "painter_steps": [
+    {
+      "type": "descent_into_darkness:replace_floor",
+      "old": "minecraft:diorite",
+      "new": "minecraft:white_concrete_powder"
+    },
+    {
+      "type": "descent_into_darkness:replace_all",
+      "old": "minecraft:diorite",
+      "new": "minecraft:polished_diorite",
+      "chance": 0.2
+    }
+  ],
+  "structures": {
+    "stags": {
+      "block": "descent_into_darkness:chalked_stem",
+      "edges": "ceiling",
+      "type": "descent_into_darkness:stalagmite",
+      "floor_to_ceiling_search_range": 100,
+      "max_column_radius_to_cave_height_ratio": 1,
+      "max_column_radius": 10,
+      "has_stalactite": true,
+      "min_bluntness_for_wind": 0,
+      "min_radius_for_wind": 1,
+      "count": 0.05,
+      "wind_speed": [
+        0,
+        1
+      ]
+    },
+    "tree": {
+      "type": "descent_into_darkness:tree",
+      "edges": "floor",
+      "can_place_on": "minecraft:white_concrete_powder",
+      "dirt": "descent_into_darkness:chalked_wart_block",
+      "leaf": "minecraft:oak_leaves",
+      "log": "descent_into_darkness:chalked_stem",
+      "hanging_vine": "minecraft:oak_leaves",
+      "hanging_vine_chance": 0.5,
+      "count": 0.15,
+      "height": 8,
+      "leaf_height": 4
+    },
+    "mpatch": {
+      "type": "descent_into_darkness:patch",
+      "edges": [
+        "floor"
+      ],
+      "spread_x": 16,
+      "spread_z": 16,
+      "count": 0.2,
+      "can_place_on": [
+        "minecraft:crimson_nylium"
+      ],
+      "block": "minecraft:crimson_fungus"
+    },
+    "mpatch2": {
+      "type": "descent_into_darkness:patch",
+      "edges": [
+        "floor"
+      ],
+      "count": 0.2,
+      "spread_x": 16,
+      "spread_z": 16,
+      "can_place_on": [
+        "minecraft:crimson_nylium"
+      ],
+      "block": "minecraft:crimson_roots"
+    },
+    "vine": {
+      "type": "descent_into_darkness:vine_patch",
+      "vine": {
+        "type": "minecraft:simple_state_provider",
+        "state": {
+          "Name": "minecraft:vine",
+          "Properties": {
+            "north": true
+          }
+        }
+      },
+      "count": 0.1,
+      "edges": "ceiling",
+      "can_place_on": [
+        "descent_into_darkness:chalked_stem"
+      ],
+      "height": [
+        5,
+        15
+      ]
+    },
+    "bamboo0": {
+      "type": "descent_into_darkness:vine_patch",
+      "vine": {
+        "type": "minecraft:simple_state_provider",
+        "state": {
+          "Name": "minecraft:bamboo",
+          "Properties": {
+            "age": 1,
+            "leaves": "large"
+          }
+        }
+      },
+      "chance": 0.05,
+      "edges": "floor",
+      "can_place_on": [
+        "minecraft:grass_block"
+      ],
+      "height": [
+        10,
+        15
+      ]
+    }
+  }
+}

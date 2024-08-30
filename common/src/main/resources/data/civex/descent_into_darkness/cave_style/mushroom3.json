@@ -1,0 +1,266 @@
+{
+  "base_block": "minecraft:dirt",
+  "painter_steps": [
+    {
+      "type": "descent_into_darkness:replace_floor",
+      "old": "minecraft:dirt",
+      "new": "minecraft:mycelium"
+    },
+    {
+      "type": "descent_into_darkness:replace_all",
+      "old": "minecraft:dirt",
+      "new": "minecraft:coarse_dirt",
+      "chance": 0.1
+    }
+  ],
+  "inherit": [
+    "civex:halfwater",
+    {
+      "name": "civex:mush_pack",
+      "merge": {
+        "lore": "bottom"
+      }
+    },
+    {
+      "name": "civex:high_metal_low_gem",
+      "merge": {
+        "structures": "top",
+        "lore": "bottom"
+      }
+    }
+  ],
+  "display_name": {
+    "text": "Red Fungal Cavern",
+    "color": "red"
+  },
+  "lore": [
+    {
+      "text": "Difficulty: ☆☆☆",
+      "color": "yellow"
+    }
+  ],
+  "structures": {
+    "stags": {
+      "block": "minecraft:mushroom_stem",
+      "type": "descent_into_darkness:stalagmite",
+      "floor_to_ceiling_search_range": 100,
+      "max_column_radius_to_cave_height_ratio": 1,
+      "has_stalactite": true,
+      "min_bluntness_for_wind": 0,
+      "min_radius_for_wind": 1,
+      "count": 0.03,
+      "column_radius": [
+        10,
+        15
+      ],
+      "wind_speed": [
+        0,
+        1
+      ]
+    },
+    "mushroom_stem": {
+      "type": "descent_into_darkness:vein",
+      "edges": [
+        "ceiling"
+      ],
+      "count": 1,
+      "ore": {
+        "type": "minecraft:simple_state_provider",
+        "state": {
+          "Name": "minecraft:mushroom_stem",
+          "Properties": {
+            "down": false,
+            "east": false,
+            "north": false,
+            "south": false,
+            "up": false,
+            "west": false
+          }
+        }
+      },
+      "radius": 3,
+      "can_replace": [
+        "minecraft:dirt",
+        "minecraft:coarse_dirt"
+      ]
+    },
+    "wall_decor": {
+      "type": "descent_into_darkness:template",
+      "edges": [
+        "wall"
+      ],
+      "can_place_on": [
+        "minecraft:dirt",
+        "minecraft:coarse_dirt",
+        "minecraft:mushroom_stem"
+      ],
+      "can_replace": [
+        "minecraft:air",
+        "minecraft:dirt",
+        "minecraft:coarse_dirt",
+        "minecraft:mushroom_stem",
+        "minecraft:stone"
+      ],
+      "count": 0.2,
+      "origin_side": "west",
+      "templates": [
+        {
+          "template": "descent_into_darkness:mushroom1/rcir3",
+          "origin": [
+            6,
+            0,
+            7
+          ]
+        },
+        {
+          "template": "descent_into_darkness:mushroom1/rcir2",
+          "origin": [
+            5,
+            0,
+            4
+          ]
+        },
+        {
+          "template": "descent_into_darkness:mushroom1/rcir1",
+          "origin": [
+            3,
+            0,
+            3
+          ]
+        }
+      ]
+    },
+    "shroom": {
+      "type": "descent_into_darkness:template",
+      "edges": [
+        "floor"
+      ],
+      "chance": 0.4,
+      "can_place_on": [
+        "minecraft:dirt",
+        "minecraft:coarse_dirt",
+        "minecraft:mycelium"
+      ],
+      "templates": [
+        {
+          "template": "descent_into_darkness:mushroom1/rshort0",
+          "origin": [
+            1,
+            0,
+            1
+          ]
+        },
+        {
+          "template": "descent_into_darkness:mushroom1/rshort1",
+          "origin": [
+            -1,
+            2,
+            0
+          ]
+        },
+        {
+          "template": "descent_into_darkness:mushroom1/rshort2",
+          "origin": [
+            1,
+            0,
+            1
+          ]
+        },
+        {
+          "template": "descent_into_darkness:mushroom1/rbush",
+          "origin": [
+            1,
+            0,
+            1
+          ]
+        },
+        {
+          "template": "descent_into_darkness:mushroom1/rnorm",
+          "origin": [
+            2,
+            0,
+            2
+          ]
+        },
+        {
+          "template": "descent_into_darkness:mushroom1/rvan",
+          "origin": [
+            2,
+            0,
+            2
+          ]
+        }
+      ]
+    },
+    "big_shroom": {
+      "type": "descent_into_darkness:template",
+      "edges": [
+        "floor"
+      ],
+      "chance": 0.2,
+      "can_place_on": [
+        "minecraft:dirt",
+        "minecraft:coarse_dirt",
+        "minecraft:mycelium"
+      ],
+      "templates": [
+        {
+          "template": "descent_into_darkness:mushroom1/r322",
+          "origin": [
+            3,
+            0,
+            2
+          ]
+        },
+        {
+          "template": "descent_into_darkness:mushroom1/r233",
+          "origin": [
+            2,
+            0,
+            2
+          ]
+        }
+      ]
+    },
+    "ceiling_shroom": {
+      "type": "descent_into_darkness:template",
+      "edges": [
+        "ceiling"
+      ],
+      "chance": 0.05,
+      "can_place_on": [
+        "minecraft:dirt",
+        "minecraft:coarse_dirt"
+      ],
+      "templates": [
+        {
+          "template": "descent_into_darkness:mushroom1/snorm",
+          "origin": [
+            1,
+            0,
+            1
+          ]
+        },
+        {
+          "template": "descent_into_darkness:mushroom1/snorm2",
+          "origin": [
+            2,
+            0,
+            2
+          ]
+        }
+      ]
+    },
+    "mpatch2": {
+      "type": "descent_into_darkness:patch",
+      "edges": [
+        "floor"
+      ],
+      "chance": 0.5,
+      "can_place_on": [
+        "minecraft:mycelium"
+      ],
+      "block": "minecraft:red_mushroom"
+    }
+  }
+}

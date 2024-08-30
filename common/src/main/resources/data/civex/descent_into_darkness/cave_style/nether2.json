@@ -1,0 +1,179 @@
+{
+  "nether": true,
+  "biome": "minecraft:crimson_forest",
+  "inherit": [
+    {
+      "name": "civex:piglin_pack",
+      "merge": {
+        "lore": "bottom"
+      }
+    },
+    {
+      "name": "civex:high_gem_low_fuel",
+      "merge": {
+        "structures": "top",
+        "lore": "bottom"
+      }
+    },
+    "civex:cavernous"
+  ],
+  "display_name": {
+    "text": "Crimson Forest",
+    "color": "dark_red"
+  },
+  "lore": [
+    {
+      "text": "Difficulty: ☆☆☆☆",
+      "color": "yellow"
+    }
+  ],
+  "base_block": "minecraft:netherrack",
+  "transparent_blocks": [
+    "minecraft:air",
+    "minecraft:wither_rose"
+  ],
+  "start_y": 210,
+  "painter_steps": [
+    {
+      "type": "descent_into_darkness:replace_floor",
+      "old": "minecraft:netherrack",
+      "new": "minecraft:crimson_nylium"
+    }
+  ],
+  "structures": {
+    "quartz_ore": {
+      "type": "descent_into_darkness:vein",
+      "edges": [
+        "floor",
+        "ceiling",
+        "wall"
+      ],
+      "can_replace": [
+        "minecraft:netherrack",
+        "minecraft:soul_sand"
+      ],
+      "chance": 0.05,
+      "ore": "minecraft:nether_quartz_ore",
+      "radius": 3
+    },
+    "gold_ore": {
+      "type": "descent_into_darkness:vein",
+      "edges": [
+        "floor",
+        "ceiling",
+        "wall"
+      ],
+      "can_replace": [
+        "minecraft:netherrack",
+        "minecraft:soul_sand"
+      ],
+      "chance": 0.03,
+      "ore": "minecraft:nether_gold_ore",
+      "radius": 3
+    },
+    "glowstone": {
+      "type": "descent_into_darkness:glowstone",
+      "edges": [
+        "ceiling"
+      ],
+      "chance": 0.1,
+      "block": "glowstone",
+      "can_place_on": [
+        "minecraft:netherrack"
+      ],
+      "height": 12,
+      "density": 1500
+    },
+    "mpatch": {
+      "type": "descent_into_darkness:patch",
+      "edges": [
+        "floor"
+      ],
+      "count": 1,
+      "spread_x": 16,
+      "spread_z": 16,
+      "can_place_on": [
+        "minecraft:crimson_nylium"
+      ],
+      "block": "minecraft:crimson_fungus"
+    },
+    "mpatch2": {
+      "type": "descent_into_darkness:patch",
+      "edges": [
+        "floor"
+      ],
+      "count": 1,
+      "spread_x": 16,
+      "spread_z": 16,
+      "can_place_on": [
+        "minecraft:crimson_nylium"
+      ],
+      "block": "minecraft:crimson_roots"
+    },
+    "tree": {
+      "type": "descent_into_darkness:tree",
+      "edges": "floor",
+      "can_place_on": "minecraft:crimson_nylium",
+      "dirt": {
+        "type": "minecraft:simple_state_provider",
+        "state": {
+          "Name": "minecraft:crimson_stem",
+          "Properties": {
+            "axis": "y"
+          }
+        }
+      },
+      "leaf": "minecraft:nether_wart_block",
+      "log": "minecraft:crimson_stem",
+      "hanging_vine": "minecraft:nether_wart_block",
+      "hanging_vine_chance": 0.5,
+      "height": 8,
+      "leaf_height": 4
+    },
+    "vine": {
+      "type": "descent_into_darkness:vine_patch",
+      "vine": "minecraft:weeping_vines_plant",
+      "chance": 0.03,
+      "edges": "ceiling",
+      "last_block": "minecraft:weeping_vines",
+      "height": [
+        5,
+        15
+      ]
+    },
+    "lavafall": {
+      "type": "descent_into_darkness:waterfall",
+      "fluid_type": "lava",
+      "edges": [
+        "wall",
+        "ceiling"
+      ],
+      "can_place_on": [
+        "minecraft:netherrack",
+        "minecraft:crimson_nylium"
+      ],
+      "chance": 0.1
+    },
+    "vine2": {
+      "type": "descent_into_darkness:vine_patch",
+      "vine": "minecraft:weeping_vines_plant",
+      "chance": 0.6,
+      "edges": "ceiling",
+      "last_block": "minecraft:weeping_vines",
+      "can_place_on": "minecraft:nether_wart_block",
+      "height": [
+        3,
+        6
+      ]
+    },
+    "shroomlight": {
+      "type": "descent_into_darkness:patch",
+      "block": "minecraft:shroomlight",
+      "edges": [
+        "ceiling"
+      ],
+      "can_place_on": "minecraft:nether_wart_block",
+      "chance": 0.1
+    }
+  }
+}

@@ -1,0 +1,112 @@
+{
+  "transparent_blocks": [
+    "minecraft:air",
+    "minecraft:water"
+  ],
+  "biome": "minecraft:basalt_deltas",
+  "nether": true,
+  "inherit": [
+    "civex:big_rooms2",
+    {
+      "name": "civex:fuel1",
+      "merge": {
+        "structures": "top"
+      }
+    }
+  ],
+  "room_air_blocks": {
+    "ravine2": [
+      {
+        "min": 0,
+        "max": 0.5,
+        "block": "lava"
+      }
+    ]
+  },
+  "base_block": {
+    "Name": "minecraft:basalt",
+    "Properties": {
+      "axis": "y"
+    }
+  },
+  "painter_steps": [
+    {
+      "type": "descent_into_darkness:replace_all",
+      "old": {
+        "type": "descent_into_darkness:matches_state",
+        "name": "minecraft:basalt",
+        "properties": {
+          "axis": "y"
+        }
+      },
+      "new": {
+        "type": "minecraft:simple_state_provider",
+        "state": {
+          "Name": "minecraft:basalt",
+          "Properties": {
+            "axis": "x"
+          }
+        }
+      },
+      "chance": 0.3
+    },
+    {
+      "type": "descent_into_darkness:replace_all",
+      "old": {
+        "type": "descent_into_darkness:matches_state",
+        "name": "minecraft:basalt",
+        "properties": {
+          "axis": "y"
+        }
+      },
+      "new": {
+        "type": "minecraft:simple_state_provider",
+        "state": {
+          "Name": "minecraft:basalt",
+          "Properties": {
+            "axis": "z"
+          }
+        }
+      },
+      "chance": 0.3
+    },
+    {
+      "type": "descent_into_darkness:replace_floor",
+      "old": "minecraft:basalt",
+      "new": "minecraft:lava",
+      "chance": 0.02,
+      "tags": "ravine"
+    }
+  ],
+  "structures": {
+    "stags": {
+      "block": "minecraft:blackstone",
+      "type": "descent_into_darkness:stalagmite",
+      "floor_to_ceiling_search_range": 30,
+      "max_column_radius_to_cave_height_ratio": 0.1,
+      "edges": "ceiling",
+      "has_stalactite": false,
+      "min_bluntness_for_wind": 0,
+      "min_radius_for_wind": 1,
+      "count": 0.07,
+      "tags": "ravine",
+      "column_radius": 30,
+      "height_scale": 0.35,
+      "wind_speed": 0
+    },
+    "mottle": {
+      "type": "descent_into_darkness:vein",
+      "ore": "minecraft:magma_block",
+      "edges": [
+        "ceiling",
+        "wall",
+        "floor"
+      ],
+      "can_place_on": "minecraft:blackstone",
+      "can_replace": "minecraft:blackstone",
+      "size": 4,
+      "count": 0.6,
+      "tags": "ravine"
+    }
+  }
+}

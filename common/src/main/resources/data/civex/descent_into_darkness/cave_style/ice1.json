@@ -1,0 +1,165 @@
+{
+  "transparent_blocks": [
+    "minecraft:air",
+    "minecraft:snow"
+  ],
+  "inherit": [
+    "civex:vanilla",
+    {
+      "name": "civex:snow_pack",
+      "merge": {
+        "lore": "bottom"
+      }
+    },
+    {
+      "name": "civex:high_gem_low_metal",
+      "merge": {
+        "structures": "top",
+        "lore": "bottom"
+      }
+    }
+  ],
+  "display_name": "Snow Grotto",
+  "lore": [
+    {
+      "text": "Difficulty: ☆☆☆",
+      "color": "yellow"
+    }
+  ],
+  "nether": true,
+  "biome": "civex:ice_trees",
+  "base_block": "minecraft:dirt",
+  "painter_steps": [
+    {
+      "type": "descent_into_darkness:replace_floor",
+      "old": "minecraft:dirt",
+      "new": {
+        "type": "minecraft:simple_state_provider",
+        "state": {
+          "Name": "minecraft:grass_block",
+          "Properties": {
+            "snowy": true
+          }
+        }
+      }
+    },
+    {
+      "type": "descent_into_darkness:floor_layer",
+      "block": "minecraft:snow",
+      "can_place_on": {
+        "type": "minecraft:not",
+        "predicate": {
+          "type": "minecraft:matching_blocks",
+          "blocks": "minecraft:snow"
+        }
+      }
+    },
+    {
+      "type": "descent_into_darkness:replace_all",
+      "old": "minecraft:dirt",
+      "new": "minecraft:coarse_dirt",
+      "chance": 0.4
+    },
+    {
+      "type": "descent_into_darkness:replace_all",
+      "old": "minecraft:dirt",
+      "new": "minecraft:snow_block",
+      "chance": 0.1
+    }
+  ],
+  "structures": {
+    "icepatch": {
+      "ore": "minecraft:packed_ice",
+      "radius": 5,
+      "type": "descent_into_darkness:vein",
+      "count": 0.2,
+      "edges": [
+        "floor"
+      ]
+    },
+    "pillars": {
+      "block": {
+        "type": "minecraft:weighted_state_provider",
+        "entries": [
+          {
+            "weight": 5,
+            "data": {
+              "Name": "minecraft:ice"
+            }
+          },
+          {
+            "weight": 5,
+            "data": {
+              "Name": "minecraft:packed_ice"
+            }
+          },
+          {
+            "weight": 1,
+            "data": {
+              "Name": "minecraft:air"
+            }
+          }
+        ]
+      },
+      "type": "descent_into_darkness:stalagmite",
+      "floor_to_ceiling_search_range": 512,
+      "max_column_radius_to_cave_height_ratio": 1,
+      "has_stalactite": true,
+      "min_bluntness_for_wind": 0,
+      "min_radius_for_wind": 1,
+      "count": 0.1,
+      "edges": [
+        "ceiling",
+        "floor"
+      ],
+      "height_scale": [
+        1,
+        2
+      ],
+      "column_radius": 3,
+      "wind_speed": 0
+    },
+    "pillars1": {
+      "block": {
+        "type": "minecraft:weighted_state_provider",
+        "entries": [
+          {
+            "weight": 5,
+            "data": {
+              "Name": "minecraft:ice"
+            }
+          },
+          {
+            "weight": 5,
+            "data": {
+              "Name": "minecraft:snow_block"
+            }
+          },
+          {
+            "weight": 1,
+            "data": {
+              "Name": "minecraft:air"
+            }
+          }
+        ]
+      },
+      "type": "descent_into_darkness:stalagmite",
+      "floor_to_ceiling_search_range": 512,
+      "max_column_radius_to_cave_height_ratio": 1,
+      "has_stalactite": true,
+      "min_bluntness_for_wind": 0,
+      "min_radius_for_wind": 1,
+      "count": 0.1,
+      "edges": [
+        "ceiling",
+        "floor"
+      ],
+      "height_scale": [
+        1,
+        2
+      ],
+      "column_radius": 3,
+      "wind_speed": 0
+    }
+  }
+}

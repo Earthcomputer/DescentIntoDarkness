@@ -1,0 +1,188 @@
+{
+  "base_block": "minecraft:stone",
+  "biome": "civex:bamboo_forest",
+  "nether": true,
+  "inherit": [
+    "civex:big_flat",
+    {
+      "name": "civex:wooden_pack",
+      "merge": {
+        "lore": "bottom"
+      }
+    },
+    {
+      "name": "civex:high_metal_low_gem",
+      "merge": {
+        "structures": "top",
+        "lore": "bottom"
+      }
+    }
+  ],
+  "display_name": {
+    "text": "Bamboo Forest",
+    "color": "green"
+  },
+  "lore": [
+    {
+      "text": "Difficulty: ☆☆☆",
+      "color": "yellow"
+    }
+  ],
+  "painter_steps": [
+    {
+      "type": "descent_into_darkness:replace_floor",
+      "old": "minecraft:stone",
+      "new": "minecraft:grass_block"
+    },
+    {
+      "type": "descent_into_darkness:replace_all",
+      "old": "minecraft:stone",
+      "new": {
+        "type": "minecraft:weighted_state_provider",
+        "entries": [
+          {
+            "weight": 1,
+            "data": {
+              "Name": "minecraft:cobblestone"
+            }
+          },
+          {
+            "weight": 1,
+            "data": {
+              "Name": "minecraft:andesite"
+            }
+          }
+        ]
+      },
+      "chance": 0.5
+    }
+  ],
+  "structures": {
+    "waterseed": {
+      "type": "descent_into_darkness:vein",
+      "ore": "minecraft:water",
+      "can_place_on": "minecraft:grass_block",
+      "can_replace": "minecraft:grass_block",
+      "radius": 4,
+      "count": 0.02,
+      "tags": "ravine"
+    },
+    "water": {
+      "type": "descent_into_darkness:vein",
+      "ore": "minecraft:water",
+      "can_place_on": "minecraft:water",
+      "can_replace": "minecraft:grass_block",
+      "radius": 5,
+      "count": 25
+    },
+    "bamboo_well": {
+      "type": "descent_into_darkness:template",
+      "templates": [
+        {
+          "template": "descent_into_darkness:bambooforest/bamboo_well",
+          "origin": [
+            1,
+            0,
+            1
+          ]
+        }
+      ],
+      "count": 0.0006,
+      "edges": "floor",
+      "can_place_on": "minecraft:grass_block"
+    },
+    "bamboo4": {
+      "type": "descent_into_darkness:patch",
+      "block": {
+        "type": "minecraft:weighted_state_provider",
+        "entries": [
+          {
+            "weight": 9,
+            "data": {
+              "Name": "minecraft:short_grass"
+            }
+          },
+          {
+            "weight": 1,
+            "data": {
+              "Name": "minecraft:blue_orchid"
+            }
+          }
+        ]
+      },
+      "count": 0.0001,
+      "edges": "floor",
+      "can_place_on": [
+        "minecraft:grass_block"
+      ],
+      "can_replace": [
+        "minecraft:air"
+      ]
+    },
+    "bamboo1": {
+      "type": "descent_into_darkness:vine_patch",
+      "vine": "minecraft:sugar_cane",
+      "count": 0.0001,
+      "edges": "floor",
+      "can_place_on": [
+        "minecraft:grass_block"
+      ],
+      "can_replace": [
+        "minecraft:air"
+      ],
+      "height": [
+        3,
+        5
+      ]
+    },
+    "bamboo2": {
+      "type": "descent_into_darkness:vine_patch",
+      "vine": {
+        "type": "minecraft:simple_state_provider",
+        "state": {
+          "Name": "minecraft:bamboo",
+          "Properties": {
+            "leaves": "small"
+          }
+        }
+      },
+      "count": 0.25,
+      "edges": "floor",
+      "can_place_on": [
+        "minecraft:grass_block"
+      ],
+      "can_replace": [
+        "minecraft:air"
+      ],
+      "height": [
+        5,
+        10
+      ]
+    },
+    "bamboo0": {
+      "type": "descent_into_darkness:vine_patch",
+      "vine": {
+        "type": "minecraft:simple_state_provider",
+        "state": {
+          "Name": "minecraft:bamboo",
+          "Properties": {
+            "age": 1,
+            "leaves": "large"
+          }
+        }
+      },
+      "count": 0.25,
+      "edges": "floor",
+      "can_place_on": [
+        "minecraft:grass_block"
+      ],
+      "can_replace": [
+        "minecraft:air"
+      ],
+      "height": [
+        10,
+        15
+      ]
+    }
+  }
+}

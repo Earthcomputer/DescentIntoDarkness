@@ -1,0 +1,228 @@
+{
+  "transparent_blocks": [
+    "minecraft:air"
+  ],
+  "inherit": [
+    {
+      "name": "civex:clockwork_pack",
+      "merge": {
+        "lore": "bottom"
+      }
+    },
+    "civex:cavernous",
+    {
+      "name": "civex:high_metal_low_fuel",
+      "merge": {
+        "structures": "top",
+        "lore": "bottom"
+      }
+    }
+  ],
+  "display_name": {
+    "text": "Stronghold Ruins",
+    "color": "gray"
+  },
+  "lore": [
+    {
+      "text": "Difficulty: ☆☆☆☆",
+      "color": "yellow"
+    }
+  ],
+  "structures": {
+    "crossbar": {
+      "chance": 0.1,
+      "type": "descent_into_darkness:vine_patch",
+      "vine": "minecraft:stone_bricks",
+      "spread_x": 1,
+      "spread_y": 0,
+      "spread_z": 1,
+      "tries": 50,
+      "edges": "wall",
+      "can_place_on": [
+        "minecraft:stone",
+        "minecraft:mossy_cobblestone",
+        "minecraft:andesite",
+        "minecraft:gravel",
+        "minecraft:cobblestone"
+      ],
+      "height": 1000
+    },
+    "crossbar2": {
+      "chance": 0.3,
+      "type": "descent_into_darkness:vine_patch",
+      "vine": "minecraft:stone_bricks",
+      "spread_x": 1,
+      "spread_y": 0,
+      "spread_z": 1,
+      "tries": 50,
+      "edges": "wall",
+      "can_place_on": "minecraft:stone_bricks",
+      "height": 1000
+    },
+    "support": {
+      "chance": 0.3,
+      "type": "descent_into_darkness:vine_patch",
+      "vine": "minecraft:stone_bricks",
+      "spread_x": 2,
+      "spread_y": 0,
+      "spread_z": 2,
+      "tries": 20,
+      "edges": "ceiling",
+      "can_place_on": "minecraft:stone_bricks",
+      "height": 1000
+    },
+    "support2": {
+      "chance": 0.05,
+      "type": "descent_into_darkness:vine_patch",
+      "vine": "minecraft:stone_bricks",
+      "spread_x": 2,
+      "spread_y": 0,
+      "spread_z": 2,
+      "tries": 30,
+      "edges": "floor",
+      "height": 1000
+    },
+    "cracked_brick": {
+      "type": "descent_into_darkness:vein",
+      "edges": [
+        "floor",
+        "wall",
+        "ceiling"
+      ],
+      "ore": "minecraft:cracked_stone_bricks",
+      "radius": 3,
+      "can_place_on": "minecraft:stone_bricks"
+    },
+    "mossy_brick": {
+      "type": "descent_into_darkness:vein",
+      "edges": [
+        "floor",
+        "wall",
+        "ceiling"
+      ],
+      "ore": "minecraft:mossy_stone_bricks",
+      "radius": 3,
+      "can_place_on": "minecraft:stone_bricks"
+    },
+    "broke_brick": {
+      "type": "descent_into_darkness:vein",
+      "edges": [
+        "floor",
+        "ceiling"
+      ],
+      "ore": "minecraft:air",
+      "radius": 3,
+      "can_place_on": "minecraft:stone_bricks"
+    },
+    "broke_brick2": {
+      "type": "descent_into_darkness:vein",
+      "edges": [
+        "wall"
+      ],
+      "ore": "minecraft:air",
+      "radius": 3,
+      "can_place_on": "minecraft:stone_bricks"
+    },
+    "crate": {
+      "count": 0.3,
+      "type": "descent_into_darkness:template",
+      "templates": [
+        "descent_into_darkness:crate/singlecrate"
+      ],
+      "edges": [
+        "floor"
+      ],
+      "can_place_on": [
+        "minecraft:stone_bricks",
+        "minecraft:mossy_stone_bricks",
+        "minecraft:cracked_stone_bricks"
+      ]
+    }
+  },
+  "spawn_entries": {
+    "clockworkrat": {
+      "mob": "descent_into_darkness:clockwork_rat",
+      "single_mob_cost": 20,
+      "weight": 10,
+      "cooldown": 20,
+      "pack_cost": [
+        100,
+        300
+      ],
+      "distance": [
+        10,
+        20
+      ]
+    },
+    "clockwork_scout": {
+      "mob": "descent_into_darkness:clockwork_scout",
+      "single_mob_cost": 70,
+      "weight": 10,
+      "cooldown": 20,
+      "pack_cost": [
+        100,
+        300
+      ],
+      "distance": [
+        15,
+        25
+      ]
+    },
+    "clockwork_miner": {
+      "mob": "descent_into_darkness:clockwork_miner",
+      "single_mob_cost": 70,
+      "weight": 10,
+      "cooldown": 20,
+      "pack_cost": [
+        100,
+        300
+      ],
+      "distance": [
+        15,
+        25
+      ]
+    },
+    "clockwork_guard": {
+      "mob": "descent_into_darkness:clockwork_guard",
+      "single_mob_cost": 100,
+      "weight": 10,
+      "cooldown": 20,
+      "pack_cost": [
+        100,
+        300
+      ],
+      "distance": [
+        15,
+        25
+      ]
+    },
+    "clockwork_engineer": {
+      "mob": "descent_into_darkness:delirious_engineer",
+      "single_mob_cost": 250,
+      "weight": 10,
+      "cooldown": 20,
+      "pack_cost": [
+        250,
+        500
+      ],
+      "distance": [
+        15,
+        25
+      ]
+    },
+    "clockworkgolem": {
+      "mob": "descent_into_darkness:steamwork_amalgamation",
+      "single_mob_cost": 600,
+      "weight": 10,
+      "cooldown": 20,
+      "pack_cost": [
+        600,
+        700
+      ],
+      "distance": [
+        15,
+        25
+      ]
+    }
+  }
+}

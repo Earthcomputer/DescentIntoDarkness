@@ -1,0 +1,94 @@
+{
+  "lore": [
+    {
+      "text": "Nature",
+      "color": "green"
+    }
+  ],
+  "spawn_entries": {
+    "vinelasher": {
+      "mob": "descent_into_darkness:vinelasher",
+      "single_mob_cost": 200,
+      "weight": 10,
+      "cooldown": 20,
+      "pack_cost": [
+        200,
+        800
+      ],
+      "distance": [
+        10,
+        20
+      ]
+    },
+    "elderwood_hunter": {
+      "mob": "descent_into_darkness:elderwood_hunter",
+      "single_mob_cost": 250,
+      "weight": 10,
+      "cooldown": 20,
+      "pack_cost": [
+        250,
+        1000
+      ],
+      "distance": [
+        15,
+        25
+      ]
+    },
+    "forest_arbors": {
+      "mob": "descent_into_darkness:forest_arbors",
+      "single_mob_cost": 600,
+      "weight": 10,
+      "cooldown": 20,
+      "pack_cost": [
+        600,
+        1200
+      ],
+      "distance": [
+        15,
+        25
+      ]
+    },
+    "treeslayer": {
+      "mob": "descent_into_darkness:treeslayer",
+      "single_mob_cost": 250,
+      "weight": 10,
+      "cooldown": 20,
+      "pack_cost": [
+        250,
+        1000
+      ],
+      "distance": [
+        15,
+        25
+      ]
+    },
+    "elderwood_footman": {
+      "mob": "descent_into_darkness:elderwood_footman",
+      "single_mob_cost": 250,
+      "weight": 10,
+      "cooldown": 20,
+      "pack_cost": [
+        250,
+        1000
+      ],
+      "distance": [
+        15,
+        25
+      ]
+    },
+    "elderwood_gatherer": {
+      "mob": "descent_into_darkness:elderwood_gatherer",
+      "single_mob_cost": 150,
+      "weight": 10,
+      "cooldown": 10,
+      "pack_cost": [
+        150,
+        600
+      ],
+      "distance": [
+        15,
+        25
+      ]
+    }
+  }
+}

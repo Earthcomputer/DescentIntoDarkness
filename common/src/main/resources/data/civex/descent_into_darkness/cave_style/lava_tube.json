@@ -1,0 +1,143 @@
+{
+  "base_block": "dead_brain_coral_block",
+  "inherit": [
+    {
+      "name": "civex:nether_pack",
+      "merge": {
+        "lore": "bottom"
+      }
+    },
+    "civex:vanilla",
+    {
+      "name": "civex:high_fuel_low_gem",
+      "merge": {
+        "structures": "top",
+        "lore": "bottom"
+      }
+    }
+  ],
+  "display_name": {
+    "text": "Lava Tubes",
+    "color": "red"
+  },
+  "lore": [
+    {
+      "text": "Difficulty: ☆☆☆☆",
+      "color": "yellow"
+    }
+  ],
+  "painter_steps": [
+    {
+      "type": "descent_into_darkness:replace_floor",
+      "old": "minecraft:dead_brain_coral_block",
+      "new": {
+        "type": "minecraft:weighted_state_provider",
+        "entries": [
+          {
+            "weight": 10,
+            "data": {
+              "Name": "minecraft:dead_fire_coral_block"
+            }
+          },
+          {
+            "weight": 3,
+            "data": {
+              "Name": "minecraft:dead_horn_coral_block"
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "biome": "civex:netherwater",
+  "nether": true,
+  "structures": {
+    "fall": {
+      "type": "descent_into_darkness:waterfall",
+      "fluid_type": "block",
+      "block": {
+        "type": "minecraft:weighted_state_provider",
+        "entries": [
+          {
+            "weight": 1,
+            "data": {
+              "Name": "minecraft:basalt"
+            }
+          },
+          {
+            "weight": 1,
+            "data": {
+              "Name": "magma_block"
+            }
+          }
+        ]
+      },
+      "edges": "wall",
+      "flow_distance": 4,
+      "count": 1
+    },
+    "fall2": {
+      "type": "descent_into_darkness:waterfall",
+      "fluid_type": "lava",
+      "edges": "wall",
+      "count": 1
+    },
+    "lavapool": {
+      "type": "descent_into_darkness:vein",
+      "ore": "minecraft:lava",
+      "edges": "floor",
+      "count": 0.1,
+      "can_replace": "dead_fire_coral_block"
+    },
+    "tree": {
+      "type": "descent_into_darkness:tree",
+      "edges": "ceiling",
+      "dirt": {
+        "type": "minecraft:simple_state_provider",
+        "state": {
+          "Name": "minecraft:polished_basalt",
+          "Properties": {
+            "axis": "y"
+          }
+        }
+      },
+      "log": {
+        "type": "minecraft:simple_state_provider",
+        "state": {
+          "Name": "minecraft:polished_basalt",
+          "Properties": {
+            "axis": "y"
+          }
+        }
+      },
+      "leaf": "minecraft:andesite",
+      "can_place_on": "minecraft:dead_brain_coral_block",
+      "count": 0.4,
+      "height": [
+        4,
+        6
+      ],
+      "leaf_height": 4
+    },
+    "patch": {
+      "type": "descent_into_darkness:patch",
+      "block": {
+        "type": "minecraft:simple_state_provider",
+        "state": {
+          "Name": "dead_fire_coral",
+          "Properties": {
+            "waterlogged": false
+          }
+        }
+      },
+      "edges": "floor",
+      "spread_x": 16,
+      "spread_z": 16,
+      "count": 0.5,
+      "can_place_on": [
+        "minecraft:dead_fire_coral_block",
+        "minecraft:dead_brain_coral_block"
+      ]
+    }
+  }
+}

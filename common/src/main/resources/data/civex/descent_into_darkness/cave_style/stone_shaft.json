@@ -1,0 +1,139 @@
+{
+  "inherit": [
+    "civex:mineshaft",
+    {
+      "name": "civex:clockwork_pack",
+      "merge": {
+        "lore": "bottom"
+      }
+    },
+    {
+      "name": "civex:high_gem_low_metal",
+      "merge": {
+        "structures": "top",
+        "lore": "bottom"
+      }
+    }
+  ],
+  "display_name": {
+    "text": "Mineshaft",
+    "color": "gray"
+  },
+  "lore": [
+    {
+      "text": "Difficulty: ☆☆☆",
+      "color": "yellow"
+    }
+  ],
+  "transparent_blocks": [
+    "minecraft:air"
+  ],
+  "painter_steps": [
+    {
+      "type": "descent_into_darkness:replace_floor",
+      "old": "minecraft:stone",
+      "new": "minecraft:gravel"
+    },
+    {
+      "type": "descent_into_darkness:replace_all",
+      "old": "minecraft:stone",
+      "new": "minecraft:andesite",
+      "chance": 0.2
+    },
+    {
+      "type": "descent_into_darkness:replace_all",
+      "old": "minecraft:stone",
+      "new": "minecraft:cobblestone",
+      "chance": 0.2
+    }
+  ],
+  "structures": {
+    "crossbar": {
+      "count": 1,
+      "type": "descent_into_darkness:vine_patch",
+      "vine": "minecraft:oak_planks",
+      "spread_x": 1,
+      "spread_y": 0,
+      "spread_z": 1,
+      "tries": 50,
+      "edges": "wall",
+      "tags": [
+        "small_branch",
+        "branch",
+        "dropshaft"
+      ],
+      "can_place_on": [
+        "minecraft:stone",
+        "minecraft:mossy_cobblestone",
+        "minecraft:andesite",
+        "minecraft:gravel",
+        "minecraft:cobblestone"
+      ],
+      "height": 1000
+    },
+    "support": {
+      "chance": 0.1,
+      "type": "descent_into_darkness:vine_patch",
+      "vine": "minecraft:stone_brick_wall",
+      "spread_x": 0,
+      "spread_y": 0,
+      "spread_z": 0,
+      "tries": 20,
+      "edges": "floor",
+      "can_place_on": [
+        "minecraft:stone",
+        "minecraft:andesite",
+        "minecraft:gravel",
+        "minecraft:cobblestone"
+      ],
+      "height": 1000
+    },
+    "crate": {
+      "count": 2,
+      "type": "descent_into_darkness:template",
+      "templates": [
+        "descent_into_darkness:crate/singlecrate"
+      ],
+      "edges": [
+        "floor"
+      ],
+      "can_place_on": [
+        "minecraft:oak_planks"
+      ]
+    },
+    "crate2": {
+      "count": 0.07,
+      "type": "descent_into_darkness:template",
+      "templates": [
+        "descent_into_darkness:crate/singlecrate"
+      ],
+      "edges": [
+        "floor"
+      ]
+    },
+    "rails": {
+      "count": 0.1,
+      "type": "descent_into_darkness:patch",
+      "block": "minecraft:rail",
+      "spread_x": 32,
+      "spread_z": 32,
+      "edges": [
+        "floor"
+      ]
+    },
+    "rails2": {
+      "count": 10,
+      "tries": 20,
+      "type": "descent_into_darkness:patch",
+      "block": "minecraft:rail",
+      "spread_x": 8,
+      "spread_z": 8,
+      "edges": [
+        "floor"
+      ],
+      "can_place_on": [
+        "minecraft:oak_planks"
+      ]
+    }
+  }
+}

@@ -1,0 +1,116 @@
+{
+  "spawn_entries": {
+    "snow_cultist": {
+      "mob": "descent_into_darkness:snow_cultist",
+      "single_mob_cost": 200,
+      "weight": 10,
+      "cooldown": 20,
+      "pack_cost": [
+        200,
+        800
+      ],
+      "distance": [
+        10,
+        20
+      ]
+    },
+    "frozen_fanatic": {
+      "mob": "descent_into_darkness:frozen_fanatic",
+      "single_mob_cost": 250,
+      "weight": 10,
+      "cooldown": 20,
+      "pack_cost": [
+        250,
+        1000
+      ],
+      "distance": [
+        15,
+        25
+      ]
+    },
+    "boreal_bear": {
+      "mob": "descent_into_darkness:boreal_bear",
+      "single_mob_cost": 400,
+      "weight": 20,
+      "cooldown": 20,
+      "pack_cost": [
+        400,
+        1200
+      ],
+      "distance": [
+        15,
+        25
+      ]
+    },
+    "artic_wolf": {
+      "mob": "descent_into_darkness:artic_wolf",
+      "single_mob_cost": 300,
+      "weight": 10,
+      "cooldown": 20,
+      "pack_cost": [
+        300,
+        900
+      ],
+      "distance": [
+        15,
+        25
+      ]
+    },
+    "magic_fox": {
+      "mob": "descent_into_darkness:magic_fox",
+      "single_mob_cost": 300,
+      "weight": 10,
+      "cooldown": 20,
+      "pack_cost": [
+        300,
+        900
+      ],
+      "distance": [
+        15,
+        25
+      ]
+    },
+    "glaze": {
+      "mob": "descent_into_darkness:glaze",
+      "single_mob_cost": 200,
+      "weight": 10,
+      "cooldown": 20,
+      "pack_cost": [
+        200,
+        1000
+      ],
+      "distance": [
+        15,
+        25
+      ]
+    },
+    "decrepit_watchman": {
+      "mob": "descent_into_darkness:decrepit_watchman",
+      "single_mob_cost": 250,
+      "weight": 10,
+      "cooldown": 20,
+      "pack_cost": [
+        250,
+        1000
+      ],
+      "distance": [
+        15,
+        25
+      ]
+    },
+    "snow_head2": {
+      "mob": "descent_into_darkness:snowhead2",
+      "single_mob_cost": 50,
+      "weight": 10,
+      "cooldown": 10,
+      "pack_cost": [
+        50,
+        400
+      ],
+      "distance": [
+        15,
+        25
+      ]
+    }
+  }
+}

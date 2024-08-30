@@ -1,0 +1,186 @@
+{
+  "inherit": [
+    "civex:big_flat3"
+  ],
+  "transparent_blocks": [
+    "minecraft:air",
+    "minecraft:cobblestone_slab",
+    "minecraft:mossy_cobblestone_slab",
+    "minecraft:cobweb"
+  ],
+  "biome": "civex:voidyssal",
+  "nether": true,
+  "base_block": "minecraft:cobblestone",
+  "painter_steps": [
+    {
+      "type": "descent_into_darkness:replace_all",
+      "old": "minecraft:cobblestone",
+      "new": "minecraft:mossy_cobblestone",
+      "chance": 0.5
+    },
+    {
+      "type": "descent_into_darkness:floor_layer",
+      "block": {
+        "type": "minecraft:weighted_state_provider",
+        "entries": [
+          {
+            "weight": 1,
+            "data": {
+              "Name": "minecraft:cobblestone_slab"
+            }
+          },
+          {
+            "weight": 1,
+            "data": {
+              "Name": "minecraft:mossy_cobblestone_slab"
+            }
+          },
+          {
+            "weight": 10,
+            "data": {
+              "Name": "minecraft:air"
+            }
+          }
+        ]
+      },
+      "can_place_on": [
+        "minecraft:cobblestone",
+        "minecraft:mossy_cobblestone"
+      ]
+    },
+    {
+      "type": "descent_into_darkness:ceiling_layer",
+      "block": {
+        "type": "minecraft:weighted_state_provider",
+        "entries": [
+          {
+            "weight": 1,
+            "data": {
+              "Name": "minecraft:cobblestone_slab"
+            }
+          },
+          {
+            "weight": 1,
+            "data": {
+              "Name": "minecraft:mossy_cobblestone_slab"
+            }
+          },
+          {
+            "weight": 10,
+            "data": {
+              "Name": "minecraft:air"
+            }
+          }
+        ]
+      },
+      "can_place_on": [
+        "minecraft:cobblestone",
+        "minecraft:mossy_cobblestone"
+      ]
+    }
+  ],
+  "structures": {
+    "pillars": {
+      "block": {
+        "type": "minecraft:weighted_state_provider",
+        "entries": [
+          {
+            "weight": 5,
+            "data": {
+              "Name": "minecraft:cobblestone"
+            }
+          },
+          {
+            "weight": 5,
+            "data": {
+              "Name": "minecraft:mossy_cobblestone"
+            }
+          },
+          {
+            "weight": 1,
+            "data": {
+              "Name": "minecraft:air"
+            }
+          }
+        ]
+      },
+      "type": "descent_into_darkness:stalagmite",
+      "floor_to_ceiling_search_range": 512,
+      "max_column_radius_to_cave_height_ratio": 1,
+      "has_stalactite": true,
+      "min_bluntness_for_wind": 0,
+      "min_radius_for_wind": 1,
+      "count": 0.3,
+      "edges": [
+        "ceiling",
+        "floor"
+      ],
+      "height_scale": [
+        10,
+        20
+      ],
+      "column_radius": 2,
+      "wind_speed": 0
+    },
+    "cobwebs": {
+      "type": "descent_into_darkness:patch",
+      "edges": [
+        "ceiling"
+      ],
+      "block": "minecraft:cobweb",
+      "spread_x": 32,
+      "spread_z": 32,
+      "count": 0.3
+    },
+    "glowstone": {
+      "type": "descent_into_darkness:glowstone",
+      "edges": [
+        "ceiling"
+      ],
+      "chance": 0.02,
+      "block": "minecraft:cobweb",
+      "height": 12
+    },
+    "glowstone2": {
+      "type": "descent_into_darkness:glowstone",
+      "edges": [
+        "floor"
+      ],
+      "chance": 0.004,
+      "density": 2000,
+      "block": "minecraft:cobweb",
+      "height": 12
+    },
+    "chains": {
+      "type": "descent_into_darkness:vine_patch",
+      "vine": {
+        "type": "minecraft:simple_state_provider",
+        "state": {
+          "Name": "minecraft:chain",
+          "Properties": {
+            "axis": "y"
+          }
+        }
+      },
+      "last_block": {
+        "type": "minecraft:simple_state_provider",
+        "state": {
+          "Name": "minecraft:lantern",
+          "Properties": {
+            "hanging": true
+          }
+        }
+      },
+      "spread_x": 32,
+      "spread_z": 32,
+      "chance": 0.002,
+      "edges": [
+        "ceiling"
+      ],
+      "height": [
+        4,
+        7
+      ]
+    }
+  }
+}

@@ -1,0 +1,177 @@
+{
+  "lore": [
+    {
+      "text": "Void",
+      "color": "black"
+    }
+  ],
+  "spawn_entries": {
+    "slimeling": {
+      "mob": "descent_into_darkness:slimeling",
+      "single_mob_cost": 25,
+      "weight": 1,
+      "cooldown": 20,
+      "pack_cost": [
+        25,
+        100
+      ],
+      "distance": [
+        10,
+        20
+      ]
+    },
+    "tall_slime": {
+      "mob": "descent_into_darkness:tall_slime",
+      "single_mob_cost": 25,
+      "weight": 1,
+      "cooldown": 20,
+      "pack_cost": [
+        25,
+        100
+      ],
+      "distance": [
+        10,
+        20
+      ]
+    },
+    "wide_slime": {
+      "mob": "descent_into_darkness:wide_slime",
+      "single_mob_cost": 25,
+      "weight": 1,
+      "cooldown": 20,
+      "pack_cost": [
+        25,
+        100
+      ],
+      "distance": [
+        10,
+        20
+      ]
+    },
+    "long_slime": {
+      "mob": "descent_into_darkness:long_slime",
+      "single_mob_cost": 25,
+      "weight": 1,
+      "cooldown": 20,
+      "pack_cost": [
+        25,
+        100
+      ],
+      "distance": [
+        10,
+        20
+      ]
+    },
+    "slimeslinger": {
+      "mob": "descent_into_darkness:slime_slinger",
+      "single_mob_cost": 200,
+      "cooldown": 20,
+      "pack_cost": [
+        200,
+        800
+      ],
+      "distance": [
+        15,
+        25
+      ]
+    },
+    "blue_slime": {
+      "mob": "descent_into_darkness:blue_slime",
+      "single_mob_cost": 200,
+      "weight": 10,
+      "cooldown": 20,
+      "pack_cost": [
+        200,
+        800
+      ],
+      "distance": [
+        15,
+        25
+      ]
+    },
+    "brain_slime": {
+      "mob": "descent_into_darkness:brain_slime",
+      "single_mob_cost": 200,
+      "weight": 10,
+      "cooldown": 20,
+      "pack_cost": [
+        200,
+        800
+      ],
+      "distance": [
+        15,
+        25
+      ]
+    },
+    "jumpingslime": {
+      "mob": "descent_into_darkness:jumping_slime",
+      "single_mob_cost": 200,
+      "weight": 10,
+      "cooldown": 20,
+      "pack_cost": [
+        200,
+        800
+      ],
+      "distance": [
+        15,
+        25
+      ]
+    },
+    "slimerancher": {
+      "mob": "descent_into_darkness:slime_rancher",
+      "single_mob_cost": 300,
+      "weight": 10,
+      "cooldown": 20,
+      "pack_cost": [
+        300,
+        900
+      ],
+      "distance": [
+        15,
+        25
+      ]
+    },
+    "slimetower": {
+      "mob": "descent_into_darkness:slime_tower",
+      "single_mob_cost": 400,
+      "weight": 10,
+      "cooldown": 20,
+      "pack_cost": [
+        400,
+        1200
+      ],
+      "distance": [
+        15,
+        25
+      ]
+    },
+    "pufferslime": {
+      "mob": "descent_into_darkness:puffer_slime",
+      "single_mob_cost": 500,
+      "weight": 10,
+      "cooldown": 20,
+      "pack_cost": [
+        500,
+        1500
+      ],
+      "distance": [
+        15,
+        25
+      ]
+    },
+    "mother_slime": {
+      "mob": "descent_into_darkness:mother_slime",
+      "single_mob_cost": 600,
+      "weight": 10,
+      "cooldown": 20,
+      "pack_cost": [
+        600,
+        1200
+      ],
+      "distance": [
+        15,
+        25
+      ]
+    }
+  }
+}

@@ -1,0 +1,1430 @@
+{
+  "biome": "civex:netherwater",
+  "inherit": [
+    "civex:bign_tall",
+    {
+      "name": "civex:metal1",
+      "merge": {
+        "structures": "top"
+      }
+    }
+  ],
+  "painter_steps": [
+    {
+      "type": "descent_into_darkness:replace_mesa",
+      "old": "minecraft:netherrack",
+      "layers": [
+        {
+          "min": 0,
+          "max": 10,
+          "block": "minecraft:netherrack"
+        },
+        {
+          "min": 11,
+          "max": 13,
+          "block": {
+            "type": "minecraft:weighted_state_provider",
+            "entries": [
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "minecraft:red_nether_bricks"
+                }
+              },
+              {
+                "weight": 2,
+                "data": {
+                  "Name": "minecraft:netherrack"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "min": 14,
+          "max": 14,
+          "block": {
+            "type": "minecraft:weighted_state_provider",
+            "entries": [
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "minecraft:red_nether_bricks"
+                }
+              },
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "minecraft:netherrack"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "min": 15,
+          "max": 15,
+          "block": {
+            "type": "minecraft:weighted_state_provider",
+            "entries": [
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "minecraft:red_nether_bricks"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "min": 16,
+          "max": 16,
+          "block": {
+            "type": "minecraft:weighted_state_provider",
+            "entries": [
+              {
+                "weight": 5,
+                "data": {
+                  "Name": "minecraft:red_nether_bricks"
+                }
+              },
+              {
+                "weight": 2,
+                "data": {
+                  "Name": "minecraft:obsidian"
+                }
+              },
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "minecraft:magma_block"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "min": 17,
+          "max": 17,
+          "block": {
+            "type": "minecraft:weighted_state_provider",
+            "entries": [
+              {
+                "weight": 2,
+                "data": {
+                  "Name": "minecraft:obsidian"
+                }
+              },
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "minecraft:magma_block"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "min": 18,
+          "max": 19,
+          "block": "minecraft:magma_block"
+        },
+        {
+          "min": 20,
+          "max": 20,
+          "block": {
+            "type": "minecraft:weighted_state_provider",
+            "entries": [
+              {
+                "weight": 2,
+                "data": {
+                  "Name": "minecraft:obsidian"
+                }
+              },
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "minecraft:magma_block"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "min": 21,
+          "max": 21,
+          "block": {
+            "type": "minecraft:weighted_state_provider",
+            "entries": [
+              {
+                "weight": 5,
+                "data": {
+                  "Name": "minecraft:red_nether_bricks"
+                }
+              },
+              {
+                "weight": 2,
+                "data": {
+                  "Name": "minecraft:gray_terracotta"
+                }
+              },
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "minecraft:magma_block"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "min": 22,
+          "max": 22,
+          "block": {
+            "type": "minecraft:weighted_state_provider",
+            "entries": [
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "minecraft:red_nether_bricks"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "min": 23,
+          "max": 23,
+          "block": {
+            "type": "minecraft:weighted_state_provider",
+            "entries": [
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "minecraft:red_nether_bricks"
+                }
+              },
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "minecraft:netherrack"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "min": 24,
+          "max": 27,
+          "block": {
+            "type": "minecraft:weighted_state_provider",
+            "entries": [
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "minecraft:red_nether_bricks"
+                }
+              },
+              {
+                "weight": 2,
+                "data": {
+                  "Name": "minecraft:netherrack"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "min": 28,
+          "max": 48,
+          "block": "minecraft:netherrack"
+        },
+        {
+          "min": 49,
+          "max": 52,
+          "block": {
+            "type": "minecraft:weighted_state_provider",
+            "entries": [
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "minecraft:red_nether_bricks"
+                }
+              },
+              {
+                "weight": 2,
+                "data": {
+                  "Name": "minecraft:netherrack"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "min": 53,
+          "max": 53,
+          "block": {
+            "type": "minecraft:weighted_state_provider",
+            "entries": [
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "minecraft:red_nether_bricks"
+                }
+              },
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "minecraft:netherrack"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "min": 54,
+          "max": 54,
+          "block": {
+            "type": "minecraft:weighted_state_provider",
+            "entries": [
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "minecraft:red_nether_bricks"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "min": 55,
+          "max": 55,
+          "block": {
+            "type": "minecraft:weighted_state_provider",
+            "entries": [
+              {
+                "weight": 5,
+                "data": {
+                  "Name": "minecraft:red_nether_bricks"
+                }
+              },
+              {
+                "weight": 2,
+                "data": {
+                  "Name": "minecraft:obsidian"
+                }
+              },
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "minecraft:magma_block"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "min": 56,
+          "max": 56,
+          "block": {
+            "type": "minecraft:weighted_state_provider",
+            "entries": [
+              {
+                "weight": 2,
+                "data": {
+                  "Name": "minecraft:obsidian"
+                }
+              },
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "minecraft:magma_block"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "min": 57,
+          "max": 58,
+          "block": "minecraft:magma_block"
+        },
+        {
+          "min": 59,
+          "max": 59,
+          "block": {
+            "type": "minecraft:weighted_state_provider",
+            "entries": [
+              {
+                "weight": 2,
+                "data": {
+                  "Name": "minecraft:obsidian"
+                }
+              },
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "minecraft:magma_block"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "min": 60,
+          "max": 60,
+          "block": {
+            "type": "minecraft:weighted_state_provider",
+            "entries": [
+              {
+                "weight": 5,
+                "data": {
+                  "Name": "minecraft:red_nether_bricks"
+                }
+              },
+              {
+                "weight": 2,
+                "data": {
+                  "Name": "minecraft:gray_terracotta"
+                }
+              },
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "minecraft:magma_block"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "min": 61,
+          "max": 61,
+          "block": {
+            "type": "minecraft:weighted_state_provider",
+            "entries": [
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "minecraft:red_nether_bricks"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "min": 62,
+          "max": 62,
+          "block": {
+            "type": "minecraft:weighted_state_provider",
+            "entries": [
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "minecraft:red_nether_bricks"
+                }
+              },
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "minecraft:netherrack"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "min": 63,
+          "max": 67,
+          "block": {
+            "type": "minecraft:weighted_state_provider",
+            "entries": [
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "minecraft:red_nether_bricks"
+                }
+              },
+              {
+                "weight": 2,
+                "data": {
+                  "Name": "minecraft:netherrack"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "min": 68,
+          "max": 88,
+          "block": {
+            "type": "minecraft:weighted_state_provider",
+            "entries": [
+              {
+                "weight": 2,
+                "data": {
+                  "Name": "minecraft:netherrack"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "min": 89,
+          "max": 91,
+          "block": {
+            "type": "minecraft:weighted_state_provider",
+            "entries": [
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "minecraft:red_nether_bricks"
+                }
+              },
+              {
+                "weight": 2,
+                "data": {
+                  "Name": "minecraft:netherrack"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "min": 92,
+          "max": 92,
+          "block": {
+            "type": "minecraft:weighted_state_provider",
+            "entries": [
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "minecraft:red_nether_bricks"
+                }
+              },
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "minecraft:netherrack"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "min": 93,
+          "max": 93,
+          "block": {
+            "type": "minecraft:weighted_state_provider",
+            "entries": [
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "minecraft:red_nether_bricks"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "min": 94,
+          "max": 94,
+          "block": {
+            "type": "minecraft:weighted_state_provider",
+            "entries": [
+              {
+                "weight": 5,
+                "data": {
+                  "Name": "minecraft:red_nether_bricks"
+                }
+              },
+              {
+                "weight": 2,
+                "data": {
+                  "Name": "minecraft:obsidian"
+                }
+              },
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "minecraft:magma_block"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "min": 95,
+          "max": 95,
+          "block": {
+            "type": "minecraft:weighted_state_provider",
+            "entries": [
+              {
+                "weight": 2,
+                "data": {
+                  "Name": "minecraft:obsidian"
+                }
+              },
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "minecraft:magma_block"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "min": 96,
+          "max": 97,
+          "block": "minecraft:magma_block"
+        },
+        {
+          "min": 98,
+          "max": 98,
+          "block": {
+            "type": "minecraft:weighted_state_provider",
+            "entries": [
+              {
+                "weight": 2,
+                "data": {
+                  "Name": "minecraft:obsidian"
+                }
+              },
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "minecraft:magma_block"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "min": 99,
+          "max": 99,
+          "block": {
+            "type": "minecraft:weighted_state_provider",
+            "entries": [
+              {
+                "weight": 5,
+                "data": {
+                  "Name": "minecraft:red_nether_bricks"
+                }
+              },
+              {
+                "weight": 2,
+                "data": {
+                  "Name": "minecraft:gray_terracotta"
+                }
+              },
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "minecraft:magma_block"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "min": 100,
+          "max": 100,
+          "block": {
+            "type": "minecraft:weighted_state_provider",
+            "entries": [
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "minecraft:red_nether_bricks"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "min": 101,
+          "max": 101,
+          "block": {
+            "type": "minecraft:weighted_state_provider",
+            "entries": [
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "minecraft:red_nether_bricks"
+                }
+              },
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "minecraft:netherrack"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "min": 102,
+          "max": 105,
+          "block": {
+            "type": "minecraft:weighted_state_provider",
+            "entries": [
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "minecraft:red_nether_bricks"
+                }
+              },
+              {
+                "weight": 2,
+                "data": {
+                  "Name": "minecraft:netherrack"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "min": 106,
+          "max": 126,
+          "block": "minecraft:netherrack"
+        },
+        {
+          "min": 127,
+          "max": 129,
+          "block": {
+            "type": "minecraft:weighted_state_provider",
+            "entries": [
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "minecraft:red_nether_bricks"
+                }
+              },
+              {
+                "weight": 2,
+                "data": {
+                  "Name": "minecraft:netherrack"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "min": 130,
+          "max": 130,
+          "block": {
+            "type": "minecraft:weighted_state_provider",
+            "entries": [
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "minecraft:red_nether_bricks"
+                }
+              },
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "minecraft:netherrack"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "min": 131,
+          "max": 131,
+          "block": {
+            "type": "minecraft:weighted_state_provider",
+            "entries": [
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "minecraft:red_nether_bricks"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "min": 132,
+          "max": 132,
+          "block": {
+            "type": "minecraft:weighted_state_provider",
+            "entries": [
+              {
+                "weight": 5,
+                "data": {
+                  "Name": "minecraft:red_nether_bricks"
+                }
+              },
+              {
+                "weight": 2,
+                "data": {
+                  "Name": "minecraft:obsidian"
+                }
+              },
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "minecraft:magma_block"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "min": 133,
+          "max": 133,
+          "block": {
+            "type": "minecraft:weighted_state_provider",
+            "entries": [
+              {
+                "weight": 2,
+                "data": {
+                  "Name": "minecraft:obsidian"
+                }
+              },
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "minecraft:magma_block"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "min": 134,
+          "max": 135,
+          "block": "minecraft:magma_block"
+        },
+        {
+          "min": 136,
+          "max": 136,
+          "block": {
+            "type": "minecraft:weighted_state_provider",
+            "entries": [
+              {
+                "weight": 2,
+                "data": {
+                  "Name": "minecraft:obsidian"
+                }
+              },
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "minecraft:magma_block"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "min": 137,
+          "max": 137,
+          "block": {
+            "type": "minecraft:weighted_state_provider",
+            "entries": [
+              {
+                "weight": 5,
+                "data": {
+                  "Name": "minecraft:red_nether_bricks"
+                }
+              },
+              {
+                "weight": 2,
+                "data": {
+                  "Name": "minecraft:gray_terracotta"
+                }
+              },
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "minecraft:magma_block"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "min": 138,
+          "max": 138,
+          "block": {
+            "type": "minecraft:weighted_state_provider",
+            "entries": [
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "minecraft:red_nether_bricks"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "min": 139,
+          "max": 139,
+          "block": {
+            "type": "minecraft:weighted_state_provider",
+            "entries": [
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "minecraft:red_nether_bricks"
+                }
+              },
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "minecraft:netherrack"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "min": 140,
+          "max": 143,
+          "block": {
+            "type": "minecraft:weighted_state_provider",
+            "entries": [
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "minecraft:red_nether_bricks"
+                }
+              },
+              {
+                "weight": 2,
+                "data": {
+                  "Name": "minecraft:netherrack"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "min": 144,
+          "max": 164,
+          "block": "minecraft:netherrack"
+        },
+        {
+          "min": 165,
+          "max": 167,
+          "block": {
+            "type": "minecraft:weighted_state_provider",
+            "entries": [
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "minecraft:red_nether_bricks"
+                }
+              },
+              {
+                "weight": 2,
+                "data": {
+                  "Name": "minecraft:netherrack"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "min": 168,
+          "max": 168,
+          "block": {
+            "type": "minecraft:weighted_state_provider",
+            "entries": [
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "minecraft:red_nether_bricks"
+                }
+              },
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "minecraft:netherrack"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "min": 169,
+          "max": 169,
+          "block": {
+            "type": "minecraft:weighted_state_provider",
+            "entries": [
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "minecraft:red_nether_bricks"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "min": 170,
+          "max": 170,
+          "block": {
+            "type": "minecraft:weighted_state_provider",
+            "entries": [
+              {
+                "weight": 5,
+                "data": {
+                  "Name": "minecraft:red_nether_bricks"
+                }
+              },
+              {
+                "weight": 2,
+                "data": {
+                  "Name": "minecraft:obsidian"
+                }
+              },
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "minecraft:magma_block"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "min": 171,
+          "max": 171,
+          "block": {
+            "type": "minecraft:weighted_state_provider",
+            "entries": [
+              {
+                "weight": 2,
+                "data": {
+                  "Name": "minecraft:obsidian"
+                }
+              },
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "minecraft:magma_block"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "min": 172,
+          "max": 173,
+          "block": "minecraft:magma_block"
+        },
+        {
+          "min": 174,
+          "max": 174,
+          "block": {
+            "type": "minecraft:weighted_state_provider",
+            "entries": [
+              {
+                "weight": 2,
+                "data": {
+                  "Name": "minecraft:obsidian"
+                }
+              },
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "minecraft:magma_block"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "min": 175,
+          "max": 175,
+          "block": {
+            "type": "minecraft:weighted_state_provider",
+            "entries": [
+              {
+                "weight": 5,
+                "data": {
+                  "Name": "minecraft:red_nether_bricks"
+                }
+              },
+              {
+                "weight": 2,
+                "data": {
+                  "Name": "minecraft:gray_terracotta"
+                }
+              },
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "minecraft:magma_block"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "min": 176,
+          "max": 176,
+          "block": {
+            "type": "minecraft:weighted_state_provider",
+            "entries": [
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "minecraft:red_nether_bricks"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "min": 177,
+          "max": 177,
+          "block": {
+            "type": "minecraft:weighted_state_provider",
+            "entries": [
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "minecraft:red_nether_bricks"
+                }
+              },
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "minecraft:netherrack"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "min": 178,
+          "max": 181,
+          "block": {
+            "type": "minecraft:weighted_state_provider",
+            "entries": [
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "minecraft:red_nether_bricks"
+                }
+              },
+              {
+                "weight": 2,
+                "data": {
+                  "Name": "minecraft:netherrack"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "min": 182,
+          "max": 202,
+          "block": "minecraft:netherrack"
+        },
+        {
+          "min": 203,
+          "max": 205,
+          "block": {
+            "type": "minecraft:weighted_state_provider",
+            "entries": [
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "minecraft:red_nether_bricks"
+                }
+              },
+              {
+                "weight": 2,
+                "data": {
+                  "Name": "minecraft:netherrack"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "min": 206,
+          "max": 206,
+          "block": {
+            "type": "minecraft:weighted_state_provider",
+            "entries": [
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "minecraft:red_nether_bricks"
+                }
+              },
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "minecraft:netherrack"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "min": 207,
+          "max": 207,
+          "block": {
+            "type": "minecraft:weighted_state_provider",
+            "entries": [
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "minecraft:red_nether_bricks"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "min": 208,
+          "max": 208,
+          "block": {
+            "type": "minecraft:weighted_state_provider",
+            "entries": [
+              {
+                "weight": 5,
+                "data": {
+                  "Name": "minecraft:red_nether_bricks"
+                }
+              },
+              {
+                "weight": 2,
+                "data": {
+                  "Name": "minecraft:obsidian"
+                }
+              },
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "minecraft:magma_block"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "min": 209,
+          "max": 209,
+          "block": {
+            "type": "minecraft:weighted_state_provider",
+            "entries": [
+              {
+                "weight": 2,
+                "data": {
+                  "Name": "minecraft:obsidian"
+                }
+              },
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "minecraft:magma_block"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "min": 210,
+          "max": 211,
+          "block": "minecraft:magma_block"
+        },
+        {
+          "min": 212,
+          "max": 212,
+          "block": {
+            "type": "minecraft:weighted_state_provider",
+            "entries": [
+              {
+                "weight": 2,
+                "data": {
+                  "Name": "minecraft:obsidian"
+                }
+              },
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "minecraft:magma_block"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "min": 213,
+          "max": 213,
+          "block": {
+            "type": "minecraft:weighted_state_provider",
+            "entries": [
+              {
+                "weight": 5,
+                "data": {
+                  "Name": "minecraft:red_nether_bricks"
+                }
+              },
+              {
+                "weight": 2,
+                "data": {
+                  "Name": "minecraft:gray_terracotta"
+                }
+              },
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "minecraft:magma_block"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "min": 214,
+          "max": 214,
+          "block": {
+            "type": "minecraft:weighted_state_provider",
+            "entries": [
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "minecraft:red_nether_bricks"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "min": 215,
+          "max": 215,
+          "block": {
+            "type": "minecraft:weighted_state_provider",
+            "entries": [
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "minecraft:red_nether_bricks"
+                }
+              },
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "minecraft:netherrack"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "min": 216,
+          "max": 219,
+          "block": {
+            "type": "minecraft:weighted_state_provider",
+            "entries": [
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "minecraft:red_nether_bricks"
+                }
+              },
+              {
+                "weight": 2,
+                "data": {
+                  "Name": "minecraft:netherrack"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "min": 220,
+          "max": 255,
+          "block": "minecraft:netherrack"
+        }
+      ]
+    },
+    {
+      "type": "descent_into_darkness:replace_floor",
+      "old": "minecraft:netherrack",
+      "new": "minecraft:lava",
+      "chance": 0.7,
+      "tags": "ravine"
+    },
+    {
+      "type": "descent_into_darkness:replace_floor",
+      "old": "minecraft:netherrack",
+      "new": "minecraft:magma_block",
+      "chance": 1.0,
+      "tags": "ravine"
+    },
+    {
+      "type": "descent_into_darkness:replace_floor",
+      "old": "minecraft:netherrack",
+      "new": {
+        "type": "minecraft:weighted_state_provider",
+        "entries": [
+          {
+            "weight": 5,
+            "data": {
+              "Name": "minecraft:magma_block"
+            }
+          },
+          {
+            "weight": 1,
+            "data": {
+              "Name": "minecraft:obsidian"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "descent_into_darkness:replace_all",
+      "old": "minecraft:netherrack",
+      "new": "minecraft:red_nether_bricks",
+      "chance": 0.1
+    }
+  ],
+  "base_block": "netherrack",
+  "air_block": "water",
+  "room_air_blocks": {
+    "ravine": [
+      {
+        "min": 0,
+        "max": 1,
+        "block": "water"
+      }
+    ]
+  },
+  "transparent_blocks": [
+    "minecraft:water",
+    "minecraft:kelp",
+    "minecraft:bubble_column"
+  ],
+  "structures": {
+    "mpatch1": {
+      "type": "descent_into_darkness:patch",
+      "edges": [
+        "floor"
+      ],
+      "count": 5,
+      "spread_x": 16,
+      "spread_z": 16,
+      "can_place_on": [
+        "minecraft:magma_block"
+      ],
+      "block": "descent_into_darkness:hydro_vent",
+      "tags": [
+        "ravine"
+      ]
+    }
+  }
+}

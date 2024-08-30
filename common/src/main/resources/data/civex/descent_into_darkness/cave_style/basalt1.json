@@ -1,0 +1,139 @@
+{
+  "nether": true,
+  "biome": "basalt_deltas",
+  "inherit": [
+    {
+      "name": "civex:piglin_pack",
+      "merge": {
+        "lore": "bottom"
+      }
+    },
+    {
+      "name": "civex:high_metal_low_fuel",
+      "merge": {
+        "structures": "top",
+        "lore": "bottom"
+      }
+    }
+  ],
+  "display_name": {
+    "text": "Basalt Cave",
+    "color": "dark_gray"
+  },
+  "lore": [
+    {
+      "text": "Difficulty: ☆☆☆",
+      "color": "yellow"
+    }
+  ],
+  "base_block": {
+    "Name": "minecraft:basalt",
+    "Properties": {
+      "axis": "y"
+    }
+  },
+  "painter_steps": [
+    {
+      "type": "descent_into_darkness:replace_all",
+      "old": {
+        "type": "descent_into_darkness:matches_state",
+        "name": "minecraft:basalt",
+        "properties": {
+          "axis": "y"
+        }
+      },
+      "new": {
+        "type": "minecraft:simple_state_provider",
+        "state": {
+          "Name": "minecraft:basalt",
+          "Properties": {
+            "axis": "x"
+          }
+        }
+      },
+      "chance": 0.33
+    },
+    {
+      "type": "descent_into_darkness:replace_all",
+      "old": {
+        "type": "descent_into_darkness:matches_state",
+        "name": "minecraft:basalt",
+        "properties": {
+          "axis": "y"
+        }
+      },
+      "new": {
+        "type": "minecraft:simple_state_provider",
+        "state": {
+          "Name": "minecraft:basalt",
+          "Properties": {
+            "axis": "z"
+          }
+        }
+      },
+      "chance": 0.5
+    },
+    {
+      "type": "descent_into_darkness:replace_floor",
+      "old": "minecraft:basalt",
+      "new": "minecraft:gray_concrete_powder",
+      "chance": 0.5
+    }
+  ],
+  "structures": {
+    "ocoal": {
+      "type": "descent_into_darkness:template",
+      "origin_side": "up",
+      "templates": [
+        {
+          "template": "descent_into_darkness:basalt1/scoal",
+          "origin": [
+            2,
+            3,
+            12
+          ]
+        },
+        {
+          "template": "descent_into_darkness:basalt1/60scoal",
+          "origin": [
+            2,
+            10,
+            5
+          ]
+        },
+        {
+          "template": "descent_into_darkness:basalt1/45scoal",
+          "origin": [
+            2,
+            9,
+            7
+          ]
+        }
+      ],
+      "chance": 0.7,
+      "can_replace": [
+        "minecraft:basalt",
+        "minecraft:air"
+      ]
+    },
+    "plants": {
+      "type": "descent_into_darkness:patch",
+      "block": {
+        "type": "minecraft:simple_state_provider",
+        "state": {
+          "Name": "minecraft:dead_horn_coral",
+          "Properties": {
+            "waterlogged": false
+          }
+        }
+      },
+      "edges": [
+        "floor"
+      ],
+      "can_place_on": [
+        "minecraft:gray_concrete_powder"
+      ],
+      "chance": 0.5
+    }
+  }
+}

@@ -1,0 +1,257 @@
+{
+  "inherit": [
+    {
+      "name": "civex:wooden_pack",
+      "merge": {
+        "lore": "bottom"
+      }
+    },
+    {
+      "name": "civex:high_gem_low_metal",
+      "merge": {
+        "structures": "top",
+        "lore": "bottom"
+      }
+    }
+  ],
+  "display_name": {
+    "text": "Garden Cave",
+    "color": "green"
+  },
+  "lore": [
+    {
+      "text": "Difficulty: ☆☆☆",
+      "color": "yellow"
+    }
+  ],
+  "base_block": "minecraft:dirt",
+  "transparent_blocks": [
+    "minecraft:air",
+    "minecraft:water",
+    "minecraft:lava",
+    "minecraft:dandelion",
+    "minecraft:poppy",
+    "minecraft:cornflower",
+    "minecraft:allium",
+    "minecraft:oxeye_daisy",
+    "minecraft:orange_tulip",
+    "minecraft:vine"
+  ],
+  "room_air_blocks": {
+    "ravine": [
+      {
+        "min": 0.0,
+        "max": 0.1,
+        "block": "water"
+      }
+    ]
+  },
+  "painter_steps": [
+    {
+      "type": "descent_into_darkness:replace_floor",
+      "old": "minecraft:dirt",
+      "new": "minecraft:grass_block",
+      "tags": "ravine",
+      "tags_inverted": true
+    },
+    {
+      "type": "descent_into_darkness:replace_floor",
+      "old": "minecraft:dirt",
+      "new": "minecraft:sand",
+      "tags": "ravine"
+    },
+    {
+      "type": "descent_into_darkness:replace_all",
+      "old": "minecraft:dirt",
+      "new": "minecraft:coarse_dirt",
+      "chance": 0.5
+    }
+  ],
+  "structures": {
+    "boulder": {
+      "type": "descent_into_darkness:template",
+      "templates": [
+        "descent_into_darkness:garden/boulder1",
+        {
+          "template": "descent_into_darkness:garden/boulder2",
+          "origin": [
+            1,
+            0,
+            1
+          ]
+        },
+        {
+          "template": "descent_into_darkness:garden/boulder3",
+          "origin": [
+            1,
+            0,
+            1
+          ]
+        }
+      ],
+      "edges": "floor",
+      "can_place_on": "minecraft:grass_block",
+      "count": 1
+    },
+    "clay": {
+      "type": "descent_into_darkness:vein",
+      "ore": "minecraft:clay",
+      "edges": [
+        "wall",
+        "ceiling"
+      ],
+      "chance": 0.1,
+      "tags": "ravine",
+      "tags_inverted": true
+    },
+    "underwater_clay": {
+      "type": "descent_into_darkness:vein",
+      "ore": "minecraft:clay",
+      "radius": 8,
+      "edges": "floor",
+      "chance": 0.2,
+      "tags": "ravine"
+    },
+    "ravine_leaves": {
+      "type": "descent_into_darkness:glowstone",
+      "block": {
+        "type": "minecraft:simple_state_provider",
+        "state": {
+          "Name": "minecraft:oak_leaves",
+          "Properties": {
+            "persistent": true
+          }
+        }
+      },
+      "edges": "wall",
+      "can_place_on": [
+        "minecraft:dirt",
+        "minecraft:coarse_dirt"
+      ],
+      "chance": 0.3,
+      "tags": "ravine"
+    },
+    "ravine_leaves_ceiling": {
+      "type": "descent_into_darkness:glowstone",
+      "block": {
+        "type": "minecraft:simple_state_provider",
+        "state": {
+          "Name": "minecraft:oak_leaves",
+          "Properties": {
+            "persistent": true
+          }
+        }
+      },
+      "edges": "ceiling",
+      "can_place_on": [
+        "minecraft:dirt",
+        "minecraft:coarse_dirt"
+      ],
+      "chance": 0.8,
+      "tags": "ravine"
+    },
+    "vine": {
+      "type": "descent_into_darkness:vine_patch",
+      "vine": {
+        "type": "minecraft:simple_state_provider",
+        "state": {
+          "Name": "minecraft:vine",
+          "Properties": {
+            "north": true,
+            "south": true
+          }
+        }
+      },
+      "chance": 0.05,
+      "edges": "ceiling",
+      "tags": "ravine",
+      "tags_inverted": true
+    },
+    "ravine_vine": {
+      "type": "descent_into_darkness:vine_patch",
+      "vine": {
+        "type": "minecraft:simple_state_provider",
+        "state": {
+          "Name": "minecraft:vine",
+          "Properties": {
+            "north": true
+          }
+        }
+      },
+      "chance": 0.05,
+      "edges": "ceiling",
+      "can_place_on": [
+        "minecraft:dirt",
+        "minecraft:coarse_dirt",
+        "minecraft:oak_leaves"
+      ],
+      "tags": "ravine",
+      "height": [
+        20,
+        40
+      ]
+    },
+    "dandelion": {
+      "type": "descent_into_darkness:patch",
+      "block": "minecraft:dandelion",
+      "edges": "floor",
+      "chance": 0.23,
+      "can_place_on": "minecraft:grass_block",
+      "tags": "ravine",
+      "tags_inverted": true
+    },
+    "poppy": {
+      "type": "descent_into_darkness:patch",
+      "block": "minecraft:poppy",
+      "edges": "floor",
+      "chance": 0.2,
+      "can_place_on": "minecraft:grass_block",
+      "tags": "ravine",
+      "tags_inverted": true
+    },
+    "cornflower": {
+      "type": "descent_into_darkness:patch",
+      "block": "minecraft:cornflower",
+      "edges": "floor",
+      "chance": 0.17,
+      "can_place_on": "minecraft:grass_block",
+      "tags": "ravine",
+      "tags_inverted": true
+    },
+    "allium": {
+      "type": "descent_into_darkness:patch",
+      "block": "minecraft:allium",
+      "edges": "floor",
+      "chance": 0.15,
+      "can_place_on": "minecraft:grass_block",
+      "tags": "ravine",
+      "tags_inverted": true
+    },
+    "oxeye_daisy": {
+      "type": "descent_into_darkness:patch",
+      "block": "minecraft:oxeye_daisy",
+      "edges": "floor",
+      "chance": 0.12,
+      "can_place_on": "minecraft:grass_block",
+      "tags": "ravine",
+      "tags_inverted": true
+    },
+    "orange_tulip": {
+      "type": "descent_into_darkness:patch",
+      "block": "minecraft:orange_tulip",
+      "edges": "floor",
+      "chance": 0.1,
+      "can_place_on": "minecraft:grass_block",
+      "tags": "ravine",
+      "tags_inverted": true
+    },
+    "waterfall": {
+      "type": "descent_into_darkness:waterfall",
+      "fluid_type": "water",
+      "edges": "wall",
+      "chance": 0.2,
+      "tags": "ravine",
+      "tags_inverted": true
+    }
+  }
+}

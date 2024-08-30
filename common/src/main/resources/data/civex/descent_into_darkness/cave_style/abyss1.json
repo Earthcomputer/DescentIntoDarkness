@@ -1,0 +1,156 @@
+{
+  "air_block": "minecraft:water",
+  "biome": "minecraft:warm_ocean",
+  "display_name": {
+    "text": "Warped Abyss",
+    "color": "aqua"
+  },
+  "inherit": [
+    {
+      "name": "civex:warped_pack",
+      "merge": {
+        "lore": "bottom"
+      }
+    },
+    "civex:cavernous",
+    {
+      "name": "civex:high_fuel_low_gem",
+      "merge": {
+        "structures": "top",
+        "lore": "bottom"
+      }
+    }
+  ],
+  "lore": [
+    {
+      "text": "Difficulty: ☆☆☆☆",
+      "color": "yellow"
+    }
+  ],
+  "base_block": "minecraft:warped_hyphae",
+  "painter_steps": [
+    {
+      "type": "descent_into_darkness:replace_all",
+      "old": "minecraft:warped_hyphae",
+      "new": {
+        "type": "minecraft:simple_state_provider",
+        "state": {
+          "Name": "minecraft:warped_hyphae",
+          "Properties": {
+            "axis": "x"
+          }
+        }
+      },
+      "chance": 0.33
+    },
+    {
+      "type": "descent_into_darkness:replace_all",
+      "old": {
+        "type": "descent_into_darkness:matches_state",
+        "name": "minecraft:warped_hyphae",
+        "properties": {
+          "axis": "y"
+        }
+      },
+      "new": {
+        "type": "minecraft:simple_state_provider",
+        "state": {
+          "Name": "minecraft:warped_hyphae",
+          "Properties": {
+            "axis": "z"
+          }
+        }
+      },
+      "chance": 0.5
+    }
+  ],
+  "structures": {
+    "hyphaeclump": {
+      "type": "descent_into_darkness:vein",
+      "radius": 4,
+      "ore": "minecraft:warped_wart_block",
+      "edges": [
+        "floor",
+        "ceiling"
+      ],
+      "chance": 0.3,
+      "can_replace": [
+        "minecraft:warped_hyphae"
+      ]
+    },
+    "hyphaeclump2": {
+      "type": "descent_into_darkness:vein",
+      "radius": 4,
+      "ore": "minecraft:warped_wart_block",
+      "edges": [
+        "floor",
+        "ceiling"
+      ],
+      "can_place_on": [
+        "minecraft:warped_wart_block"
+      ],
+      "can_replace": [
+        "minecraft:water",
+        "minecraft:warped_wart_block"
+      ],
+      "count": 5
+    },
+    "hyphaeclump3": {
+      "type": "descent_into_darkness:vein",
+      "radius": 4,
+      "ore": "minecraft:warped_wart_block",
+      "edges": [
+        "floor",
+        "ceiling"
+      ],
+      "can_place_on": [
+        "minecraft:warped_wart_block"
+      ],
+      "can_replace": [
+        "minecraft:water",
+        "minecraft:warped_wart_block"
+      ],
+      "count": 10
+    },
+    "hyphaeclump4": {
+      "type": "descent_into_darkness:vein",
+      "radius": 4,
+      "ore": "minecraft:warped_wart_block",
+      "edges": [
+        "floor",
+        "ceiling"
+      ],
+      "can_place_on": [
+        "minecraft:warped_wart_block"
+      ],
+      "can_replace": [
+        "minecraft:water",
+        "minecraft:warped_wart_block"
+      ],
+      "count": 10
+    },
+    "kelp": {
+      "type": "descent_into_darkness:vine_patch",
+      "edges": [
+        "floor"
+      ],
+      "chance": 0.3,
+      "can_place_on": [
+        "minecraft:warped_hyphae"
+      ],
+      "vine": "minecraft:kelp_plant",
+      "last_block": "minecraft:kelp"
+    },
+    "kelp2": {
+      "type": "descent_into_darkness:vine_patch",
+      "edges": [
+        "ceiling"
+      ],
+      "chance": 0.3,
+      "can_place_on": [
+        "minecraft:warped_hyphae"
+      ],
+      "vine": "minecraft:kelp_plant"
+    }
+  }
+}

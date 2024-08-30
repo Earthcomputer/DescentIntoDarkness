@@ -1,0 +1,184 @@
+{
+  "start_y": 175,
+  "inherit": [
+    "civex:halfwater",
+    {
+      "name": "civex:ocean_pack",
+      "merge": {
+        "lore": "bottom"
+      }
+    },
+    {
+      "name": "civex:high_fuel_low_metal",
+      "merge": {
+        "structures": "top",
+        "lore": "bottom"
+      }
+    }
+  ],
+  "display_name": {
+    "text": "Prismarine Beach",
+    "color": "dark_aqua"
+  },
+  "lore": [
+    {
+      "text": "Difficulty: ☆☆☆",
+      "color": "yellow"
+    }
+  ],
+  "base_block": "minecraft:prismarine",
+  "air_block": [
+    {
+      "min": 0,
+      "max": 155,
+      "block": "water"
+    },
+    {
+      "min": 156,
+      "max": 255,
+      "block": "air"
+    }
+  ],
+  "painter_steps": [
+    {
+      "type": "descent_into_darkness:replace_floor",
+      "old": "minecraft:prismarine",
+      "new": "minecraft:sand"
+    },
+    {
+      "type": "descent_into_darkness:replace_all",
+      "old": "minecraft:prismarine",
+      "new": "prismarine_bricks",
+      "chance": 0.5
+    },
+    {
+      "type": "descent_into_darkness:replace_all",
+      "old": "minecraft:prismarine",
+      "new": "dark_prismarine",
+      "chance": 0.1
+    }
+  ],
+  "room_air_blocks": {
+    "pit_mine": [
+      {
+        "min": 0.0,
+        "max": 0.4,
+        "block": "water"
+      }
+    ]
+  },
+  "structures": {
+    "seaweed": {
+      "type": "descent_into_darkness:patch",
+      "edges": [
+        "floor"
+      ],
+      "chance": 0.15,
+      "spread_x": 16,
+      "spread_z": 16,
+      "can_place_on": [
+        "minecraft:sand"
+      ],
+      "can_replace": "minecraft:water",
+      "block": "minecraft:seagrass"
+    },
+    "glowstone": {
+      "type": "descent_into_darkness:glowstone",
+      "edges": [
+        "floor"
+      ],
+      "chance": 0.01,
+      "block": "minecraft:sea_lantern",
+      "can_replace": "minecraft:water",
+      "can_place_on": [
+        "minecraft:prismarine_bricks",
+        "minecraft:prismarine"
+      ],
+      "height": 12,
+      "density": 500
+    },
+    "glowstone1": {
+      "type": "descent_into_darkness:glowstone",
+      "edges": [
+        "ceiling"
+      ],
+      "chance": 0.05,
+      "block": "minecraft:sea_lantern",
+      "can_replace": "minecraft:water",
+      "height": 12,
+      "density": 500
+    },
+    "water": {
+      "type": "descent_into_darkness:vein",
+      "edges": [
+        "floor"
+      ],
+      "ore": "minecraft:water",
+      "radius": "5s",
+      "chance": 0.01,
+      "can_place_on": [
+        "minecraft:sand"
+      ],
+      "can_replace": [
+        "minecraft:sand"
+      ]
+    },
+    "palmtrees": {
+      "type": "descent_into_darkness:template",
+      "templates": [
+        {
+          "template": "descent_into_darkness:beach1/ptree0",
+          "origin": [
+            1,
+            0,
+            1
+          ]
+        },
+        {
+          "template": "descent_into_darkness:beach1/ptree1",
+          "origin": [
+            3,
+            0,
+            3
+          ]
+        },
+        {
+          "template": "descent_into_darkness:beach1/ptree3",
+          "origin": [
+            4,
+            0,
+            6
+          ]
+        }
+      ],
+      "can_place_on": "minecraft:sand",
+      "can_replace": "minecraft:air",
+      "edges": [
+        "floor"
+      ],
+      "count": 0.2
+    },
+    "coconuts": {
+      "type": "descent_into_darkness:patch",
+      "edges": [
+        "floor"
+      ],
+      "chance": 0.03,
+      "spread_x": 16,
+      "spread_z": 16,
+      "can_place_on": [
+        "minecraft:sand"
+      ],
+      "can_replace": "minecraft:air",
+      "block": {
+        "type": "minecraft:simple_state_provider",
+        "state": {
+          "Name": "minecraft:cocoa",
+          "Properties": {
+            "age": 2
+          }
+        }
+      }
+    }
+  }
+}

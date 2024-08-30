@@ -1,0 +1,231 @@
+{
+  "nether": true,
+  "base_block": "minecraft:prismarine",
+  "biome": "minecraft:warm_ocean",
+  "painter_steps": [
+    {
+      "type": "descent_into_darkness:replace_floor",
+      "old": "minecraft:prismarine",
+      "new": "minecraft:sand"
+    },
+    {
+      "type": "descent_into_darkness:replace_all",
+      "old": "minecraft:prismarine",
+      "new": "prismarine_bricks",
+      "chance": 0.5
+    },
+    {
+      "type": "descent_into_darkness:replace_all",
+      "old": "minecraft:prismarine",
+      "new": "dark_prismarine",
+      "chance": 0.1
+    }
+  ],
+  "inherit": [
+    "civex:halfwater",
+    {
+      "name": "civex:desert_pack",
+      "merge": {
+        "lore": "bottom"
+      }
+    },
+    {
+      "name": "civex:fuel1",
+      "merge": {
+        "structures": "top",
+        "lore": "bottom"
+      }
+    }
+  ],
+  "display_name": {
+    "text": "Dried Ocean",
+    "color": "yellow"
+  },
+  "lore": [
+    {
+      "text": "Difficulty: ☆☆☆",
+      "color": "yellow"
+    }
+  ],
+  "structures": {
+    "stags": {
+      "block": "minecraft:water",
+      "type": "descent_into_darkness:stalagmite",
+      "floor_to_ceiling_search_range": 100,
+      "max_column_radius_to_cave_height_ratio": 1,
+      "has_stalactite": true,
+      "min_bluntness_for_wind": 0,
+      "min_radius_for_wind": 1,
+      "count": 0.016,
+      "height_scale": [
+        5,
+        10
+      ],
+      "column_radius": 10,
+      "wind_speed": [
+        0,
+        1
+      ]
+    },
+    "coral5": {
+      "type": "descent_into_darkness:glowstone",
+      "edges": [
+        "floor"
+      ],
+      "chance": 0.05,
+      "block": "minecraft:dead_tube_coral_block",
+      "can_place_on": [
+        "minecraft:sand"
+      ],
+      "can_replace": [
+        "minecraft:air"
+      ],
+      "height": 12,
+      "density": 1000
+    },
+    "coral6": {
+      "type": "descent_into_darkness:glowstone",
+      "edges": [
+        "floor"
+      ],
+      "chance": 0.05,
+      "block": "minecraft:dead_horn_coral_block",
+      "can_place_on": [
+        "minecraft:sand"
+      ],
+      "can_replace": [
+        "minecraft:air"
+      ],
+      "height": 12,
+      "density": 1000
+    },
+    "coral7": {
+      "type": "descent_into_darkness:glowstone",
+      "edges": [
+        "floor"
+      ],
+      "chance": 0.05,
+      "block": "minecraft:dead_fire_coral_block",
+      "can_place_on": [
+        "minecraft:sand"
+      ],
+      "can_replace": [
+        "minecraft:air"
+      ],
+      "height": 12,
+      "density": 1000
+    },
+    "coral8": {
+      "type": "descent_into_darkness:glowstone",
+      "edges": [
+        "floor"
+      ],
+      "chance": 0.05,
+      "block": "minecraft:dead_bubble_coral_block",
+      "can_place_on": [
+        "minecraft:sand"
+      ],
+      "can_replace": [
+        "minecraft:air"
+      ],
+      "height": 12,
+      "density": 1000
+    },
+    "coral9": {
+      "type": "descent_into_darkness:glowstone",
+      "edges": [
+        "floor"
+      ],
+      "chance": 0.05,
+      "block": "minecraft:dead_brain_coral_block",
+      "can_place_on": [
+        "minecraft:sand"
+      ],
+      "can_replace": [
+        "minecraft:air"
+      ],
+      "height": 12,
+      "density": 1000
+    },
+    "cpatch": {
+      "type": "descent_into_darkness:patch",
+      "edges": [
+        "floor"
+      ],
+      "block": {
+        "type": "minecraft:simple_state_provider",
+        "state": {
+          "Name": "dead_fire_coral",
+          "Properties": {
+            "waterlogged": false
+          }
+        }
+      },
+      "count": 0.01
+    },
+    "cpatch2": {
+      "type": "descent_into_darkness:patch",
+      "edges": [
+        "floor"
+      ],
+      "block": {
+        "type": "minecraft:simple_state_provider",
+        "state": {
+          "Name": "dead_horn_coral",
+          "Properties": {
+            "waterlogged": false
+          }
+        }
+      },
+      "count": 0.01
+    },
+    "cpatch3": {
+      "type": "descent_into_darkness:patch",
+      "edges": [
+        "floor"
+      ],
+      "block": {
+        "type": "minecraft:simple_state_provider",
+        "state": {
+          "Name": "dead_bubble_coral",
+          "Properties": {
+            "waterlogged": false
+          }
+        }
+      },
+      "count": 0.01
+    },
+    "cpatch4": {
+      "type": "descent_into_darkness:patch",
+      "edges": [
+        "floor"
+      ],
+      "block": {
+        "type": "minecraft:simple_state_provider",
+        "state": {
+          "Name": "dead_tube_coral",
+          "Properties": {
+            "waterlogged": false
+          }
+        }
+      },
+      "count": 0.01
+    },
+    "cpatch5": {
+      "type": "descent_into_darkness:patch",
+      "edges": [
+        "floor"
+      ],
+      "block": {
+        "type": "minecraft:simple_state_provider",
+        "state": {
+          "Name": "dead_brain_coral",
+          "Properties": {
+            "waterlogged": false
+          }
+        }
+      },
+      "count": 0.01
+    }
+  }
+}

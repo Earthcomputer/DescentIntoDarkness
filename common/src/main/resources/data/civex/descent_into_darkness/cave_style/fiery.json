@@ -1,0 +1,81 @@
+{
+  "base_block": "minecraft:red_nether_bricks",
+  "biome": "minecraft:crimson_forest",
+  "nether": true,
+  "inherit": [
+    {
+      "name": "civex:nether_pack",
+      "merge": {
+        "lore": "bottom"
+      }
+    },
+    {
+      "name": "civex:high_metal_low_gem",
+      "merge": {
+        "structures": "top",
+        "lore": "bottom"
+      }
+    }
+  ],
+  "display_name": {
+    "text": "Fiery Cave",
+    "color": "red"
+  },
+  "lore": [
+    {
+      "text": "Difficulty: ☆☆☆☆",
+      "color": "yellow"
+    }
+  ],
+  "painter_steps": [
+    {
+      "type": "descent_into_darkness:replace_all",
+      "old": "minecraft:red_nether_bricks",
+      "new": "minecraft:nether_wart_block",
+      "chance": 0.3
+    },
+    {
+      "type": "descent_into_darkness:replace_floor",
+      "old": "minecraft:red_nether_bricks",
+      "new": "minecraft:magma_block",
+      "chance": 0.2
+    },
+    {
+      "type": "descent_into_darkness:replace_floor",
+      "old": "minecraft:red_nether_bricks",
+      "new": "minecraft:lava",
+      "chance": 0.05
+    }
+  ],
+  "structures": {
+    "hyphae": {
+      "type": "descent_into_darkness:glowstone",
+      "edges": "ceiling",
+      "block": "minecraft:glowstone",
+      "chance": 0.5
+    },
+    "fire": {
+      "type": "descent_into_darkness:patch",
+      "block": "minecraft:fire",
+      "edges": [
+        "floor"
+      ],
+      "can_place_on": [
+        "minecraft:magma_block"
+      ]
+    },
+    "lavatowers": {
+      "type": "descent_into_darkness:vine_patch",
+      "vine": "minecraft:lava",
+      "edges": [
+        "floor"
+      ],
+      "spread_x": 32,
+      "spread_y": 32,
+      "chance": 0.5,
+      "tags": "ravine",
+      "tags_inverted": true,
+      "height": 30
+    }
+  }
+}

@@ -1,0 +1,239 @@
+{
+  "inherit": [
+    "civex:vanilla",
+    {
+      "name": "civex:wooden_pack",
+      "merge": {
+        "lore": "bottom"
+      }
+    },
+    {
+      "name": "civex:high_metal_low_gem",
+      "merge": {
+        "structures": "top",
+        "lore": "bottom"
+      }
+    }
+  ],
+  "display_name": {
+    "text": "Spruce Forest",
+    "color": "green"
+  },
+  "lore": [
+    {
+      "text": "Difficulty: ☆☆☆",
+      "color": "yellow"
+    }
+  ],
+  "base_block": "minecraft:dirt",
+  "painter_steps": [
+    {
+      "type": "descent_into_darkness:replace_floor",
+      "old": "minecraft:dirt",
+      "new": "minecraft:podzol"
+    },
+    {
+      "type": "descent_into_darkness:replace_all",
+      "old": "minecraft:dirt",
+      "new": "minecraft:coarse_dirt",
+      "chance": 0.1
+    }
+  ],
+  "structures": {
+    "boulder": {
+      "type": "descent_into_darkness:template",
+      "templates": [
+        "descent_into_darkness:podzol1/boulder1",
+        {
+          "template": "descent_into_darkness:podzol1/boulder2",
+          "origin": [
+            1,
+            0,
+            1
+          ]
+        },
+        {
+          "template": "descent_into_darkness:podzol1/boulder3",
+          "origin": [
+            1,
+            0,
+            1
+          ]
+        }
+      ],
+      "edges": "floor",
+      "can_place_on": "minecraft:podzol",
+      "count": 0.2
+    },
+    "trees": {
+      "type": "descent_into_darkness:template",
+      "templates": [
+        {
+          "template": "descent_into_darkness:podzol1/sprucetree1",
+          "origin": [
+            1,
+            0,
+            1
+          ]
+        },
+        {
+          "template": "descent_into_darkness:podzol1/sprucetree2",
+          "origin": [
+            2,
+            0,
+            2
+          ]
+        },
+        {
+          "template": "descent_into_darkness:podzol1/sprucetree3",
+          "origin": [
+            2,
+            0,
+            2
+          ]
+        },
+        {
+          "template": "descent_into_darkness:podzol1/sprucetree4",
+          "origin": [
+            3,
+            0,
+            3
+          ]
+        }
+      ],
+      "edges": "floor",
+      "can_place_on": "minecraft:podzol",
+      "count": 1
+    },
+    "bigtree": {
+      "type": "descent_into_darkness:template",
+      "templates": [
+        {
+          "template": "descent_into_darkness:podzol1/bsprucetree1",
+          "origin": [
+            3,
+            0,
+            3
+          ]
+        }
+      ],
+      "edges": "floor",
+      "can_place_on": "minecraft:podzol",
+      "count": 1
+    },
+    "fern": {
+      "type": "descent_into_darkness:patch",
+      "block": "minecraft:fern",
+      "edges": "floor",
+      "chance": 0.2,
+      "can_place_on": "minecraft:podzol"
+    },
+    "fern2": {
+      "type": "descent_into_darkness:patch",
+      "block": "minecraft:large_fern",
+      "edges": "floor",
+      "chance": 0.2,
+      "can_place_on": "minecraft:podzol"
+    }
+  },
+  "spawn_entries": {
+    "vinelasher": {
+      "mob": "descent_into_darkness:vinelasher",
+      "single_mob_cost": 50,
+      "weight": 10,
+      "cooldown": 20,
+      "pack_cost": [
+        100,
+        300
+      ],
+      "distance": [
+        10,
+        20
+      ]
+    },
+    "elderwood_hunter": {
+      "mob": "descent_into_darkness:elderwood_hunter",
+      "single_mob_cost": 70,
+      "weight": 10,
+      "cooldown": 20,
+      "pack_cost": [
+        100,
+        300
+      ],
+      "distance": [
+        15,
+        25
+      ]
+    },
+    "forest_arbors": {
+      "mob": "descent_into_darkness:forest_arbors",
+      "single_mob_cost": 200,
+      "weight": 10,
+      "cooldown": 20,
+      "pack_cost": [
+        200,
+        500
+      ],
+      "distance": [
+        15,
+        25
+      ]
+    },
+    "elderwood_shaman": {
+      "mob": "descent_into_darkness:elderwood_shaman",
+      "single_mob_cost": 400,
+      "weight": 10,
+      "cooldown": 20,
+      "pack_cost": [
+        400,
+        500
+      ],
+      "distance": [
+        15,
+        25
+      ]
+    },
+    "treeslayer": {
+      "mob": "descent_into_darkness:treeslayer",
+      "single_mob_cost": 100,
+      "weight": 10,
+      "cooldown": 20,
+      "pack_cost": [
+        100,
+        300
+      ],
+      "distance": [
+        15,
+        25
+      ]
+    },
+    "elderwood_footman": {
+      "mob": "descent_into_darkness:elderwood_footman",
+      "single_mob_cost": 100,
+      "weight": 10,
+      "cooldown": 20,
+      "pack_cost": [
+        100,
+        300
+      ],
+      "distance": [
+        15,
+        25
+      ]
+    },
+    "elderwood_gatherer": {
+      "mob": "descent_into_darkness:elderwood_gatherer",
+      "single_mob_cost": 40,
+      "weight": 10,
+      "cooldown": 10,
+      "pack_cost": [
+        100,
+        300
+      ],
+      "distance": [
+        15,
+        25
+      ]
+    }
+  }
+}

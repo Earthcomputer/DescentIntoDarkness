@@ -1,0 +1,154 @@
+{
+  "base_block": "minecraft:stone",
+  "inherit": [
+    "civex:vanilla",
+    "civex:master_ore_table",
+    {
+      "name": "civex:slime_pack",
+      "merge": {
+        "lore": "bottom"
+      }
+    }
+  ],
+  "display_name": {
+    "text": "Redstone Cave",
+    "color": "red"
+  },
+  "lore": [
+    {
+      "text": "Difficulty: ☆☆☆",
+      "color": "yellow"
+    },
+    {
+      "text": "Redstone",
+      "color": "red"
+    }
+  ],
+  "painter_steps": [
+    {
+      "type": "descent_into_darkness:replace_all",
+      "old": "minecraft:stone",
+      "new": "minecraft:andesite",
+      "chance": 0.2
+    }
+  ],
+  "structures": {
+    "diamond_ore": {
+      "type": "descent_into_darkness:vein",
+      "edges": [
+        "floor",
+        "ceiling",
+        "wall"
+      ],
+      "chance": 0.01,
+      "ore": "minecraft:diamond_ore",
+      "radius": 3
+    },
+    "redstone_ore": {
+      "type": "descent_into_darkness:vein",
+      "edges": [
+        "floor",
+        "ceiling",
+        "wall"
+      ],
+      "chance": 0.1,
+      "ore": "minecraft:redstone_ore",
+      "radius": 2
+    },
+    "redstone_ore2": {
+      "type": "descent_into_darkness:vein",
+      "edges": [
+        "floor",
+        "ceiling",
+        "wall"
+      ],
+      "chance": 0.05,
+      "ore": "minecraft:redstone_ore",
+      "radius": 4
+    },
+    "orecrystals": {
+      "type": "descent_into_darkness:template",
+      "origin_side": "up",
+      "templates": [
+        {
+          "template": "descent_into_darkness:redstone1/redore",
+          "origin": [
+            1,
+            0,
+            1
+          ]
+        },
+        {
+          "template": "descent_into_darkness:redstone1/redore2",
+          "origin": [
+            1,
+            0,
+            1
+          ]
+        }
+      ],
+      "edges": [
+        "floor",
+        "ceiling",
+        "wall"
+      ],
+      "ore": "minecraft:redstone_ore",
+      "radius": 4
+    },
+    "orecrystals2": {
+      "type": "descent_into_darkness:template",
+      "origin_side": "up",
+      "templates": [
+        {
+          "template": "descent_into_darkness:redstone1/rc90",
+          "origin": [
+            2,
+            11,
+            2
+          ]
+        }
+      ],
+      "edges": [
+        "floor",
+        "ceiling"
+      ],
+      "can_place_on": [
+        "minecraft:stone",
+        "minecraft:andesite"
+      ],
+      "can_replace": [
+        "minecraft:stone",
+        "minecraft:andesite",
+        "minecraft:air"
+      ],
+      "count": 0.5
+    },
+    "orecrystals3": {
+      "type": "descent_into_darkness:template",
+      "origin_side": "up",
+      "edges": [
+        "wall"
+      ],
+      "can_place_on": [
+        "minecraft:stone",
+        "minecraft:andesite"
+      ],
+      "can_replace": [
+        "minecraft:stone",
+        "minecraft:andesite",
+        "minecraft:air"
+      ],
+      "templates": [
+        {
+          "template": "descent_into_darkness:redstone1/rc0",
+          "origin": [
+            2,
+            3,
+            11
+          ]
+        }
+      ],
+      "count": 0.5
+    }
+  }
+}

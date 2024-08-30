@@ -1,0 +1,156 @@
+{
+  "start_y": 20,
+  "biome": "minecraft:desert",
+  "transparent_blocks": [
+    "minecraft:air",
+    "minecraft:glowstone",
+    "minecraft:water",
+    "minecraft:lava",
+    "minecraft:vine",
+    "minecraft:short_grass"
+  ],
+  "inherit": [
+    "civex:ribbons",
+    {
+      "name": "civex:high_gem_low_fuel",
+      "merge": {
+        "structures": "top",
+        "lore": "bottom"
+      }
+    }
+  ],
+  "base_block": "minecraft:smooth_sandstone",
+  "painter_steps": [
+    {
+      "type": "descent_into_darkness:replace_all",
+      "old": "minecraft:smooth_sandstone",
+      "new": {
+        "type": "minecraft:weighted_state_provider",
+        "entries": [
+          {
+            "weight": 3,
+            "data": {
+              "Name": "minecraft:sand"
+            }
+          },
+          {
+            "weight": 1,
+            "data": {
+              "Name": "minecraft:sandstone"
+            }
+          }
+        ]
+      },
+      "count": 0.5
+    }
+  ],
+  "structures": {
+    "ore2": {
+      "type": "descent_into_darkness:wall_portal",
+      "count": 1,
+      "portal_block": "chiseled_sandstone",
+      "frame_block": "cut_sandstone",
+      "width": 1,
+      "height": 1
+    },
+    "chest": {
+      "type": "descent_into_darkness:template",
+      "templates": [
+        {
+          "template": "descent_into_darkness:desert/desertchest",
+          "origin": [
+            1,
+            0,
+            1
+          ]
+        }
+      ],
+      "edges": "floor",
+      "count": 0.5,
+      "can_place_on": {
+        "type": "minecraft:not",
+        "predicate": {
+          "type": "minecraft:matching_blocks",
+          "blocks": [
+            "minecraft:cut_sandstone",
+            "minecraft:cut_sandstone_slab",
+            "minecraft:air"
+          ]
+        }
+      }
+    },
+    "vine": {
+      "type": "descent_into_darkness:vine_patch",
+      "vine": "minecraft:cactus",
+      "count": 0.4,
+      "edges": "floor",
+      "can_replace": [
+        "minecraft:air"
+      ],
+      "spread_x": 16,
+      "spread_z": 16,
+      "height": [
+        1,
+        3
+      ]
+    },
+    "grass": {
+      "type": "descent_into_darkness:patch",
+      "block": "minecraft:dead_bush",
+      "edges": [
+        "floor"
+      ],
+      "count": 0.1,
+      "can_place_on": {
+        "type": "minecraft:not",
+        "predicate": {
+          "type": "minecraft:matching_blocks",
+          "blocks": [
+            "minecraft:chest",
+            "minecraft:air"
+          ]
+        }
+      },
+      "can_replace": [
+        "minecraft:air"
+      ]
+    },
+    "sand": {
+      "type": "descent_into_darkness:vine_patch",
+      "vine": "minecraft:sand",
+      "spread_x": 2,
+      "spread_y": 0,
+      "spread_z": 2,
+      "tries": 20,
+      "chance": 0.1,
+      "edges": "floor",
+      "can_place_on": {
+        "type": "minecraft:not",
+        "predicate": {
+          "type": "minecraft:matching_blocks",
+          "blocks": [
+            "minecraft:air",
+            "minecraft:cactus",
+            "minecraft:chest",
+            "minecraft:cut_sandstone",
+            "minecraft:cut_sandstone_slab"
+          ]
+        }
+      },
+      "height": [
+        5,
+        7
+      ]
+    },
+    "lavafall": {
+      "type": "descent_into_darkness:waterfall",
+      "fluid_type": "block",
+      "block": "sand",
+      "flow_distance": 5,
+      "edges": [
+        "wall"
+      ],
+      "chance": 0.07
+    }
+  }
+}

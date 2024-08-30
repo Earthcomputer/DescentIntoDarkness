@@ -1,0 +1,163 @@
+{
+  "inherit": [
+    "civex:roots3",
+    {
+      "name": "civex:wooden_pack",
+      "merge": {
+        "lore": "bottom"
+      }
+    },
+    {
+      "name": "civex:high_metal_low_gem",
+      "merge": {
+        "structures": "top",
+        "lore": "bottom"
+      }
+    }
+  ],
+  "display_name": {
+    "text": "Acacia Roots",
+    "color": "green"
+  },
+  "lore": [
+    {
+      "text": "Difficulty: ☆☆☆",
+      "color": "yellow"
+    }
+  ],
+  "base_block": "minecraft:acacia_wood",
+  "painter_steps": [
+    {
+      "type": "descent_into_darkness:replace_floor",
+      "old": "minecraft:acacia_wood",
+      "new": "minecraft:coarse_dirt",
+      "chance": 0.5
+    },
+    {
+      "type": "descent_into_darkness:replace_floor",
+      "old": "minecraft:acacia_wood",
+      "new": "minecraft:dirt",
+      "chance": 1.0
+    },
+    {
+      "type": "descent_into_darkness:replace_all",
+      "old": "minecraft:acacia_wood",
+      "new": "minecraft:acacia_wood",
+      "chance": 0.5
+    },
+    {
+      "type": "descent_into_darkness:replace_all",
+      "old": "minecraft:acacia_wood",
+      "new": {
+        "type": "minecraft:simple_state_provider",
+        "state": {
+          "Name": "minecraft:acacia_log",
+          "Properties": {
+            "axis": "x"
+          }
+        }
+      },
+      "chance": 0.25
+    },
+    {
+      "type": "descent_into_darkness:replace_all",
+      "old": "minecraft:acacia_wood",
+      "new": {
+        "type": "minecraft:simple_state_provider",
+        "state": {
+          "Name": "minecraft:acacia_log",
+          "Properties": {
+            "axis": "z"
+          }
+        }
+      },
+      "chance": 0.33
+    },
+    {
+      "type": "descent_into_darkness:replace_all",
+      "old": "minecraft:acacia_wood",
+      "new": "minecraft:acacia_log",
+      "chance": 1.0
+    }
+  ],
+  "structures": {
+    "stags": {
+      "block": "minecraft:acacia_wood",
+      "type": "descent_into_darkness:stalagmite",
+      "floor_to_ceiling_search_range": 30,
+      "max_column_radius_to_cave_height_ratio": 0.1,
+      "edges": "ceiling",
+      "has_stalactite": false,
+      "min_bluntness_for_wind": 0,
+      "min_radius_for_wind": 1,
+      "count": 0.05,
+      "tags": "ravine",
+      "column_radius": 30,
+      "height_scale": 0.35,
+      "wind_speed": 0
+    },
+    "mottle": {
+      "type": "descent_into_darkness:vein",
+      "ore": "minecraft:acacia_leaves",
+      "edges": [
+        "ceiling",
+        "wall",
+        "floor"
+      ],
+      "can_place_on": "minecraft:acacia_wood",
+      "can_replace": "minecraft:acacia_wood",
+      "size": 4,
+      "count": 0.6,
+      "tags": "ravine"
+    },
+    "glowstone": {
+      "type": "descent_into_darkness:glowstone",
+      "edges": [
+        "ceiling"
+      ],
+      "block": "minecraft:acacia_leaves",
+      "can_place_on": [
+        "minecraft:acacia_wood",
+        "minecraft:acacia_log"
+      ],
+      "height": 12,
+      "density": 1000
+    },
+    "fern": {
+      "type": "descent_into_darkness:patch",
+      "edges": [
+        "floor"
+      ],
+      "count": 0.4,
+      "spread_x": 32,
+      "spread_z": 32,
+      "block": {
+        "type": "minecraft:simple_state_provider",
+        "state": {
+          "Name": "minecraft:large_fern",
+          "Properties": {
+            "half": "upper"
+          }
+        }
+      },
+      "can_place_on": [
+        "minecraft:dirt",
+        "minecraft:coarse_dirt"
+      ]
+    },
+    "acacia_bark": {
+      "type": "descent_into_darkness:vein",
+      "ore": "minecraft:stripped_acacia_wood",
+      "edges": [
+        "floor"
+      ],
+      "chance": 0.4,
+      "can_replace": "minecraft:air",
+      "can_place_on": [
+        "minecraft:dirt",
+        "minecraft:coarse_dirt"
+      ],
+      "radius": 4
+    }
+  }
+}

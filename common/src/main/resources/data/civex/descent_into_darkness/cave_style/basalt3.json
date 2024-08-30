@@ -1,0 +1,181 @@
+{
+  "inherit": [
+    "civex:mega_canyon"
+  ],
+  "nether": true,
+  "biome": "minecraft:basalt_deltas",
+  "base_block": {
+    "Name": "minecraft:basalt",
+    "Properties": {
+      "axis": "y"
+    }
+  },
+  "painter_steps": [
+    {
+      "type": "descent_into_darkness:replace_all",
+      "old": {
+        "type": "descent_into_darkness:matches_state",
+        "name": "minecraft:basalt",
+        "properties": {
+          "axis": "y"
+        }
+      },
+      "new": {
+        "type": "minecraft:simple_state_provider",
+        "state": {
+          "Name": "minecraft:basalt",
+          "Properties": {
+            "axis": "x"
+          }
+        }
+      },
+      "chance": 0.33
+    },
+    {
+      "type": "descent_into_darkness:replace_all",
+      "old": {
+        "type": "descent_into_darkness:matches_state",
+        "name": "minecraft:basalt",
+        "properties": {
+          "axis": "y"
+        }
+      },
+      "new": {
+        "type": "minecraft:simple_state_provider",
+        "state": {
+          "Name": "minecraft:basalt",
+          "Properties": {
+            "axis": "z"
+          }
+        }
+      },
+      "chance": 0.5
+    },
+    {
+      "type": "descent_into_darkness:replace_floor",
+      "old": "minecraft:basalt",
+      "new": "minecraft:gray_concrete_powder",
+      "chance": 1
+    }
+  ],
+  "structures": {
+    "stags4": {
+      "block": {
+        "type": "minecraft:weighted_state_provider",
+        "entries": [
+          {
+            "weight": 10,
+            "data": {
+              "Name": "minecraft:basalt",
+              "Properties": {
+                "axis": "y"
+              }
+            }
+          },
+          {
+            "weight": 10,
+            "data": {
+              "Name": "minecraft:basalt",
+              "Properties": {
+                "axis": "x"
+              }
+            }
+          },
+          {
+            "weight": 10,
+            "data": {
+              "Name": "minecraft:basalt",
+              "Properties": {
+                "axis": "z"
+              }
+            }
+          },
+          {
+            "weight": 1,
+            "data": {
+              "Name": "minecraft:light_gray_concrete_powder"
+            }
+          }
+        ]
+      },
+      "type": "descent_into_darkness:stalagmite",
+      "floor_to_ceiling_search_range": 512,
+      "max_column_radius_to_cave_height_ratio": 1,
+      "has_stalactite": true,
+      "min_bluntness_for_wind": 0,
+      "min_radius_for_wind": 1,
+      "count": 0.005,
+      "edges": "ceiling",
+      "height_scale": [
+        10,
+        20
+      ],
+      "column_radius": 15,
+      "wind_speed": 0
+    },
+    "ocoal": {
+      "type": "descent_into_darkness:template",
+      "origin_side": "up",
+      "templates": [
+        {
+          "template": "descent_into_darkness:basalt1/scoal",
+          "origin": [
+            2,
+            3,
+            12
+          ]
+        },
+        {
+          "template": "descent_into_darkness:basalt1/60scoal",
+          "origin": [
+            2,
+            10,
+            5
+          ]
+        },
+        {
+          "template": "descent_into_darkness:basalt1/45scoal",
+          "origin": [
+            2,
+            9,
+            7
+          ]
+        }
+      ],
+      "chance": 0.7,
+      "can_replace": [
+        "minecraft:basalt",
+        "minecraft:air"
+      ]
+    },
+    "mottle": {
+      "type": "descent_into_darkness:vein",
+      "ore": "minecraft:magma_block",
+      "edges": [
+        "wall"
+      ],
+      "can_place_on": "minecraft:light_gray_concrete_powder",
+      "radius": 4,
+      "count": 10
+    },
+    "plants": {
+      "type": "descent_into_darkness:patch",
+      "block": {
+        "type": "minecraft:simple_state_provider",
+        "state": {
+          "Name": "minecraft:dead_horn_coral",
+          "Properties": {
+            "waterlogged": false
+          }
+        }
+      },
+      "edges": [
+        "floor"
+      ],
+      "can_place_on": [
+        "minecraft:gray_concrete_powder"
+      ],
+      "chance": 0.5
+    }
+  }
+}

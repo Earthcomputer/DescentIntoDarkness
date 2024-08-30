@@ -1,0 +1,176 @@
+{
+  "nether": true,
+  "biome": "minecraft:nether_wastes",
+  "base_block": "minecraft:netherrack",
+  "transparent_blocks": [
+    "minecraft:air",
+    "minecraft:rail"
+  ],
+  "inherit": [
+    {
+      "name": "civex:nether_pack",
+      "merge": {
+        "lore": "bottom"
+      }
+    },
+    {
+      "name": "civex:high_fuel_low_metal",
+      "merge": {
+        "structures": "top",
+        "lore": "bottom"
+      }
+    },
+    "civex:mineshaft"
+  ],
+  "display_name": {
+    "text": "Nether Mineshaft",
+    "color": "red"
+  },
+  "lore": [
+    {
+      "text": "Difficulty: ☆☆☆☆",
+      "color": "yellow"
+    }
+  ],
+  "structures": {
+    "stags": {
+      "type": "descent_into_darkness:stalagmite",
+      "block": "minecraft:nether_gold_ore",
+      "count": 0.03,
+      "edges": [
+        "floor",
+        "ceiling"
+      ],
+      "has_stalactite": true
+    },
+    "stags2": {
+      "block": "minecraft:nether_quartz_ore",
+      "type": "descent_into_darkness:stalagmite",
+      "floor_to_ceiling_search_range": 100,
+      "max_column_radius_to_cave_height_ratio": 0.1,
+      "has_stalactite": true,
+      "min_bluntness_for_wind": 0,
+      "min_radius_for_wind": 1,
+      "count": 0.004,
+      "edges": [
+        "floor",
+        "ceiling"
+      ],
+      "height_scale": [
+        5,
+        10
+      ],
+      "column_radius": 6,
+      "wind_speed": [
+        0,
+        0.2
+      ]
+    },
+    "crossbar": {
+      "chance": 0.3,
+      "type": "descent_into_darkness:vine_patch",
+      "vine": "minecraft:polished_blackstone_bricks",
+      "spread_x": 1,
+      "spread_y": 0,
+      "spread_z": 1,
+      "tries": 50,
+      "edges": "wall",
+      "height": 1000
+    },
+    "support": {
+      "chance": 0.1,
+      "type": "descent_into_darkness:vine_patch",
+      "vine": "minecraft:polished_blackstone_brick_wall",
+      "spread_x": 0,
+      "spread_y": 0,
+      "spread_z": 0,
+      "tries": 20,
+      "edges": "floor",
+      "can_place_on": [
+        "minecraft:stone",
+        "minecraft:andesite",
+        "minecraft:gravel",
+        "minecraft:cobblestone"
+      ],
+      "height": 1000
+    },
+    "rails": {
+      "count": 0.1,
+      "type": "descent_into_darkness:patch",
+      "block": "minecraft:rail",
+      "spread_x": 32,
+      "spread_z": 32,
+      "edges": [
+        "floor"
+      ]
+    },
+    "rails2": {
+      "count": 5,
+      "tries": 20,
+      "type": "descent_into_darkness:patch",
+      "block": "minecraft:rail",
+      "spread_x": 8,
+      "spread_z": 8,
+      "edges": [
+        "floor"
+      ],
+      "can_place_on": [
+        "minecraft:polished_blackstone_bricks"
+      ]
+    },
+    "quartz_ore": {
+      "type": "descent_into_darkness:vein",
+      "edges": [
+        "floor",
+        "ceiling",
+        "wall"
+      ],
+      "can_replace": [
+        "minecraft:netherrack",
+        "minecraft:soul_soil"
+      ],
+      "chance": 0.05,
+      "ore": "minecraft:nether_quartz_ore",
+      "radius": 4
+    },
+    "gold_ore": {
+      "type": "descent_into_darkness:vein",
+      "edges": [
+        "floor",
+        "ceiling",
+        "wall"
+      ],
+      "can_replace": [
+        "minecraft:netherrack",
+        "minecraft:soul_soil"
+      ],
+      "chance": 0.05,
+      "ore": "minecraft:nether_gold_ore",
+      "radius": 4
+    },
+    "glowstone": {
+      "type": "descent_into_darkness:glowstone",
+      "edges": [
+        "ceiling"
+      ],
+      "chance": 0.02,
+      "block": "glowstone",
+      "can_place_on": [
+        "minecraft:netherrack"
+      ],
+      "height": 3
+    },
+    "lavafall": {
+      "type": "descent_into_darkness:waterfall",
+      "fluid_type": "lava",
+      "edges": [
+        "wall",
+        "ceiling"
+      ],
+      "can_place_on": [
+        "minecraft:netherrack"
+      ],
+      "chance": 0.1
+    }
+  }
+}

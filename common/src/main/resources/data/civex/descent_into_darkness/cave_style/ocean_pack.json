@@ -1,0 +1,198 @@
+{
+  "lore": [
+    {
+      "text": "Underwater",
+      "color": "dark_blue"
+    },
+    {
+      "text": "Water",
+      "color": "blue"
+    }
+  ],
+  "spawn_entries": {
+    "fishe": {
+      "mob": "descent_into_darkness:fishe",
+      "single_mob_cost": 50,
+      "weight": 10,
+      "cooldown": 20,
+      "can_spawn_in": [
+        "minecraft:water",
+        "minecraft:kelp"
+      ],
+      "can_spawn_on": [
+        "minecraft:water",
+        "minecraft:kelp",
+        "minecraft:sand"
+      ],
+      "pack_cost": [
+        50,
+        500
+      ],
+      "distance": [
+        10,
+        20
+      ]
+    },
+    "inker": {
+      "mob": "descent_into_darkness:inker",
+      "single_mob_cost": 200,
+      "weight": 10,
+      "cooldown": 20,
+      "can_spawn_in": [
+        "minecraft:water",
+        "minecraft:kelp"
+      ],
+      "can_spawn_on": [
+        "minecraft:water",
+        "minecraft:kelp",
+        "minecraft:sand"
+      ],
+      "pack_cost": [
+        200,
+        800
+      ],
+      "distance": [
+        15,
+        25
+      ]
+    },
+    "jellyfish": {
+      "mob": "descent_into_darkness:jellyfish",
+      "single_mob_cost": 150,
+      "weight": 10,
+      "cooldown": 20,
+      "can_spawn_in": [
+        "minecraft:water",
+        "minecraft:kelp"
+      ],
+      "can_spawn_on": [
+        "minecraft:water",
+        "minecraft:kelp",
+        "minecraft:sand"
+      ],
+      "pack_cost": [
+        150,
+        800
+      ],
+      "distance": [
+        15,
+        25
+      ]
+    },
+    "puffer": {
+      "mob": "descent_into_darkness:puffer",
+      "single_mob_cost": 150,
+      "weight": 10,
+      "cooldown": 20,
+      "can_spawn_in": [
+        "minecraft:water",
+        "minecraft:kelp"
+      ],
+      "can_spawn_on": [
+        "minecraft:water",
+        "minecraft:kelp",
+        "minecraft:sand"
+      ],
+      "pack_cost": [
+        150,
+        800
+      ],
+      "distance": [
+        15,
+        25
+      ]
+    },
+    "shark": {
+      "mob": "descent_into_darkness:shark",
+      "single_mob_cost": 300,
+      "weight": 10,
+      "cooldown": 20,
+      "can_spawn_in": [
+        "minecraft:water",
+        "minecraft:kelp"
+      ],
+      "can_spawn_on": [
+        "minecraft:water",
+        "minecraft:kelp",
+        "minecraft:sand"
+      ],
+      "pack_cost": [
+        300,
+        900
+      ],
+      "distance": [
+        15,
+        25
+      ]
+    },
+    "coral_guardian": {
+      "mob": "descent_into_darkness:coral_guardian",
+      "single_mob_cost": 300,
+      "weight": 10,
+      "cooldown": 20,
+      "can_spawn_in": [
+        "minecraft:water",
+        "minecraft:kelp"
+      ],
+      "can_spawn_on": [
+        "minecraft:water",
+        "minecraft:kelp",
+        "minecraft:sand"
+      ],
+      "pack_cost": [
+        300,
+        1200
+      ],
+      "distance": [
+        15,
+        25
+      ]
+    },
+    "elder_coral_guardian": {
+      "mob": "descent_into_darkness:elder_coral_guardian",
+      "single_mob_cost": 600,
+      "weight": 10,
+      "cooldown": 20,
+      "can_spawn_in": [
+        "minecraft:water",
+        "minecraft:kelp"
+      ],
+      "can_spawn_on": [
+        "minecraft:water",
+        "minecraft:kelp",
+        "minecraft:sand"
+      ],
+      "pack_cost": [
+        600,
+        1200
+      ],
+      "distance": [
+        15,
+        25
+      ]
+    },
+    "turtler": {
+      "mob": "descent_into_darkness:turtler",
+      "single_mob_cost": 200,
+      "weight": 10,
+      "cooldown": 20,
+      "can_spawn_in": [
+        "minecraft:water",
+        "minecraft:kelp"
+      ],
+      "can_spawn_on": [
+        "minecraft:water",
+        "minecraft:kelp",
+        "minecraft:sand"
+      ],
+      "pack_cost": [
+        200,
+        800
+      ],
+      "distance": [
+        15,
+        25
+      ]
+    }
+  }
+}

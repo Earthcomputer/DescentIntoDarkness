@@ -1,0 +1,168 @@
+{
+  "base_block": "descent_into_darkness:ice_magma",
+  "nether": true,
+  "start_y": 143,
+  "biome": "civex:ice_magma",
+  "painter_steps": [
+    {
+      "type": "descent_into_darkness:replace_floor",
+      "old": "descent_into_darkness:ice_magma",
+      "new": "minecraft:light_blue_concrete_powder"
+    }
+  ],
+  "inherit": [
+    "civex:mega_canyon"
+  ],
+  "air_block": [
+    {
+      "min": 0,
+      "max": 90,
+      "block": "water"
+    },
+    {
+      "min": 91,
+      "max": 255,
+      "block": "air"
+    }
+  ],
+  "structures": {
+    "stags": {
+      "type": "descent_into_darkness:stalagmite",
+      "block": "descent_into_darkness:ice_magma",
+      "count": 0.1,
+      "floor_to_ceiling_search_range": 220,
+      "edges": [
+        "ceiling"
+      ],
+      "has_stalactite": false
+    },
+    "hyphaeclump": {
+      "type": "descent_into_darkness:vein",
+      "radius": 4,
+      "ore": "minecraft:oak_leaves",
+      "edges": [
+        "floor"
+      ],
+      "chance": 0.3,
+      "can_replace": [
+        "descent_into_darkness:ice_magma",
+        "minecraft:light_blue_concrete_powder"
+      ]
+    },
+    "hyphaeclump2": {
+      "type": "descent_into_darkness:vein",
+      "radius": 4,
+      "ore": "minecraft:oak_leaves",
+      "edges": [
+        "floor"
+      ],
+      "can_place_on": [
+        "minecraft:oak_leaves"
+      ],
+      "can_replace": [
+        "minecraft:water",
+        "minecraft:oak_leaves"
+      ],
+      "count": 3
+    },
+    "hyphaeclump3": {
+      "type": "descent_into_darkness:vein",
+      "radius": 4,
+      "ore": "minecraft:oak_leaves",
+      "edges": [
+        "floor"
+      ],
+      "can_place_on": [
+        "minecraft:oak_leaves"
+      ],
+      "can_replace": [
+        "minecraft:water",
+        "minecraft:oak_leaves"
+      ],
+      "count": 4
+    },
+    "hyphaeclump4": {
+      "type": "descent_into_darkness:vein",
+      "radius": 4,
+      "ore": "minecraft:oak_leaves",
+      "edges": [
+        "floor"
+      ],
+      "can_place_on": [
+        "minecraft:oak_leaves"
+      ],
+      "can_replace": [
+        "minecraft:water",
+        "minecraft:oak_leaves"
+      ],
+      "count": 4
+    },
+    "waterfall": {
+      "type": "descent_into_darkness:waterfall",
+      "fluid_type": "water",
+      "edges": [
+        "ceiling",
+        "wall"
+      ],
+      "count": 0.02
+    },
+    "vine": {
+      "type": "descent_into_darkness:vine_patch",
+      "vine": {
+        "type": "minecraft:simple_state_provider",
+        "state": {
+          "Name": "minecraft:vine",
+          "Properties": {
+            "south": true
+          }
+        }
+      },
+      "count": 0.1,
+      "edges": "ceiling",
+      "can_place_on": [
+        "descent_into_darkness:ice_magma"
+      ],
+      "can_replace": [
+        "minecraft:air"
+      ],
+      "height": [
+        30,
+        55
+      ]
+    },
+    "tree": {
+      "type": "descent_into_darkness:tree",
+      "edges": "floor",
+      "dirt": "minecraft:light_blue_concrete_powder",
+      "leaf": "minecraft:stripped_warped_hyphae",
+      "log": "minecraft:warped_hyphae",
+      "hanging_vine": "minecraft:stripped_warped_hyphae",
+      "hanging_vine_chance": 0.5,
+      "can_place_on": [
+        "minecraft:light_blue_concrete_powder"
+      ],
+      "can_replace": [
+        "minecraft:air"
+      ],
+      "count": 0.3,
+      "height": 8,
+      "leaf_height": 4
+    },
+    "roots": {
+      "type": "descent_into_darkness:patch",
+      "block": "minecraft:warped_roots",
+      "spread_x": 16,
+      "spread_z": 16,
+      "count": 0.8,
+      "edges": [
+        "floor"
+      ],
+      "can_place_on": [
+        "minecraft:light_blue_concrete_powder"
+      ],
+      "can_replace": [
+        "minecraft:air"
+      ]
+    }
+  }
+}

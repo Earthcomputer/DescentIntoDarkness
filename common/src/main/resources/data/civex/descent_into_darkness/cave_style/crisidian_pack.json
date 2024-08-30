@@ -1,0 +1,152 @@
+{
+  "lore": [
+    {
+      "text": "Corrupted",
+      "color": "dark_purple"
+    },
+    {
+      "text": "Underwater",
+      "color": "dark_blue"
+    }
+  ],
+  "spawn_entries": {
+    "obby_piranha": {
+      "mob": "descent_into_darkness:obby_piranha",
+      "single_mob_cost": 150,
+      "weight": 5,
+      "cooldown": 20,
+      "can_spawn_in": [
+        "minecraft:water",
+        "minecraft:kelp"
+      ],
+      "can_spawn_on": [
+        "minecraft:water",
+        "minecraft:kelp",
+        "minecraft:sand"
+      ],
+      "pack_cost": [
+        150,
+        500
+      ],
+      "distance": [
+        10,
+        20
+      ]
+    },
+    "baby_stralk": {
+      "mob": "descent_into_darkness:baby_stralk",
+      "single_mob_cost": 150,
+      "weight": 5,
+      "cooldown": 20,
+      "can_spawn_in": [
+        "minecraft:water",
+        "minecraft:kelp"
+      ],
+      "can_spawn_on": [
+        "minecraft:water",
+        "minecraft:kelp",
+        "minecraft:sand"
+      ],
+      "pack_cost": [
+        150,
+        500
+      ],
+      "distance": [
+        10,
+        20
+      ]
+    },
+    "corrupted_bowman": {
+      "mob": "descent_into_darkness:corrupted_bowman",
+      "single_mob_cost": 200,
+      "weight": 10,
+      "cooldown": 20,
+      "can_spawn_in": [
+        "minecraft:water",
+        "minecraft:kelp"
+      ],
+      "can_spawn_on": [
+        "minecraft:water",
+        "minecraft:kelp",
+        "minecraft:sand"
+      ],
+      "pack_cost": [
+        200,
+        800
+      ],
+      "distance": [
+        15,
+        25
+      ]
+    },
+    "crisidan_witch": {
+      "mob": "descent_into_darkness:crisidian_witch",
+      "single_mob_cost": 600,
+      "weight": 10,
+      "cooldown": 20,
+      "can_spawn_in": [
+        "minecraft:water",
+        "minecraft:kelp"
+      ],
+      "can_spawn_on": [
+        "minecraft:water",
+        "minecraft:kelp",
+        "minecraft:sand"
+      ],
+      "pack_cost": [
+        600,
+        800
+      ],
+      "distance": [
+        15,
+        25
+      ]
+    },
+    "stralk": {
+      "mob": "descent_into_darkness:stralk",
+      "single_mob_cost": 200,
+      "weight": 10,
+      "cooldown": 20,
+      "can_spawn_in": [
+        "minecraft:water",
+        "minecraft:kelp"
+      ],
+      "can_spawn_on": [
+        "minecraft:water",
+        "minecraft:kelp",
+        "minecraft:sand"
+      ],
+      "pack_cost": [
+        200,
+        600
+      ],
+      "distance": [
+        15,
+        25
+      ]
+    },
+    "pulsar": {
+      "mob": "descent_into_darkness:pulsar",
+      "single_mob_cost": 600,
+      "weight": 10,
+      "cooldown": 20,
+      "can_spawn_in": [
+        "minecraft:water",
+        "minecraft:kelp"
+      ],
+      "can_spawn_on": [
+        "minecraft:water",
+        "minecraft:kelp",
+        "minecraft:sand"
+      ],
+      "pack_cost": [
+        600,
+        800
+      ],
+      "distance": [
+        15,
+        25
+      ]
+    }
+  }
+}

@@ -1,0 +1,274 @@
+{
+  "base_block": "minecraft:stone",
+  "inherit": [
+    "civex:vanilla"
+  ],
+  "painter_steps": [
+    {
+      "type": "descent_into_darkness:replace_floor",
+      "old": "minecraft:stone",
+      "new": {
+        "type": "minecraft:weighted_state_provider",
+        "entries": [
+          {
+            "weight": 2,
+            "data": {
+              "Name": "minecraft:stone_stairs",
+              "Properties": {
+                "shape": "inner_right",
+                "facing": "west"
+              }
+            }
+          },
+          {
+            "weight": 2,
+            "data": {
+              "Name": "minecraft:stone_stairs",
+              "Properties": {
+                "shape": "inner_right",
+                "facing": "east"
+              }
+            }
+          },
+          {
+            "weight": 2,
+            "data": {
+              "Name": "minecraft:stone_stairs",
+              "Properties": {
+                "shape": "inner_right",
+                "facing": "south"
+              }
+            }
+          },
+          {
+            "weight": 2,
+            "data": {
+              "Name": "minecraft:stone_stairs",
+              "Properties": {
+                "shape": "inner_right",
+                "facing": "north"
+              }
+            }
+          },
+          {
+            "weight": 4,
+            "data": {
+              "Name": "minecraft:stone_slab",
+              "Properties": {
+                "type": "descent_into_darkness:bottom"
+              }
+            }
+          },
+          {
+            "weight": 8,
+            "data": {
+              "Name": "minecraft:stone"
+            }
+          }
+        ]
+      },
+      "chance": 1
+    },
+    {
+      "type": "descent_into_darkness:replace_ceiling",
+      "old": "minecraft:stone",
+      "new": {
+        "type": "minecraft:weighted_state_provider",
+        "entries": [
+          {
+            "weight": 2,
+            "data": {
+              "Name": "minecraft:stone_stairs",
+              "Properties": {
+                "half": "top",
+                "shape": "inner_right",
+                "facing": "west"
+              }
+            }
+          },
+          {
+            "weight": 2,
+            "data": {
+              "Name": "minecraft:stone_stairs",
+              "Properties": {
+                "half": "top",
+                "shape": "inner_right",
+                "facing": "east"
+              }
+            }
+          },
+          {
+            "weight": 2,
+            "data": {
+              "Name": "minecraft:stone_stairs",
+              "Properties": {
+                "half": "top",
+                "shape": "inner_right",
+                "facing": "south"
+              }
+            }
+          },
+          {
+            "weight": 2,
+            "data": {
+              "Name": "minecraft:stone_stairs",
+              "Properties": {
+                "half": "top",
+                "shape": "inner_right",
+                "facing": "north"
+              }
+            }
+          },
+          {
+            "weight": 8,
+            "data": {
+              "Name": "minecraft:stone_slab",
+              "Properties": {
+                "type": "descent_into_darkness:top"
+              }
+            }
+          },
+          {
+            "weight": 8,
+            "data": {
+              "Name": "minecraft:stone"
+            }
+          }
+        ]
+      },
+      "chance": 1
+    },
+    {
+      "type": "descent_into_darkness:replace_all",
+      "old": "minecraft:stone",
+      "new": {
+        "type": "minecraft:weighted_state_provider",
+        "entries": [
+          {
+            "weight": 1,
+            "data": {
+              "Name": "minecraft:stone_stairs",
+              "Properties": {
+                "shape": "inner_right",
+                "facing": "west"
+              }
+            }
+          },
+          {
+            "weight": 1,
+            "data": {
+              "Name": "minecraft:stone_stairs",
+              "Properties": {
+                "shape": "inner_right",
+                "facing": "east"
+              }
+            }
+          },
+          {
+            "weight": 1,
+            "data": {
+              "Name": "minecraft:stone_stairs",
+              "Properties": {
+                "shape": "inner_right",
+                "facing": "south"
+              }
+            }
+          },
+          {
+            "weight": 1,
+            "data": {
+              "Name": "minecraft:stone_stairs",
+              "Properties": {
+                "shape": "inner_right",
+                "facing": "north"
+              }
+            }
+          },
+          {
+            "weight": 1,
+            "data": {
+              "Name": "minecraft:stone_stairs",
+              "Properties": {
+                "half": "top",
+                "shape": "inner_right",
+                "facing": "west"
+              }
+            }
+          },
+          {
+            "weight": 1,
+            "data": {
+              "Name": "minecraft:stone_stairs",
+              "Properties": {
+                "half": "top",
+                "shape": "inner_right",
+                "facing": "east"
+              }
+            }
+          },
+          {
+            "weight": 1,
+            "data": {
+              "Name": "minecraft:stone_stairs",
+              "Properties": {
+                "half": "top",
+                "shape": "inner_right",
+                "facing": "south"
+              }
+            }
+          },
+          {
+            "weight": 1,
+            "data": {
+              "Name": "minecraft:stone_stairs",
+              "Properties": {
+                "half": "top",
+                "shape": "inner_right",
+                "facing": "north"
+              }
+            }
+          },
+          {
+            "weight": 20,
+            "data": {
+              "Name": "minecraft:stone"
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "structures": {
+    "silverfish": {
+      "type": "descent_into_darkness:vein",
+      "ore": {
+        "type": "minecraft:weighted_state_provider",
+        "entries": [
+          {
+            "weight": 1,
+            "data": {
+              "Name": "minecraft:infested_cobblestone"
+            }
+          },
+          {
+            "weight": 1,
+            "data": {
+              "Name": "minecraft:infested_stone"
+            }
+          }
+        ]
+      },
+      "edges": [
+        "wall",
+        "ceiling"
+      ],
+      "can_replace": "minecraft:stone",
+      "radius": 5,
+      "count": 2
+    }
+  },
+  "size": [
+    3,
+    4
+  ]
+}

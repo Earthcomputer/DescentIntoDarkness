@@ -1,0 +1,172 @@
+{
+  "continuation_symbol": "",
+  "grammar": {
+    "A": {
+      "a": 60,
+      "y": 60
+    },
+    "B": {
+      "d": 120,
+      "x": 120,
+      "q": 1
+    },
+    "C": {
+      "SSS": 1,
+      "SSSS": 1,
+      "SSSSS": 1,
+      "SSSSSS": 1
+    },
+    "S": {
+      "XY": 1
+    },
+    "X": {
+      "AAAA": 1,
+      "AAAAA": 1,
+      "AAAAAA": 1,
+      "AAAAAAA": 1,
+      "AAAAAAAA": 1,
+      "AAAAAAAAA": 1,
+      "AAAAAAAAAA": 1
+    },
+    "Y": {
+      "BBBBB": 1,
+      "BBBBBB": 1,
+      "BBBBBBB": 1,
+      "BBBBBBBB": 1,
+      "BBBBBBBBB": 1
+    }
+  },
+  "rooms": {
+    "w": {
+      "type": "descent_into_darkness:simple",
+      "tags": "forward"
+    },
+    "a": {
+      "type": "descent_into_darkness:turn",
+      "tags": "turn_left",
+      "angle": [
+        15.0,
+        30.0
+      ]
+    },
+    "d": {
+      "type": "descent_into_darkness:turn",
+      "tags": "turn_right",
+      "angle": [
+        -30.0,
+        -15.0
+      ]
+    },
+    "x": {
+      "type": "descent_into_darkness:branch",
+      "tags": "branch",
+      "angle": 90.0,
+      "size_reduction": 1,
+      "branch_length": [
+        20,
+        39
+      ]
+    },
+    "y": {
+      "type": "descent_into_darkness:branch",
+      "tags": "small_branch",
+      "angle": [
+        45.0,
+        180.0
+      ],
+      "size_reduction": [
+        2,
+        6
+      ],
+      "branch_length": [
+        20,
+        39
+      ]
+    },
+    "o": {
+      "type": "descent_into_darkness:dropshaft",
+      "tags": "dropshaft",
+      "depth": [
+        8,
+        11
+      ],
+      "step": [
+        2,
+        3
+      ]
+    },
+    "l": {
+      "type": "descent_into_darkness:cavern",
+      "tags": "large_cavern",
+      "centroid_size_variance": 1,
+      "next_location_scale": 2,
+      "next_location_offset": 2,
+      "centroids": [
+        3,
+        7
+      ],
+      "spread": [
+        1,
+        2147483647
+      ]
+    },
+    "r": {
+      "type": "descent_into_darkness:cavern",
+      "tags": "cavern",
+      "centroid_size_variance": 0,
+      "next_location_scale": 1,
+      "next_location_offset": 3,
+      "centroids": [
+        4,
+        7
+      ],
+      "spread": [
+        2,
+        2147483647
+      ]
+    },
+    "h": {
+      "type": "descent_into_darkness:shelf",
+      "tags": "shelf",
+      "shelf_height": [
+        6,
+        10
+      ],
+      "shelf_size": 3
+    },
+    "c": {
+      "type": "descent_into_darkness:ravine",
+      "tags": "ravine",
+      "height_vary_chance": 0.2,
+      "length": [
+        80,
+        120
+      ],
+      "height": [
+        80,
+        120
+      ],
+      "width": [
+        10,
+        20
+      ],
+      "turn": [
+        0.0,
+        30.0
+      ]
+    },
+    "q": {
+      "type": "descent_into_darkness:pit_mine",
+      "tags": "ravine",
+      "height_vary_chance": 0,
+      "steps": 1,
+      "step_height": 15,
+      "step_width": 10,
+      "base_width": 40,
+      "step_variance": [
+        0,
+        7
+      ]
+    }
+  }
+}

@@ -1,0 +1,89 @@
+{
+  "inherit": [
+    {
+      "name": "civex:nether_pack",
+      "merge": {
+        "lore": "bottom"
+      }
+    },
+    {
+      "name": "civex:high_gem_low_fuel",
+      "merge": {
+        "structures": "top",
+        "lore": "bottom"
+      }
+    },
+    "civex:canyons"
+  ],
+  "base_block": "minecraft:netherrack",
+  "nether": true,
+  "biome": "basalt_deltas",
+  "painter_steps": [
+    {
+      "type": "descent_into_darkness:replace_ceiling",
+      "old": "minecraft:netherrack",
+      "new": "minecraft:basalt"
+    },
+    {
+      "type": "descent_into_darkness:replace_floor",
+      "old": "minecraft:netherrack",
+      "new": "minecraft:lava"
+    }
+  ],
+  "structures": {
+    "blackrock": {
+      "type": "descent_into_darkness:vein",
+      "edges": [
+        "wall"
+      ],
+      "ore": "minecraft:blackstone",
+      "radius": 9,
+      "count": 1,
+      "can_replace": "minecraft:netherrack"
+    },
+    "basalt": {
+      "type": "descent_into_darkness:vine_patch",
+      "edges": [
+        "floor"
+      ],
+      "vine": "minecraft:basalt",
+      "spread_x": 3,
+      "spread_z": 3,
+      "count": 1,
+      "can_place_on": [
+        "minecraft:lava",
+        "minecraft:netherrack"
+      ],
+      "height": [
+        3,
+        8
+      ]
+    },
+    "magma": {
+      "type": "descent_into_darkness:patch",
+      "edges": [
+        "floor"
+      ],
+      "can_replace": "minecraft:lava",
+      "block": "minecraft:magma_block"
+    },
+    "basalt2": {
+      "type": "descent_into_darkness:vein",
+      "edges": [
+        "floor"
+      ],
+      "ore": "minecraft:basalt",
+      "can_replace": "minecraft:lava",
+      "radius": 6,
+      "chance": 0.3
+    },
+    "lavafall": {
+      "type": "descent_into_darkness:waterfall",
+      "fluid_type": "lava",
+      "edges": [
+        "wall"
+      ],
+      "chance": 0.1
+    }
+  }
+}

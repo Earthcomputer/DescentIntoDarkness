@@ -1,0 +1,106 @@
+{
+  "inherit": [
+    "civex:crevice",
+    {
+      "name": "civex:high_metal_low_fuel",
+      "merge": {
+        "structures": "top",
+        "lore": "bottom"
+      }
+    }
+  ],
+  "display_name": "Murky Abyss",
+  "lore": [
+    {
+      "text": "Difficulty: ☆☆☆☆",
+      "color": "yellow"
+    }
+  ],
+  "base_block": "descent_into_darkness:mottled_stone",
+  "biome": "civex:crevice",
+  "air_block": "water",
+  "structures": {
+    "stags": {
+      "block": "descent_into_darkness:mottled_stone",
+      "type": "descent_into_darkness:stalagmite",
+      "edges": [
+        "wall"
+      ],
+      "floor_to_ceiling_search_range": 100,
+      "max_column_radius_to_cave_height_ratio": 1,
+      "has_stalactite": true,
+      "count": 0.7,
+      "column_radius": [
+        1,
+        5
+      ]
+    },
+    "sidevines": {
+      "type": "descent_into_darkness:vine_patch",
+      "vine": "descent_into_darkness:murky_vine",
+      "edges": [
+        "east",
+        "west"
+      ],
+      "count": 0.35,
+      "height": [
+        3,
+        6
+      ]
+    },
+    "sidevines2": {
+      "type": "descent_into_darkness:vine_patch",
+      "vine": "descent_into_darkness:ns_murky_vine",
+      "edges": [
+        "north",
+        "south"
+      ],
+      "count": 0.35,
+      "can_place_on": [
+        "descent_into_darkness:mottled_stone"
+      ],
+      "height": [
+        3,
+        6
+      ]
+    },
+    "seagrass": {
+      "type": "descent_into_darkness:patch",
+      "block": {
+        "type": "minecraft:simple_state_provider",
+        "state": {
+          "Name": "minecraft:tall_seagrass",
+          "Properties": {
+            "half": "upper"
+          }
+        }
+      },
+      "edges": [
+        "floor"
+      ],
+      "can_place_on": [
+        "descent_into_darkness:mottled_stone"
+      ],
+      "count": 0.3
+    },
+    "seagrass2": {
+      "type": "descent_into_darkness:patch",
+      "block": {
+        "type": "minecraft:simple_state_provider",
+        "state": {
+          "Name": "minecraft:tall_seagrass",
+          "Properties": {
+            "half": "lower"
+          }
+        }
+      },
+      "edges": [
+        "floor"
+      ],
+      "can_place_on": [
+        "descent_into_darkness:mottled_stone"
+      ],
+      "count": 0.3
+    }
+  }
+}

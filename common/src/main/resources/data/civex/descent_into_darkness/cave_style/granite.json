@@ -1,0 +1,80 @@
+{
+  "nether": true,
+  "biome": "civex:granite",
+  "base_block": "minecraft:granite",
+  "painter_steps": [
+    {
+      "type": "descent_into_darkness:replace_all",
+      "old": "minecraft:granite",
+      "new": "minecraft:polished_granite",
+      "chance": 0.5
+    }
+  ],
+  "transparent_blocks": [
+    "minecraft:air",
+    "minecraft:water"
+  ],
+  "inherit": [
+    "civex:mega_canyon"
+  ],
+  "structures": {
+    "stags": {
+      "block": "minecraft:terracotta",
+      "type": "descent_into_darkness:stalagmite",
+      "floor_to_ceiling_search_range": 512,
+      "max_column_radius_to_cave_height_ratio": 1,
+      "has_stalactite": true,
+      "min_bluntness_for_wind": 0,
+      "min_radius_for_wind": 1,
+      "count": 0.01,
+      "edges": "floor",
+      "height_scale": [
+        5,
+        10
+      ],
+      "column_radius": 20,
+      "wind_speed": [
+        0,
+        0.1
+      ]
+    },
+    "stags2": {
+      "block": {
+        "type": "minecraft:weighted_state_provider",
+        "entries": [
+          {
+            "weight": 5,
+            "data": {
+              "Name": "minecraft:terracotta"
+            }
+          },
+          {
+            "weight": 1,
+            "data": {
+              "Name": "minecraft:orange_terracotta"
+            }
+          }
+        ]
+      },
+      "type": "descent_into_darkness:stalagmite",
+      "floor_to_ceiling_search_range": 150,
+      "max_column_radius_to_cave_height_ratio": 1,
+      "has_stalactite": true,
+      "min_bluntness_for_wind": 0,
+      "min_radius_for_wind": 1,
+      "count": 0.1,
+      "height_scale": [
+        10,
+        20
+      ],
+      "column_radius": [
+        4,
+        7
+      ],
+      "wind_speed": [
+        0,
+        1
+      ]
+    }
+  }
+}

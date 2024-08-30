@@ -1,0 +1,76 @@
+{
+  "inherit": [
+    {
+      "name": "civex:high_metal_low_gem",
+      "merge": {
+        "structures": "top"
+      }
+    }
+  ],
+  "biome": "civex:fossil",
+  "base_block": "minecraft:ancient_debris",
+  "painter_steps": [
+    {
+      "type": "descent_into_darkness:replace_floor",
+      "old": "minecraft:ancient_debris",
+      "new": "minecraft:brown_concrete_powder"
+    },
+    {
+      "type": "descent_into_darkness:replace_all",
+      "old": "minecraft:ancient_debris",
+      "new": "minecraft:brown_concrete_powder",
+      "chance": 0.05
+    },
+    {
+      "type": "descent_into_darkness:replace_floor",
+      "old": "minecraft:brown_concrete_powder",
+      "new": "minecraft:dirt",
+      "chance": 0.3
+    }
+  ],
+  "structures": {
+    "corals": {
+      "type": "descent_into_darkness:patch",
+      "block": "minecraft:dead_bush",
+      "edges": "floor",
+      "spread_x": 32,
+      "spread_z": 32,
+      "can_place_on": [
+        "minecraft:brown_concrete_powder",
+        "minecraft:dirt"
+      ]
+    },
+    "corals2": {
+      "type": "descent_into_darkness:patch",
+      "block": "minecraft:pumpkin",
+      "edges": "floor",
+      "spread_x": 32,
+      "spread_z": 32,
+      "chance": 0.1,
+      "can_place_on": [
+        "minecraft:brown_concrete_powder",
+        "minecraft:dirt"
+      ]
+    },
+    "tree": {
+      "type": "descent_into_darkness:tree",
+      "edges": "floor",
+      "can_place_on": "minecraft:dirt",
+      "dirt": "minecraft:dirt",
+      "log": {
+        "type": "minecraft:simple_state_provider",
+        "state": {
+          "Name": "minecraft:spruce_log",
+          "Properties": {
+            "axis": "y"
+          }
+        }
+      },
+      "height": [
+        4,
+        6
+      ],
+      "leaf_height": 4
+    }
+  }
+}

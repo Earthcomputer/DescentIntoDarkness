@@ -1,0 +1,88 @@
+{
+  "inherit": [
+    "civex:vanilla",
+    {
+      "name": "civex:high_gem_low_fuel",
+      "merge": {
+        "structures": "top"
+      }
+    }
+  ],
+  "base_block": "minecraft:dirt",
+  "spawn_entries": {},
+  "painter_steps": [
+    {
+      "type": "descent_into_darkness:replace_floor",
+      "old": "minecraft:dirt",
+      "new": "minecraft:grass_block"
+    },
+    {
+      "type": "descent_into_darkness:replace_all",
+      "old": "minecraft:dirt",
+      "new": "minecraft:coarse_dirt",
+      "chance": 0.1
+    }
+  ],
+  "structures": {
+    "water": {
+      "type": "descent_into_darkness:vein",
+      "ore": "minecraft:water",
+      "edges": "floor",
+      "radius": 5,
+      "chance": 0.08
+    },
+    "grass": {
+      "type": "descent_into_darkness:patch",
+      "block": "minecraft:short_grass",
+      "edges": [
+        "floor"
+      ],
+      "can_place_on": "minecraft:grass_block"
+    },
+    "grass2": {
+      "type": "descent_into_darkness:vine_patch",
+      "vine": {
+        "type": "minecraft:simple_state_provider",
+        "state": {
+          "Name": "minecraft:tall_grass",
+          "Properties": {
+            "half": "lower"
+          }
+        }
+      },
+      "edges": [
+        "floor"
+      ],
+      "last_block": {
+        "type": "minecraft:simple_state_provider",
+        "state": {
+          "Name": "minecraft:tall_grass",
+          "Properties": {
+            "half": "upper"
+          }
+        }
+      },
+      "can_place_on": "minecraft:grass_block",
+      "height": 2
+    },
+    "tree": {
+      "type": "descent_into_darkness:tree",
+      "edges": "floor",
+      "can_place_on": "minecraft:grass_block",
+      "dirt": {
+        "type": "minecraft:simple_state_provider",
+        "state": {
+          "Name": "minecraft:oak_log",
+          "Properties": {
+            "axis": "y"
+          }
+        }
+      },
+      "height": [
+        4,
+        6
+      ],
+      "leaf_height": 4
+    }
+  }
+}

@@ -1,0 +1,72 @@
+{
+  "inherit": [
+    {
+      "name": "civex:desert_pack",
+      "merge": {
+        "lore": "bottom"
+      }
+    },
+    {
+      "name": "civex:high_metal_low_fuel",
+      "merge": {
+        "structures": "top",
+        "lore": "bottom"
+      }
+    }
+  ],
+  "display_name": {
+    "text": "Desert Cave",
+    "color": "yellow"
+  },
+  "lore": [
+    {
+      "text": "Difficulty: ☆☆☆☆☆",
+      "color": "yellow"
+    }
+  ],
+  "painter_steps": [
+    {
+      "type": "descent_into_darkness:replace_floor",
+      "old": "minecraft:stone",
+      "new": "minecraft:sand"
+    },
+    {
+      "type": "descent_into_darkness:replace_all",
+      "old": "minecraft:stone",
+      "new": "minecraft:smooth_sandstone",
+      "chance": 0.5
+    },
+    {
+      "type": "descent_into_darkness:replace_all",
+      "old": "minecraft:stone",
+      "new": "minecraft:sandstone",
+      "chance": 1.0
+    }
+  ],
+  "structures": {
+    "bush": {
+      "type": "descent_into_darkness:patch",
+      "block": "minecraft:dead_bush",
+      "edges": "floor",
+      "chance": 0.2,
+      "can_place_on": "minecraft:sand",
+      "tags": "ravine",
+      "tags_inverted": true
+    },
+    "cactus": {
+      "type": "descent_into_darkness:vine_patch",
+      "vine": "minecraft:cactus",
+      "spread_x": 16,
+      "spread_y": 16,
+      "chance": 0.4,
+      "edges": "floor",
+      "can_place_on": [
+        "minecraft:sand"
+      ],
+      "height": [
+        1,
+        4
+      ]
+    }
+  }
+}

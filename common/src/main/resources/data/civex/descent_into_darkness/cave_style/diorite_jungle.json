@@ -1,0 +1,213 @@
+{
+  "inherit": [
+    "civex:halfwater",
+    {
+      "name": "civex:marbler_pack",
+      "merge": {
+        "lore": "bottom"
+      }
+    },
+    {
+      "name": "civex:high_gem_low_metal",
+      "merge": {
+        "structures": "top",
+        "lore": "bottom"
+      }
+    }
+  ],
+  "display_name": "Diorite Jungle",
+  "lore": [
+    {
+      "text": "Difficulty: ☆☆☆☆",
+      "color": "yellow"
+    }
+  ],
+  "biome": "civex:diorite_jungle",
+  "nether": true,
+  "base_block": "minecraft:diorite",
+  "painter_steps": [
+    {
+      "type": "descent_into_darkness:replace_floor",
+      "old": "minecraft:diorite",
+      "new": "minecraft:grass_block"
+    },
+    {
+      "type": "descent_into_darkness:replace_all",
+      "old": "minecraft:diorite",
+      "new": "minecraft:polished_diorite",
+      "chance": 0.2
+    }
+  ],
+  "structures": {
+    "stags": {
+      "block": "minecraft:diorite",
+      "edges": "ceiling",
+      "type": "descent_into_darkness:stalagmite",
+      "floor_to_ceiling_search_range": 100,
+      "max_column_radius_to_cave_height_ratio": 1,
+      "max_column_radius": 10,
+      "has_stalactite": true,
+      "min_bluntness_for_wind": 0,
+      "min_radius_for_wind": 1,
+      "count": 0.03,
+      "wind_speed": [
+        0,
+        1
+      ]
+    },
+    "tree": {
+      "type": "descent_into_darkness:tree",
+      "edges": "floor",
+      "can_place_on": "minecraft:grass_block",
+      "dirt": {
+        "type": "minecraft:simple_state_provider",
+        "state": {
+          "Name": "minecraft:jungle_log",
+          "Properties": {
+            "axis": "y"
+          }
+        }
+      },
+      "leaf": "minecraft:jungle_leaves",
+      "log": {
+        "type": "minecraft:simple_state_provider",
+        "state": {
+          "Name": "minecraft:jungle_log",
+          "Properties": {
+            "axis": "y"
+          }
+        }
+      },
+      "hanging_vine": "minecraft:oak_leaves",
+      "hanging_vine_chance": 0.5,
+      "count": 0.15,
+      "height": 8,
+      "leaf_height": 4
+    },
+    "jbush": {
+      "type": "descent_into_darkness:template",
+      "templates": {
+        "template": "descent_into_darkness:jungle1/jbush",
+        "origin": [
+          1,
+          0,
+          1
+        ]
+      },
+      "edges": "floor",
+      "count": 1,
+      "can_place_on": "minecraft:grass_block"
+    },
+    "jtrees": {
+      "type": "descent_into_darkness:template",
+      "templates": [
+        {
+          "template": "descent_into_darkness:jungle1/jtree0",
+          "origin": [
+            1,
+            0,
+            1
+          ]
+        },
+        {
+          "template": "descent_into_darkness:jungle1/jtree1",
+          "origin": [
+            2,
+            0,
+            2
+          ]
+        },
+        {
+          "template": "descent_into_darkness:jungle1/jtree2",
+          "origin": [
+            2,
+            0,
+            2
+          ]
+        },
+        {
+          "template": "descent_into_darkness:jungle1/jtree3",
+          "origin": [
+            2,
+            0,
+            2
+          ]
+        }
+      ],
+      "edges": "floor",
+      "chance": 0.2,
+      "can_place_on": "minecraft:grass_block"
+    },
+    "jbig": {
+      "type": "descent_into_darkness:template",
+      "templates": [
+        {
+          "template": "descent_into_darkness:jungle1/jbig0",
+          "origin": [
+            5,
+            0,
+            6
+          ]
+        },
+        {
+          "template": "descent_into_darkness:jungle1/jbig1",
+          "origin": [
+            6,
+            0,
+            6
+          ]
+        }
+      ],
+      "edges": "floor",
+      "chance": 0.05,
+      "can_place_on": "minecraft:grass_block"
+    },
+    "vine": {
+      "type": "descent_into_darkness:vine_patch",
+      "vine": {
+        "type": "minecraft:simple_state_provider",
+        "state": {
+          "Name": "minecraft:vine",
+          "Properties": {
+            "north": true
+          }
+        }
+      },
+      "count": 0.1,
+      "edges": "ceiling",
+      "can_place_on": [
+        "minecraft:diorite"
+      ],
+      "height": [
+        5,
+        15
+      ]
+    },
+    "grass": {
+      "type": "descent_into_darkness:patch",
+      "block": "minecraft:short_grass",
+      "edges": "floor",
+      "count": 1,
+      "can_place_on": "minecraft:grass_block"
+    },
+    "bamboo0": {
+      "type": "descent_into_darkness:vine_patch",
+      "vine": "descent_into_darkness:violet_bamboo",
+      "chance": 0.1,
+      "edges": "floor",
+      "can_place_on": [
+        "minecraft:grass_block"
+      ],
+      "height": [
+        10,
+        15
+      ]
+    },
+    "waterfall": {
+      "type": "descent_into_darkness:waterfall",
+      "fluid_type": "water",
+      "edges": "wall",
+      "chance": 0.05
+    }
+  }
+}

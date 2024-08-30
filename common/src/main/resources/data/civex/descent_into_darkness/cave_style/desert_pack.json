@@ -1,0 +1,80 @@
+{
+  "lore": [
+    {
+      "text": "Arid",
+      "color": "yellow"
+    }
+  ],
+  "spawn_entries": {
+    "desert_snake": {
+      "mob": "descent_into_darkness:desert_snake",
+      "single_mob_cost": 200,
+      "weight": 10,
+      "cooldown": 20,
+      "pack_cost": [
+        200,
+        800
+      ],
+      "distance": [
+        10,
+        20
+      ]
+    },
+    "stranded_mummy": {
+      "mob": "descent_into_darkness:stranded_mummy",
+      "single_mob_cost": 200,
+      "weight": 10,
+      "cooldown": 20,
+      "pack_cost": [
+        200,
+        800
+      ],
+      "distance": [
+        15,
+        25
+      ]
+    },
+    "dried_guardsman": {
+      "mob": "descent_into_darkness:dried_guardsman",
+      "single_mob_cost": 400,
+      "weight": 20,
+      "cooldown": 20,
+      "pack_cost": [
+        400,
+        1200
+      ],
+      "distance": [
+        15,
+        25
+      ]
+    },
+    "desert_bat": {
+      "mob": "descent_into_darkness:desert_bat",
+      "single_mob_cost": 200,
+      "weight": 10,
+      "cooldown": 20,
+      "pack_cost": [
+        200,
+        1000
+      ],
+      "distance": [
+        15,
+        25
+      ]
+    },
+    "desert_golem": {
+      "mob": "descent_into_darkness:desert_golem",
+      "single_mob_cost": 500,
+      "weight": 10,
+      "cooldown": 20,
+      "pack_cost": [
+        500,
+        1000
+      ],
+      "distance": [
+        15,
+        25
+      ]
+    }
+  }
+}

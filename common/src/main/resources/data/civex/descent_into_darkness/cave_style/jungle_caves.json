@@ -1,0 +1,137 @@
+{
+  "start_y": 20,
+  "biome": "minecraft:jungle",
+  "transparent_blocks": [
+    "minecraft:air",
+    "minecraft:glowstone",
+    "minecraft:water",
+    "minecraft:lava",
+    "minecraft:vine",
+    "minecraft:short_grass"
+  ],
+  "inherit": [
+    {
+      "name": "civex:wooden_pack",
+      "merge": {
+        "lore": "bottom"
+      }
+    },
+    {
+      "name": "civex:high_gem_low_metal",
+      "merge": {
+        "structures": "top",
+        "lore": "bottom"
+      }
+    },
+    "civex:ribbons"
+  ],
+  "base_block": "minecraft:andesite",
+  "painter_steps": [
+    {
+      "type": "descent_into_darkness:replace_floor",
+      "old": "minecraft:andesite",
+      "new": "minecraft:grass_block",
+      "chance": 0.9
+    },
+    {
+      "type": "descent_into_darkness:replace_all",
+      "old": "minecraft:andesite",
+      "new": {
+        "type": "minecraft:weighted_state_provider",
+        "entries": [
+          {
+            "weight": 5,
+            "data": {
+              "Name": "minecraft:mossy_cobblestone"
+            }
+          },
+          {
+            "weight": 2,
+            "data": {
+              "Name": "minecraft:cobblestone"
+            }
+          },
+          {
+            "weight": 1,
+            "data": {
+              "Name": "minecraft:stone"
+            }
+          }
+        ]
+      },
+      "chance": 0.8
+    }
+  ],
+  "structures": {
+    "vine": {
+      "type": "descent_into_darkness:vine_patch",
+      "vine": {
+        "type": "minecraft:simple_state_provider",
+        "state": {
+          "Name": "minecraft:vine",
+          "Properties": {
+            "north": true
+          }
+        }
+      },
+      "count": 3,
+      "edges": "ceiling",
+      "can_replace": [
+        "minecraft:air"
+      ]
+    },
+    "grass": {
+      "type": "descent_into_darkness:patch",
+      "block": "minecraft:short_grass",
+      "edges": [
+        "floor"
+      ],
+      "count": 4,
+      "can_place_on": {
+        "type": "minecraft:not",
+        "predicate": {
+          "type": "minecraft:matching_blocks",
+          "blocks": [
+            "minecraft:short_grass",
+            "minecraft:air"
+          ]
+        }
+      },
+      "can_replace": [
+        "minecraft:air"
+      ]
+    },
+    "tree": {
+      "type": "descent_into_darkness:tree",
+      "edges": "floor",
+      "can_place_on": "minecraft:grass_block",
+      "dirt": {
+        "type": "minecraft:simple_state_provider",
+        "state": {
+          "Name": "minecraft:jungle_log",
+          "Properties": {
+            "axis": "y"
+          }
+        }
+      },
+      "log": {
+        "type": "minecraft:simple_state_provider",
+        "state": {
+          "Name": "minecraft:jungle_log",
+          "Properties": {
+            "axis": "y"
+          }
+        }
+      },
+      "leaf": "minecraft:jungle_leaves",
+      "hanging_vine": "minecraft:vine",
+      "hanging_vine_chance": 0.5,
+      "count": 5,
+      "height": [
+        4,
+        6
+      ],
+      "leaf_height": 4
+    }
+  }
+}

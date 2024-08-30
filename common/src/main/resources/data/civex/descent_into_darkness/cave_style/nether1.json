@@ -1,0 +1,264 @@
+{
+  "base_block": "minecraft:netherrack",
+  "nether": true,
+  "biome": "nether_wastes",
+  "inherit": [
+    {
+      "name": "civex:nether_pack",
+      "merge": {
+        "lore": "bottom"
+      }
+    },
+    {
+      "name": "civex:metal1",
+      "merge": {
+        "structures": "top",
+        "lore": "bottom"
+      }
+    },
+    "civex:bign_tall"
+  ],
+  "display_name": {
+    "text": "Nether Wastes",
+    "color": "dark_red"
+  },
+  "lore": [
+    {
+      "text": "Difficulty: ☆☆☆☆",
+      "color": "yellow"
+    }
+  ],
+  "transparent_blocks": [
+    "minecraft:air",
+    "minecraft:wither_rose"
+  ],
+  "start_y": 160,
+  "air_block": [
+    {
+      "min": 0,
+      "max": 100,
+      "block": "lava"
+    },
+    {
+      "min": 101,
+      "max": 255,
+      "block": "air"
+    }
+  ],
+  "painter_steps": [
+    {
+      "type": "descent_into_darkness:replace_floor",
+      "old": "minecraft:netherrack",
+      "new": "minecraft:soul_soil"
+    },
+    {
+      "type": "descent_into_darkness:replace_floor",
+      "old": "minecraft:lava",
+      "new": "minecraft:magma_block",
+      "chance": 0.1
+    }
+  ],
+  "structures": {
+    "quartz_ore": {
+      "type": "descent_into_darkness:vein",
+      "edges": [
+        "floor",
+        "ceiling",
+        "wall"
+      ],
+      "can_replace": [
+        "minecraft:netherrack",
+        "minecraft:soul_soil"
+      ],
+      "chance": 0.2,
+      "ore": "minecraft:nether_quartz_ore",
+      "radius": 3
+    },
+    "soul_sand": {
+      "type": "descent_into_darkness:vein",
+      "edges": [
+        "floor"
+      ],
+      "can_replace": [
+        "minecraft:soul_soil"
+      ],
+      "chance": 0.4,
+      "ore": "minecraft:soul_sand",
+      "radius": 5
+    },
+    "glowstone": {
+      "type": "descent_into_darkness:glowstone",
+      "edges": [
+        "ceiling"
+      ],
+      "chance": 0.3,
+      "block": "glowstone",
+      "can_place_on": [
+        "minecraft:netherrack"
+      ],
+      "height": 12
+    },
+    "nstal": {
+      "type": "descent_into_darkness:template",
+      "edges": [
+        "floor",
+        "ceiling"
+      ],
+      "chance": 0.75,
+      "can_place_on": [
+        "minecraft:netherrack",
+        "minecraft:soul_sand",
+        "minecraft:soul_soil"
+      ],
+      "templates": [
+        {
+          "template": "descent_into_darkness:nether1/nstal5",
+          "origin": [
+            2,
+            0,
+            2
+          ]
+        },
+        {
+          "template": "descent_into_darkness:nether1/nstal4",
+          "origin": [
+            1,
+            0,
+            1
+          ]
+        },
+        {
+          "template": "descent_into_darkness:nether1/nstal3",
+          "origin": [
+            1,
+            0,
+            2
+          ]
+        },
+        {
+          "template": "descent_into_darkness:nether1/nstal2",
+          "origin": [
+            1,
+            0,
+            1
+          ]
+        },
+        {
+          "template": "descent_into_darkness:nether1/nstal1",
+          "origin": [
+            0,
+            0,
+            1
+          ]
+        }
+      ]
+    },
+    "nstal2": {
+      "type": "descent_into_darkness:template",
+      "edges": [
+        "ceiling",
+        "floor"
+      ],
+      "chance": 0.05,
+      "origin_side": "up",
+      "can_place_on": [
+        "minecraft:netherrack",
+        "minecraft:soul_sand",
+        "minecraft:soul_soil"
+      ],
+      "can_replace": [
+        "minecraft:netherrack",
+        "minecraft:stone",
+        "minecraft:nether_quartz_ore",
+        "minecraft:nether_bricks",
+        "minecraft:nether_brick_stairs",
+        "minecraft:nether_brick_slab",
+        "minecraft:nether_brick_wall",
+        "minecraft:air",
+        "minecraft:soul_sand"
+      ],
+      "templates": [
+        {
+          "template": "descent_into_darkness:nether1/vobc",
+          "origin": [
+            2,
+            11,
+            2
+          ]
+        },
+        {
+          "template": "descent_into_darkness:nether1/hobc",
+          "origin": [
+            2,
+            3,
+            11
+          ]
+        }
+      ]
+    },
+    "nstal3": {
+      "type": "descent_into_darkness:template",
+      "edges": [
+        "wall"
+      ],
+      "chance": 0.05,
+      "origin_side": "west",
+      "can_place_on": [
+        "minecraft:netherrack"
+      ],
+      "can_replace": [
+        "minecraft:netherrack",
+        "minecraft:stone",
+        "minecraft:nether_quartz_ore",
+        "minecraft:nether_bricks",
+        "minecraft:nether_brick_stairs",
+        "minecraft:nether_brick_slab",
+        "minecraft:nether_brick_wall",
+        "minecraft:air"
+      ],
+      "templates": [
+        {
+          "template": "descent_into_darkness:nether1/hobc",
+          "origin": [
+            2,
+            3,
+            11
+          ]
+        }
+      ]
+    },
+    "mpatch": {
+      "type": "descent_into_darkness:patch",
+      "edges": [
+        "floor"
+      ],
+      "spread_x": 4,
+      "spread_z": 4,
+      "can_place_on": [
+        "minecraft:soul_sand"
+      ],
+      "block": "minecraft:nether_wart"
+    },
+    "wither_rose": {
+      "type": "descent_into_darkness:patch",
+      "edges": "floor",
+      "chance": 0.05,
+      "spread_x": 16,
+      "spread_z": 16,
+      "can_place_on": [
+        "minecraft:soul_sand",
+        "minecraft:soul_soil"
+      ],
+      "block": "minecraft:wither_rose"
+    },
+    "lavafall": {
+      "type": "descent_into_darkness:waterfall",
+      "fluid_type": "lava",
+      "edges": [
+        "wall",
+        "ceiling"
+      ],
+      "chance": 0.3
+    }
+  }
+}

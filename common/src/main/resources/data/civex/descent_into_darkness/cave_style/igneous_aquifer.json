@@ -1,0 +1,32 @@
+{
+  "inherit": [
+    "civex:aquifer"
+  ],
+  "biome": "civex:ice_magma",
+  "nether": true,
+  "base_block": "descent_into_darkness:igneous_block",
+  "start_y": 163,
+  "air_block": "water",
+  "structures": {
+    "ustal3": {
+      "type": "descent_into_darkness:patch",
+      "block": "descent_into_darkness:staldown",
+      "edges": [
+        "ceiling"
+      ],
+      "can_place_on": "descent_into_darkness:igneous_block",
+      "can_replace": "minecraft:air",
+      "count": 0.25
+    },
+    "ustal4": {
+      "type": "descent_into_darkness:patch",
+      "block": "descent_into_darkness:stalsdown",
+      "edges": [
+        "ceiling"
+      ],
+      "can_place_on": "descent_into_darkness:igneous_block",
+      "can_replace": "minecraft:air",
+      "count": 0.25
+    }
+  }
+}

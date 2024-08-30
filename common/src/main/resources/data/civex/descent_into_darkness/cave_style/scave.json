@@ -1,0 +1,140 @@
+{
+  "structures": {
+    "stals": {
+      "type": "descent_into_darkness:template",
+      "edges": [
+        "floor",
+        "ceiling"
+      ],
+      "can_place_on": [
+        "minecraft:stone",
+        "minecraft:cobblestone",
+        "minecraft:andesite",
+        "minecraft:gravel",
+        "minecraft:mossy_cobblestone"
+      ],
+      "templates": [
+        {
+          "template": "descent_into_darkness:scave1/stal0",
+          "origin": [
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "template": "descent_into_darkness:scave1/stal1",
+          "origin": [
+            1,
+            0,
+            1
+          ]
+        },
+        {
+          "template": "descent_into_darkness:scave1/stal2",
+          "origin": [
+            1,
+            0,
+            2
+          ]
+        },
+        {
+          "template": "descent_into_darkness:scave1/stal3",
+          "origin": [
+            1,
+            0,
+            2
+          ]
+        },
+        {
+          "template": "descent_into_darkness:scave1/stal4",
+          "origin": [
+            1,
+            0,
+            1
+          ]
+        }
+      ]
+    },
+    "glowstone": {
+      "type": "descent_into_darkness:glowstone",
+      "edges": [
+        "floor"
+      ],
+      "chance": 0.1,
+      "block": "cobweb",
+      "height": 12,
+      "density": 10000,
+      "tags": "ravine"
+    },
+    "cobwebs": {
+      "type": "descent_into_darkness:glowstone",
+      "edges": [
+        "wall"
+      ],
+      "chance": 0.5,
+      "block": "cobweb",
+      "height": 1,
+      "density": 10000,
+      "tags": "ravine",
+      "tags_inverted": true
+    },
+    "cobwebs2": {
+      "type": "descent_into_darkness:glowstone",
+      "edges": [
+        "wall"
+      ],
+      "chance": 0.1,
+      "block": "cobweb",
+      "height": 12,
+      "density": 2000,
+      "tags": "ravine",
+      "tags_inverted": true
+    }
+  },
+  "base_block": "minecraft:stone",
+  "transparent_blocks": [
+    "minecraft:air",
+    "minecraft:glowstone",
+    {
+      "type": "descent_into_darkness:matches_state",
+      "name": "minecraft:water",
+      "properties": {
+        "level": 0
+      }
+    },
+    {
+      "type": "descent_into_darkness:matches_state",
+      "name": "minecraft:lava",
+      "properties": {
+        "level": 0
+      }
+    }
+  ],
+  "air_block": "minecraft:air",
+  "painter_steps": [
+    {
+      "type": "descent_into_darkness:replace_floor",
+      "old": "minecraft:stone",
+      "new": "minecraft:gravel"
+    },
+    {
+      "type": "descent_into_darkness:replace_all",
+      "old": "minecraft:stone",
+      "new": "minecraft:andesite",
+      "chance": 0.2
+    },
+    {
+      "type": "descent_into_darkness:replace_all",
+      "old": "minecraft:stone",
+      "new": "minecraft:cobblestone",
+      "chance": 0.2
+    },
+    {
+      "type": "descent_into_darkness:replace_all",
+      "old": "minecraft:stone",
+      "new": "minecraft:mossy_cobblestone",
+      "chance": 0.05
+    }
+  ]
+}

@@ -1,0 +1,92 @@
+{
+  "base_block": "minecraft:obsidian",
+  "biome": "civex:purple_abyss",
+  "display_name": {
+    "text": "Corrupted Abyss",
+    "color": "dark_purple"
+  },
+  "lore": [
+    {
+      "text": "Difficulty: ☆☆☆☆",
+      "color": "yellow"
+    }
+  ],
+  "inherit": [
+    {
+      "name": "civex:crisidian_pack",
+      "merge": {
+        "lore": "bottom"
+      }
+    },
+    "civex:vanilla",
+    {
+      "name": "civex:high_fuel_low_metal",
+      "merge": {
+        "structures": "top",
+        "lore": "bottom"
+      }
+    }
+  ],
+  "air_block": "water",
+  "painter_steps": [
+    {
+      "type": "descent_into_darkness:replace_floor",
+      "old": "minecraft:obsidian",
+      "new": "minecraft:black_concrete_powder"
+    },
+    {
+      "type": "descent_into_darkness:replace_all",
+      "old": "minecraft:obsidian",
+      "new": "minecraft:crying_obsidian",
+      "chance": 0.1
+    }
+  ],
+  "structures": {
+    "chains": {
+      "type": "descent_into_darkness:vine_patch",
+      "vine": {
+        "type": "minecraft:simple_state_provider",
+        "state": {
+          "Name": "minecraft:chain",
+          "Properties": {
+            "axis": "y",
+            "waterlogged": true
+          }
+        }
+      },
+      "last_block": {
+        "type": "minecraft:simple_state_provider",
+        "state": {
+          "Name": "minecraft:soul_lantern",
+          "Properties": {
+            "waterlogged": true,
+            "hanging": true
+          }
+        }
+      },
+      "spread_x": 32,
+      "spread_z": 32,
+      "chance": 0.3,
+      "edges": [
+        "ceiling"
+      ],
+      "height": [
+        4,
+        7
+      ]
+    },
+    "plant": {
+      "type": "descent_into_darkness:patch",
+      "block": "minecraft:bubble_coral",
+      "chance": 0.3,
+      "spread_x": 32,
+      "spread_z": 32,
+      "edges": [
+        "floor"
+      ],
+      "can_place_on": [
+        "minecraft:black_concrete_powder"
+      ]
+    }
+  }
+}

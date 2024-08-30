@@ -1,0 +1,44 @@
+{
+  "base_block": "minecraft:blackstone",
+  "nether": true,
+  "biome": "civex:voidyssal",
+  "inherit": [
+    "civex:big_room",
+    {
+      "name": "civex:shadow_pack",
+      "merge": {
+        "lore": "bottom"
+      }
+    },
+    {
+      "name": "civex:gem1",
+      "merge": {
+        "structures": "top",
+        "lore": "bottom"
+      }
+    }
+  ],
+  "display_name": {
+    "text": "The Void",
+    "color": "black"
+  },
+  "lore": [
+    {
+      "text": "Difficulty: ☆☆☆☆☆",
+      "color": "yellow"
+    }
+  ],
+  "painter_steps": [
+    {
+      "type": "descent_into_darkness:replace_floor",
+      "old": "minecraft:blackstone",
+      "new": "minecraft:black_concrete_powder"
+    },
+    {
+      "type": "descent_into_darkness:replace_all",
+      "old": "minecraft:blackstone",
+      "new": "minecraft:black_concrete",
+      "chance": 0.1
+    }
+  ]
+}

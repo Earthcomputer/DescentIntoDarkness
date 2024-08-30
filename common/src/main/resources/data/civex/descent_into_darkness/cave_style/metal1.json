@@ -1,0 +1,141 @@
+{
+  "inherit": "civex:master_ore_table",
+  "lore": [
+    {
+      "text": "Metal ✪✪✪",
+      "color": "dark_gray"
+    }
+  ],
+  "structures": {
+    "iron_ore": {
+      "type": "descent_into_darkness:vein",
+      "edges": [
+        "floor",
+        "ceiling",
+        "wall"
+      ],
+      "chance": 0.05,
+      "ore": {
+        "type": "minecraft:weighted_state_provider",
+        "entries": [
+          {
+            "weight": 2,
+            "data": {
+              "Name": "minecraft:stone"
+            }
+          },
+          {
+            "weight": 3,
+            "data": {
+              "Name": "minecraft:iron_ore"
+            }
+          }
+        ]
+      },
+      "radius": 5
+    },
+    "gold_ore": {
+      "type": "descent_into_darkness:vein",
+      "edges": [
+        "floor",
+        "ceiling",
+        "wall"
+      ],
+      "chance": 0.025,
+      "ore": {
+        "type": "minecraft:weighted_state_provider",
+        "entries": [
+          {
+            "weight": 3,
+            "data": {
+              "Name": "minecraft:stone"
+            }
+          },
+          {
+            "weight": 7,
+            "data": {
+              "Name": "minecraft:gold_ore"
+            }
+          }
+        ]
+      },
+      "radius": 4
+    },
+    "adamantine_ore": {
+      "type": "descent_into_darkness:vein",
+      "edges": [
+        "floor",
+        "ceiling",
+        "wall"
+      ],
+      "chance": 0.01,
+      "ore": "descent_into_darkness:adamantine_ore",
+      "radius": 3
+    },
+    "gold_ore2": {
+      "type": "descent_into_darkness:vein",
+      "edges": [
+        "floor",
+        "ceiling",
+        "wall"
+      ],
+      "chance": 0.008,
+      "ore": {
+        "type": "minecraft:weighted_state_provider",
+        "entries": [
+          {
+            "weight": 1,
+            "data": {
+              "Name": "minecraft:stone"
+            }
+          },
+          {
+            "weight": 4,
+            "data": {
+              "Name": "minecraft:gold_ore"
+            }
+          }
+        ]
+      },
+      "radius": 4
+    },
+    "adamantine_ore2": {
+      "type": "descent_into_darkness:vein",
+      "edges": [
+        "floor",
+        "ceiling",
+        "wall"
+      ],
+      "chance": 0.005,
+      "ore": {
+        "type": "minecraft:weighted_state_provider",
+        "entries": [
+          {
+            "weight": 3,
+            "data": {
+              "Name": "minecraft:stone"
+            }
+          },
+          {
+            "weight": 17,
+            "data": {
+              "Name": "descent_into_darkness:adamantine_ore"
+            }
+          }
+        ]
+      },
+      "radius": 4
+    },
+    "emerald_ore": {
+      "type": "descent_into_darkness:vein",
+      "edges": [
+        "floor",
+        "ceiling",
+        "wall"
+      ],
+      "chance": 0.005,
+      "radius": 3,
+      "ore": "emerald_ore"
+    }
+  }
+}

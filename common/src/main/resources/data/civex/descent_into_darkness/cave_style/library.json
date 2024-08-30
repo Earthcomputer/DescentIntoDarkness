@@ -1,0 +1,100 @@
+{
+  "inherit": [
+    "civex:labyrinth"
+  ],
+  "air_block": "air",
+  "base_block": "minecraft:bookshelf",
+  "painter_steps": [
+    {
+      "type": "descent_into_darkness:replace_floor",
+      "old": "minecraft:bookshelf",
+      "new": {
+        "type": "minecraft:weighted_state_provider",
+        "entries": [
+          {
+            "weight": 1,
+            "data": {
+              "Name": "minecraft:oak_planks"
+            }
+          },
+          {
+            "weight": 1,
+            "data": {
+              "Name": "minecraft:spruce_planks"
+            }
+          },
+          {
+            "weight": 1,
+            "data": {
+              "Name": "minecraft:stone_bricks"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "descent_into_darkness:replace_ceiling",
+      "old": "minecraft:bookshelf",
+      "new": "minecraft:oak_planks"
+    }
+  ],
+  "structures": {
+    "cobwebs": {
+      "type": "descent_into_darkness:patch",
+      "edges": [
+        "ceiling"
+      ],
+      "block": "minecraft:cobweb",
+      "spread_x": 32,
+      "spread_z": 32,
+      "count": 0.7
+    },
+    "cobwebs2": {
+      "type": "descent_into_darkness:patch",
+      "edges": [
+        "floor"
+      ],
+      "block": "minecraft:cobweb",
+      "spread_x": 32,
+      "spread_z": 32,
+      "count": 0.1
+    },
+    "lectern": {
+      "type": "descent_into_darkness:patch",
+      "edges": [
+        "floor"
+      ],
+      "block": "minecraft:lectern",
+      "spread_x": 32,
+      "spread_z": 32,
+      "count": 0.01
+    },
+    "ore": {
+      "type": "descent_into_darkness:wall_portal",
+      "count": 20,
+      "can_replace": "minecraft:bookshelf",
+      "portal_block": {
+        "type": "minecraft:weighted_state_provider",
+        "entries": [
+          {
+            "weight": 1,
+            "data": {
+              "Name": "minecraft:bookshelf"
+            }
+          }
+        ]
+      },
+      "frame_block": {
+        "type": "minecraft:simple_state_provider",
+        "state": {
+          "Name": "oak_log",
+          "Properties": {
+            "axis": "y"
+          }
+        }
+      },
+      "width": 4,
+      "height": 5
+    }
+  }
+}

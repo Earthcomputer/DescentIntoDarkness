@@ -1,0 +1,128 @@
+{
+  "base_block": "minecraft:blue_ice",
+  "biome": "civex:ice_magma",
+  "inherit": [
+    {
+      "name": "civex:snow_pack",
+      "merge": {
+        "lore": "bottom"
+      }
+    },
+    {
+      "name": "civex:fuel1",
+      "merge": {
+        "structures": "top",
+        "lore": "bottom"
+      }
+    }
+  ],
+  "display_name": {
+    "text": "Icefire Cave",
+    "color": "aqua"
+  },
+  "lore": [
+    {
+      "text": "Difficulty: ☆☆☆",
+      "color": "yellow"
+    }
+  ],
+  "nether": true,
+  "painter_steps": [
+    {
+      "type": "descent_into_darkness:replace_all",
+      "old": "minecraft:blue_ice",
+      "new": {
+        "type": "minecraft:weighted_state_provider",
+        "entries": [
+          {
+            "weight": 1,
+            "data": {
+              "Name": "minecraft:warped_wart_block"
+            }
+          },
+          {
+            "weight": 1,
+            "data": {
+              "Name": "minecraft:packed_ice"
+            }
+          }
+        ]
+      },
+      "chance": 0.3
+    },
+    {
+      "type": "descent_into_darkness:replace_floor",
+      "old": "minecraft:warped_wart_block",
+      "new": "descent_into_darkness:ice_magma",
+      "chance": 1
+    },
+    {
+      "type": "descent_into_darkness:replace_floor",
+      "old": "minecraft:blue_ice",
+      "new": "minecraft:water",
+      "chance": 0.03
+    }
+  ],
+  "structures": {
+    "hyphae": {
+      "type": "descent_into_darkness:glowstone",
+      "edges": "ceiling",
+      "block": "minecraft:sea_lantern",
+      "chance": 0.5
+    },
+    "fire": {
+      "type": "descent_into_darkness:patch",
+      "block": "minecraft:soul_fire",
+      "edges": [
+        "floor"
+      ],
+      "can_place_on": [
+        "descent_into_darkness:ice_magma"
+      ],
+      "count": 5,
+      "spread_x": 16,
+      "spread_z": 16
+    },
+    "lavatowers": {
+      "type": "descent_into_darkness:vine_patch",
+      "vine": "minecraft:water",
+      "edges": [
+        "floor"
+      ],
+      "spread_x": 32,
+      "spread_y": 32,
+      "chance": 0.2,
+      "tags": "ravine",
+      "tags_inverted": true,
+      "height": 30
+    },
+    "crossbar": {
+      "chance": 0.07,
+      "type": "descent_into_darkness:vine_patch",
+      "vine": {
+        "type": "minecraft:weighted_state_provider",
+        "entries": [
+          {
+            "weight": 1,
+            "data": {
+              "Name": "minecraft:ice"
+            }
+          },
+          {
+            "weight": 1,
+            "data": {
+              "Name": "minecraft:air"
+            }
+          }
+        ]
+      },
+      "spread_x": 1,
+      "spread_y": 0,
+      "spread_z": 1,
+      "tries": 50,
+      "edges": "wall",
+      "tags": "ravine",
+      "height": 20
+    }
+  }
+}

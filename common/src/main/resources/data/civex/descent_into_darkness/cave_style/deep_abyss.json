@@ -1,0 +1,97 @@
+{
+  "base_block": "minecraft:blackstone",
+  "nether": true,
+  "biome": "civex:deep_abyss",
+  "air_block": "water",
+  "inherit": [
+    "civex:mega_canyon"
+  ],
+  "painter_steps": [
+    {
+      "type": "descent_into_darkness:replace_floor",
+      "old": "minecraft:blackstone",
+      "new": "minecraft:black_concrete_powder"
+    },
+    {
+      "type": "descent_into_darkness:replace_all",
+      "old": "minecraft:blackstone",
+      "new": "minecraft:black_concrete",
+      "chance": 0.1
+    }
+  ],
+  "structures": {
+    "air": {
+      "type": "descent_into_darkness:vein",
+      "ore": "minecraft:air",
+      "edges": "floor",
+      "can_replace": [
+        "minecraft:water"
+      ],
+      "radius": 25,
+      "count": 0.007
+    },
+    "air2": {
+      "type": "descent_into_darkness:vein",
+      "ore": "minecraft:grass_block",
+      "can_place_on": "minecraft:oak_log",
+      "can_replace": "minecraft:black_concrete_powder",
+      "radius": 10,
+      "count": 10,
+      "tries": 20
+    },
+    "stags": {
+      "block": "minecraft:basalt",
+      "type": "descent_into_darkness:stalagmite",
+      "floor_to_ceiling_search_range": 200,
+      "max_column_radius_to_cave_height_ratio": 1,
+      "max_column_radius": 10,
+      "has_stalactite": false,
+      "min_bluntness_for_wind": 0,
+      "min_radius_for_wind": 1,
+      "count": 0.2,
+      "edges": [
+        "floor",
+        "ceiling"
+      ],
+      "wind_speed": [
+        0,
+        1
+      ]
+    },
+    "vine": {
+      "type": "descent_into_darkness:vine_patch",
+      "vine": "minecraft:kelp_plant",
+      "count": 1,
+      "edges": "ceiling",
+      "can_replace": [
+        "minecraft:water"
+      ],
+      "height": [
+        15,
+        30
+      ]
+    },
+    "tree": {
+      "type": "descent_into_darkness:tree",
+      "count": 6,
+      "edges": "floor",
+      "can_place_on": "minecraft:black_concrete_powder",
+      "can_replace": "minecraft:air",
+      "dirt": {
+        "type": "minecraft:simple_state_provider",
+        "state": {
+          "Name": "minecraft:oak_log",
+          "Properties": {
+            "axis": "y"
+          }
+        }
+      },
+      "height": [
+        4,
+        6
+      ],
+      "leaf_height": 4
+    }
+  },
+  "spawn_entries": {}
+}

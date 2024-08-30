@@ -1,0 +1,119 @@
+{
+  "transparent_blocks": [
+    "minecraft:air"
+  ],
+  "inherit": [
+    "civex:mega_canyon"
+  ],
+  "start_y": 150,
+  "air_block": [
+    {
+      "min": 0,
+      "max": 90,
+      "block": "lava"
+    },
+    {
+      "min": 91,
+      "max": 255,
+      "block": "air"
+    }
+  ],
+  "structures": {
+    "crossbar": {
+      "chance": 0.007,
+      "type": "descent_into_darkness:vine_patch",
+      "vine": "minecraft:stone_bricks",
+      "spread_x": 2,
+      "spread_y": 0,
+      "spread_z": 2,
+      "tries": 50,
+      "edges": "wall",
+      "can_place_on": [
+        "minecraft:stone",
+        "minecraft:mossy_cobblestone",
+        "minecraft:andesite",
+        "minecraft:gravel",
+        "minecraft:cobblestone"
+      ],
+      "height": 1000
+    },
+    "crossbar2": {
+      "chance": 0.1,
+      "type": "descent_into_darkness:vine_patch",
+      "vine": "minecraft:stone_bricks",
+      "spread_x": 1,
+      "spread_y": 0,
+      "spread_z": 1,
+      "tries": 50,
+      "edges": "wall",
+      "can_place_on": "minecraft:stone_bricks",
+      "height": 1000
+    },
+    "support": {
+      "chance": 0.1,
+      "type": "descent_into_darkness:vine_patch",
+      "vine": "minecraft:stone_bricks",
+      "spread_x": 2,
+      "spread_y": 0,
+      "spread_z": 2,
+      "tries": 20,
+      "edges": "ceiling",
+      "can_place_on": "minecraft:stone_bricks",
+      "height": 1000
+    },
+    "support2": {
+      "chance": 0.003,
+      "type": "descent_into_darkness:vine_patch",
+      "vine": "minecraft:stone_bricks",
+      "spread_x": 2,
+      "spread_y": 0,
+      "spread_z": 2,
+      "tries": 30,
+      "edges": "floor",
+      "height": 1000
+    },
+    "cracked_brick": {
+      "type": "descent_into_darkness:vein",
+      "edges": [
+        "floor",
+        "wall",
+        "ceiling"
+      ],
+      "ore": "minecraft:cracked_stone_bricks",
+      "radius": 3,
+      "can_place_on": "minecraft:stone_bricks"
+    },
+    "mossy_brick": {
+      "type": "descent_into_darkness:vein",
+      "edges": [
+        "floor",
+        "wall",
+        "ceiling"
+      ],
+      "ore": "minecraft:mossy_stone_bricks",
+      "radius": 3,
+      "can_place_on": "minecraft:stone_bricks"
+    },
+    "broke_brick": {
+      "type": "descent_into_darkness:vein",
+      "edges": [
+        "floor",
+        "ceiling"
+      ],
+      "ore": "minecraft:air",
+      "radius": 3,
+      "chance": 0.001,
+      "can_place_on": "minecraft:stone_bricks"
+    },
+    "broke_brick2": {
+      "type": "descent_into_darkness:vein",
+      "edges": [
+        "wall"
+      ],
+      "ore": "minecraft:air",
+      "chance": 0.001,
+      "radius": 3,
+      "can_place_on": "minecraft:stone_bricks"
+    }
+  }
+}

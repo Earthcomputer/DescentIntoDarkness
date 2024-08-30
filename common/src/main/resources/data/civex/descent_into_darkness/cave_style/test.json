@@ -1,0 +1,38 @@
+{
+  "base_block": "minecraft:dirt",
+  "inherit": [
+    "civex:halfwater"
+  ],
+  "air_block": [
+    {
+      "min": 0,
+      "max": 150,
+      "block": "air"
+    },
+    {
+      "min": 151,
+      "max": 151,
+      "block": "minecraft:stone"
+    },
+    {
+      "min": 152,
+      "max": 255,
+      "block": "air"
+    }
+  ],
+  "painter_steps": [
+    {
+      "type": "descent_into_darkness:replace_all",
+      "old": "minecraft:stone",
+      "new": "minecraft:dirt"
+    }
+  ],
+  "structures": {
+    "tespa": {
+      "type": "descent_into_darkness:patch",
+      "block": "minecraft:stone",
+      "can_place_on": "minecraft:dirt",
+      "count": 1
+    }
+  }
+}

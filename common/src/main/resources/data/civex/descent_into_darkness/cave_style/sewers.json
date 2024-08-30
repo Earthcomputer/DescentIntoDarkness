@@ -1,0 +1,64 @@
+{
+  "inherit": [
+    "civex:labyrinth"
+  ],
+  "nether": true,
+  "biome": "civex:sewers",
+  "painter_steps": [
+    {
+      "type": "descent_into_darkness:replace_all",
+      "old": "minecraft:stone",
+      "new": "minecraft:stone_bricks"
+    },
+    {
+      "type": "descent_into_darkness:replace_all",
+      "old": "minecraft:stone_bricks",
+      "new": "minecraft:mossy_stone_bricks",
+      "chance": 0.2
+    },
+    {
+      "type": "descent_into_darkness:replace_all",
+      "old": "minecraft:stone_bricks",
+      "new": "minecraft:cracked_stone_bricks",
+      "chance": 0.1
+    }
+  ],
+  "room_air_blocks": {
+    "branch": [
+      {
+        "min": 0.0,
+        "max": 0.4,
+        "block": "water"
+      }
+    ],
+    "forward": [
+      {
+        "min": 0.0,
+        "max": 0.4,
+        "block": "water"
+      }
+    ],
+    "turn_left": [
+      {
+        "min": 0.0,
+        "max": 0.4,
+        "block": "water"
+      }
+    ],
+    "turn_right": [
+      {
+        "min": 0.0,
+        "max": 0.4,
+        "block": "water"
+      }
+    ],
+    "small_branch": [
+      {
+        "min": 0.0,
+        "max": 0.4,
+        "block": "water"
+      }
+    ]
+  },
+  "size": 7
+}

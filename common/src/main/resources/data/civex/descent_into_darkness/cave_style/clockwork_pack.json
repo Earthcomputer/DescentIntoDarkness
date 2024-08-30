@@ -1,0 +1,80 @@
+{
+  "lore": [
+    {
+      "text": "Arid",
+      "color": "yellow"
+    }
+  ],
+  "spawn_entries": {
+    "clockwork_rat": {
+      "mob": "descent_into_darkness:clockwork_rat",
+      "single_mob_cost": 200,
+      "weight": 10,
+      "cooldown": 20,
+      "pack_cost": [
+        200,
+        800
+      ],
+      "distance": [
+        10,
+        20
+      ]
+    },
+    "clockwork_guard": {
+      "mob": "descent_into_darkness:clockwork_guard",
+      "single_mob_cost": 250,
+      "weight": 10,
+      "cooldown": 20,
+      "pack_cost": [
+        250,
+        1000
+      ],
+      "distance": [
+        15,
+        25
+      ]
+    },
+    "steamwork_soldier": {
+      "mob": "descent_into_darkness:steamwork_soldier",
+      "single_mob_cost": 400,
+      "weight": 20,
+      "cooldown": 20,
+      "pack_cost": [
+        400,
+        1200
+      ],
+      "distance": [
+        15,
+        25
+      ]
+    },
+    "clockwork_scout": {
+      "mob": "descent_into_darkness:clockwork_scout",
+      "single_mob_cost": 200,
+      "weight": 10,
+      "cooldown": 20,
+      "pack_cost": [
+        200,
+        1000
+      ],
+      "distance": [
+        15,
+        25
+      ]
+    },
+    "delirious_engineer": {
+      "mob": "descent_into_darkness:delirious_engineer",
+      "single_mob_cost": 500,
+      "weight": 10,
+      "cooldown": 20,
+      "pack_cost": [
+        500,
+        1000
+      ],
+      "distance": [
+        15,
+        25
+      ]
+    }
+  }
+}

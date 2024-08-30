@@ -1,0 +1,108 @@
+{
+  "lore": [
+    {
+      "text": "Void",
+      "color": "black"
+    }
+  ],
+  "spawn_entries": {
+    "vex1": {
+      "mob": "descent_into_darkness:vex1",
+      "single_mob_cost": 150,
+      "weight": 4,
+      "cooldown": 20,
+      "pack_cost": [
+        150,
+        500
+      ],
+      "distance": [
+        10,
+        20
+      ]
+    },
+    "vindicator1": {
+      "mob": "descent_into_darkness:vindicator1",
+      "single_mob_cost": 300,
+      "weight": 10,
+      "cooldown": 20,
+      "pack_cost": [
+        300,
+        800
+      ],
+      "distance": [
+        15,
+        25
+      ]
+    },
+    "pillager1": {
+      "mob": "descent_into_darkness:pillager1",
+      "single_mob_cost": 150,
+      "weight": 10,
+      "cooldown": 20,
+      "pack_cost": [
+        150,
+        800
+      ],
+      "distance": [
+        15,
+        25
+      ]
+    },
+    "ravager1": {
+      "mob": "descent_into_darkness:ravager1",
+      "single_mob_cost": 400,
+      "weight": 10,
+      "cooldown": 20,
+      "pack_cost": [
+        400,
+        900
+      ],
+      "distance": [
+        15,
+        25
+      ]
+    },
+    "evoker1": {
+      "mob": "descent_into_darkness:evoker1",
+      "single_mob_cost": 600,
+      "weight": 10,
+      "cooldown": 20,
+      "pack_cost": [
+        600,
+        1200
+      ],
+      "distance": [
+        15,
+        25
+      ]
+    },
+    "illusioner1": {
+      "mob": "descent_into_darkness:illusioner1",
+      "single_mob_cost": 200,
+      "weight": 10,
+      "cooldown": 20,
+      "pack_cost": [
+        200,
+        800
+      ],
+      "distance": [
+        15,
+        25
+      ]
+    },
+    "witch1": {
+      "mob": "descent_into_darkness:witch1",
+      "single_mob_cost": 150,
+      "weight": 10,
+      "cooldown": 20,
+      "pack_cost": [
+        150,
+        800
+      ],
+      "distance": [
+        15,
+        25
+      ]
+    }
+  }
+}

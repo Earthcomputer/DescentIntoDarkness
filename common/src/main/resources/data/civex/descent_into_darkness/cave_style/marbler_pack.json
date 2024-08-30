@@ -1,0 +1,124 @@
+{
+  "lore": [
+    "Pure",
+    {
+      "text": "Underwater",
+      "color": "dark_blue"
+    }
+  ],
+  "spawn_entries": {
+    "marble": {
+      "mob": "descent_into_darkness:marble",
+      "single_mob_cost": 300,
+      "weight": 10,
+      "cooldown": 20,
+      "pack_cost": [
+        300,
+        900
+      ],
+      "distance": [
+        10,
+        20
+      ]
+    },
+    "marblerguard": {
+      "mob": "descent_into_darkness:marbler_guard",
+      "single_mob_cost": 300,
+      "weight": 10,
+      "cooldown": 20,
+      "can_spawn_in": [
+        "minecraft:air",
+        "minecraft:water"
+      ],
+      "pack_cost": [
+        300,
+        1200
+      ],
+      "distance": [
+        10,
+        20
+      ]
+    },
+    "marbler_warrior": {
+      "mob": "descent_into_darkness:marbler_warrior",
+      "single_mob_cost": 300,
+      "weight": 10,
+      "cooldown": 20,
+      "can_spawn_in": [
+        "minecraft:air",
+        "minecraft:water"
+      ],
+      "pack_cost": [
+        300,
+        1200
+      ],
+      "distance": [
+        15,
+        25
+      ]
+    },
+    "maulbler": {
+      "mob": "descent_into_darkness:maulbler",
+      "single_mob_cost": 500,
+      "weight": 10,
+      "cooldown": 20,
+      "pack_cost": [
+        500,
+        1500
+      ],
+      "distance": [
+        15,
+        25
+      ]
+    },
+    "mangler": {
+      "mob": "descent_into_darkness:mangler",
+      "single_mob_cost": 300,
+      "weight": 10,
+      "cooldown": 20,
+      "can_spawn_in": [
+        "minecraft:water"
+      ],
+      "pack_cost": [
+        300,
+        1200
+      ],
+      "distance": [
+        15,
+        25
+      ]
+    },
+    "marble_glyph": {
+      "mob": "descent_into_darkness:marble_glyph",
+      "single_mob_cost": 250,
+      "weight": 10,
+      "cooldown": 20,
+      "can_spawn_in": [
+        "minecraft:air",
+        "minecraft:water"
+      ],
+      "pack_cost": [
+        250,
+        750
+      ],
+      "distance": [
+        15,
+        25
+      ]
+    },
+    "marblegolem": {
+      "mob": "descent_into_darkness:marbler_golem",
+      "single_mob_cost": 400,
+      "weight": 10,
+      "cooldown": 20,
+      "pack_cost": [
+        400,
+        1200
+      ],
+      "distance": [
+        15,
+        25
+      ]
+    }
+  }
+}

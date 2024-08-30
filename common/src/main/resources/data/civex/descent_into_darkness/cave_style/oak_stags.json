@@ -1,0 +1,168 @@
+{
+  "biome": "minecraft:warm_ocean",
+  "base_block": "minecraft:dirt",
+  "painter_steps": [
+    {
+      "type": "descent_into_darkness:replace_floor",
+      "old": "minecraft:dirt",
+      "new": "minecraft:grass_block"
+    },
+    {
+      "type": "descent_into_darkness:replace_all",
+      "old": "minecraft:dirt",
+      "new": "minecraft:coarse_dirt",
+      "chance": 0.1
+    }
+  ],
+  "inherit": [
+    "civex:halfwater",
+    {
+      "name": "civex:wooden_pack",
+      "merge": {
+        "lore": "bottom"
+      }
+    },
+    {
+      "name": "civex:high_fuel_low_metal",
+      "merge": {
+        "structures": "top",
+        "lore": "bottom"
+      }
+    }
+  ],
+  "display_name": {
+    "text": "Oak Cavern",
+    "color": "green"
+  },
+  "lore": [
+    {
+      "text": "Difficulty: ☆☆☆",
+      "color": "yellow"
+    }
+  ],
+  "structures": {
+    "stags": {
+      "block": "minecraft:oak_wood",
+      "type": "descent_into_darkness:stalagmite",
+      "floor_to_ceiling_search_range": 40,
+      "max_column_radius_to_cave_height_ratio": 1,
+      "has_stalactite": true,
+      "min_bluntness_for_wind": 0,
+      "min_radius_for_wind": 1,
+      "count": 0.02,
+      "height_scale": [
+        5,
+        10
+      ],
+      "column_radius": 10,
+      "wind_speed": [
+        0,
+        1
+      ]
+    },
+    "hyphaeclump": {
+      "type": "descent_into_darkness:vein",
+      "radius": 4,
+      "ore": "minecraft:oak_leaves",
+      "edges": [
+        "wall"
+      ],
+      "count": 0.1,
+      "can_place_on": [
+        "minecraft:oak_wood"
+      ],
+      "can_replace": [
+        "minecraft:air"
+      ]
+    },
+    "hyphaeclump2": {
+      "type": "descent_into_darkness:vein",
+      "radius": 4,
+      "ore": "minecraft:oak_leaves",
+      "edges": [
+        "wall",
+        "floor",
+        "ceiling"
+      ],
+      "can_place_on": [
+        "minecraft:oak_leaves"
+      ],
+      "can_replace": [
+        "minecraft:oak_leaves",
+        "minecraft:air"
+      ],
+      "count": 0.1
+    },
+    "water": {
+      "type": "descent_into_darkness:vein",
+      "ore": "minecraft:water",
+      "edges": "floor",
+      "radius": 5,
+      "chance": 0.02,
+      "can_place_on": "minecraft:grass_block"
+    },
+    "grass": {
+      "type": "descent_into_darkness:patch",
+      "block": "minecraft:short_grass",
+      "edges": [
+        "floor"
+      ],
+      "can_place_on": "minecraft:grass_block"
+    },
+    "grass2": {
+      "type": "descent_into_darkness:vine_patch",
+      "vine": {
+        "type": "minecraft:simple_state_provider",
+        "state": {
+          "Name": "minecraft:tall_grass",
+          "Properties": {
+            "half": "lower"
+          }
+        }
+      },
+      "edges": [
+        "floor"
+      ],
+      "last_block": {
+        "type": "minecraft:simple_state_provider",
+        "state": {
+          "Name": "minecraft:tall_grass",
+          "Properties": {
+            "half": "upper"
+          }
+        }
+      },
+      "can_place_on": "minecraft:grass_block",
+      "height": 2
+    },
+    "tree": {
+      "type": "descent_into_darkness:tree",
+      "edges": "floor",
+      "can_place_on": "minecraft:grass_block",
+      "dirt": {
+        "type": "minecraft:simple_state_provider",
+        "state": {
+          "Name": "minecraft:oak_log",
+          "Properties": {
+            "axis": "y"
+          }
+        }
+      },
+      "leaf": "minecraft:oak_leaves",
+      "height": [
+        4,
+        6
+      ],
+      "leaf_height": 4
+    },
+    "waterfall": {
+      "type": "descent_into_darkness:waterfall",
+      "fluid_type": "water",
+      "can_place_on": [
+        "minecraft:dirt",
+        "minecraft:coarse_dirt"
+      ],
+      "count": 0.02
+    }
+  }
+}

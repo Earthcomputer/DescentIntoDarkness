@@ -1,0 +1,76 @@
+{
+  "inherit": [
+    "civex:shafts",
+    {
+      "name": "civex:high_fuel_low_metal",
+      "merge": {
+        "structures": "top",
+        "lore": "bottom"
+      }
+    }
+  ],
+  "lore": [
+    {
+      "text": "Difficulty: ☆☆☆☆",
+      "color": "yellow"
+    }
+  ],
+  "biome": "civex:acid",
+  "nether": true,
+  "base_block": "descent_into_darkness:igneous_block",
+  "start_y": 163,
+  "air_block": [
+    {
+      "min": 0,
+      "max": 150,
+      "block": "water"
+    },
+    {
+      "min": 151,
+      "max": 255,
+      "block": "air"
+    }
+  ],
+  "structures": {
+    "ustal": {
+      "type": "descent_into_darkness:patch",
+      "block": "descent_into_darkness:stalup",
+      "edges": [
+        "floor"
+      ],
+      "can_place_on": "descent_into_darkness:igneous_block",
+      "can_replace": "minecraft:air",
+      "count": 0.25
+    },
+    "ustal2": {
+      "type": "descent_into_darkness:patch",
+      "block": "descent_into_darkness:stalsup",
+      "edges": [
+        "floor"
+      ],
+      "can_place_on": "descent_into_darkness:igneous_block",
+      "can_replace": "minecraft:air",
+      "count": 0.25
+    },
+    "ustal3": {
+      "type": "descent_into_darkness:patch",
+      "block": "descent_into_darkness:staldown",
+      "edges": [
+        "ceiling"
+      ],
+      "can_place_on": "descent_into_darkness:igneous_block",
+      "can_replace": "minecraft:air",
+      "count": 0.25
+    },
+    "ustal4": {
+      "type": "descent_into_darkness:patch",
+      "block": "descent_into_darkness:stalsdown",
+      "edges": [
+        "ceiling"
+      ],
+      "can_place_on": "descent_into_darkness:igneous_block",
+      "can_replace": "minecraft:air",
+      "count": 0.25
+    }
+  }
+}

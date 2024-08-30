@@ -1,0 +1,108 @@
+{
+  "lore": [
+    {
+      "text": "Fire",
+      "color": "red"
+    }
+  ],
+  "spawn_entries": {
+    "charred_bones": {
+      "mob": "descent_into_darkness:charred_bones",
+      "single_mob_cost": 250,
+      "weight": 10,
+      "cooldown": 20,
+      "pack_cost": [
+        250,
+        1000
+      ],
+      "distance": [
+        10,
+        20
+      ]
+    },
+    "unrepentant_soul": {
+      "mob": "descent_into_darkness:unrepentant_soul",
+      "single_mob_cost": 250,
+      "weight": 10,
+      "cooldown": 20,
+      "pack_cost": [
+        250,
+        1000
+      ],
+      "distance": [
+        15,
+        25
+      ]
+    },
+    "ember_wolf": {
+      "mob": "descent_into_darkness:ember_wolf",
+      "single_mob_cost": 200,
+      "weight": 10,
+      "cooldown": 20,
+      "pack_cost": [
+        200,
+        1000
+      ],
+      "distance": [
+        15,
+        25
+      ]
+    },
+    "magma_mephit": {
+      "mob": "descent_into_darkness:magma_mephit",
+      "single_mob_cost": 300,
+      "weight": 10,
+      "cooldown": 20,
+      "pack_cost": [
+        300,
+        1200
+      ],
+      "distance": [
+        15,
+        25
+      ]
+    },
+    "fire_spirit": {
+      "mob": "descent_into_darkness:fire_spirit",
+      "single_mob_cost": 300,
+      "weight": 10,
+      "cooldown": 20,
+      "pack_cost": [
+        300,
+        1200
+      ],
+      "distance": [
+        15,
+        25
+      ]
+    },
+    "ifrit": {
+      "mob": "descent_into_darkness:ifrit",
+      "single_mob_cost": 300,
+      "weight": 10,
+      "cooldown": 20,
+      "pack_cost": [
+        300,
+        1200
+      ],
+      "distance": [
+        15,
+        25
+      ]
+    },
+    "ember_inquisitor": {
+      "mob": "descent_into_darkness:ember_inquisitor",
+      "single_mob_cost": 700,
+      "weight": 10,
+      "cooldown": 10,
+      "pack_cost": [
+        700,
+        1400
+      ],
+      "distance": [
+        15,
+        25
+      ]
+    }
+  }
+}

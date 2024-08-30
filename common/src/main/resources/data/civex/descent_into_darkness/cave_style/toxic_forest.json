@@ -1,0 +1,187 @@
+{
+  "biome": "civex:toxic_forest",
+  "nether": true,
+  "inherit": [
+    {
+      "name": "civex:plague_pack",
+      "merge": {
+        "lore": "bottom"
+      }
+    },
+    "civex:big_flat",
+    {
+      "name": "civex:high_gem_low_metal",
+      "merge": {
+        "structures": "top",
+        "lore": "bottom"
+      }
+    }
+  ],
+  "display_name": {
+    "text": "Toxic Forest",
+    "color": "gold"
+  },
+  "lore": [
+    {
+      "text": "Difficulty: ☆☆☆☆",
+      "color": "yellow"
+    }
+  ],
+  "base_block": "minecraft:dirt",
+  "painter_steps": [
+    {
+      "type": "descent_into_darkness:replace_floor",
+      "old": "minecraft:dirt",
+      "new": "minecraft:grass_block"
+    },
+    {
+      "type": "descent_into_darkness:replace_all",
+      "old": "minecraft:dirt",
+      "new": "minecraft:coarse_dirt",
+      "chance": 0.1
+    }
+  ],
+  "structures": {
+    "water": {
+      "type": "descent_into_darkness:vein",
+      "ore": "minecraft:water",
+      "edges": "floor",
+      "radius": 5,
+      "chance": 0.04,
+      "can_replace": [
+        "minecraft:grass_block"
+      ]
+    },
+    "tree2": {
+      "type": "descent_into_darkness:tree",
+      "edges": "floor",
+      "can_place_on": "minecraft:grass_block",
+      "dirt": {
+        "type": "minecraft:simple_state_provider",
+        "state": {
+          "Name": "minecraft:dark_oak_log",
+          "Properties": {
+            "axis": "y"
+          }
+        }
+      },
+      "leaf": "minecraft:oak_leaves",
+      "log": {
+        "type": "minecraft:simple_state_provider",
+        "state": {
+          "Name": "minecraft:dark_oak_log",
+          "Properties": {
+            "axis": "y"
+          }
+        }
+      },
+      "hanging_vine": "minecraft:oak_leaves",
+      "hanging_vine_chance": 0.5,
+      "count": 0.15,
+      "height": [
+        8,
+        12
+      ],
+      "leaf_height": 4
+    },
+    "tree": {
+      "type": "descent_into_darkness:tree",
+      "edges": "floor",
+      "can_place_on": "minecraft:grass_block",
+      "dirt": {
+        "type": "minecraft:simple_state_provider",
+        "state": {
+          "Name": "minecraft:dark_oak_log",
+          "Properties": {
+            "axis": "y"
+          }
+        }
+      },
+      "log": {
+        "type": "minecraft:simple_state_provider",
+        "state": {
+          "Name": "minecraft:dark_oak_log",
+          "Properties": {
+            "axis": "y"
+          }
+        }
+      },
+      "height": [
+        4,
+        6
+      ],
+      "leaf_height": 4
+    },
+    "grass": {
+      "type": "descent_into_darkness:patch",
+      "block": "minecraft:short_grass",
+      "edges": [
+        "floor"
+      ],
+      "can_place_on": [
+        "minecraft:grass_block",
+        "minecraft:dirt"
+      ],
+      "count": 0.025,
+      "can_replace": [
+        "minecraft:air"
+      ]
+    },
+    "grass1": {
+      "type": "descent_into_darkness:patch",
+      "block": {
+        "type": "minecraft:simple_state_provider",
+        "state": {
+          "Name": "minecraft:tall_grass",
+          "Properties": {
+            "half": "upper"
+          }
+        }
+      },
+      "edges": [
+        "floor"
+      ],
+      "can_place_on": [
+        "minecraft:grass_block",
+        "minecraft:dirt"
+      ],
+      "count": 0.025,
+      "can_replace": [
+        "minecraft:air"
+      ]
+    },
+    "grass2": {
+      "type": "descent_into_darkness:vine_patch",
+      "vine": {
+        "type": "minecraft:simple_state_provider",
+        "state": {
+          "Name": "minecraft:tall_grass",
+          "Properties": {
+            "half": "lower"
+          }
+        }
+      },
+      "edges": [
+        "floor"
+      ],
+      "last_block": {
+        "type": "minecraft:simple_state_provider",
+        "state": {
+          "Name": "minecraft:tall_grass",
+          "Properties": {
+            "half": "upper"
+          }
+        }
+      },
+      "can_place_on": [
+        "minecraft:grass_block",
+        "minecraft:dirt"
+      ],
+      "can_replace": [
+        "minecraft:air"
+      ],
+      "count": 0.05,
+      "height": 2
+    }
+  }
+}

@@ -1,0 +1,103 @@
+{
+  "base_block": "cut_sandstone",
+  "random_rotation": false,
+  "inherit": [
+    "civex:labyrinth"
+  ],
+  "painter_steps": [
+    {
+      "type": "descent_into_darkness:replace_ceiling",
+      "old": "minecraft:cut_sandstone",
+      "new": {
+        "type": "descent_into_darkness:room_weighted",
+        "entries": [
+          {
+            "weight": 1,
+            "data": {
+              "Name": "minecraft:red_sand"
+            }
+          },
+          {
+            "weight": 1,
+            "data": {
+              "Name": "minecraft:sand"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "descent_into_darkness:floor_layer",
+      "block": "minecraft:cut_sandstone",
+      "can_place_on": "minecraft:cut_sandstone"
+    },
+    {
+      "type": "descent_into_darkness:ceiling_layer",
+      "block": {
+        "type": "minecraft:simple_state_provider",
+        "state": {
+          "Name": "minecraft:cut_sandstone_slab",
+          "Properties": {
+            "type": "descent_into_darkness:top"
+          }
+        }
+      }
+    }
+  ],
+  "structures": {
+    "ore": {
+      "type": "descent_into_darkness:wall_portal",
+      "count": 3,
+      "can_replace": "cut_sandstone",
+      "portal_block": {
+        "type": "minecraft:weighted_state_provider",
+        "entries": [
+          {
+            "weight": 1,
+            "data": {
+              "Name": "diamond_ore"
+            }
+          },
+          {
+            "weight": 5,
+            "data": {
+              "Name": "gold_ore"
+            }
+          },
+          {
+            "weight": 10,
+            "data": {
+              "Name": "iron_ore"
+            }
+          }
+        ]
+      },
+      "frame_block": "coal_ore",
+      "width": 1,
+      "height": 1
+    },
+    "ore2": {
+      "type": "descent_into_darkness:wall_portal",
+      "count": 10,
+      "can_replace": "cut_sandstone",
+      "portal_block": "chiseled_sandstone",
+      "frame_block": "smooth_sandstone",
+      "width": 1,
+      "height": 1
+    },
+    "chests": {
+      "type": "descent_into_darkness:template",
+      "edges": [
+        "floor"
+      ],
+      "templates": [
+        "descent_into_darkness:dwarfsnlava/chest"
+      ],
+      "tags": [
+        "turn_left",
+        "turn_right"
+      ]
+    }
+  },
+  "size": 4
+}

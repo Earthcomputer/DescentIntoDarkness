@@ -1,0 +1,120 @@
+{
+  "base_block": {
+    "Name": "minecraft:warped_stem",
+    "Properties": {
+      "axis": "y"
+    }
+  },
+  "nether": true,
+  "biome": "minecraft:warped_forest",
+  "inherit": [
+    {
+      "name": "civex:restoration_pack",
+      "merge": {
+        "lore": "bottom"
+      }
+    },
+    {
+      "name": "civex:gem1",
+      "merge": {
+        "structures": "top",
+        "lore": "bottom"
+      }
+    }
+  ],
+  "display_name": {
+    "text": "Warped Roots",
+    "color": "aqua"
+  },
+  "lore": [
+    {
+      "text": "Difficulty: ☆☆☆",
+      "color": "yellow"
+    }
+  ],
+  "painter_steps": [
+    {
+      "type": "descent_into_darkness:replace_all",
+      "old": {
+        "type": "descent_into_darkness:matches_state",
+        "name": "minecraft:warped_stem",
+        "properties": {
+          "axis": "y"
+        }
+      },
+      "new": {
+        "type": "minecraft:simple_state_provider",
+        "state": {
+          "Name": "minecraft:warped_stem",
+          "Properties": {
+            "axis": "x"
+          }
+        }
+      },
+      "chance": 0.33
+    },
+    {
+      "type": "descent_into_darkness:replace_all",
+      "old": {
+        "type": "descent_into_darkness:matches_state",
+        "name": "minecraft:warped_stem",
+        "properties": {
+          "axis": "y"
+        }
+      },
+      "new": {
+        "type": "minecraft:simple_state_provider",
+        "state": {
+          "Name": "minecraft:warped_stem",
+          "Properties": {
+            "axis": "z"
+          }
+        }
+      },
+      "chance": 0.5
+    },
+    {
+      "type": "descent_into_darkness:replace_floor",
+      "old": "minecraft:warped_stem",
+      "new": "minecraft:warped_nylium"
+    }
+  ],
+  "structures": {
+    "mpatch": {
+      "type": "descent_into_darkness:patch",
+      "edges": [
+        "floor"
+      ],
+      "chance": 0.6,
+      "spread_x": 16,
+      "spread_z": 16,
+      "can_place_on": [
+        "minecraft:warped_nylium"
+      ],
+      "block": "minecraft:warped_fungus"
+    },
+    "mpatch2": {
+      "type": "descent_into_darkness:patch",
+      "edges": [
+        "floor"
+      ],
+      "chance": 0.8,
+      "spread_x": 16,
+      "spread_z": 16,
+      "can_place_on": [
+        "minecraft:warped_nylium"
+      ],
+      "block": "minecraft:warped_roots"
+    },
+    "glowstone": {
+      "type": "descent_into_darkness:glowstone",
+      "edges": [
+        "ceiling"
+      ],
+      "block": "minecraft:stripped_warped_hyphae",
+      "can_place_on": "minecraft:warped_stem",
+      "height": 12,
+      "density": 1000
+    }
+  }
+}

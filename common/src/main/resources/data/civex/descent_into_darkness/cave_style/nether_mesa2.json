@@ -1,0 +1,1472 @@
+{
+  "biome": "warped_forest",
+  "nether": true,
+  "inherit": [
+    {
+      "name": "civex:restoration_pack",
+      "merge": {
+        "lore": "bottom"
+      }
+    },
+    {
+      "name": "civex:high_gem_low_metal",
+      "merge": {
+        "structures": "top",
+        "lore": "bottom"
+      }
+    },
+    "civex:canyons"
+  ],
+  "display_name": {
+    "text": "Warped Canyons",
+    "color": "aqua"
+  },
+  "lore": [
+    {
+      "text": "Difficulty: ☆☆☆☆",
+      "color": "yellow"
+    }
+  ],
+  "start_y": 200,
+  "painter_steps": [
+    {
+      "type": "descent_into_darkness:replace_mesa",
+      "old": "minecraft:stripped_warped_hyphae",
+      "layers": [
+        {
+          "min": 0,
+          "max": 10,
+          "block": "minecraft:stripped_warped_hyphae"
+        },
+        {
+          "min": 11,
+          "max": 13,
+          "block": {
+            "type": "minecraft:weighted_state_provider",
+            "entries": [
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "minecraft:blue_terracotta"
+                }
+              },
+              {
+                "weight": 2,
+                "data": {
+                  "Name": "minecraft:stripped_warped_hyphae"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "min": 14,
+          "max": 14,
+          "block": {
+            "type": "minecraft:weighted_state_provider",
+            "entries": [
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "minecraft:blue_terracotta"
+                }
+              },
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "minecraft:stripped_warped_hyphae"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "min": 15,
+          "max": 15,
+          "block": {
+            "type": "minecraft:weighted_state_provider",
+            "entries": [
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "minecraft:blue_terracotta"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "min": 16,
+          "max": 16,
+          "block": {
+            "type": "minecraft:weighted_state_provider",
+            "entries": [
+              {
+                "weight": 5,
+                "data": {
+                  "Name": "minecraft:blue_terracotta"
+                }
+              },
+              {
+                "weight": 2,
+                "data": {
+                  "Name": "minecraft:obsidian"
+                }
+              },
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "descent_into_darkness:ice_magma"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "min": 17,
+          "max": 17,
+          "block": {
+            "type": "minecraft:weighted_state_provider",
+            "entries": [
+              {
+                "weight": 2,
+                "data": {
+                  "Name": "minecraft:obsidian"
+                }
+              },
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "descent_into_darkness:ice_magma"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "min": 18,
+          "max": 19,
+          "block": "descent_into_darkness:ice_magma"
+        },
+        {
+          "min": 20,
+          "max": 20,
+          "block": {
+            "type": "minecraft:weighted_state_provider",
+            "entries": [
+              {
+                "weight": 2,
+                "data": {
+                  "Name": "minecraft:obsidian"
+                }
+              },
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "descent_into_darkness:ice_magma"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "min": 21,
+          "max": 21,
+          "block": {
+            "type": "minecraft:weighted_state_provider",
+            "entries": [
+              {
+                "weight": 5,
+                "data": {
+                  "Name": "minecraft:blue_terracotta"
+                }
+              },
+              {
+                "weight": 2,
+                "data": {
+                  "Name": "minecraft:gray_terracotta"
+                }
+              },
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "descent_into_darkness:ice_magma"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "min": 22,
+          "max": 22,
+          "block": {
+            "type": "minecraft:weighted_state_provider",
+            "entries": [
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "minecraft:blue_terracotta"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "min": 23,
+          "max": 23,
+          "block": {
+            "type": "minecraft:weighted_state_provider",
+            "entries": [
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "minecraft:blue_terracotta"
+                }
+              },
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "minecraft:stripped_warped_hyphae"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "min": 24,
+          "max": 27,
+          "block": {
+            "type": "minecraft:weighted_state_provider",
+            "entries": [
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "minecraft:blue_terracotta"
+                }
+              },
+              {
+                "weight": 2,
+                "data": {
+                  "Name": "minecraft:stripped_warped_hyphae"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "min": 28,
+          "max": 48,
+          "block": "minecraft:stripped_warped_hyphae"
+        },
+        {
+          "min": 49,
+          "max": 52,
+          "block": {
+            "type": "minecraft:weighted_state_provider",
+            "entries": [
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "minecraft:blue_terracotta"
+                }
+              },
+              {
+                "weight": 2,
+                "data": {
+                  "Name": "minecraft:stripped_warped_hyphae"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "min": 53,
+          "max": 53,
+          "block": {
+            "type": "minecraft:weighted_state_provider",
+            "entries": [
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "minecraft:blue_terracotta"
+                }
+              },
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "minecraft:stripped_warped_hyphae"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "min": 54,
+          "max": 54,
+          "block": {
+            "type": "minecraft:weighted_state_provider",
+            "entries": [
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "minecraft:blue_terracotta"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "min": 55,
+          "max": 55,
+          "block": {
+            "type": "minecraft:weighted_state_provider",
+            "entries": [
+              {
+                "weight": 5,
+                "data": {
+                  "Name": "minecraft:blue_terracotta"
+                }
+              },
+              {
+                "weight": 2,
+                "data": {
+                  "Name": "minecraft:obsidian"
+                }
+              },
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "descent_into_darkness:ice_magma"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "min": 56,
+          "max": 56,
+          "block": {
+            "type": "minecraft:weighted_state_provider",
+            "entries": [
+              {
+                "weight": 2,
+                "data": {
+                  "Name": "minecraft:obsidian"
+                }
+              },
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "descent_into_darkness:ice_magma"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "min": 57,
+          "max": 58,
+          "block": "descent_into_darkness:ice_magma"
+        },
+        {
+          "min": 59,
+          "max": 59,
+          "block": {
+            "type": "minecraft:weighted_state_provider",
+            "entries": [
+              {
+                "weight": 2,
+                "data": {
+                  "Name": "minecraft:obsidian"
+                }
+              },
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "descent_into_darkness:ice_magma"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "min": 60,
+          "max": 60,
+          "block": {
+            "type": "minecraft:weighted_state_provider",
+            "entries": [
+              {
+                "weight": 5,
+                "data": {
+                  "Name": "minecraft:blue_terracotta"
+                }
+              },
+              {
+                "weight": 2,
+                "data": {
+                  "Name": "minecraft:gray_terracotta"
+                }
+              },
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "descent_into_darkness:ice_magma"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "min": 61,
+          "max": 61,
+          "block": {
+            "type": "minecraft:weighted_state_provider",
+            "entries": [
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "minecraft:blue_terracotta"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "min": 62,
+          "max": 62,
+          "block": {
+            "type": "minecraft:weighted_state_provider",
+            "entries": [
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "minecraft:blue_terracotta"
+                }
+              },
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "minecraft:stripped_warped_hyphae"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "min": 63,
+          "max": 67,
+          "block": {
+            "type": "minecraft:weighted_state_provider",
+            "entries": [
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "minecraft:blue_terracotta"
+                }
+              },
+              {
+                "weight": 2,
+                "data": {
+                  "Name": "minecraft:stripped_warped_hyphae"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "min": 68,
+          "max": 88,
+          "block": {
+            "type": "minecraft:weighted_state_provider",
+            "entries": [
+              {
+                "weight": 2,
+                "data": {
+                  "Name": "minecraft:stripped_warped_hyphae"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "min": 89,
+          "max": 91,
+          "block": {
+            "type": "minecraft:weighted_state_provider",
+            "entries": [
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "minecraft:blue_terracotta"
+                }
+              },
+              {
+                "weight": 2,
+                "data": {
+                  "Name": "minecraft:stripped_warped_hyphae"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "min": 92,
+          "max": 92,
+          "block": {
+            "type": "minecraft:weighted_state_provider",
+            "entries": [
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "minecraft:blue_terracotta"
+                }
+              },
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "minecraft:stripped_warped_hyphae"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "min": 93,
+          "max": 93,
+          "block": {
+            "type": "minecraft:weighted_state_provider",
+            "entries": [
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "minecraft:blue_terracotta"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "min": 94,
+          "max": 94,
+          "block": {
+            "type": "minecraft:weighted_state_provider",
+            "entries": [
+              {
+                "weight": 5,
+                "data": {
+                  "Name": "minecraft:blue_terracotta"
+                }
+              },
+              {
+                "weight": 2,
+                "data": {
+                  "Name": "minecraft:obsidian"
+                }
+              },
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "descent_into_darkness:ice_magma"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "min": 95,
+          "max": 95,
+          "block": {
+            "type": "minecraft:weighted_state_provider",
+            "entries": [
+              {
+                "weight": 2,
+                "data": {
+                  "Name": "minecraft:obsidian"
+                }
+              },
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "descent_into_darkness:ice_magma"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "min": 96,
+          "max": 97,
+          "block": "descent_into_darkness:ice_magma"
+        },
+        {
+          "min": 98,
+          "max": 98,
+          "block": {
+            "type": "minecraft:weighted_state_provider",
+            "entries": [
+              {
+                "weight": 2,
+                "data": {
+                  "Name": "minecraft:obsidian"
+                }
+              },
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "descent_into_darkness:ice_magma"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "min": 99,
+          "max": 99,
+          "block": {
+            "type": "minecraft:weighted_state_provider",
+            "entries": [
+              {
+                "weight": 5,
+                "data": {
+                  "Name": "minecraft:blue_terracotta"
+                }
+              },
+              {
+                "weight": 2,
+                "data": {
+                  "Name": "minecraft:gray_terracotta"
+                }
+              },
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "descent_into_darkness:ice_magma"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "min": 100,
+          "max": 100,
+          "block": {
+            "type": "minecraft:weighted_state_provider",
+            "entries": [
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "minecraft:blue_terracotta"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "min": 101,
+          "max": 101,
+          "block": {
+            "type": "minecraft:weighted_state_provider",
+            "entries": [
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "minecraft:blue_terracotta"
+                }
+              },
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "minecraft:stripped_warped_hyphae"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "min": 102,
+          "max": 105,
+          "block": {
+            "type": "minecraft:weighted_state_provider",
+            "entries": [
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "minecraft:blue_terracotta"
+                }
+              },
+              {
+                "weight": 2,
+                "data": {
+                  "Name": "minecraft:stripped_warped_hyphae"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "min": 106,
+          "max": 126,
+          "block": "minecraft:stripped_warped_hyphae"
+        },
+        {
+          "min": 127,
+          "max": 129,
+          "block": {
+            "type": "minecraft:weighted_state_provider",
+            "entries": [
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "minecraft:blue_terracotta"
+                }
+              },
+              {
+                "weight": 2,
+                "data": {
+                  "Name": "minecraft:stripped_warped_hyphae"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "min": 130,
+          "max": 130,
+          "block": {
+            "type": "minecraft:weighted_state_provider",
+            "entries": [
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "minecraft:blue_terracotta"
+                }
+              },
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "minecraft:stripped_warped_hyphae"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "min": 131,
+          "max": 131,
+          "block": {
+            "type": "minecraft:weighted_state_provider",
+            "entries": [
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "minecraft:blue_terracotta"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "min": 132,
+          "max": 132,
+          "block": {
+            "type": "minecraft:weighted_state_provider",
+            "entries": [
+              {
+                "weight": 5,
+                "data": {
+                  "Name": "minecraft:blue_terracotta"
+                }
+              },
+              {
+                "weight": 2,
+                "data": {
+                  "Name": "minecraft:obsidian"
+                }
+              },
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "descent_into_darkness:ice_magma"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "min": 133,
+          "max": 133,
+          "block": {
+            "type": "minecraft:weighted_state_provider",
+            "entries": [
+              {
+                "weight": 2,
+                "data": {
+                  "Name": "minecraft:obsidian"
+                }
+              },
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "descent_into_darkness:ice_magma"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "min": 134,
+          "max": 135,
+          "block": "descent_into_darkness:ice_magma"
+        },
+        {
+          "min": 136,
+          "max": 136,
+          "block": {
+            "type": "minecraft:weighted_state_provider",
+            "entries": [
+              {
+                "weight": 2,
+                "data": {
+                  "Name": "minecraft:obsidian"
+                }
+              },
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "descent_into_darkness:ice_magma"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "min": 137,
+          "max": 137,
+          "block": {
+            "type": "minecraft:weighted_state_provider",
+            "entries": [
+              {
+                "weight": 5,
+                "data": {
+                  "Name": "minecraft:blue_terracotta"
+                }
+              },
+              {
+                "weight": 2,
+                "data": {
+                  "Name": "minecraft:gray_terracotta"
+                }
+              },
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "descent_into_darkness:ice_magma"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "min": 138,
+          "max": 138,
+          "block": {
+            "type": "minecraft:weighted_state_provider",
+            "entries": [
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "minecraft:blue_terracotta"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "min": 139,
+          "max": 139,
+          "block": {
+            "type": "minecraft:weighted_state_provider",
+            "entries": [
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "minecraft:blue_terracotta"
+                }
+              },
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "minecraft:stripped_warped_hyphae"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "min": 140,
+          "max": 143,
+          "block": {
+            "type": "minecraft:weighted_state_provider",
+            "entries": [
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "minecraft:blue_terracotta"
+                }
+              },
+              {
+                "weight": 2,
+                "data": {
+                  "Name": "minecraft:stripped_warped_hyphae"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "min": 144,
+          "max": 164,
+          "block": "minecraft:stripped_warped_hyphae"
+        },
+        {
+          "min": 165,
+          "max": 167,
+          "block": {
+            "type": "minecraft:weighted_state_provider",
+            "entries": [
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "minecraft:blue_terracotta"
+                }
+              },
+              {
+                "weight": 2,
+                "data": {
+                  "Name": "minecraft:stripped_warped_hyphae"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "min": 168,
+          "max": 168,
+          "block": {
+            "type": "minecraft:weighted_state_provider",
+            "entries": [
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "minecraft:blue_terracotta"
+                }
+              },
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "minecraft:stripped_warped_hyphae"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "min": 169,
+          "max": 169,
+          "block": {
+            "type": "minecraft:weighted_state_provider",
+            "entries": [
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "minecraft:blue_terracotta"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "min": 170,
+          "max": 170,
+          "block": {
+            "type": "minecraft:weighted_state_provider",
+            "entries": [
+              {
+                "weight": 5,
+                "data": {
+                  "Name": "minecraft:blue_terracotta"
+                }
+              },
+              {
+                "weight": 2,
+                "data": {
+                  "Name": "minecraft:obsidian"
+                }
+              },
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "descent_into_darkness:ice_magma"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "min": 171,
+          "max": 171,
+          "block": {
+            "type": "minecraft:weighted_state_provider",
+            "entries": [
+              {
+                "weight": 2,
+                "data": {
+                  "Name": "minecraft:obsidian"
+                }
+              },
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "descent_into_darkness:ice_magma"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "min": 172,
+          "max": 173,
+          "block": "descent_into_darkness:ice_magma"
+        },
+        {
+          "min": 174,
+          "max": 174,
+          "block": {
+            "type": "minecraft:weighted_state_provider",
+            "entries": [
+              {
+                "weight": 2,
+                "data": {
+                  "Name": "minecraft:obsidian"
+                }
+              },
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "descent_into_darkness:ice_magma"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "min": 175,
+          "max": 175,
+          "block": {
+            "type": "minecraft:weighted_state_provider",
+            "entries": [
+              {
+                "weight": 5,
+                "data": {
+                  "Name": "minecraft:blue_terracotta"
+                }
+              },
+              {
+                "weight": 2,
+                "data": {
+                  "Name": "minecraft:gray_terracotta"
+                }
+              },
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "descent_into_darkness:ice_magma"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "min": 176,
+          "max": 176,
+          "block": {
+            "type": "minecraft:weighted_state_provider",
+            "entries": [
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "minecraft:blue_terracotta"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "min": 177,
+          "max": 177,
+          "block": {
+            "type": "minecraft:weighted_state_provider",
+            "entries": [
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "minecraft:blue_terracotta"
+                }
+              },
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "minecraft:stripped_warped_hyphae"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "min": 178,
+          "max": 181,
+          "block": {
+            "type": "minecraft:weighted_state_provider",
+            "entries": [
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "minecraft:blue_terracotta"
+                }
+              },
+              {
+                "weight": 2,
+                "data": {
+                  "Name": "minecraft:stripped_warped_hyphae"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "min": 182,
+          "max": 202,
+          "block": "minecraft:stripped_warped_hyphae"
+        },
+        {
+          "min": 203,
+          "max": 205,
+          "block": {
+            "type": "minecraft:weighted_state_provider",
+            "entries": [
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "minecraft:blue_terracotta"
+                }
+              },
+              {
+                "weight": 2,
+                "data": {
+                  "Name": "minecraft:stripped_warped_hyphae"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "min": 206,
+          "max": 206,
+          "block": {
+            "type": "minecraft:weighted_state_provider",
+            "entries": [
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "minecraft:blue_terracotta"
+                }
+              },
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "minecraft:stripped_warped_hyphae"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "min": 207,
+          "max": 207,
+          "block": {
+            "type": "minecraft:weighted_state_provider",
+            "entries": [
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "minecraft:blue_terracotta"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "min": 208,
+          "max": 208,
+          "block": {
+            "type": "minecraft:weighted_state_provider",
+            "entries": [
+              {
+                "weight": 5,
+                "data": {
+                  "Name": "minecraft:blue_terracotta"
+                }
+              },
+              {
+                "weight": 2,
+                "data": {
+                  "Name": "minecraft:obsidian"
+                }
+              },
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "descent_into_darkness:ice_magma"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "min": 209,
+          "max": 209,
+          "block": {
+            "type": "minecraft:weighted_state_provider",
+            "entries": [
+              {
+                "weight": 2,
+                "data": {
+                  "Name": "minecraft:obsidian"
+                }
+              },
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "descent_into_darkness:ice_magma"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "min": 210,
+          "max": 211,
+          "block": "descent_into_darkness:ice_magma"
+        },
+        {
+          "min": 212,
+          "max": 212,
+          "block": {
+            "type": "minecraft:weighted_state_provider",
+            "entries": [
+              {
+                "weight": 2,
+                "data": {
+                  "Name": "minecraft:obsidian"
+                }
+              },
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "descent_into_darkness:ice_magma"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "min": 213,
+          "max": 213,
+          "block": {
+            "type": "minecraft:weighted_state_provider",
+            "entries": [
+              {
+                "weight": 5,
+                "data": {
+                  "Name": "minecraft:blue_terracotta"
+                }
+              },
+              {
+                "weight": 2,
+                "data": {
+                  "Name": "minecraft:gray_terracotta"
+                }
+              },
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "descent_into_darkness:ice_magma"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "min": 214,
+          "max": 214,
+          "block": {
+            "type": "minecraft:weighted_state_provider",
+            "entries": [
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "minecraft:blue_terracotta"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "min": 215,
+          "max": 215,
+          "block": {
+            "type": "minecraft:weighted_state_provider",
+            "entries": [
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "minecraft:blue_terracotta"
+                }
+              },
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "minecraft:stripped_warped_hyphae"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "min": 216,
+          "max": 219,
+          "block": {
+            "type": "minecraft:weighted_state_provider",
+            "entries": [
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "minecraft:blue_terracotta"
+                }
+              },
+              {
+                "weight": 2,
+                "data": {
+                  "Name": "minecraft:stripped_warped_hyphae"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "min": 220,
+          "max": 255,
+          "block": "minecraft:stripped_warped_hyphae"
+        }
+      ]
+    },
+    {
+      "type": "descent_into_darkness:replace_floor",
+      "old": "minecraft:stripped_warped_hyphae",
+      "new": "minecraft:light_blue_concrete_powder"
+    },
+    {
+      "type": "descent_into_darkness:replace_ceiling",
+      "old": "minecraft:blue_terracotta",
+      "new": "minecraft:stripped_warped_hyphae"
+    }
+  ],
+  "base_block": "stripped_warped_hyphae",
+  "air_block": "air",
+  "structures": {
+    "mpatch1": {
+      "type": "descent_into_darkness:vine_patch",
+      "edges": [
+        "ceiling"
+      ],
+      "count": 1,
+      "spread_x": 16,
+      "spread_z": 16,
+      "vine": "minecraft:twisting_vines_plant",
+      "last_block": {
+        "type": "minecraft:simple_state_provider",
+        "state": {
+          "Name": "twisting_vines",
+          "Properties": {
+            "age": 0
+          }
+        }
+      },
+      "can_place_on": "minecraft:red_concrete_powder",
+      "height": [
+        3,
+        7
+      ]
+    },
+    "mpatch": {
+      "type": "descent_into_darkness:patch",
+      "edges": [
+        "floor"
+      ],
+      "count": 1,
+      "spread_x": 16,
+      "spread_z": 16,
+      "can_place_on": [
+        "minecraft:light_blue_concrete_powder"
+      ],
+      "block": "minecraft:warped_fungus"
+    },
+    "mpatch2": {
+      "type": "descent_into_darkness:patch",
+      "edges": [
+        "floor"
+      ],
+      "count": 1,
+      "spread_x": 16,
+      "spread_z": 16,
+      "can_place_on": [
+        "minecraft:light_blue_concrete_powder"
+      ],
+      "block": "minecraft:warped_roots"
+    },
+    "tree": {
+      "type": "descent_into_darkness:tree",
+      "edges": "floor",
+      "can_place_on": "minecraft:light_blue_concrete_powder",
+      "dirt": {
+        "type": "minecraft:simple_state_provider",
+        "state": {
+          "Name": "minecraft:warped_stem",
+          "Properties": {
+            "axis": "y"
+          }
+        }
+      },
+      "leaf": "minecraft:warped_wart_block",
+      "log": "minecraft:warped_stem",
+      "hanging_vine": "minecraft:warped_wart_block",
+      "hanging_vine_chance": 0.5,
+      "height": 8,
+      "leaf_height": 4
+    },
+    "lavafall": {
+      "type": "descent_into_darkness:waterfall",
+      "fluid_type": "block",
+      "block": "basalt",
+      "edges": [
+        "wall",
+        "ceiling"
+      ],
+      "can_place_on": [
+        "minecraft:stripped_warped_hyphae",
+        "minecraft:light_blue_concrete_powder"
+      ],
+      "chance": 0.1
+    }
+  }
+}
