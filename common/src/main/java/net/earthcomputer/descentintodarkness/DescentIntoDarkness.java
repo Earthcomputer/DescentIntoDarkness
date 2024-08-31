@@ -12,6 +12,9 @@ import net.minecraft.resources.ResourceLocation;
 public final class DescentIntoDarkness {
     public static final String MOD_ID = "descent_into_darkness";
 
+    private DescentIntoDarkness() {
+    }
+
     public static void init() {
         DIDRegistries.register();
         DIDResourceLoader.initialLoad();

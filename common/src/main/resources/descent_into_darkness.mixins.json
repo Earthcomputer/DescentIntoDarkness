@@ -6,7 +6,8 @@
   "client": [
   ],
   "mixins": [
-    "RegistryDataLoaderMixin"
+    "RegistryDataLoaderMixin",
+    "ReloadCommandMixin"
   ],
   "injectors": {
     "defaultRequire": 1
