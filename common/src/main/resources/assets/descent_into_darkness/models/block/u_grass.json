@@ -1,0 +1,7 @@
+{
+  "parent": "block/tinted_cross",
+  "nobility_transparent": true,
+  "textures": {
+    "cross": "descent_into_darkness:block/u_grass"
+  }
+}

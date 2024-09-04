@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "descent_into_darkness:item/bee_egg"
+  }
+}

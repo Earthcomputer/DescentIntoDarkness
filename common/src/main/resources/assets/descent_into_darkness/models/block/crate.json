@@ -1,0 +1,8 @@
+{
+  "parent": "block/cube_bottom_top",
+  "textures": {
+    "bottom": "descent_into_darkness:block/crate_bottom",
+    "top": "descent_into_darkness:block/crate_bottom",
+    "side": "descent_into_darkness:block/crate_side"
+  }
+}

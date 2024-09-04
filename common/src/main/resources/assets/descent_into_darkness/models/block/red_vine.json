@@ -1,0 +1,7 @@
+{
+  "parent": "block/cross",
+  "nobility_transparent": true,
+  "textures": {
+    "cross": "descent_into_darkness:block/red_vine"
+  }
+}
