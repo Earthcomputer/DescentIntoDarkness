@@ -1,3 +1,4 @@
 {
-  "inherit_properties": "minecraft:polished_blackstone_brick_slab"
+  "inherit_properties": "minecraft:polished_blackstone_brick_slab",
+  "has_item": true
 }

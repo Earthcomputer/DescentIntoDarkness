@@ -1,3 +1,4 @@
 {
-  "inherit_properties": "minecraft:dark_oak_slab"
+  "inherit_properties": "minecraft:dark_oak_slab",
+  "has_item": true
 }

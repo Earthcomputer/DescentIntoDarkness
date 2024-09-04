@@ -1,3 +1,4 @@
 {
-  "inherit_properties": "minecraft:andesite_slab"
+  "inherit_properties": "minecraft:andesite_slab",
+  "has_item": true
 }

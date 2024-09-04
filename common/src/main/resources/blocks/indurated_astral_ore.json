@@ -1,3 +1,4 @@
 {
-  "inherit_properties": "minecraft:jigsaw"
+  "inherit_properties": "minecraft:jigsaw",
+  "has_item": true
 }

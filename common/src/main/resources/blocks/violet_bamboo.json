@@ -1,3 +1,4 @@
 {
-  "inherit_properties": "minecraft:bamboo"
+  "inherit_properties": "minecraft:bamboo",
+  "has_item": true
 }
