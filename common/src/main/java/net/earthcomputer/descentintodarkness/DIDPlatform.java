@@ -5,7 +5,9 @@ import dev.architectury.injectables.annotations.ExpectPlatform;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.server.MinecraftServer;
+import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.level.Level;
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 public final class DIDPlatform {
@@ -19,5 +21,12 @@ public final class DIDPlatform {
 
     @ExpectPlatform
     public static <T> void registerDynamicRegistry(ResourceKey<? extends Registry<T>> id, Codec<T> codec, @Nullable Codec<T> networkCodec) {
+    }
+
+    @ExpectPlatform
+    @NotNull
+    public static CreativeModeTab.Builder creativeTabBuilder() {
+        //noinspection DataFlowIssue
+        return null;
     }
 }

@@ -9,6 +9,7 @@ import dev.architectury.platform.Mod;
 import dev.architectury.platform.Platform;
 import net.earthcomputer.descentintodarkness.DescentIntoDarkness;
 import net.earthcomputer.descentintodarkness.entity.DIDEntities;
+import net.earthcomputer.descentintodarkness.item.DIDItems;
 import org.slf4j.Logger;
 
 import java.io.BufferedReader;
@@ -36,12 +37,14 @@ public final class DIDResourceLoader {
     }
 
     public static void reload() {
+        DIDSounds.reload();
         DIDBlocks.reload();
         DIDItems.reload();
         DIDEntities.reload();
     }
 
     private static void register() {
+        DIDSounds.register();
         DIDBlocks.register();
         DIDItems.register();
         DIDEntities.register();
@@ -107,15 +110,25 @@ public final class DIDResourceLoader {
         return resourcesDetected[0];
     }
 
+    public static <T extends RestartRequiringEntry<T>> void checkRequiresRestart(Map<String, T> existingEntries, Map<String, T> newEntries) {
+        if (!existingEntries.keySet().equals(newEntries.keySet())) {
+            restartRequired = true;
+        } else if (existingEntries.entrySet().stream().anyMatch(entry -> entry.getValue().requiresRestart(newEntries.get(entry.getKey())))) {
+            restartRequired = true;
+        }
+    }
+
     public static boolean areDevelopmentResourcesDetected() {
         return developmentResourcesDetected;
     }
 
-    public static void setRestartRequired() {
-        restartRequired = true;
-    }
-
     public static boolean isRestartRequired() {
         return restartRequired;
+    }
+
+    public interface RestartRequiringEntry<T extends RestartRequiringEntry<T>> {
+        default boolean requiresRestart(T other) {
+            return !this.equals(other);
+        }
     }
 }

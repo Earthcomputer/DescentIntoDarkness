@@ -1,1 +1,3 @@
-{}
+{
+  "inherit_properties": "minecraft:stone_brick_slab"
+}

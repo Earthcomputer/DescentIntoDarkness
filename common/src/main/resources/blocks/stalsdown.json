@@ -1,1 +1,5 @@
-{}
+{
+  "inherit_properties": "minecraft:end_stone_brick_wall",
+  "collision": false,
+  "occlusion": false
+}

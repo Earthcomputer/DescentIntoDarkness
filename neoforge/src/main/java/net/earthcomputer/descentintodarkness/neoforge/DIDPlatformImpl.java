@@ -8,6 +8,7 @@ import net.minecraft.core.Registry;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.server.MinecraftServer;
+import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.dimension.BuiltinDimensionTypes;
 import net.minecraft.world.level.dimension.DimensionType;
@@ -39,6 +40,10 @@ public final class DIDPlatformImpl {
             throw new IllegalStateException("Too late to register a dynamic registry");
         }
         dynamicRegistries.add(new DynamicRegistry<>(id, codec, networkCodec));
+    }
+
+    public static CreativeModeTab.Builder creativeTabBuilder() {
+        return CreativeModeTab.builder();
     }
 
     @SubscribeEvent

@@ -1,1 +1,5 @@
-{}
+{
+  "inherit_properties": "minecraft:prismarine_wall",
+  "collision": false,
+  "occlusion": false
+}

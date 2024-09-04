@@ -1,1 +1,5 @@
-{}
+{
+  "inherit_properties": "minecraft:nether_brick_wall",
+  "collision": false,
+  "occlusion": false
+}

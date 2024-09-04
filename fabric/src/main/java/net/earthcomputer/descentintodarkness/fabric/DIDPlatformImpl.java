@@ -2,9 +2,11 @@ package net.earthcomputer.descentintodarkness.fabric;
 
 import com.mojang.serialization.Codec;
 import net.fabricmc.fabric.api.event.registry.DynamicRegistries;
+import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.server.MinecraftServer;
+import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.dimension.BuiltinDimensionTypes;
 import org.jetbrains.annotations.Nullable;
@@ -39,5 +41,9 @@ public final class DIDPlatformImpl {
         } else {
             DynamicRegistries.register(id, codec);
         }
+    }
+
+    public static CreativeModeTab.Builder creativeTabBuilder() {
+        return FabricItemGroup.builder();
     }
 }

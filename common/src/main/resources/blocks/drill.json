@@ -1,1 +1,5 @@
-{}
+{
+  "inherit_properties": "minecraft:blackstone_wall",
+  "collision": false,
+  "occlusion": false
+}

@@ -1,1 +1,4 @@
-{}
+{
+  "inherit_properties": "minecraft:campfire",
+  "light_level": 15
+}

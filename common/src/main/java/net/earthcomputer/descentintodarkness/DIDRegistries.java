@@ -6,6 +6,7 @@ import net.earthcomputer.descentintodarkness.blockstateprovider.DIDBlockStatePro
 import net.earthcomputer.descentintodarkness.generator.painter.PainterStepType;
 import net.earthcomputer.descentintodarkness.generator.room.RoomType;
 import net.earthcomputer.descentintodarkness.generator.structure.StructureType;
+import net.earthcomputer.descentintodarkness.item.ItemCreatorType;
 import net.earthcomputer.descentintodarkness.style.CaveStyle;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -18,12 +19,17 @@ public final class DIDRegistries {
     public static final RegistrarManager REGISTRAR_MANAGER = RegistrarManager.get(DescentIntoDarkness.MOD_ID);
 
     public static final ResourceKey<Registry<CaveStyle>> CAVE_STYLE = ResourceKey.createRegistryKey(DescentIntoDarkness.id("cave_style"));
+    public static final ResourceKey<Registry<ItemCreatorType<?>>> ITEM_CREATOR_TYPE = ResourceKey.createRegistryKey(DescentIntoDarkness.id("item_creator_type"));
     public static final ResourceKey<Registry<RoomType<?>>> ROOM_TYPE = ResourceKey.createRegistryKey(DescentIntoDarkness.id("room_type"));
     public static final ResourceKey<Registry<PainterStepType<?>>> PAINTER_STEP_TYPE = ResourceKey.createRegistryKey(DescentIntoDarkness.id("painter_step_type"));
     public static final ResourceKey<Registry<StructureType<?>>> STRUCTURE_TYPE = ResourceKey.createRegistryKey(DescentIntoDarkness.id("structure_type"));
 
     public static Registry<RoomType<?>> roomType() {
         return getBuiltInRegistry(ROOM_TYPE);
+    }
+
+    public static Registry<ItemCreatorType<?>> itemCreatorType() {
+        return getBuiltInRegistry(ITEM_CREATOR_TYPE);
     }
 
     public static Registry<PainterStepType<?>> painterStepType() {
@@ -44,6 +50,9 @@ public final class DIDRegistries {
 
         REGISTRAR_MANAGER.<RoomType<?>>builder(ROOM_TYPE.location()).build();
         RoomType.register();
+
+        REGISTRAR_MANAGER.<ItemCreatorType<?>>builder(ITEM_CREATOR_TYPE.location()).build();
+        ItemCreatorType.register();
 
         REGISTRAR_MANAGER.<PainterStepType<?>>builder(PAINTER_STEP_TYPE.location()).build();
         PainterStepType.register();
