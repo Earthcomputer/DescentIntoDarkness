@@ -5,8 +5,10 @@ import net.earthcomputer.descentintodarkness.DIDPlatform;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.world.level.Level;
+import org.apache.commons.io.FileUtils;
 import org.jetbrains.annotations.Nullable;
 
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -44,6 +46,11 @@ public final class CaveTrackerManager {
             throw new IllegalStateException("Duplicate cave tracker: " + levelKey);
         }
         DIDPlatform.registerCustomDimension(server, levelKey);
+
+        try {
+            FileUtils.forceDeleteOnExit(server.storageSource.getDimensionPath(levelKey).toFile());
+        } catch (IOException ignore) {
+        }
         return tracker;
     }
 

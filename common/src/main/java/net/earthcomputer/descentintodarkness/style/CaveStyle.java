@@ -66,19 +66,14 @@ import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-public record CaveStyle(
-    MetaProperties meta,
-    BlockProperties block,
-    SpawningProperties spawning,
-    GenProperties gen
-) {
+public final class CaveStyle {
     public static final ResourceKey<CaveStyle> DEFAULT = ResourceKey.create(DIDRegistries.CAVE_STYLE, DescentIntoDarkness.id("default"));
 
     public static final Codec<CaveStyle> CODEC = RecordCodecBuilder.<CaveStyle>create(instance -> instance.group(
-        MetaProperties.CODEC.forGetter(CaveStyle::meta),
-        BlockProperties.CODEC.forGetter(CaveStyle::block),
-        SpawningProperties.CODEC.forGetter(CaveStyle::spawning),
-        GenProperties.CODEC.forGetter(CaveStyle::gen)
+        MetaProperties.CODEC.forGetter(style -> style.meta),
+        BlockProperties.CODEC.forGetter(style -> style.block),
+        SpawningProperties.CODEC.forGetter(style -> style.spawning),
+        GenProperties.CODEC.forGetter(style -> style.gen)
     ).apply(instance, CaveStyle::new)).validate(style -> {
         if (!style.meta.isAbstract) {
             if (style.gen.grammar.isEmpty()) {
@@ -100,12 +95,24 @@ public record CaveStyle(
         return DataResult.success(style);
     });
 
-    public static final Codec<CaveStyle> NETWORK_CODEC = Codec.unit(new CaveStyle(
+    public static final Codec<CaveStyle> NETWORK_CODEC = Codec.unit(() -> new CaveStyle(
         new MetaProperties(Optional.empty(), List.of(), true, 0),
         new BlockProperties(BlockTypeRange.simpleInt(BlockStateProvider.simple(Blocks.AIR)), Map.of(), Map.of(), Blocks.STONE.defaultBlockState(), BlockPredicate.not(BlockPredicate.alwaysTrue()), HolderSet.empty()),
         new SpawningProperties(Map.of(), Map.of(), 0, 0, 0, 0, 0),
         new GenProperties(ConstantInt.of(1), ConstantInt.of(1), 0, true, ConstantInt.of(0), ConstantInt.of(0), Optional.empty(), false, Map.of(), Optional.empty(), Optional.empty(), true, List.of(), Map.of(), Map.of())
     ));
+
+    private final MetaProperties meta;
+    private final BlockProperties block;
+    private final SpawningProperties spawning;
+    private final GenProperties gen;
+
+    private CaveStyle(MetaProperties meta, BlockProperties block, SpawningProperties spawning, GenProperties gen) {
+        this.meta = meta;
+        this.block = block;
+        this.spawning = spawning;
+        this.gen = gen;
+    }
 
     public static void loadCaveStyles(
         ResourceManager resourceManager,

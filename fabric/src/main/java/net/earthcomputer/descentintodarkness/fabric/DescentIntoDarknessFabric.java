@@ -8,5 +8,6 @@ public final class DescentIntoDarknessFabric implements ModInitializer {
     @Override
     public void onInitialize() {
         DescentIntoDarkness.init();
+        DescentIntoDarkness.postRegistryInit();
     }
 }

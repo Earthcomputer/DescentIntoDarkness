@@ -22,7 +22,7 @@ public final class DIDPlatformImpl {
 
     public static void registerCustomDimension(MinecraftServer server, ResourceKey<Level> id) {
         RuntimeWorldHandle handle = Fantasy.get(server)
-            .getOrOpenPersistentWorld(id.location(), new RuntimeWorldConfig()
+            .openTemporaryWorld(id.location(), new RuntimeWorldConfig()
                 .setDimensionType(BuiltinDimensionTypes.OVERWORLD)
                 .setGenerator(server.overworld().getChunkSource().getGenerator()));
         handles.put(id, handle);

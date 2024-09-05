@@ -4,11 +4,10 @@ import com.mojang.datafixers.util.Either;
 import com.mojang.logging.LogUtils;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
-import net.earthcomputer.descentintodarkness.DIDRegistries;
 import net.earthcomputer.descentintodarkness.DescentIntoDarkness;
 import net.earthcomputer.descentintodarkness.style.DIDCodecs;
+import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.util.ExtraCodecs;
@@ -89,7 +88,7 @@ public final class DIDBlocks {
             entry.explosionResistance.ifPresent(explosionResistance -> properties[0].explosionResistance(explosionResistance));
             VoxelShape collisionShape = entry.collisionShape.orElse(entry.shape);
             VoxelShape outlineShape = entry.outlineShape.orElse(entry.shape);
-            DIDRegistries.REGISTRAR_MANAGER.get(Registries.BLOCK).register(DescentIntoDarkness.id(id), () -> new DIDBlock(properties[0], entry.shape, collisionShape, outlineShape));
+            Registry.register(BuiltInRegistries.BLOCK, DescentIntoDarkness.id(id), new DIDBlock(properties[0], entry.shape, collisionShape, outlineShape));
         });
     }
 

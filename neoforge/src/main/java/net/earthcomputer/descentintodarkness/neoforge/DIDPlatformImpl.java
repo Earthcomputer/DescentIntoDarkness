@@ -1,5 +1,6 @@
 package net.earthcomputer.descentintodarkness.neoforge;
 
+import com.mojang.logging.LogUtils;
 import com.mojang.serialization.Codec;
 import net.commoble.infiniverse.api.InfiniverseAPI;
 import net.earthcomputer.descentintodarkness.DescentIntoDarkness;
@@ -17,12 +18,13 @@ import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.registries.DataPackRegistryEvent;
 import org.jetbrains.annotations.Nullable;
+import org.slf4j.Logger;
 
 import java.util.ArrayList;
 import java.util.List;
 
-@EventBusSubscriber(bus = EventBusSubscriber.Bus.MOD, modid = DescentIntoDarkness.MOD_ID)
 public final class DIDPlatformImpl {
+    private static final Logger LOGGER = LogUtils.getLogger();
     private static List<DynamicRegistry<?>> dynamicRegistries = new ArrayList<>();
 
     public static void registerCustomDimension(MinecraftServer server, ResourceKey<Level> id) {
@@ -46,17 +48,20 @@ public final class DIDPlatformImpl {
         return CreativeModeTab.builder();
     }
 
-    @SubscribeEvent
-    public static void registerDynamicRegistries(DataPackRegistryEvent.NewRegistry event) {
-        for (DynamicRegistry<?> registry : dynamicRegistries) {
-            registry.register(event);
-        }
-        dynamicRegistries = null;
-    }
-
     private record DynamicRegistry<T>(ResourceKey<Registry<T>> id, Codec<T> codec, @Nullable Codec<T> networkCodec) {
         void register(DataPackRegistryEvent.NewRegistry event) {
             event.dataPackRegistry(id, codec, networkCodec);
+        }
+    }
+
+    @EventBusSubscriber(bus = EventBusSubscriber.Bus.MOD, modid = DescentIntoDarkness.MOD_ID)
+    private static class ModBusSubscriber {
+        @SubscribeEvent
+        public static void registerDynamicRegistries(DataPackRegistryEvent.NewRegistry event) {
+            for (DynamicRegistry<?> registry : dynamicRegistries) {
+                registry.register(event);
+            }
+            dynamicRegistries = null;
         }
     }
 }

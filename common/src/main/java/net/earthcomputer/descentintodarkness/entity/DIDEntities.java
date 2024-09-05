@@ -2,10 +2,11 @@ package net.earthcomputer.descentintodarkness.entity;
 
 import com.mojang.logging.LogUtils;
 import com.mojang.serialization.Codec;
-import net.earthcomputer.descentintodarkness.DIDRegistries;
 import net.earthcomputer.descentintodarkness.DescentIntoDarkness;
 import net.earthcomputer.descentintodarkness.resources.DIDResourceLoader;
-import net.minecraft.core.registries.Registries;
+import net.minecraft.core.Registry;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
 import org.slf4j.Logger;
@@ -35,8 +36,9 @@ public final class DIDEntities {
     }
 
     public static void register() {
-        entries.forEach((id, entry) -> {
-            DIDRegistries.REGISTRAR_MANAGER.get(Registries.ENTITY_TYPE).register(DescentIntoDarkness.id(id), () -> EntityType.Builder.of(DIDEntity::new, MobCategory.MONSTER).build(id));
+        entries.forEach((name, entry) -> {
+            ResourceLocation id = DescentIntoDarkness.id(name);
+            Registry.register(BuiltInRegistries.ENTITY_TYPE, id, EntityType.Builder.of(DIDEntity::new, MobCategory.MONSTER).build(id.toString()));
         });
     }
 
