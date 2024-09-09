@@ -7,7 +7,7 @@
       "new": "minecraft:black_concrete_powder"
     }
   ],
-  "nether": true,
+  "dimension": "minecraft:the_nether",
   "air_block": [
     {
       "min": 0,

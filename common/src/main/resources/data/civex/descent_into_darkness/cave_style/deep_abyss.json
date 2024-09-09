@@ -1,6 +1,6 @@
 {
   "base_block": "minecraft:blackstone",
-  "nether": true,
+  "dimension": "minecraft:the_nether",
   "biome": "civex:deep_abyss",
   "air_block": "water",
   "inherit": [

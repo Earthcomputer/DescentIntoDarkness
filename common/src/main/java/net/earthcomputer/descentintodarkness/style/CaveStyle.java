@@ -14,6 +14,7 @@ import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.earthcomputer.descentintodarkness.DIDConstants;
 import net.earthcomputer.descentintodarkness.DIDRegistries;
 import net.earthcomputer.descentintodarkness.DescentIntoDarkness;
+import net.earthcomputer.descentintodarkness.generator.CaveGenContext;
 import net.earthcomputer.descentintodarkness.generator.Centroid;
 import net.earthcomputer.descentintodarkness.generator.GrammarGraph;
 import net.earthcomputer.descentintodarkness.generator.painter.PainterStep;
@@ -44,11 +45,12 @@ import net.minecraft.util.valueproviders.ConstantInt;
 import net.minecraft.util.valueproviders.IntProvider;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.biome.Biomes;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.dimension.BuiltinDimensionTypes;
+import net.minecraft.world.level.dimension.DimensionType;
 import net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate;
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
 
@@ -99,7 +101,7 @@ public final class CaveStyle {
         new MetaProperties(Optional.empty(), List.of(), true, 0),
         new BlockProperties(BlockTypeRange.simpleInt(BlockStateProvider.simple(Blocks.AIR)), Map.of(), Map.of(), Blocks.STONE.defaultBlockState(), BlockPredicate.not(BlockPredicate.alwaysTrue()), HolderSet.empty()),
         new SpawningProperties(Map.of(), Map.of(), 0, 0, 0, 0, 0),
-        new GenProperties(ConstantInt.of(1), ConstantInt.of(1), 0, true, ConstantInt.of(0), ConstantInt.of(0), Optional.empty(), false, Map.of(), Optional.empty(), Optional.empty(), true, List.of(), Map.of(), Map.of())
+        new GenProperties(ConstantInt.of(1), ConstantInt.of(1), 0, true, ConstantInt.of(0), ConstantInt.of(0), Optional.empty(), Optional.empty(), Map.of(), Optional.empty(), Optional.empty(), true, List.of(), Map.of(), Map.of())
     ));
 
     private final MetaProperties meta;
@@ -269,7 +271,7 @@ public final class CaveStyle {
                             if (!(ourVal instanceof JsonObject ourObj)) {
                                 throw new IllegalStateException("Cannot merge mismatching types under key \"" + key + "\"");
                             }
-                            JsonObject ourCopy = parentObj.deepCopy();
+                            JsonObject ourCopy = ourObj.deepCopy();
                             ourObj.asMap().clear();
                             ourObj.asMap().putAll(parentObj.asMap());
                             ourObj.asMap().putAll(ourCopy.asMap());
@@ -354,8 +356,8 @@ public final class CaveStyle {
         return block.baseBlock;
     }
 
-    public boolean isTransparentBlock(WorldGenLevel level, BlockPos pos) {
-        return block.transparentBlocks.test(level, pos);
+    public boolean isTransparentBlock(CaveGenContext ctx, BlockPos pos) {
+        return block.transparentBlocks.test(ctx.asLevel(), pos);
     }
 
     public HolderSet<Item> cannotPlace() {
@@ -418,11 +420,11 @@ public final class CaveStyle {
         return gen.biome.orElseGet(() -> registryAccess.registryOrThrow(Registries.BIOME).getHolderOrThrow(Biomes.OCEAN));
     }
 
-    public boolean nether() {
-        return gen.nether;
+    public Holder<DimensionType> dimension(RegistryAccess registryAccess) {
+        return gen.dimension.orElseGet(() -> registryAccess.registryOrThrow(Registries.DIMENSION_TYPE).getHolderOrThrow(BuiltinDimensionTypes.OVERWORLD));
     }
 
-    public Map<Character, Room> rooms() {
+    public Map<Character, Room<?>> rooms() {
         return gen.rooms;
     }
 
@@ -518,8 +520,8 @@ public final class CaveStyle {
         IntProvider centroidVaryHorizontal,
         IntProvider centroidVaryVertical,
         Optional<Holder<Biome>> biome,
-        boolean nether,
-        Map<Character, Room> rooms,
+        Optional<Holder<DimensionType>> dimension,
+        Map<Character, Room<?>> rooms,
         Optional<GrammarGraph> grammar,
         Optional<Character> continuationSymbol,
         boolean truncateCaves,
@@ -535,7 +537,7 @@ public final class CaveStyle {
             DIDCodecs.INT_PROVIDER.optionalFieldOf("centroid_vary_horizontal", UniformInt.of(-1, 1)).forGetter(GenProperties::centroidVaryHorizontal),
             DIDCodecs.INT_PROVIDER.optionalFieldOf("centroid_vary_vertical", ConstantInt.of(-1)).forGetter(GenProperties::centroidVaryVertical),
             Biome.CODEC.optionalFieldOf("biome").forGetter(GenProperties::biome),
-            Codec.BOOL.optionalFieldOf("nether", false).forGetter(GenProperties::nether),
+            DimensionType.CODEC.optionalFieldOf("dimension").forGetter(GenProperties::dimension),
             Codec.unboundedMap(DIDCodecs.CHAR, Room.CODEC).optionalFieldOf("rooms", Map.of()).forGetter(GenProperties::rooms),
             GrammarGraph.CODEC.optionalFieldOf("grammar").forGetter(GenProperties::grammar),
             Codec.either(DIDCodecs.CHAR, Codec.STRING.validate(str -> str.isEmpty() ? DataResult.success(str) : DataResult.error(() -> "String must be empty for no continuation character"))).<Optional<Character>>xmap(

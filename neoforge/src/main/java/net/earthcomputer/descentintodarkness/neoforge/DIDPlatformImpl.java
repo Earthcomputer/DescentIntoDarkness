@@ -6,12 +6,11 @@ import net.commoble.infiniverse.api.InfiniverseAPI;
 import net.earthcomputer.descentintodarkness.DescentIntoDarkness;
 import net.minecraft.core.Holder;
 import net.minecraft.core.Registry;
-import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.dimension.BuiltinDimensionTypes;
+import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.dimension.DimensionType;
 import net.minecraft.world.level.dimension.LevelStem;
 import net.neoforged.bus.api.SubscribeEvent;
@@ -27,10 +26,8 @@ public final class DIDPlatformImpl {
     private static final Logger LOGGER = LogUtils.getLogger();
     private static List<DynamicRegistry<?>> dynamicRegistries = new ArrayList<>();
 
-    public static void registerCustomDimension(MinecraftServer server, ResourceKey<Level> id) {
-        Registry<DimensionType> dimTypeRegistry = server.registryAccess().registryOrThrow(Registries.DIMENSION_TYPE);
-        Holder<DimensionType> overworldDimType = dimTypeRegistry.getHolderOrThrow(BuiltinDimensionTypes.OVERWORLD);
-        InfiniverseAPI.get().getOrCreateLevel(server, id, () -> new LevelStem(overworldDimType, server.overworld().getChunkSource().getGenerator()));
+    public static void registerCustomDimension(MinecraftServer server, ResourceKey<Level> id, Holder<DimensionType> dimensionType, ChunkGenerator chunkGenerator) {
+        InfiniverseAPI.get().getOrCreateLevel(server, id, () -> new LevelStem(dimensionType, chunkGenerator));
     }
 
     public static void deleteCustomDimension(MinecraftServer server, ResourceKey<Level> id) {

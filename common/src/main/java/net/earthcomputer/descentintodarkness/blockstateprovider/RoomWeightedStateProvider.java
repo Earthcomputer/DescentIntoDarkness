@@ -2,6 +2,8 @@ package net.earthcomputer.descentintodarkness.blockstateprovider;
 
 import com.mojang.serialization.DataResult;
 import com.mojang.serialization.MapCodec;
+import net.earthcomputer.descentintodarkness.generator.CaveGenContext;
+import net.earthcomputer.descentintodarkness.generator.Centroid;
 import net.minecraft.core.BlockPos;
 import net.minecraft.util.RandomSource;
 import net.minecraft.util.random.SimpleWeightedRandomList;
@@ -31,8 +33,14 @@ public final class RoomWeightedStateProvider extends BlockStateProvider {
     }
 
     @Override
-    public BlockState getState(RandomSource randomSource, BlockPos blockPos) {
-        // TODO
-        return null;
+    public BlockState getState(RandomSource rand, BlockPos pos) {
+        CaveGenContext ctx = CaveGenContext.current();
+        Centroid centroid = CaveGenContext.currentCentroid();
+        if (ctx == null || centroid == null) {
+            return weightedList.getRandomValue(rand).orElseThrow();
+        }
+
+        RandomSource centroidRand = RandomSource.create(ctx.caveSeed + 133742069L * centroid.roomIndex);
+        return weightedList.getRandomValue(centroidRand).orElseThrow();
     }
 }

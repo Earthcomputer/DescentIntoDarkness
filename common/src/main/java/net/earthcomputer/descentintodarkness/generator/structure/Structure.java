@@ -6,7 +6,12 @@ import com.mojang.serialization.DataResult;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.earthcomputer.descentintodarkness.DIDRegistries;
+import net.earthcomputer.descentintodarkness.generator.CaveGenContext;
+import net.earthcomputer.descentintodarkness.generator.Centroid;
+import net.earthcomputer.descentintodarkness.generator.TagList;
+import net.earthcomputer.descentintodarkness.generator.Transform;
 import net.earthcomputer.descentintodarkness.style.DIDCodecs;
+import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate;
 
@@ -28,8 +33,7 @@ public abstract class Structure {
     private final boolean shouldTransformBlocks;
     private final boolean shouldTransformPosition;
     private final boolean randomRotation;
-    private final List<String> tags;
-    private final boolean tagsInverted;
+    private final TagList tagList;
 
     protected Structure(StructureProperties props) {
         this.edges = props.edges.isEmpty() ? getDefaultEdges() : props.edges;
@@ -42,8 +46,21 @@ public abstract class Structure {
         this.shouldTransformBlocks = props.shouldTransformBlocks.orElseGet(this::shouldTransformBlocksByDefault);
         this.shouldTransformPosition = props.shouldTransformPosition.orElseGet(this::shouldTransformPositionByDefault);
         this.randomRotation = props.randomRotation;
-        this.tags = props.tags;
-        this.tagsInverted = props.tagsInverted;
+        this.tagList = props.tagList;
+    }
+
+    public abstract StructureType<?> type();
+
+    public final List<Direction> validDirections() {
+        return validDirections;
+    }
+
+    public final double count() {
+        return count;
+    }
+
+    public final boolean canPlaceOn(CaveGenContext ctx, BlockPos pos) {
+        return canPlaceOn.map(canPlaceOn -> canPlaceOn.test(ctx.asLevel(), pos)).orElseGet(() -> ctx.style().isTransparentBlock(ctx, pos));
     }
 
     protected List<StructurePlacementEdge> getDefaultEdges() {
@@ -62,6 +79,10 @@ public abstract class Structure {
         return false;
     }
 
+    public final boolean shouldSnapToAxis() {
+        return snapToAxis;
+    }
+
     protected Direction getDefaultOriginSide(List<StructurePlacementEdge> edges) {
         if (edges.contains(StructurePlacementEdge.FLOOR)) {
             return Direction.DOWN;
@@ -72,7 +93,95 @@ public abstract class Structure {
         }
     }
 
-    public abstract StructureType<?> type();
+    public final Direction originSide() {
+        return originSide;
+    }
+
+    public Direction originPositionSide() {
+        return Direction.DOWN;
+    }
+
+    public final Transform getBlockTransform(double randomYRotation, BlockPos pos, Direction side) {
+        if (!shouldTransformBlocks) {
+            return Transform.IDENTITY;
+        }
+        return getTransform(randomYRotation, pos, originSide, side);
+    }
+
+    public final Transform getPositionTransform(double randomYRotation, BlockPos pos, Direction side) {
+        if (!shouldTransformPosition) {
+            return Transform.IDENTITY;
+        }
+        return getTransform(randomYRotation, pos, originPositionSide(), side);
+    }
+
+    private Transform getTransform(double randomYRotation, BlockPos pos, Direction originSide, Direction side) {
+        Transform transform = Transform.translate(pos);
+
+        if (side.getAxis() == Direction.Axis.Y && randomRotation) {
+            transform = transform.combine(Transform.rotateY(randomYRotation));
+        }
+
+        if (side != originSide) {
+            if (originSide == Direction.DOWN) {
+                transform = switch (side) {
+                    case UP -> transform.combine(Transform.rotateX(Math.PI));
+                    case NORTH -> transform.combine(Transform.rotateX(-Math.PI / 2));
+                    case SOUTH -> transform.combine(Transform.rotateX(Math.PI / 2));
+                    case WEST -> transform.combine(Transform.rotateZ(Math.PI / 2));
+                    case EAST -> transform.combine(Transform.rotateZ(-Math.PI / 2));
+                    default -> throw new AssertionError("There are too many directions!");
+                };
+            } else if (originSide == Direction.UP) {
+                transform = switch (side) {
+                    case DOWN -> transform.combine(Transform.rotateX(Math.PI));
+                    case NORTH -> transform.combine(Transform.rotateX(Math.PI / 2));
+                    case SOUTH -> transform.combine(Transform.rotateX(-Math.PI / 2));
+                    case WEST -> transform.combine(Transform.rotateZ(-Math.PI / 2));
+                    case EAST -> transform.combine(Transform.rotateZ(Math.PI / 2));
+                    default -> throw new AssertionError("There are too many directions!");
+                };
+            } else {
+                if (side.getAxis() != Direction.Axis.Y) {
+                    transform = transform.combine(Transform.rotateY(Math.toRadians(originSide.toYRot() - side.toYRot())));
+                } else if (side == Direction.DOWN) {
+                    transform = switch (originSide) {
+                        case NORTH -> transform.combine(Transform.rotateX(Math.PI / 2));
+                        case SOUTH -> transform.combine(Transform.rotateX(-Math.PI / 2));
+                        case WEST -> transform.combine(Transform.rotateZ(-Math.PI / 2));
+                        case EAST -> transform.combine(Transform.rotateZ(Math.PI / 2));
+                        default -> throw new AssertionError("There are too many directions!");
+                    };
+                } else {
+                    transform = switch (originSide) {
+                        case NORTH -> transform.combine(Transform.rotateX(-Math.PI / 2));
+                        case SOUTH -> transform.combine(Transform.rotateX(Math.PI / 2));
+                        case WEST -> transform.combine(Transform.rotateZ(Math.PI / 2));
+                        case EAST -> transform.combine(Transform.rotateZ(-Math.PI / 2));
+                        default -> throw new AssertionError("There are too many directions!");
+                    };
+                }
+            }
+        }
+
+        transform = transform.combine(Transform.translate(pos.multiply(-1)));
+
+        return transform;
+    }
+
+    public final TagList tags() {
+        return tagList;
+    }
+
+    public abstract boolean place(CaveGenContext ctx, BlockPos pos, Centroid centroid, boolean force);
+
+    protected final boolean canReplace(CaveGenContext ctx, BlockPos pos) {
+        return canReplace.map(canReplace -> canReplace.test(ctx.asLevel(), pos)).orElseGet(() -> defaultCanReplace(ctx, pos));
+    }
+
+    protected boolean defaultCanReplace(CaveGenContext ctx, BlockPos pos) {
+        return ctx.style().isTransparentBlock(ctx, pos);
+    }
 
     protected record StructureProperties(
         List<StructurePlacementEdge> edges,
@@ -84,8 +193,7 @@ public abstract class Structure {
         Optional<Boolean> shouldTransformBlocks,
         Optional<Boolean> shouldTransformPosition,
         boolean randomRotation,
-        List<String> tags,
-        boolean tagsInverted
+        TagList tagList
     ) {
         public StructureProperties(Structure structure) {
             this(
@@ -98,8 +206,7 @@ public abstract class Structure {
                 structure.shouldTransformBlocks == structure.shouldTransformBlocksByDefault() ? Optional.empty() : Optional.of(structure.shouldTransformBlocks),
                 structure.shouldTransformPosition == structure.shouldTransformPositionByDefault() ? Optional.empty() : Optional.of(structure.shouldTransformPosition),
                 structure.randomRotation,
-                structure.tags,
-                structure.tagsInverted
+                structure.tagList
             );
         }
 
@@ -121,8 +228,7 @@ public abstract class Structure {
             Codec.BOOL.optionalFieldOf("should_transform_blocks").forGetter(StructureProperties::shouldTransformBlocks),
             Codec.BOOL.optionalFieldOf("should_transform_position").forGetter(StructureProperties::shouldTransformPosition),
             Codec.BOOL.optionalFieldOf("random_rotation", true).forGetter(StructureProperties::randomRotation),
-            DIDCodecs.singleableList(Codec.STRING).optionalFieldOf("tags", List.of()).forGetter(StructureProperties::tags),
-            Codec.BOOL.optionalFieldOf("tags_inverted", false).forGetter(StructureProperties::tagsInverted)
+            TagList.CODEC.forGetter(StructureProperties::tagList)
         ).apply(instance, StructureProperties::new));
     }
 }

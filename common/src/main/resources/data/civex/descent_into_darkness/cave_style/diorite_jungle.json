@@ -23,7 +23,7 @@
     }
   ],
   "biome": "civex:diorite_jungle",
-  "nether": true,
+  "dimension": "minecraft:the_nether",
   "base_block": "minecraft:diorite",
   "painter_steps": [
     {
@@ -169,7 +169,7 @@
         "state": {
           "Name": "minecraft:vine",
           "Properties": {
-            "north": true
+            "north": "true"
           }
         }
       },

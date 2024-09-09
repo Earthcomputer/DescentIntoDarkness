@@ -6,7 +6,7 @@
     }
   },
   "biome": "minecraft:crimson_forest",
-  "nether": true,
+  "dimension": "minecraft:the_nether",
   "inherit": [
     {
       "name": "civex:piglin_pack",

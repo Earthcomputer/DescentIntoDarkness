@@ -1,6 +1,6 @@
 {
   "biome": "civex:purple_abyss",
-  "nether": true,
+  "dimension": "minecraft:the_nether",
   "inherit": [
     {
       "name": "civex:fuel1",
@@ -1384,7 +1384,7 @@
         "state": {
           "Name": "weeping_vines",
           "Properties": {
-            "age": 0
+            "age": "0"
           }
         }
       },
@@ -1410,7 +1410,7 @@
         "state": {
           "Name": "minecraft:bubble_coral_fan",
           "Properties": {
-            "waterlogged": false
+            "waterlogged": "false"
           }
         }
       }
@@ -1431,7 +1431,7 @@
         "state": {
           "Name": "minecraft:bubble_coral",
           "Properties": {
-            "waterlogged": false
+            "waterlogged": "false"
           }
         }
       }

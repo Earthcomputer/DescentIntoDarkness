@@ -1,6 +1,6 @@
 {
   "base_block": "minecraft:blackstone",
-  "nether": true,
+  "dimension": "minecraft:the_nether",
   "biome": "minecraft:basalt_deltas",
   "painter_steps": [
     {

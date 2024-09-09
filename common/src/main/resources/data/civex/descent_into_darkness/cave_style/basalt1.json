@@ -1,5 +1,5 @@
 {
-  "nether": true,
+  "dimension": "minecraft:the_nether",
   "biome": "basalt_deltas",
   "inherit": [
     {
@@ -123,7 +123,7 @@
         "state": {
           "Name": "minecraft:dead_horn_coral",
           "Properties": {
-            "waterlogged": false
+            "waterlogged": "false"
           }
         }
       },

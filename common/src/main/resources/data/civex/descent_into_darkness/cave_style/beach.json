@@ -114,7 +114,7 @@
         "floor"
       ],
       "ore": "minecraft:water",
-      "radius": "5s",
+      "radius": 5,
       "chance": 0.01,
       "can_place_on": [
         "minecraft:sand"
@@ -175,7 +175,7 @@
         "state": {
           "Name": "minecraft:cocoa",
           "Properties": {
-            "age": 2
+            "age": "2"
           }
         }
       }

@@ -1,42 +1,28 @@
 package net.earthcomputer.descentintodarkness.generator.painter;
 
 import com.mojang.serialization.Codec;
-import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.earthcomputer.descentintodarkness.DIDRegistries;
-import net.earthcomputer.descentintodarkness.style.DIDCodecs;
+import net.earthcomputer.descentintodarkness.generator.CaveGenContext;
+import net.earthcomputer.descentintodarkness.generator.Centroid;
+import net.earthcomputer.descentintodarkness.generator.TagList;
+import net.minecraft.core.BlockPos;
 
-import java.util.List;
+import java.util.function.Predicate;
 
 public abstract class PainterStep {
-    private static final RecordCodecBuilder<PainterStep, List<String>> TAGS_CODEC = DIDCodecs.singleableList(Codec.STRING).optionalFieldOf("tags", List.of()).forGetter(PainterStep::tags);
-    @SuppressWarnings("unchecked")
-    protected static <PS extends PainterStep> RecordCodecBuilder<PS, List<String>> tagsCodec() {
-        return (RecordCodecBuilder<PS, List<String>>) TAGS_CODEC;
-    }
-
-    private static final RecordCodecBuilder<PainterStep, Boolean> TAGS_INVERTED_CODEC = Codec.BOOL.optionalFieldOf("tags_inverted", false).forGetter(PainterStep::tagsInverted);
-    @SuppressWarnings("unchecked")
-    protected static <PS extends PainterStep> RecordCodecBuilder<PS, Boolean> tagsInvertedCodec() {
-        return (RecordCodecBuilder<PS, Boolean>) TAGS_INVERTED_CODEC;
-    }
-
     public static final Codec<PainterStep> CODEC = Codec.lazyInitialized(() -> DIDRegistries.painterStepType().byNameCodec().dispatch(PainterStep::type, PainterStepType::codec));
 
-    private final List<String> tags;
-    private final boolean tagsInverted;
+    private final TagList tagList;
 
-    protected PainterStep(List<String> tags, boolean tagsInverted) {
-        this.tags = tags;
-        this.tagsInverted = tagsInverted;
+    protected PainterStep(TagList tagList) {
+        this.tagList = tagList;
     }
 
-    public final List<String> tags() {
-        return tags;
-    }
-
-    public final boolean tagsInverted() {
-        return tagsInverted;
+    public final TagList tags() {
+        return tagList;
     }
 
     public abstract PainterStepType<?> type();
+
+    public abstract void apply(CaveGenContext ctx, Centroid centroid, Predicate<BlockPos> canTryToPaint);
 }

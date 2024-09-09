@@ -3,7 +3,7 @@
     "civex:aquifer"
   ],
   "biome": "civex:ice_magma",
-  "nether": true,
+  "dimension": "minecraft:the_nether",
   "base_block": "descent_into_darkness:igneous_block",
   "start_y": 163,
   "air_block": "water",

@@ -1,6 +1,6 @@
 {
   "air_block": "minecraft:water",
-  "nether": true,
+  "dimension": "minecraft:the_nether",
   "biome": "civex:white_forest",
   "inherit": [
     {

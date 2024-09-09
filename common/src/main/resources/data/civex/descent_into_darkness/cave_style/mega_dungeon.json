@@ -10,7 +10,7 @@
   ],
   "biome": "civex:voidyssal",
   "start_y": 132,
-  "nether": true,
+  "dimension": "minecraft:the_nether",
   "base_block": "minecraft:cobblestone",
   "air_block": [
     {
@@ -811,7 +811,7 @@
         "state": {
           "Name": "minecraft:lantern",
           "Properties": {
-            "hanging": true
+            "hanging": "true"
           }
         }
       },

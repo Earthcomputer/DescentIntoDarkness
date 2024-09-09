@@ -3,7 +3,7 @@
     "civex:canyons"
   ],
   "biome": "civex:white_forest",
-  "nether": true,
+  "dimension": "minecraft:the_nether",
   "base_block": "minecraft:stone",
   "painter_steps": [
     {

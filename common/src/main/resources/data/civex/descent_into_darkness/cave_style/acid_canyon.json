@@ -3,7 +3,7 @@
     "civex:mega_canyon"
   ],
   "biome": "civex:acid",
-  "nether": true,
+  "dimension": "minecraft:the_nether",
   "base_block": "descent_into_darkness:igneous_block",
   "start_y": 165,
   "air_block": [

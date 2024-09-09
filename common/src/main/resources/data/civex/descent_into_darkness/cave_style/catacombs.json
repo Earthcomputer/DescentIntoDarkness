@@ -1,5 +1,5 @@
 {
-  "nether": true,
+  "dimension": "minecraft:the_nether",
   "biome": "civex:voidyssal",
   "inherit": [
     "civex:tora",
@@ -178,7 +178,7 @@
         "state": {
           "Name": "minecraft:lantern",
           "Properties": {
-            "hanging": true
+            "hanging": "true"
           }
         }
       },

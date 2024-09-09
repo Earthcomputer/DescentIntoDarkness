@@ -10,10 +10,12 @@ import net.minecraft.core.Holder;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.levelgen.RandomSupport;
 import org.apache.commons.lang3.RandomStringUtils;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.Objects;
 import java.util.Set;
@@ -32,7 +34,7 @@ public final class DIDCommand {
         var command = dispatcher.register(literal("did")
             .then(literal("generate")
                 .then(argument("style", resource(context, DIDRegistries.CAVE_STYLE))
-                    .executes(ctx -> generate(ctx.getSource(), getResource(ctx, "style", DIDRegistries.CAVE_STYLE), 7, RandomSupport.generateUniqueSeed(), false))
+                    .executes(ctx -> generate(ctx.getSource(), getResource(ctx, "style", DIDRegistries.CAVE_STYLE), null, RandomSupport.generateUniqueSeed(), false))
                     .then(argument("size", integer(3, 100))
                         .executes(ctx -> generate(ctx.getSource(), getResource(ctx, "style", DIDRegistries.CAVE_STYLE), getInteger(ctx, "size"), RandomSupport.generateUniqueSeed(), false))
                         .then(argument("seed", longArg())
@@ -42,9 +44,9 @@ public final class DIDCommand {
         dispatcher.register(literal("descentintodarkness").redirect(command));
     }
 
-    private static int generate(CommandSourceStack source, Holder<CaveStyle> style, int size, long seed, boolean debug) {
+    private static int generate(CommandSourceStack source, Holder<CaveStyle> style, @Nullable Integer size, long seed, boolean debug) {
         ResourceKey<Level> levelKey = ResourceKey.create(Registries.DIMENSION, DescentIntoDarkness.id("cave_" + RandomStringUtils.random(16, "abcdefghijklmnopqrstuvwxyz0123456789")));
-        CaveTrackerManager.createCave(source.getServer(), levelKey);
+        CaveTrackerManager.createCave(source.getServer(), levelKey, style, size == null ? style.value().size().sample(RandomSource.create()) : size, seed, debug);
         Entity entity = source.getEntity();
         if (entity != null) {
             ServerLevel destLevel = Objects.requireNonNull(source.getServer().getLevel(levelKey), "Dimension was not created");

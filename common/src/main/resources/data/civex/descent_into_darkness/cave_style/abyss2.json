@@ -1,7 +1,7 @@
 {
   "air_block": "minecraft:water",
   "biome": "civex:red_abyss",
-  "nether": true,
+  "dimension": "minecraft:the_nether",
   "display_name": {
     "text": "Crimson Abyss",
     "color": "dark_red"

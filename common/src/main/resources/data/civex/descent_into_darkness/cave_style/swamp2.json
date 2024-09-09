@@ -1,6 +1,6 @@
 {
   "biome": "civex:red_abyss",
-  "nether": true,
+  "dimension": "minecraft:the_nether",
   "inherit": [
     "civex:halfwater",
     {
@@ -67,7 +67,7 @@
         "floor"
       ],
       "ore": "minecraft:water",
-      "radius": "5s",
+      "radius": 5,
       "chance": 0.01,
       "can_place_on": [
         "minecraft:sand"

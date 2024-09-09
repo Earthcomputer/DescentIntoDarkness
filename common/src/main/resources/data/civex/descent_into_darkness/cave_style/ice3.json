@@ -24,7 +24,7 @@
       "color": "yellow"
     }
   ],
-  "nether": true,
+  "dimension": "minecraft:the_nether",
   "biome": "civex:ice_trees",
   "structures": {
     "bigicicles": {

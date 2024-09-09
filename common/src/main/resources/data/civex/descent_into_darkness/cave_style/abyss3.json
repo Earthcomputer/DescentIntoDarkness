@@ -50,7 +50,7 @@
           "Name": "minecraft:chain",
           "Properties": {
             "axis": "y",
-            "waterlogged": true
+            "waterlogged": "true"
           }
         }
       },
@@ -59,8 +59,8 @@
         "state": {
           "Name": "minecraft:soul_lantern",
           "Properties": {
-            "waterlogged": true,
-            "hanging": true
+            "waterlogged": "true",
+            "hanging": "true"
           }
         }
       },

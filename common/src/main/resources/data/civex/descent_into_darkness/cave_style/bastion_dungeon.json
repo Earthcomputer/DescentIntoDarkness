@@ -9,7 +9,7 @@
     "minecraft:cobweb"
   ],
   "biome": "civex:voidyssal",
-  "nether": true,
+  "dimension": "minecraft:the_nether",
   "base_block": "minecraft:blackstone",
   "painter_steps": [
     {

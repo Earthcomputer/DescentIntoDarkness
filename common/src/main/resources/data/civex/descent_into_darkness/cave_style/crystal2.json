@@ -3,7 +3,7 @@
     "civex:mega_canyon"
   ],
   "biome": "civex:crevice",
-  "nether": true,
+  "dimension": "minecraft:the_nether",
   "transparent_blocks": [
     "minecraft:air",
     "minecraft:glowstone",

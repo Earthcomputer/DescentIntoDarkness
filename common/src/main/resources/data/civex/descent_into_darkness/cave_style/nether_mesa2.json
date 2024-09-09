@@ -1,6 +1,6 @@
 {
   "biome": "warped_forest",
-  "nether": true,
+  "dimension": "minecraft:the_nether",
   "inherit": [
     {
       "name": "civex:restoration_pack",
@@ -1398,7 +1398,7 @@
         "state": {
           "Name": "twisting_vines",
           "Properties": {
-            "age": 0
+            "age": "0"
           }
         }
       },

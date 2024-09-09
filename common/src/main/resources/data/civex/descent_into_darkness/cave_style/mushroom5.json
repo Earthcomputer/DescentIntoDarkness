@@ -1,7 +1,7 @@
 {
   "base_block": "minecraft:smooth_quartz",
   "biome": "civex:white_forest",
-  "nether": true,
+  "dimension": "minecraft:the_nether",
   "air_block": [
     {
       "min": 0,

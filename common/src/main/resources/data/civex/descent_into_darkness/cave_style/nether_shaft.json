@@ -1,5 +1,5 @@
 {
-  "nether": true,
+  "dimension": "minecraft:the_nether",
   "biome": "minecraft:nether_wastes",
   "base_block": "minecraft:netherrack",
   "transparent_blocks": [

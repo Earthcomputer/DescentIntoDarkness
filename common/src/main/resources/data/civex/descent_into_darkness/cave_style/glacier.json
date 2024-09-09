@@ -17,7 +17,6 @@
       "type": "descent_into_darkness:waterfall",
       "fluid_type": "block",
       "block": "minecraft:snow_block",
-      "fluid": "water",
       "edges": "ceiling",
       "count": 0.01,
       "flow_distance": 8

@@ -100,14 +100,14 @@
       "type": "descent_into_darkness:matches_state",
       "name": "minecraft:water",
       "properties": {
-        "level": 0
+        "level": "0"
       }
     },
     {
       "type": "descent_into_darkness:matches_state",
       "name": "minecraft:lava",
       "properties": {
-        "level": 0
+        "level": "0"
       }
     }
   ],

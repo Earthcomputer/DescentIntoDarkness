@@ -2,12 +2,12 @@
   "base_block": {
     "Name": "minecraft:red_mushroom_block",
     "Properties": {
-      "north": false,
-      "south": false,
-      "west": false,
-      "east": false,
-      "up": false,
-      "down": false
+      "north": "false",
+      "south": "false",
+      "west": "false",
+      "east": "false",
+      "up": "false",
+      "down": "false"
     }
   },
   "painter_steps": [
@@ -19,12 +19,12 @@
         "state": {
           "Name": "minecraft:red_mushroom_block",
           "Properties": {
-            "north": false,
-            "south": false,
-            "west": false,
-            "east": false,
-            "up": false,
-            "down": false
+            "north": "false",
+            "south": "false",
+            "west": "false",
+            "east": "false",
+            "up": "false",
+            "down": "false"
           }
         }
       }

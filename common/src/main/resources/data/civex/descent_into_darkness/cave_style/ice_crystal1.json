@@ -1,7 +1,7 @@
 {
   "biome": "minecraft:lukewarm_ocean",
   "base_block": "minecraft:dead_brain_coral_block",
-  "nether": true,
+  "dimension": "minecraft:the_nether",
   "inherit": [
     "civex:canyons",
     {

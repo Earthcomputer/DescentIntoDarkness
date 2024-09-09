@@ -16,7 +16,7 @@
     "civex:canyons"
   ],
   "base_block": "minecraft:netherrack",
-  "nether": true,
+  "dimension": "minecraft:the_nether",
   "biome": "basalt_deltas",
   "painter_steps": [
     {

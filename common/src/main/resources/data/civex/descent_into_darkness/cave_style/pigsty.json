@@ -15,7 +15,7 @@
             "data": {
               "Name": "minecraft:farmland",
               "Properties": {
-                "moisture": 7
+                "moisture": "7"
               }
             }
           },
