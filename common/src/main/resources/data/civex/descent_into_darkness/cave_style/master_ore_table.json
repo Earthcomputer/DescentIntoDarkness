@@ -104,43 +104,6 @@
       },
       "break_amount": 3
     },
-    "infernum_ore": {
-      "break_amount": 3,
-      "block": [
-        "descent_into_darkness:infernum_ore",
-        "descent_into_darkness:indurated_infernum_ore"
-      ],
-      "pollution": 20,
-      "drop_table": {
-        "pools": [
-          {
-            "rolls": 1,
-            "entries": [
-              {
-                "type": "minecraft:item",
-                "name": "descent_into_darkness:infernum_ore_drop",
-                "weight": 15
-              },
-              {
-                "type": "minecraft:item",
-                "name": "descent_into_darkness:infernum_chunk",
-                "weight": 5
-              },
-              {
-                "type": "minecraft:item",
-                "name": "descent_into_darkness:infernum_lump",
-                "weight": 12
-              },
-              {
-                "type": "minecraft:item",
-                "name": "descent_into_darkness:infernum_nugget",
-                "weight": 20
-              }
-            ]
-          }
-        ]
-      }
-    },
     "lapis_ore": {
       "block": [
         "minecraft:lapis_ore",
@@ -456,34 +419,6 @@
                       "type": "minecraft:uniform",
                       "min": 1,
                       "max": 6
-                    }
-                  }
-                ]
-              }
-            ]
-          }
-        ]
-      }
-    },
-    "crate": {
-      "block": "descent_into_darkness:crate",
-      "pollution": 25,
-      "break_amount": 1,
-      "drop_table": {
-        "pools": [
-          {
-            "rolls": 1,
-            "entries": [
-              {
-                "type": "minecraft:item",
-                "name": "descent_into_darkness:crate",
-                "functions": [
-                  {
-                    "function": "minecraft:set_count",
-                    "count": {
-                      "type": "minecraft:uniform",
-                      "min": 1,
-                      "max": 2
                     }
                   }
                 ]

@@ -1,5 +1,7 @@
 {
-  "inherit_properties": "minecraft:cobblestone_wall",
+  "inherit_properties": "minecraft:spruce_leaves",
+  "has_item": true,
   "collision": false,
-  "occlusion": false
+  "occlusion": false,
+  "render_type": "cutout"
 }

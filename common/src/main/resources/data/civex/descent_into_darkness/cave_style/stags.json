@@ -219,11 +219,6 @@
               },
               {
                 "type": "minecraft:item",
-                "name": "descent_into_darkness:infernum_lump",
-                "weight": 12
-              },
-              {
-                "type": "minecraft:item",
                 "name": "descent_into_darkness:infernum_nugget",
                 "weight": 20
               }

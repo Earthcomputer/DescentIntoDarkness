@@ -17,7 +17,7 @@
   ],
   "biome": "civex:acid",
   "nether": true,
-  "base_block": "descent_into_darkness:igneous_block",
+  "base_block": "minecraft:dripstone_block",
   "start_y": 163,
   "air_block": [
     {
@@ -34,41 +34,41 @@
   "structures": {
     "ustal": {
       "type": "descent_into_darkness:patch",
-      "block": "descent_into_darkness:stalup",
+      "block": "minecraft:pointed_dripstone",
       "edges": [
         "floor"
       ],
-      "can_place_on": "descent_into_darkness:igneous_block",
+      "can_place_on": "minecraft:dripstone_block",
       "can_replace": "minecraft:air",
       "count": 0.25
     },
     "ustal2": {
       "type": "descent_into_darkness:patch",
-      "block": "descent_into_darkness:stalsup",
+      "block": "minecraft:pointed_dripstone",
       "edges": [
         "floor"
       ],
-      "can_place_on": "descent_into_darkness:igneous_block",
+      "can_place_on": "minecraft:dripstone_block",
       "can_replace": "minecraft:air",
       "count": 0.25
     },
     "ustal3": {
       "type": "descent_into_darkness:patch",
-      "block": "descent_into_darkness:staldown",
+      "block": "minecraft:pointed_dripstone",
       "edges": [
         "ceiling"
       ],
-      "can_place_on": "descent_into_darkness:igneous_block",
+      "can_place_on": "minecraft:dripstone_block",
       "can_replace": "minecraft:air",
       "count": 0.25
     },
     "ustal4": {
       "type": "descent_into_darkness:patch",
-      "block": "descent_into_darkness:stalsdown",
+      "block": "minecraft:pointed_dripstone",
       "edges": [
         "ceiling"
       ],
-      "can_place_on": "descent_into_darkness:igneous_block",
+      "can_place_on": "minecraft:dripstone_block",
       "can_replace": "minecraft:air",
       "count": 0.25
     }

@@ -9,14 +9,14 @@
     {
       "type": "descent_into_darkness:replace_all",
       "old": "minecraft:stone",
-      "new": "descent_into_darkness:igneous_block"
+      "new": "minecraft:dripstone_block"
     }
   ],
   "start_y": 165,
   "structures": {
     "sphere": {
       "type": "descent_into_darkness:vein",
-      "ore": "descent_into_darkness:igneous_block",
+      "ore": "minecraft:dripstone_block",
       "radius": 20,
       "count": 0.01,
       "can_place_on": [
@@ -32,50 +32,74 @@
       "min_bluntness_for_wind": 0,
       "min_radius_for_wind": 1,
       "count": 10,
-      "can_place_on": "descent_into_darkness:igneous_block",
+      "can_place_on": "minecraft:dripstone_block",
       "column_radius": 4,
       "wind_speed": [
         0.5,
         1
       ]
     },
-    "ustal": {
-      "type": "descent_into_darkness:patch",
-      "block": "descent_into_darkness:stalup",
+    "ustal1": {
+      "type": "minecraft:simple_state_provider",
+      "state": {
+        "Name": "minecraft:pointed_dripstone",
+        "Properties": {
+          "vertical_direction": "up",
+          "thickness": "tip_merge"
+        }
+      },
       "edges": [
         "floor"
       ],
-      "can_place_on": "descent_into_darkness:igneous_block",
+      "can_place_on": "minecraft:dripstone_block",
       "can_replace": "minecraft:air",
       "count": 0.25
     },
     "ustal2": {
-      "type": "descent_into_darkness:patch",
-      "block": "descent_into_darkness:stalsup",
+      "type": "minecraft:simple_state_provider",
+      "state": {
+        "Name": "minecraft:pointed_dripstone",
+        "Properties": {
+          "vertical_direction": "up",
+          "thickness": "tip"
+        }
+      },
       "edges": [
         "floor"
       ],
-      "can_place_on": "descent_into_darkness:igneous_block",
+      "can_place_on": "minecraft:dripstone_block",
       "can_replace": "minecraft:air",
       "count": 0.25
+      }
     },
     "ustal3": {
-      "type": "descent_into_darkness:patch",
-      "block": "descent_into_darkness:staldown",
+      "type": "minecraft:simple_state_provider",
+      "state": {
+        "Name": "minecraft:pointed_dripstone",
+        "Properties": {
+          "vertical_direction": "down",
+          "thickness": "tip_merge"
+      },
       "edges": [
         "ceiling"
       ],
-      "can_place_on": "descent_into_darkness:igneous_block",
+      "can_place_on": "minecraft:dripstone_block",
       "can_replace": "minecraft:air",
       "count": 0.25
     },
     "ustal4": {
-      "type": "descent_into_darkness:patch",
-      "block": "descent_into_darkness:stalsdown",
+      "type": "minecraft:simple_state_provider",
+      "state": {
+        "Name": "minecraft:pointed_dripstone",
+        "Properties": {
+          "vertical_direction": "down",
+          "thickness": "tip"
+        }
+      },
       "edges": [
         "ceiling"
       ],
-      "can_place_on": "descent_into_darkness:igneous_block",
+      "can_place_on": "minecraft:dripstone_block",
       "can_replace": "minecraft:air",
       "count": 0.25
     }

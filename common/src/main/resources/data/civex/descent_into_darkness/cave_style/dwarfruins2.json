@@ -150,21 +150,6 @@
       "ore": "minecraft:air",
       "radius": 3,
       "can_place_on": "minecraft:quartz_block"
-    },
-    "crate": {
-      "count": 0.3,
-      "type": "descent_into_darkness:template",
-      "templates": [
-        "descent_into_darkness:crate/singlecrate"
-      ],
-      "edges": [
-        "floor"
-      ],
-      "can_place_on": [
-        "minecraft:quartz_block",
-        "minecraft:quartz_pillar",
-        "minecraft:chiseled_quartz_block"
-      ]
     }
   }
 }

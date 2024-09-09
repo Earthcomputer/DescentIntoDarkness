@@ -138,22 +138,6 @@
       "ore": "minecraft:air",
       "radius": 3,
       "can_place_on": "minecraft:smooth_red_sandstone"
-    },
-    "crate": {
-      "count": 0.3,
-      "type": "descent_into_darkness:template",
-      "templates": [
-        "descent_into_darkness:crate/singlecrate"
-      ],
-      "edges": [
-        "floor"
-      ],
-      "can_place_on": [
-        "minecraft:smooth_red_sandstone",
-        "minecraft:chiseled_red_sandstone",
-        "minecraft:cut_red_sandstone",
-        "minecraft:chiseled_quartz_block"
-      ]
     }
   }
 }

@@ -121,21 +121,6 @@
       "radius": 3,
       "can_place_on": "minecraft:polished_blackstone_bricks"
     },
-    "crate": {
-      "count": 0.3,
-      "type": "descent_into_darkness:template",
-      "templates": [
-        "descent_into_darkness:crate/singlecrate"
-      ],
-      "edges": [
-        "floor"
-      ],
-      "can_place_on": [
-        "minecraft:polished_blackstone_bricks",
-        "minecraft:chiseled_polished_blackstone",
-        "minecraft:cracked_polished_blackstone_bricks"
-      ]
-    },
     "basalt": {
       "type": "descent_into_darkness:glowstone",
       "edges": [

@@ -1,6 +1,0 @@
-{
-  "inherit_properties": "minecraft:granite_wall",
-  "has_item": true,
-  "collision": false,
-  "occlusion": false
-}

@@ -1,6 +1,0 @@
-{
-  "parent": "block/cube_all",
-  "textures": {
-    "all": "descent_into_darkness:block/igneous_block"
-  }
-}

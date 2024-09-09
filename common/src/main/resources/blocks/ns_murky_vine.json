@@ -1,5 +1,0 @@
-{
-  "inherit_properties": "minecraft:diorite_wall",
-  "collision": false,
-  "occlusion": false
-}

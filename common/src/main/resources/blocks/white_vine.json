@@ -1,5 +1,6 @@
 {
-  "inherit_properties": "minecraft:nether_brick_wall",
+  "inherit_properties": "minecraft:spruce_leaves",
   "collision": false,
-  "occlusion": false
+  "occlusion": false,
+  "render_type": "cutout"
 }

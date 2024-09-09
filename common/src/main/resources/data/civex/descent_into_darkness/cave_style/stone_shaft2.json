@@ -64,19 +64,6 @@
       "tags": "ravine",
       "height": 1000
     },
-    "crate": {
-      "count": 1,
-      "type": "descent_into_darkness:template",
-      "templates": [
-        "descent_into_darkness:crate/singlecrate"
-      ],
-      "edges": [
-        "floor"
-      ],
-      "can_place_on": [
-        "minecraft:oak_planks"
-      ]
-    },
     "rails2": {
       "count": 10,
       "tries": 20,

@@ -346,21 +346,6 @@
         "minecraft:stone_bricks"
       ]
     },
-    "crate": {
-      "count": 0.7,
-      "type": "descent_into_darkness:template",
-      "templates": [
-        "descent_into_darkness:crate/singlecrate"
-      ],
-      "edges": [
-        "floor"
-      ],
-      "can_place_on": [
-        "minecraft:stone_bricks",
-        "minecraft:cracked_stone_bricks"
-      ],
-      "can_replace": "minecraft:air"
-    },
     "diamond": {
       "type": "descent_into_darkness:vine_patch",
       "vine": "minecraft:diamond_ore",
