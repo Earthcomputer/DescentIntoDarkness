@@ -1,6 +1,6 @@
 {
   "base_block": "minecraft:netherrack",
-  "nether": true,
+  "dimension": "minecraft:the_nether",
   "biome": "minecraft:nether_wastes",
   "inherit": [
     "civex:cavernous",

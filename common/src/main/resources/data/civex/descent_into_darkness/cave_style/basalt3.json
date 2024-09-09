@@ -2,7 +2,7 @@
   "inherit": [
     "civex:mega_canyon"
   ],
-  "nether": true,
+  "dimension": "minecraft:the_nether",
   "biome": "minecraft:basalt_deltas",
   "base_block": {
     "Name": "minecraft:basalt",
@@ -165,7 +165,7 @@
         "state": {
           "Name": "minecraft:dead_horn_coral",
           "Properties": {
-            "waterlogged": false
+            "waterlogged": "false"
           }
         }
       },

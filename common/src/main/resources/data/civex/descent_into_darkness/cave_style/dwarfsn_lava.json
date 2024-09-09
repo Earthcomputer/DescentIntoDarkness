@@ -1,5 +1,5 @@
 {
-  "nether": true,
+  "dimension": "minecraft:the_nether",
   "biome": "basalt_deltas",
   "inherit": [
     "civex:halfwater",

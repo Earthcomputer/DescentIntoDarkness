@@ -1,6 +1,6 @@
 {
   "base_block": "descent_into_darkness:ice_magma",
-  "nether": true,
+  "dimension": "minecraft:the_nether",
   "start_y": 143,
   "biome": "civex:ice_magma",
   "painter_steps": [
@@ -113,7 +113,7 @@
         "state": {
           "Name": "minecraft:vine",
           "Properties": {
-            "south": true
+            "south": "true"
           }
         }
       },

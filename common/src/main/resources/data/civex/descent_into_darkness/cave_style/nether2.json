@@ -1,5 +1,5 @@
 {
-  "nether": true,
+  "dimension": "minecraft:the_nether",
   "biome": "minecraft:crimson_forest",
   "inherit": [
     {

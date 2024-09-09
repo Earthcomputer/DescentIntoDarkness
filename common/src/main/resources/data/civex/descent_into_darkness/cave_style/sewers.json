@@ -2,7 +2,7 @@
   "inherit": [
     "civex:labyrinth"
   ],
-  "nether": true,
+  "dimension": "minecraft:the_nether",
   "biome": "civex:sewers",
   "painter_steps": [
     {

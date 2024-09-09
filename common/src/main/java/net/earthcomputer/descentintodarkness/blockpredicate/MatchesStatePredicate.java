@@ -17,13 +17,20 @@ import java.util.Map;
 import java.util.Optional;
 
 public final class MatchesStatePredicate implements BlockPredicate {
-    public static final MapCodec<MatchesStatePredicate> CODEC = BuiltInRegistries.BLOCK.byNameCodec().dispatchMap("name", predicate -> predicate.block, block -> {
-        MapCodec<Map<Property<?>, Object>> propertiesCodec = MapCodec.unit(Map.of());
-        for (Property<?> property : block.getStateDefinition().getProperties()) {
-            propertiesCodec = appendPropertyCodec(propertiesCodec, property);
-        }
-        return propertiesCodec.xmap(properties -> new MatchesStatePredicate(block, properties), predicate -> predicate.properties);
-    });
+    public static final MapCodec<MatchesStatePredicate> CODEC = codec("name", "properties");
+
+    public static MapCodec<MatchesStatePredicate> codec(String nameKey, String propertiesKey) {
+        return BuiltInRegistries.BLOCK.byNameCodec().dispatchMap(nameKey, predicate -> predicate.block, block -> {
+            MapCodec<Map<Property<?>, Object>> propertiesCodec = MapCodec.unit(Map.of());
+            for (Property<?> property : block.getStateDefinition().getProperties()) {
+                propertiesCodec = appendPropertyCodec(propertiesCodec, property);
+            }
+            return propertiesCodec
+                .xmap(properties -> new MatchesStatePredicate(block, properties), predicate -> predicate.properties)
+                .codec()
+                .optionalFieldOf(propertiesKey, new MatchesStatePredicate(block, Map.of()));
+        });
+    }
 
     @SuppressWarnings("unchecked")
     private static <T extends Comparable<T>> MapCodec<Map<Property<?>, Object>> appendPropertyCodec(MapCodec<Map<Property<?>, Object>> propertiesCodec, Property<T> property) {

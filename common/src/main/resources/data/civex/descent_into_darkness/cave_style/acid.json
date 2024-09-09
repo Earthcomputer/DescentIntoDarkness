@@ -16,8 +16,8 @@
     }
   ],
   "biome": "civex:acid",
-  "nether": true,
   "base_block": "minecraft:dripstone_block",
+  "dimension": "minecraft:the_nether",
   "start_y": 163,
   "air_block": [
     {

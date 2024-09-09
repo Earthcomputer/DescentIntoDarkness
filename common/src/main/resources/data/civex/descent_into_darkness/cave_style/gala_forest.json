@@ -27,7 +27,7 @@
   ],
   "base_block": "descent_into_darkness:gala_wood",
   "biome": "civex:gala_forest",
-  "nether": true,
+  "dimension": "minecraft:the_nether",
   "transparent_blocks": [
     "minecraft:air"
   ],
@@ -130,7 +130,7 @@
         "state": {
           "Name": "minecraft:vine",
           "Properties": {
-            "north": true
+            "north": "true"
           }
         }
       },

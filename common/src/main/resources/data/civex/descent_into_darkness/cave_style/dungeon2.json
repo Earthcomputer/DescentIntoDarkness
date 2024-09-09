@@ -9,7 +9,7 @@
     "minecraft:cobweb"
   ],
   "biome": "civex:voidyssal",
-  "nether": true,
+  "dimension": "minecraft:the_nether",
   "base_block": "minecraft:stone_bricks",
   "painter_steps": [
     {
@@ -209,7 +209,7 @@
         "state": {
           "Name": "minecraft:lantern",
           "Properties": {
-            "hanging": true
+            "hanging": "true"
           }
         }
       },

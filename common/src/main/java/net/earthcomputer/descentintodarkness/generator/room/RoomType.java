@@ -6,7 +6,7 @@ import net.earthcomputer.descentintodarkness.DIDRegistries;
 import net.earthcomputer.descentintodarkness.DescentIntoDarkness;
 
 @FunctionalInterface
-public interface RoomType<R extends Room> {
+public interface RoomType<R extends Room<?>> {
     RegistrySupplier<RoomType<SimpleRoom>> SIMPLE = register("simple", SimpleRoom.CODEC);
     RegistrySupplier<RoomType<TurnRoom>> TURN = register("turn", TurnRoom.CODEC);
     RegistrySupplier<RoomType<VerticalRoom>> VERTICAL = register("vertical", VerticalRoom.CODEC);
@@ -24,7 +24,7 @@ public interface RoomType<R extends Room> {
         // load class
     }
 
-    static <R extends Room> RegistrySupplier<RoomType<R>> register(String id, MapCodec<R> codec) {
+    static <R extends Room<?>> RegistrySupplier<RoomType<R>> register(String id, MapCodec<R> codec) {
         return DIDRegistries.REGISTRAR_MANAGER.get(DIDRegistries.ROOM_TYPE).register(DescentIntoDarkness.id(id), () -> () -> codec);
     }
 }

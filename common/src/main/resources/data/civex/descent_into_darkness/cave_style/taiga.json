@@ -22,7 +22,7 @@
     }
   ],
   "biome": "civex:white_forest",
-  "nether": true,
+  "dimension": "minecraft:the_nether",
   "base_block": "minecraft:dirt",
   "sprinting_penalty": 5,
   "transparent_blocks": [
@@ -41,7 +41,7 @@
         "state": {
           "Name": "minecraft:grass_block",
           "Properties": {
-            "snowy": true
+            "snowy": "true"
           }
         }
       }

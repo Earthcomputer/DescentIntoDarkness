@@ -1,6 +1,6 @@
 {
   "start_y": 175,
-  "nether": true,
+  "dimension": "minecraft:the_nether",
   "inherit": [
     "civex:halfwater",
     {
@@ -103,7 +103,7 @@
           "Name": "minecraft:chain",
           "Properties": {
             "axis": "y",
-            "waterlogged": true
+            "waterlogged": "true"
           }
         }
       },
@@ -112,8 +112,8 @@
         "state": {
           "Name": "minecraft:soul_lantern",
           "Properties": {
-            "waterlogged": true,
-            "hanging": true
+            "waterlogged": "true",
+            "hanging": "true"
           }
         }
       },
@@ -145,7 +145,7 @@
         "state": {
           "Name": "minecraft:soul_lantern",
           "Properties": {
-            "hanging": true
+            "hanging": "true"
           }
         }
       },

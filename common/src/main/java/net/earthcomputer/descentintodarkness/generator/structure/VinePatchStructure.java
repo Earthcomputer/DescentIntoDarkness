@@ -3,7 +3,12 @@ package net.earthcomputer.descentintodarkness.generator.structure;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
+import net.earthcomputer.descentintodarkness.generator.CaveGenContext;
+import net.earthcomputer.descentintodarkness.generator.Centroid;
+import net.earthcomputer.descentintodarkness.generator.Transform;
 import net.earthcomputer.descentintodarkness.style.DIDCodecs;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.util.valueproviders.IntProvider;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
@@ -39,5 +44,34 @@ public final class VinePatchStructure extends AbstractPatchStructure {
     @Override
     public StructureType<?> type() {
         return StructureType.VINE_PATCH.get();
+    }
+
+    @Override
+    public Direction originPositionSide() {
+        return Direction.UP;
+    }
+
+    @Override
+    protected boolean doPlace(CaveGenContext ctx, BlockPos pos, Centroid centroid) {
+        int height = this.height.sample(ctx.rand);
+        int angle = vineRandomRotation ? ctx.rand.nextInt(4) * 90 : 0;
+        Transform transform = Transform.rotateY(Math.toRadians(angle));
+
+        BlockStateProvider firstBlock = this.firstBlock.orElse(this.vine);
+        BlockStateProvider lastBlock = this.lastBlock.orElse(this.vine);
+
+        BlockPos offsetPos = pos;
+        boolean placed = false;
+        for (int i = 0; i < height && canReplace(ctx, offsetPos); i++) {
+            ctx.setBlock(offsetPos, transform.transform(i == 0 ? ctx.getState(firstBlock, offsetPos, centroid) : ctx.getState(vine, offsetPos, centroid)));
+            placed = true;
+            offsetPos = offsetPos.below();
+        }
+        offsetPos = offsetPos.above();
+        if (placed) {
+            ctx.setBlock(offsetPos, transform.transform(ctx.getState(lastBlock, offsetPos, centroid)));
+        }
+
+        return placed;
     }
 }

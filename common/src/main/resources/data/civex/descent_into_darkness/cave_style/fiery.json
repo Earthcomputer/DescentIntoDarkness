@@ -1,7 +1,7 @@
 {
   "base_block": "minecraft:red_nether_bricks",
   "biome": "minecraft:crimson_forest",
-  "nether": true,
+  "dimension": "minecraft:the_nether",
   "inherit": [
     {
       "name": "civex:nether_pack",

@@ -2,7 +2,11 @@ package net.earthcomputer.descentintodarkness.generator.structure;
 
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
+import net.earthcomputer.descentintodarkness.generator.CaveGenContext;
+import net.earthcomputer.descentintodarkness.generator.Centroid;
+import net.earthcomputer.descentintodarkness.generator.ModuleGenerator;
 import net.earthcomputer.descentintodarkness.style.DIDCodecs;
+import net.minecraft.core.BlockPos;
 import net.minecraft.util.valueproviders.ConstantInt;
 import net.minecraft.util.valueproviders.IntProvider;
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
@@ -26,5 +30,15 @@ public final class VeinStructure extends Structure {
     @Override
     public StructureType<?> type() {
         return StructureType.VEIN.get();
+    }
+
+    @Override
+    public boolean place(CaveGenContext ctx, BlockPos pos, Centroid centroid, boolean force) {
+        return ModuleGenerator.generateOreCluster(ctx, centroid, pos, radius.sample(ctx.rand), block -> canReplace(ctx, block), ore) > 0;
+    }
+
+    @Override
+    protected boolean defaultCanReplace(CaveGenContext ctx, BlockPos pos) {
+        return !ctx.style().isTransparentBlock(ctx, pos);
     }
 }

@@ -3,7 +3,11 @@ package net.earthcomputer.descentintodarkness.generator.structure;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
+import net.earthcomputer.descentintodarkness.generator.CaveGenContext;
+import net.earthcomputer.descentintodarkness.generator.Centroid;
+import net.minecraft.core.BlockPos;
 import net.minecraft.util.ExtraCodecs;
+import net.minecraft.world.phys.Vec3;
 
 public abstract class AbstractPatchStructure extends Structure {
     private final int spreadX;
@@ -20,6 +24,33 @@ public abstract class AbstractPatchStructure extends Structure {
         this.spreadLocal = patchProps.spreadLocal;
         this.tries = patchProps.tries;
     }
+
+    @Override
+    public boolean place(CaveGenContext ctx, BlockPos pos, Centroid centroid, boolean force) {
+        BlockPos origin = pos.relative(originPositionSide().getOpposite());
+        BlockPos spread = new BlockPos(spreadX, spreadY, spreadZ);
+        if (!spreadLocal) {
+            spread = BlockPos.containing(ctx.getLocationTransform().transformDirection(Vec3.atLowerCornerOf(spread)).add(0.5, 0.5, 0.5));
+            spread = new BlockPos(Math.abs(spread.getX()), Math.abs(spread.getY()), Math.abs(spread.getZ()));
+        }
+        boolean placed = false;
+        for (int i = 0; i < tries; i++) {
+            BlockPos offsetPos = origin.offset(
+                ctx.rand.nextInt(spread.getX() + 1) - ctx.rand.nextInt(spread.getX() + 1),
+                ctx.rand.nextInt(spread.getY() + 1) - ctx.rand.nextInt(spread.getY() + 1),
+                ctx.rand.nextInt(spread.getZ() + 1) - ctx.rand.nextInt(spread.getZ() + 1)
+            );
+            if (canReplace(ctx, offsetPos)) {
+                if (canPlaceOn(ctx, offsetPos.relative(originPositionSide()))) {
+                    placed |= doPlace(ctx, offsetPos, centroid);
+                }
+            }
+        }
+
+        return placed;
+    }
+
+    protected abstract boolean doPlace(CaveGenContext ctx, BlockPos pos, Centroid centroid);
 
     protected record PatchProperties(
         int spreadX,

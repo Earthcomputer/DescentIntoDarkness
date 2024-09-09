@@ -1,13 +1,18 @@
 package net.earthcomputer.descentintodarkness.style;
 
+import com.google.common.collect.ImmutableList;
 import com.mojang.datafixers.util.Either;
+import com.mojang.datafixers.util.Pair;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.DataResult;
 import com.mojang.serialization.DynamicOps;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.MapDecoder;
 import com.mojang.serialization.MapLike;
+import com.mojang.serialization.RecordBuilder;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
+import net.earthcomputer.descentintodarkness.blockpredicate.MatchesStatePredicate;
+import net.earthcomputer.descentintodarkness.blockstateprovider.DIDBlockStateProviderTypes;
 import net.minecraft.core.HolderSet;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
@@ -22,6 +27,7 @@ import net.minecraft.world.level.levelgen.blockpredicates.AnyOfPredicate;
 import net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate;
 import net.minecraft.world.level.levelgen.blockpredicates.MatchingBlocksPredicate;
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
+import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProviderType;
 import net.minecraft.world.level.levelgen.feature.stateproviders.SimpleStateProvider;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
@@ -30,8 +36,8 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.function.Function;
-import java.util.function.Supplier;
 import java.util.stream.Stream;
 
 public final class DIDCodecs {
@@ -90,6 +96,66 @@ public final class DIDCodecs {
         )
     );
 
+    public static final Codec<Pair<BlockStateProvider, BlockPredicate>> BLOCK_PREDICATE_FROM_PROVIDER = Codec.of(
+        BLOCK_STATE_PROVIDER.comap(Pair::getFirst),
+        both(
+            BLOCK_STATE_PROVIDER,
+            Codec.recursive(
+                "BlockPredicateFromProvider",
+                blockPredicateFromProviderCodec -> Codec.either(
+                    BuiltInRegistries.BLOCK.byNameCodec(),
+                    BuiltInRegistries.BLOCKSTATE_PROVIDER_TYPE.byNameCodec().dispatch(
+                        val -> {
+                            throw new IllegalStateException("Cannot encode block predicate from provider");
+                        },
+                        type -> {
+                            var blockPredicateCodec = MatchesStatePredicate.codec("Name", "Properties");
+                            if (type == BlockStateProviderType.SIMPLE_STATE_PROVIDER) {
+                                return blockPredicateCodec.fieldOf("state");
+                            }
+                            MapCodec<List<BlockPredicate>> predicateListCodec;
+                            if (type == BlockStateProviderType.WEIGHTED_STATE_PROVIDER || type == DIDBlockStateProviderTypes.ROOM_WEIGHTED.get()) {
+                                predicateListCodec = blockPredicateCodec.fieldOf("data").codec().xmap(x -> (BlockPredicate) x, x -> (MatchesStatePredicate) x).listOf().fieldOf("entries");
+                            } else if (type == BlockStateProviderType.RANDOMIZED_INT_STATE_PROVIDER) {
+                                return blockPredicateFromProviderCodec.fieldOf("source");
+                            } else if (type == BlockStateProviderType.NOISE_THRESHOLD_PROVIDER) {
+                                record NoiseThresholdProxy(MatchesStatePredicate defaultState,
+                                                           List<MatchesStatePredicate> lowStates,
+                                                           List<MatchesStatePredicate> highStates) {
+                                }
+                                predicateListCodec = RecordCodecBuilder.<NoiseThresholdProxy>mapCodec(instance -> instance.group(
+                                    blockPredicateCodec.fieldOf("default_state").forGetter(NoiseThresholdProxy::defaultState),
+                                    blockPredicateCodec.codec().listOf().fieldOf("low_states").forGetter(NoiseThresholdProxy::lowStates),
+                                    blockPredicateCodec.codec().listOf().fieldOf("high_states").forGetter(NoiseThresholdProxy::highStates)
+                                ).apply(instance, NoiseThresholdProxy::new)).xmap(
+                                    proxy -> ImmutableList.<BlockPredicate>builder().add(proxy.defaultState).addAll(proxy.lowStates).addAll(proxy.highStates).build(),
+                                    list -> {
+                                        throw new IllegalStateException("Cannot encode block predicate from provider");
+                                    }
+                                );
+                            } else if (type == BlockStateProviderType.NOISE_PROVIDER || type == BlockStateProviderType.DUAL_NOISE_PROVIDER) {
+                                predicateListCodec = blockPredicateCodec.codec().xmap(x -> (BlockPredicate) x, x -> (MatchesStatePredicate) x).listOf().fieldOf("states");
+                            } else {
+                                return MapCodec.unit(new AnyOfPredicate(List.of()));
+                            }
+                            return predicateListCodec.xmap(
+                                AnyOfPredicate::new,
+                                predicate -> {
+                                    throw new IllegalStateException("Cannot encode block predicate from provider");
+                                }
+                            );
+                        }
+                    )
+                ).xmap(
+                    either -> either.map(BlockPredicate::matchesBlocks, Function.identity()),
+                    predicate -> {
+                        throw new IllegalStateException("Cannot encode block predicate from provider");
+                    }
+                )
+            )
+        )
+    );
+
     private static final Codec<Double> VOXEL_COORD = doubleRange(-16, 32);
     private static final Codec<Vec3> VOXEL_POINT = Codec.list(VOXEL_COORD, 3, 3).xmap(list -> new Vec3(list.getFirst(), list.get(1), list.get(2)), vec -> List.of(vec.x, vec.y, vec.z));
     private static final Codec<AABB> VOXEL_BOX = RecordCodecBuilder.create(instance -> instance.group(
@@ -104,6 +170,36 @@ public final class DIDCodecs {
             return boxes;
         }
     );
+
+    public static final MapCodec<Boolean> TAGS_INVERTED_CODEC = new MapCodec<>() {
+        @Override
+        public <T> Stream<T> keys(DynamicOps<T> ops) {
+            return Stream.of(ops.createString("tags_inverted"));
+        }
+
+        @Override
+        public <T> DataResult<Boolean> decode(DynamicOps<T> ops, MapLike<T> input) {
+            T value = input.get("tags_inverted");
+            if (value != null) {
+                return ops.getBooleanValue(value);
+            }
+            return DataResult.success(input.get("tags") == null);
+        }
+
+        @Override
+        public <T> RecordBuilder<T> encode(Boolean input, DynamicOps<T> ops, RecordBuilder<T> prefix) {
+            boolean defaultValue = prefix.build(ops.createMap(Map.of())).flatMap(ops::getMap).mapOrElse(map -> map.get("tags") == null, error -> false);
+            if (input != defaultValue) {
+                return prefix.add("tags_inverted", ops.createBoolean(input));
+            }
+            return prefix;
+        }
+
+        @Override
+        public String toString() {
+            return "TagsInverted";
+        }
+    };
 
     private static Codec<Float> floatRangeWithMessage(Codec<Float> codec, float min, float max, Function<Float, String> message) {
         return codec.validate(value -> value >= min && value <= max ? DataResult.success(value) : DataResult.error(() -> message.apply(value)));
@@ -168,5 +264,24 @@ public final class DIDCodecs {
                 return "UnitWithoutFieldDecoder[" + fieldName + ", " + downstream + "]";
             }
         });
+    }
+
+    public static <A, B> Codec<Pair<A, B>> both(Codec<A> first, Codec<B> second) {
+        return new Codec<>() {
+            @Override
+            public <T> DataResult<Pair<Pair<A, B>, T>> decode(DynamicOps<T> ops, T input) {
+                return first.decode(ops, input).flatMap(firstResult -> second.decode(ops, input).map(secondResult -> Pair.of(Pair.of(firstResult.getFirst(), secondResult.getFirst()), firstResult.getSecond())));
+            }
+
+            @Override
+            public <T> DataResult<T> encode(Pair<A, B> input, DynamicOps<T> ops, T prefix) {
+                return first.encode(input.getFirst(), ops, prefix);
+            }
+
+            @Override
+            public String toString() {
+                return "Both[" + first + ", " + second + "]";
+            }
+        };
     }
 }

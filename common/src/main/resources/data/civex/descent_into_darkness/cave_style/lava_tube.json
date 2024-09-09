@@ -50,7 +50,7 @@
     }
   ],
   "biome": "civex:netherwater",
-  "nether": true,
+  "dimension": "minecraft:the_nether",
   "structures": {
     "fall": {
       "type": "descent_into_darkness:waterfall",
@@ -126,7 +126,7 @@
         "state": {
           "Name": "dead_fire_coral",
           "Properties": {
-            "waterlogged": false
+            "waterlogged": "false"
           }
         }
       },

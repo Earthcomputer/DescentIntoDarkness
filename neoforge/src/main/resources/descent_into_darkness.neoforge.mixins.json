@@ -1,0 +1,18 @@
+{
+  "required": true,
+  "package": "net.earthcomputer.descentintodarkness.neoforge.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "minVersion": "0.8",
+  "client": [
+  ],
+  "mixins": [
+    "ServerLevelMixin",
+    "WorldGenSettingsMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "overwrites": {
+    "requireAnnotations": true
+  }
+}

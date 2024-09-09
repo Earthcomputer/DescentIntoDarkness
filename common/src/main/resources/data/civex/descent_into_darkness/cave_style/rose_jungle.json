@@ -1,6 +1,6 @@
 {
   "base_block": "minecraft:dirt",
-  "nether": true,
+  "dimension": "minecraft:the_nether",
   "biome": "civex:rose_jungle",
   "inherit": [
     "civex:mega_canyon"
@@ -129,7 +129,7 @@
         "state": {
           "Name": "minecraft:jungle_leaves",
           "Properties": {
-            "persistent": true
+            "persistent": "true"
           }
         }
       },
@@ -147,7 +147,7 @@
         "state": {
           "Name": "minecraft:jungle_leaves",
           "Properties": {
-            "persistent": true
+            "persistent": "true"
           }
         }
       },
@@ -165,7 +165,7 @@
         "state": {
           "Name": "minecraft:vine",
           "Properties": {
-            "north": true
+            "north": "true"
           }
         }
       },
@@ -233,7 +233,7 @@
         "state": {
           "Name": "minecraft:bamboo",
           "Properties": {
-            "age": 1,
+            "age": "1",
             "leaves": "large"
           }
         }

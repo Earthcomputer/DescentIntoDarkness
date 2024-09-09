@@ -1,5 +1,5 @@
 {
-  "nether": true,
+  "dimension": "minecraft:the_nether",
   "biome": "civex:blue_mush_forest",
   "inherit": [
     "civex:halfwater",

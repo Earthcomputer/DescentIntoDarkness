@@ -5,7 +5,7 @@
       "axis": "y"
     }
   },
-  "nether": true,
+  "dimension": "minecraft:the_nether",
   "biome": "minecraft:warped_forest",
   "inherit": [
     {

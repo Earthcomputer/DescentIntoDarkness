@@ -26,7 +26,7 @@
     }
   ],
   "base_block": "minecraft:soul_soil",
-  "nether": true,
+  "dimension": "minecraft:the_nether",
   "biome": "soul_sand_valley",
   "transparent_blocks": [
     "minecraft:air",

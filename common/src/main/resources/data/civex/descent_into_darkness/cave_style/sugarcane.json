@@ -26,7 +26,7 @@
     }
   ],
   "biome": "civex:sugarcane",
-  "nether": true,
+  "dimension": "minecraft:the_nether",
   "start_y": 175,
   "air_block": [
     {

@@ -1,5 +1,5 @@
 {
-  "nether": true,
+  "dimension": "minecraft:the_nether",
   "biome": "civex:granite",
   "base_block": "minecraft:granite",
   "painter_steps": [

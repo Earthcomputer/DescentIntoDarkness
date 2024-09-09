@@ -3,8 +3,8 @@
     "civex:mega_canyon"
   ],
   "biome": "civex:acid",
-  "nether": true,
   "base_block": "minecraft:dripstone_block",
+  "dimension": "minecraft:the_nether",
   "start_y": 165,
   "air_block": [
     {
@@ -91,7 +91,8 @@
         "Properties": {
           "vertical_direction": "up",
           "thickness": "tip"
-      }
+        }
+      },
       "edges": [
         "floor"
       ],
@@ -106,7 +107,8 @@
         "Properties": {
           "vertical_direction": "up",
           "thickness": "tip_merge"
-      }
+        }
+      },
       "edges": [
         "floor"
       ],
@@ -121,7 +123,8 @@
         "Properties": {
           "vertical_direction": "down",
           "thickness": "tip_merge"
-      }
+        }
+      },
       "edges": [
         "ceiling"
       ],
@@ -136,7 +139,8 @@
         "Properties": {
           "vertical_direction": "down",
           "thickness": "tip"
-      }
+        }
+      },
       "edges": [
         "ceiling"
       ],

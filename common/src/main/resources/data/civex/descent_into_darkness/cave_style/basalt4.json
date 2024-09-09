@@ -4,7 +4,7 @@
     "minecraft:water"
   ],
   "biome": "minecraft:basalt_deltas",
-  "nether": true,
+  "dimension": "minecraft:the_nether",
   "inherit": [
     "civex:big_rooms2",
     {

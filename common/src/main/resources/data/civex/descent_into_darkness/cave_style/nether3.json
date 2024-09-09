@@ -25,7 +25,7 @@
       "color": "yellow"
     }
   ],
-  "nether": true,
+  "dimension": "minecraft:the_nether",
   "biome": "warped_forest",
   "base_block": "minecraft:netherrack",
   "transparent_blocks": [

@@ -1,7 +1,7 @@
 {
   "base_block": "minecraft:stone",
   "biome": "civex:bamboo_forest",
-  "nether": true,
+  "dimension": "minecraft:the_nether",
   "inherit": [
     "civex:big_flat",
     {
@@ -166,7 +166,7 @@
         "state": {
           "Name": "minecraft:bamboo",
           "Properties": {
-            "age": 1,
+            "age": "1",
             "leaves": "large"
           }
         }

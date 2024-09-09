@@ -50,8 +50,8 @@
             "east": "none",
             "north": "none",
             "south": "none",
-            "up": false,
-            "waterlogged": true,
+            "up": "false",
+            "waterlogged": "true",
             "west": "none"
           }
         }
@@ -77,8 +77,8 @@
             "east": "none",
             "north": "none",
             "south": "none",
-            "up": false,
-            "waterlogged": true,
+            "up": "false",
+            "waterlogged": "true",
             "west": "none"
           }
         }

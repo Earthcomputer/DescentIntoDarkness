@@ -16,7 +16,7 @@
       }
     }
   ],
-  "nether": true,
+  "dimension": "minecraft:the_nether",
   "base_block": "minecraft:stone",
   "painter_steps": [
     {
@@ -297,7 +297,7 @@
         "state": {
           "Name": "dead_fire_coral",
           "Properties": {
-            "waterlogged": false
+            "waterlogged": "false"
           }
         }
       },

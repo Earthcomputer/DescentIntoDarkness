@@ -11,6 +11,7 @@ import net.earthcomputer.descentintodarkness.DescentIntoDarkness;
 import net.earthcomputer.descentintodarkness.resources.DIDBlocks;
 import net.earthcomputer.descentintodarkness.resources.DIDResourceLoader;
 import net.earthcomputer.descentintodarkness.style.DIDCodecs;
+import net.minecraft.core.Registry;
 import net.minecraft.core.component.DataComponentMap;
 import net.minecraft.core.component.TypedDataComponent;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -31,6 +32,7 @@ import java.util.Optional;
 public final class DIDItems {
     private static final Logger LOGGER = LogUtils.getLogger();
     private static final Map<String, Entry> entries = new LinkedHashMap<>();
+    private static boolean registered = false;
 
     private DIDItems() {
     }
@@ -62,27 +64,33 @@ public final class DIDItems {
     public static void register() {
         entries.forEach((name, entry) -> {
             ResourceLocation id = DescentIntoDarkness.id(name);
-            DIDRegistries.REGISTRAR_MANAGER.get(Registries.ITEM).register(id, () -> {
-                Item.Properties properties = new Item.Properties();
-                for (TypedDataComponent<?> component : entry.components) {
-                    applyComponent(properties, component);
-                }
-                return entry.creator.create(id, properties);
-            }).listen(registeredItem -> {
-                entry.fuelBurnTime.ifPresent(fuelBurnTime -> {
-                    FuelRegistry.register(fuelBurnTime, registeredItem);
-                });
+            Item.Properties properties = new Item.Properties();
+            for (TypedDataComponent<?> component : entry.components) {
+                applyComponent(properties, component);
+            }
+            Item item = entry.creator.create(id, properties);
+            Registry.register(BuiltInRegistries.ITEM, id, item);
+            entry.fuelBurnTime.ifPresent(fuelBurnTime -> {
+                FuelRegistry.register(fuelBurnTime, item);
             });
         });
+        registered = true;
+    }
 
+    public static void registerCreativeTab() {
         DIDRegistries.REGISTRAR_MANAGER.get(Registries.CREATIVE_MODE_TAB).register(DescentIntoDarkness.id(DescentIntoDarkness.MOD_ID), () -> DIDPlatform.creativeTabBuilder()
             .title(Component.translatable("itemGroup." + DescentIntoDarkness.MOD_ID))
             .icon(() -> new ItemStack(Items.DEEPSLATE)) // TODO: better icon?
-            .displayItems((itemDisplayParameters, output) -> entries.forEach((name, entry) -> {
-                if (entry.inCreativeTab) {
-                    output.accept(BuiltInRegistries.ITEM.get(DescentIntoDarkness.id(name)));
+            .displayItems((itemDisplayParameters, output) -> {
+                if (!registered) {
+                    LOGGER.error("Filling in DID creative tab before items are registered");
                 }
-            }))
+                entries.forEach((name, entry) -> {
+                    if (entry.inCreativeTab) {
+                        output.accept(BuiltInRegistries.ITEM.get(DescentIntoDarkness.id(name)));
+                    }
+                });
+            })
             .build());
     }
 

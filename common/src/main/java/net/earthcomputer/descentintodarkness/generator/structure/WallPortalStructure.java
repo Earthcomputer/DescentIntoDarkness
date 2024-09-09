@@ -3,7 +3,11 @@ package net.earthcomputer.descentintodarkness.generator.structure;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
+import net.earthcomputer.descentintodarkness.DIDConstants;
+import net.earthcomputer.descentintodarkness.generator.CaveGenContext;
+import net.earthcomputer.descentintodarkness.generator.Centroid;
 import net.earthcomputer.descentintodarkness.style.DIDCodecs;
+import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.util.StringRepresentable;
 import net.minecraft.util.valueproviders.ConstantInt;
@@ -64,8 +68,99 @@ public final class WallPortalStructure extends Structure {
     }
 
     @Override
+    public Direction originPositionSide() {
+        return Direction.SOUTH;
+    }
+
+    @Override
+    protected boolean defaultCanReplace(CaveGenContext ctx, BlockPos pos) {
+        return !ctx.style().isTransparentBlock(ctx, pos);
+    }
+
+    @Override
     public StructureType<?> type() {
         return StructureType.WALL_PORTAL.get();
+    }
+
+    @Override
+    public boolean place(CaveGenContext ctx, BlockPos pos, Centroid centroid, boolean force) {
+        int width = this.width.sample(ctx.rand);
+        int height = this.height.sample(ctx.rand);
+        int x = pos.getX() - width / 2;
+        if (width % 2 == 0 && ctx.rand.nextBoolean()) {
+            x++;
+        }
+        int y = pos.getY() - height / 2;
+        if (height % 2 == 0 && ctx.rand.nextBoolean()) {
+            y++;
+        }
+        int z = pos.getZ();
+        boolean canPlace = true;
+        outer:
+        for (int i = 0; i < width; i++) {
+            for (int j = 0; j < height; j++) {
+                if (!canReplace(ctx, new BlockPos(x + i, y + j, z))) {
+                    canPlace = false;
+                    break outer;
+                }
+                if (!isPortalClearBlock(ctx, new BlockPos(x + i, y + j, z + 1))) {
+                    canPlace = false;
+                    break outer;
+                }
+            }
+        }
+        if (!force && !canPlace) {
+            return false;
+        }
+        if (canPlace && snappingSide != SnappingSide.NONE) {
+            if (snappingSide == SnappingSide.FLOOR) {
+                outer:
+                while (y >= DIDConstants.MIN_Y) {
+                    y--;
+                    for (int i = 0; i < width; i++) {
+                        if (!canReplace(ctx, new BlockPos(x + i, y, z))) {
+                            break outer;
+                        }
+                        if (!isPortalClearBlock(ctx, new BlockPos(x + i, y, z + 1))) {
+                            break outer;
+                        }
+                    }
+                }
+                y++;
+            } else {
+                outer:
+                while (y <= DIDConstants.MAX_Y) {
+                    y++;
+                    for (int i = 0; i < width; i++) {
+                        if (!canReplace(ctx, new BlockPos(x + i, y + height - 1, z))) {
+                            break outer;
+                        }
+                        if (!isPortalClearBlock(ctx, new BlockPos(x + i, y + height - 1, z + 1))) {
+                            break outer;
+                        }
+                    }
+                }
+                y--;
+            }
+        }
+
+        for (int i = -1; i <= width; i++) {
+            for (int j = -1; j <= height; j++) {
+                if (i == -1 || i == width || j == -1 || j == height) {
+                    if (frameBlock.isPresent()) {
+                        ctx.setBlock(new BlockPos(x + i, y + j, z), frameBlock.get(), centroid);
+                    }
+                } else {
+                    ctx.setBlock(new BlockPos(x + i, y + j, z), portalBlock, centroid);
+                }
+            }
+        }
+
+        return true;
+    }
+
+    private boolean isPortalClearBlock(CaveGenContext ctx, BlockPos pos) {
+        return portalClearBlocks.map(blockPredicate -> blockPredicate.test(ctx.asLevel(), pos)).orElseGet(() -> ctx.style().isTransparentBlock(ctx, pos));
     }
 
     private enum SnappingSide implements StringRepresentable {

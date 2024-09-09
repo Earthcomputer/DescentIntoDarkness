@@ -3,8 +3,8 @@
     "civex:aquifer"
   ],
   "biome": "civex:ice_magma",
-  "nether": true,
   "base_block": "minecraft:dripstone_block",
+  "dimension": "minecraft:the_nether",
   "start_y": 163,
   "air_block": "water",
   "structures": {

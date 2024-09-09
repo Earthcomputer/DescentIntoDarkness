@@ -1,6 +1,6 @@
 {
   "biome": "civex:white_forest",
-  "nether": true,
+  "dimension": "minecraft:the_nether",
   "inherit": [
     {
       "name": "civex:marbler_pack",

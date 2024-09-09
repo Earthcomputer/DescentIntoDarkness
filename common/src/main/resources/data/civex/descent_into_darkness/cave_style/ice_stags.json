@@ -23,7 +23,7 @@
     }
   ],
   "biome": "civex:ice_trees",
-  "nether": true,
+  "dimension": "minecraft:the_nether",
   "base_block": "minecraft:snow_block",
   "transparent_blocks": [
     "minecraft:air",
@@ -69,7 +69,7 @@
         "state": {
           "Name": "minecraft:snow",
           "Properties": {
-            "layers": 1
+            "layers": "1"
           }
         }
       },
@@ -86,7 +86,7 @@
         "state": {
           "Name": "minecraft:snow",
           "Properties": {
-            "layers": 2
+            "layers": "2"
           }
         }
       },
@@ -102,7 +102,7 @@
         "state": {
           "Name": "minecraft:snow",
           "Properties": {
-            "layers": 3
+            "layers": "3"
           }
         }
       },
@@ -118,7 +118,7 @@
         "state": {
           "Name": "minecraft:snow",
           "Properties": {
-            "layers": 4
+            "layers": "4"
           }
         }
       },
