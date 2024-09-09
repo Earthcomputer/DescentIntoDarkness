@@ -120,17 +120,22 @@ public final class Transform {
     }
 
     public Direction transformDirection(Direction direction) {
-        return Direction.getNearest(transformDirection(Vec3.atLowerCornerOf(direction.getNormal())));
+        return getNearest(transformDirection(Vec3.atLowerCornerOf(direction.getNormal())));
     }
 
     public BlockState transform(BlockState state) {
+        if (state.getValues().isEmpty()) {
+            // early out if the state has no properties, it will definitely be the same when rotated
+            return state;
+        }
+
         Vec3 right = transformDirection(new Vec3(1, 0, 0));
         Vec3 forward = transformDirection(new Vec3(0, 0, 1));
         if (right.horizontalDistanceSqr() < 0.0001 || forward.horizontalDistanceSqr() < 0.0001) {
             return state; // we've gone vertical, don't bother transforming the state
         }
-        Direction rightDir = Direction.getNearest(new Vec3(right.x, 0, right.z)); // east for identity
-        Direction forwardDir = Direction.getNearest(new Vec3(forward.x, 0, forward.z)); // south for identity
+        Direction rightDir = getNearestHorizontal(right); // east for identity
+        Direction forwardDir = getNearestHorizontal(forward); // south for identity
         return switch (forwardDir) {
             case SOUTH -> switch (rightDir) {
                 case EAST -> state;
@@ -158,6 +163,27 @@ public final class Transform {
             };
             default -> throw new IllegalStateException("Not a horizontal dir: " + forwardDir);
         };
+    }
+
+    private static Direction getNearest(Vec3 vec) {
+        double absX = Math.abs(vec.x);
+        double absY = Math.abs(vec.y);
+        double absZ = Math.abs(vec.z);
+        if (absX > absY && absX > absZ) {
+            return vec.x > 0 ? Direction.EAST : Direction.WEST;
+        } else if (absY > absZ) {
+            return vec.y > 0 ? Direction.UP : Direction.DOWN;
+        } else {
+            return vec.z > 0 ? Direction.SOUTH : Direction.NORTH;
+        }
+    }
+
+    private static Direction getNearestHorizontal(Vec3 vec) {
+        if (Math.abs(vec.x) >= Math.abs(vec.z)) {
+            return vec.x > 0 ? Direction.EAST : Direction.WEST;
+        } else {
+            return vec.z > 0 ? Direction.SOUTH : Direction.NORTH;
+        }
     }
 
     @Override
