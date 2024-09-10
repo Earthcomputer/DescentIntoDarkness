@@ -14,8 +14,10 @@ import net.minecraft.core.Direction;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.ExtraCodecs;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.levelgen.structure.templatesystem.BlockIgnoreProcessor;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructurePlaceSettings;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplate;
+import org.jetbrains.annotations.Nullable;
 import org.slf4j.Logger;
 
 import java.util.List;
@@ -65,8 +67,38 @@ public final class TemplateStructure extends Structure {
             return false;
         }
 
-        // TODO: what are these two BlockPos arguments?
-        return template.get().placeInWorld(ctx.asLevel(), pos.subtract(templateEntry.origin), pos.subtract(templateEntry.origin), new StructurePlaceSettings(), ctx.rand, Block.UPDATE_INVISIBLE);
+        if (template.get().palettes.isEmpty()) {
+            return false;
+        }
+        int paletteIndex = ctx.rand.nextInt(template.get().palettes.size());
+
+        StructurePlaceSettings placeSettings = new StructurePlaceSettings() {
+            @Override
+            public StructureTemplate.Palette getRandomPalette(List<StructureTemplate.Palette> list, @Nullable BlockPos blockPos) {
+                return list.get(paletteIndex);
+            }
+        };
+        if (ignoreAir) {
+            placeSettings.addProcessor(BlockIgnoreProcessor.AIR);
+        }
+
+        BlockPos structurePos = pos.subtract(templateEntry.origin);
+
+        if (!force && !canPlace(ctx, template.get(), placeSettings, structurePos)) {
+            return false;
+        }
+        return template.get().placeInWorld(ctx.asLevel(), structurePos, structurePos, placeSettings, ctx.rand, Block.UPDATE_INVISIBLE);
+    }
+
+    private boolean canPlace(CaveGenContext ctx, StructureTemplate template, StructurePlaceSettings placeSettings, BlockPos structurePos) {
+        for (StructureTemplate.StructureBlockInfo block : placeSettings.getRandomPalette(template.palettes, null).blocks()) {
+            BlockPos posToCheck = StructureTemplate.calculateRelativePosition(placeSettings, block.pos()).offset(structurePos);
+            if (!canReplace(ctx, posToCheck)) {
+                return false;
+            }
+        }
+
+        return true;
     }
 
     private record TemplateEntry(
