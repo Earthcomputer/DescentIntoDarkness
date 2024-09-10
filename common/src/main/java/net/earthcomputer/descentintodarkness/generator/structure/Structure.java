@@ -60,7 +60,7 @@ public abstract class Structure {
     }
 
     public final boolean canPlaceOn(CaveGenContext ctx, BlockPos pos) {
-        return canPlaceOn.map(canPlaceOn -> canPlaceOn.test(ctx.asLevel(), pos)).orElseGet(() -> ctx.style().isTransparentBlock(ctx, pos));
+        return canPlaceOn.map(canPlaceOn -> canPlaceOn.test(ctx.asLevel(), pos)).orElseGet(() -> !ctx.style().isTransparentBlock(ctx, pos));
     }
 
     protected List<StructurePlacementEdge> getDefaultEdges() {
