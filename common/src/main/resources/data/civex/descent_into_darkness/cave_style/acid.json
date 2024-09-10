@@ -34,7 +34,16 @@
   "structures": {
     "ustal": {
       "type": "descent_into_darkness:patch",
-      "block": "minecraft:pointed_dripstone",
+      "block": {
+        "type": "minecraft:simple_state_provider",
+        "state": {
+          "Name": "minecraft:pointed_dripstone",
+          "Properties": {
+            "vertical_direction": "up",
+            "thickness": "tip"
+          }
+        }
+      },
       "edges": [
         "floor"
       ],
@@ -44,7 +53,16 @@
     },
     "ustal2": {
       "type": "descent_into_darkness:patch",
-      "block": "minecraft:pointed_dripstone",
+      "block": {
+        "type": "minecraft:simple_state_provider",
+        "state": {
+          "Name": "minecraft:pointed_dripstone",
+          "Properties": {
+            "vertical_direction": "up",
+            "thickness": "tip_merge"
+          }
+        }
+      },
       "edges": [
         "floor"
       ],
@@ -54,7 +72,16 @@
     },
     "ustal3": {
       "type": "descent_into_darkness:patch",
-      "block": "minecraft:pointed_dripstone",
+      "block": {
+        "type": "minecraft:simple_state_provider",
+        "state": {
+          "Name": "minecraft:pointed_dripstone",
+          "Properties": {
+            "vertical_direction": "down",
+            "thickness": "tip_merge"
+          }
+        }
+      },
       "edges": [
         "ceiling"
       ],
@@ -64,7 +91,16 @@
     },
     "ustal4": {
       "type": "descent_into_darkness:patch",
-      "block": "minecraft:pointed_dripstone",
+      "block": {
+        "type": "minecraft:simple_state_provider",
+        "state": {
+          "Name": "minecraft:pointed_dripstone",
+          "Properties": {
+            "vertical_direction": "down",
+            "thickness": "tip"
+          }
+        }
+      },
       "edges": [
         "ceiling"
       ],

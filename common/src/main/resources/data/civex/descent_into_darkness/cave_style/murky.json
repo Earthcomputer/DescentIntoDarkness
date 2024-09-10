@@ -50,7 +50,7 @@
     },
     "sidevines2": {
       "type": "descent_into_darkness:vine_patch",
-      "vine": "descent_into_darkness:ns_murky_vine",
+      "vine": "descent_into_darkness:murky_vine",
       "edges": [
         "north",
         "south"
