@@ -92,6 +92,9 @@ public final class TemplateStructure extends Structure {
 
     private boolean canPlace(CaveGenContext ctx, StructureTemplate template, StructurePlaceSettings placeSettings, BlockPos structurePos) {
         for (StructureTemplate.StructureBlockInfo block : placeSettings.getRandomPalette(template.palettes, null).blocks()) {
+            if (ignoreAir && block.state().isAir()) {
+                continue;
+            }
             BlockPos posToCheck = StructureTemplate.calculateRelativePosition(placeSettings, block.pos()).offset(structurePos);
             if (!canReplace(ctx, posToCheck)) {
                 return false;
