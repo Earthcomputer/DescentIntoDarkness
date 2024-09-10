@@ -1,5 +1,5 @@
 {
-  "start_y": 20,
+  "start_y": 200,
   "biome": "minecraft:jungle",
   "transparent_blocks": [
     "minecraft:air",
