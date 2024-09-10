@@ -131,12 +131,6 @@
       "count": 0.05,
       "can_replace": [
         "minecraft:air"
-      ],
-      "cannot_place_on": [
-        "minecraft:air",
-        "descent_into_darkness:octocomb",
-        "minecraft:water",
-        "minecraft:honey_block"
       ]
     },
     "polyp": {
