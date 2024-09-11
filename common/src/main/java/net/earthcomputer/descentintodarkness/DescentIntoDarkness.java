@@ -4,6 +4,7 @@ import com.mojang.brigadier.CommandDispatcher;
 import dev.architectury.event.events.common.CommandRegistrationEvent;
 import net.earthcomputer.descentintodarkness.instancing.CaveTrackerManager;
 import net.earthcomputer.descentintodarkness.item.DIDItems;
+import net.earthcomputer.descentintodarkness.network.DIDNetwork;
 import net.earthcomputer.descentintodarkness.resources.DIDResourceLoader;
 import net.minecraft.commands.CommandBuildContext;
 import net.minecraft.commands.CommandSourceStack;
@@ -21,6 +22,7 @@ public final class DescentIntoDarkness {
         DIDItems.registerCreativeTab();
         CommandRegistrationEvent.EVENT.register(DescentIntoDarkness::registerCommands);
         CaveTrackerManager.registerEvents();
+        DIDNetwork.register();
     }
 
     public static void postRegistryInit() {

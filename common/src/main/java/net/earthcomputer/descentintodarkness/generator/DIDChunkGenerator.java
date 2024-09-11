@@ -15,9 +15,11 @@ import net.minecraft.core.RegistryAccess;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.RegistryFileCodec;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.server.level.TicketType;
 import net.minecraft.server.level.WorldGenRegion;
 import net.minecraft.util.random.WeightedRandomList;
 import net.minecraft.world.entity.MobCategory;
+import net.minecraft.world.level.ChunkPos;
 import net.minecraft.world.level.LevelHeightAccessor;
 import net.minecraft.world.level.NoiseColumn;
 import net.minecraft.world.level.StructureManager;
@@ -40,37 +42,42 @@ import net.minecraft.world.level.levelgen.structure.Structure;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplateManager;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.Comparator;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
 import java.util.stream.IntStream;
 
 public final class DIDChunkGenerator extends ChunkGenerator {
+    public static final TicketType<ChunkPos> DID_CAVE_GEN = TicketType.create("did_cave_gen", Comparator.comparingLong(ChunkPos::toLong));
+
     private static final MapCodec<DIDChunkGenerator> CODEC = RecordCodecBuilder.mapCodec(instance -> instance.group(
         BiomeSource.CODEC.fieldOf("biome_source").forGetter(DIDChunkGenerator::getBiomeSource),
         RegistryFileCodec.create(DIDRegistries.CAVE_STYLE, CaveStyle.CODEC).fieldOf("style").forGetter(gen -> gen.style),
         Codec.INT.fieldOf("size").forGetter(gen -> gen.size),
         Codec.LONG.fieldOf("seed").forGetter(gen -> gen.seed),
         Codec.BOOL.fieldOf("debug").forGetter(gen -> gen.debug)
-    ).apply(instance, DIDChunkGenerator::new));
+    ).apply(instance, (biomeSource1, style1, size1, seed1, debug1) -> new DIDChunkGenerator(biomeSource1, style1, size1, seed1, debug1, CaveGenProgressListener.EMPTY)));
 
     private final Holder<CaveStyle> style;
     private final PackedBlockStorage blockStorage;
     private final int size;
     private final long seed;
     private final boolean debug;
+    private final CaveGenProgressListener listener;
     private volatile boolean generatedCave = false;
 
-    private DIDChunkGenerator(BiomeSource biomeSource, Holder<CaveStyle> style, int size, long seed, boolean debug) {
+    private DIDChunkGenerator(BiomeSource biomeSource, Holder<CaveStyle> style, int size, long seed, boolean debug, CaveGenProgressListener listener) {
         super(biomeSource);
         this.style = style;
         this.blockStorage = new PackedBlockStorage(style.value().baseBlock());
         this.size = size;
         this.seed = seed;
         this.debug = debug;
+        this.listener = listener;
     }
 
-    public DIDChunkGenerator(RegistryAccess registryAccess, Holder<CaveStyle> style, int size, long seed, boolean debug) {
-        this(new FixedBiomeSource(style.value().getBiome(registryAccess)), style, size, seed, debug);
+    public DIDChunkGenerator(RegistryAccess registryAccess, Holder<CaveStyle> style, int size, long seed, boolean debug, CaveGenProgressListener listener) {
+        this(new FixedBiomeSource(style.value().getBiome(registryAccess)), style, size, seed, debug, listener);
     }
 
     public static void register() {
@@ -164,7 +171,7 @@ public final class DIDChunkGenerator extends ChunkGenerator {
         if (!generatedCave) {
             synchronized (this) {
                 if (!generatedCave) {
-                    try (CaveGenContext ctx = new CaveGenContext(worldGenLevel, style, seed, blockStorage).setDebug(debug)) {
+                    try (CaveGenContext ctx = new CaveGenContext(worldGenLevel, style, seed, blockStorage).setDebug(debug).setListener(listener)) {
                         CaveGenerator.generateCave(ctx, size);
                     }
                     generatedCave = true;

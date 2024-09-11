@@ -7,7 +7,8 @@
   ],
   "mixins": [
     "RegistryDataLoaderMixin",
-    "ReloadCommandMixin"
+    "ReloadCommandMixin",
+    "ServerPlayerMixin"
   ],
   "injectors": {
     "defaultRequire": 1

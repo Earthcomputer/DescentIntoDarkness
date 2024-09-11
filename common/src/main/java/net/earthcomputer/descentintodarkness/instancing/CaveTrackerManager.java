@@ -2,6 +2,7 @@ package net.earthcomputer.descentintodarkness.instancing;
 
 import dev.architectury.event.events.common.LifecycleEvent;
 import net.earthcomputer.descentintodarkness.DIDPlatform;
+import net.earthcomputer.descentintodarkness.generator.CaveGenProgressListener;
 import net.earthcomputer.descentintodarkness.generator.DIDChunkGenerator;
 import net.earthcomputer.descentintodarkness.style.CaveStyle;
 import net.minecraft.core.Holder;
@@ -43,14 +44,14 @@ public final class CaveTrackerManager {
         return tracker;
     }
 
-    public static CaveTracker createCave(MinecraftServer server, ResourceKey<Level> levelKey, Holder<CaveStyle> style, int size, long seed, boolean debug) {
+    public static CaveTracker createCave(MinecraftServer server, ResourceKey<Level> levelKey, Holder<CaveStyle> style, int size, long seed, boolean debug, CaveGenProgressListener listener) {
         CaveTracker tracker = new CaveTracker(levelKey);
         CaveTracker oldTracker = caves.put(levelKey, tracker);
         if (oldTracker != null) {
             throw new IllegalStateException("Duplicate cave tracker: " + levelKey);
         }
         RegistryAccess registryAccess = server.registryAccess();
-        DIDPlatform.registerCustomDimension(server, levelKey, style.value().dimension(registryAccess), new DIDChunkGenerator(registryAccess, style, size, seed, debug));
+        DIDPlatform.registerCustomDimension(server, levelKey, style.value().dimension(registryAccess), new DIDChunkGenerator(registryAccess, style, size, seed, debug, listener));
 
         try {
             FileUtils.forceDeleteOnExit(server.storageSource.getDimensionPath(levelKey).toFile());
@@ -65,4 +66,5 @@ public final class CaveTrackerManager {
             DIDPlatform.deleteCustomDimension(server, levelKey);
         }
     }
+
 }

@@ -4,6 +4,7 @@ import net.earthcomputer.descentintodarkness.DIDConstants;
 import net.earthcomputer.descentintodarkness.generator.room.Room;
 import net.earthcomputer.descentintodarkness.generator.room.RoomData;
 import net.minecraft.core.BlockPos;
+import net.minecraft.network.chat.Component;
 import net.minecraft.util.Mth;
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
 import net.minecraft.world.phys.Vec3;
@@ -23,6 +24,9 @@ public final class ModuleGenerator {
 
         addRooms(ctx, layout, start, dir, caveRadius, roomLocations, theseRoomLocations);
 
+        ctx.listener().setProgress((float) CaveGenerator.STEP_CARVING_CENTROIDS / CaveGenerator.TOTAL_STEPS);
+        ctx.listener().pushProgress(Component.translatable("descent_into_darkness.generating.carving_centroids", ctx.centroids().size()));
+        int carvedCentroidCount = 0;
         int roomStart = 0;
         while (roomStart < ctx.centroids().size()) {
             int roomIndex = ctx.centroids().get(roomStart).roomIndex;
@@ -36,18 +40,23 @@ public final class ModuleGenerator {
             int minRoomY = roomCentroids.stream().mapToInt(centroid -> Mth.floor(centroid.pos.y) - centroid.size).min().orElse(DIDConstants.MIN_Y);
             int maxRoomY = roomCentroids.stream().mapToInt(centroid -> Mth.floor(centroid.pos.y) + centroid.size).max().orElse(DIDConstants.MAX_Y);
             for (Centroid centroid : roomCentroids) {
+                ctx.listener().setProgress((float) carvedCentroidCount++ / ctx.centroids().size());
                 deleteCentroid(ctx, centroid, minRoomY, maxRoomY);
             }
 
             roomStart = roomEnd;
         }
+        ctx.listener().popProgress();
     }
 
     private static <D> void addRooms(CaveGenContext ctx, LayoutGenerator.Layout layout, Vec3 start, Vec3 dir, int caveRadius, List<List<Vec3>> roomLocations, List<Vec3> theseRoomLocations) {
         String cave = layout.getValue();
+        ctx.listener().setProgress((float) CaveGenerator.STEP_CREATING_ROOMS / CaveGenerator.TOTAL_STEPS);
+        ctx.listener().pushProgress(Component.translatable("descent_into_darkness.generating.creating_rooms", cave.length()));
         Map<Character, Room<?>> rooms = ctx.style().rooms();
         Vec3 location = start;
         for (int i = 0; i < cave.length(); i++) {
+            ctx.listener().setProgress((float) i / cave.length());
             @SuppressWarnings("unchecked")
             Room<D> room = (Room<D>) rooms.get(cave.charAt(i));
             List<String> tags = new ArrayList<>(layout.getTags().get(i));
@@ -61,6 +70,7 @@ public final class ModuleGenerator {
             location = room.adjustLocation(ctx, roomData, userData);
             theseRoomLocations.add(location);
         }
+        ctx.listener().popProgress();
     }
 
     private static void deleteCentroid(CaveGenContext ctx, Centroid centroid, int minRoomY, int maxRoomY) {

@@ -1,6 +1,7 @@
 package net.earthcomputer.descentintodarkness.generator;
 
 import net.earthcomputer.descentintodarkness.generator.room.SimpleRoom;
+import net.minecraft.network.chat.Component;
 import net.minecraft.util.Mth;
 import net.minecraft.world.phys.Vec3;
 
@@ -9,10 +10,18 @@ import java.util.List;
 import java.util.Map;
 
 public final class CaveGenerator {
+    public static final int STEP_CREATING_ROOMS = 1;
+    public static final int STEP_CARVING_CENTROIDS = 2;
+    public static final int STEP_SMOOTHING = 3;
+    public static final int STEP_PAINTING = 4;
+    public static final int STEP_GENERATING_STRUCTURES = 5;
+    public static final int TOTAL_STEPS = 6;
+
     private CaveGenerator() {
     }
 
     public static String generateCave(CaveGenContext ctx, int size) {
+        ctx.listener().pushProgress(Component.translatable("descent_into_darkness.generating", ctx.styleHolder().unwrapKey().orElseThrow().location().toString()));
         Vec3 pos = new Vec3(0, ctx.style().startY(), 0);
         List<List<Vec3>> roomLocations = new ArrayList<>();
         int length = ctx.style().length().sample(ctx.rand);
@@ -22,6 +31,7 @@ public final class CaveGenerator {
         }
         String caveString = generateBranch(ctx, size, pos, length, 'C', true, startingDir, roomLocations);
         PostProcessor.postProcess(ctx, roomLocations);
+        ctx.listener().popProgress();
         return caveString;
     }
 

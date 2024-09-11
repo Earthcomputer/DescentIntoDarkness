@@ -43,6 +43,7 @@ public final class CaveGenContext implements AutoCloseable {
     public final RandomSource rand;
     public final long caveSeed;
     private boolean debug;
+    private CaveGenProgressListener listener = CaveGenProgressListener.EMPTY;
     private final PackedBlockStorage blockStorage;
     private final Deque<Transform> blockTransformStack = new LinkedList<>(List.of(Transform.IDENTITY));
     private final Deque<Transform> inverseBlockTransformStack = new LinkedList<>(List.of(Transform.IDENTITY));
@@ -70,6 +71,10 @@ public final class CaveGenContext implements AutoCloseable {
         return style.value();
     }
 
+    public Holder<CaveStyle> styleHolder() {
+        return style;
+    }
+
     public CaveGenContext setDebug(boolean debug) {
         this.debug = debug;
         return this;
@@ -77,6 +82,15 @@ public final class CaveGenContext implements AutoCloseable {
 
     public boolean isDebug() {
         return debug;
+    }
+
+    public CaveGenContext setListener(CaveGenProgressListener listener) {
+        this.listener = listener;
+        return this;
+    }
+
+    public CaveGenProgressListener listener() {
+        return listener;
     }
 
     public boolean setBlock(BlockPos pos, BlockState block) {

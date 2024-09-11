@@ -1,6 +1,7 @@
 package net.earthcomputer.descentintodarkness.client;
 
 import dev.architectury.event.events.client.ClientGuiEvent;
+import dev.architectury.event.events.client.ClientPlayerEvent;
 import dev.architectury.registry.client.rendering.RenderTypeRegistry;
 import net.earthcomputer.descentintodarkness.DescentIntoDarkness;
 import net.earthcomputer.descentintodarkness.resources.DIDBlocks;
@@ -19,6 +20,9 @@ public final class DescentIntoDarknessClient {
 
     public static void init() {
         ClientGuiEvent.RENDER_HUD.register(DescentIntoDarknessClient::renderHud);
+        ClientPlayerEvent.CLIENT_PLAYER_QUIT.register(player -> CaveGenProgress.clear());
+
+        DIDNetworkClient.registerClient();
 
         registerBlockRenderTypes();
     }
@@ -38,6 +42,8 @@ public final class DescentIntoDarknessClient {
                 y += font.lineHeight;
             }
         }
+
+        CaveGenProgress.render(graphics, deltaTracker);
     }
 
     private static void registerBlockRenderTypes() {

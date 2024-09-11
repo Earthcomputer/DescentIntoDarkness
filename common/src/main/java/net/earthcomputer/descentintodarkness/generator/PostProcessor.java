@@ -6,6 +6,7 @@ import net.earthcomputer.descentintodarkness.generator.structure.Structure;
 import net.minecraft.Util;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.network.chat.Component;
 import net.minecraft.util.Mth;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.phys.Vec3;
@@ -21,6 +22,9 @@ public final class PostProcessor {
 
     public static void postProcess(CaveGenContext ctx, List<List<Vec3>> roomLocations) {
         List<Centroid> centroids = ctx.centroids();
+        ctx.listener().setProgress((float) CaveGenerator.STEP_SMOOTHING / CaveGenerator.TOTAL_STEPS);
+        ctx.listener().pushProgress(Component.translatable("descent_into_darkness.generating.smoothing", centroids.size()));
+        int smoothedCentroidCount = 0;
         int roomStart = 0;
         while (roomStart < centroids.size()) {
             int roomIndex = centroids.get(roomStart).roomIndex;
@@ -34,15 +38,21 @@ public final class PostProcessor {
             int minRoomY = roomCentroids.stream().mapToInt(centroid -> Mth.floor(centroid.pos.y) - centroid.size).min().orElse(DIDConstants.MIN_Y);
             int maxRoomY = roomCentroids.stream().mapToInt(centroid -> Mth.floor(centroid.pos.y) + centroid.size).max().orElse(DIDConstants.MAX_Y);
             for (Centroid centroid : roomCentroids) {
+                ctx.listener().setProgress((float) smoothedCentroidCount++ / centroids.size());
                 smooth(ctx, centroid, minRoomY, maxRoomY);
             }
 
             roomStart = roomEnd;
         }
+        ctx.listener().popProgress();
 
+        ctx.listener().setProgress((float) CaveGenerator.STEP_PAINTING / CaveGenerator.TOTAL_STEPS);
+        ctx.listener().pushProgress(Component.translatable("descent_into_darkness.generating.painting", centroids.size()));
         Set<BlockPos> paintedBlocks = new HashSet<>();
         List<BlockPos> paintedBlocksThisCentroid = new ArrayList<>();
-        for(Centroid centroid : centroids) {
+        for (int i = 0; i < centroids.size(); i++) {
+            Centroid centroid = centroids.get(i);
+            ctx.listener().setProgress((float) i / centroids.size());
             for (PainterStep painterStep : ctx.style().painterSteps()) {
                 if (painterStep.tags().matches(centroid.tags)) {
                     painterStep.apply(ctx, centroid, pos -> {
@@ -57,10 +67,18 @@ public final class PostProcessor {
             paintedBlocks.addAll(paintedBlocksThisCentroid);
             paintedBlocksThisCentroid.clear();
         }
+        ctx.listener().popProgress();
 
-        for (Structure structure : ctx.style().structures().values()) {
-            generateStructure(ctx, centroids, structure);
+        ctx.listener().setProgress((float) CaveGenerator.STEP_GENERATING_STRUCTURES / CaveGenerator.TOTAL_STEPS);
+        ctx.listener().pushProgress(Component.translatable("descent_into_darkness.generating.structures", ctx.style().structures().size()));
+        int generatedStructures = 0;
+        for (var structureEntry : ctx.style().structures().entrySet()) {
+            ctx.listener().setProgress((float) generatedStructures++ / ctx.style().structures().size());
+            ctx.listener().pushProgress(Component.translatable("descent_into_darkness.generating.structure", structureEntry.getKey(), ctx.centroids().size()));
+            generateStructure(ctx, centroids, structureEntry.getValue());
+            ctx.listener().popProgress();
         }
+        ctx.listener().popProgress();
 
         if (!centroids.isEmpty()) {
             generatePortal(ctx, centroids.getFirst());
@@ -137,10 +155,12 @@ public final class PostProcessor {
         if (structure.validDirections().isEmpty()) {
             return;
         }
-        for (Centroid centroid : centroids) {
+        for (int i = 0; i < centroids.size(); i++) {
+            Centroid centroid = centroids.get(i);
             if (centroid.size <= 0) {
                 continue;
             }
+            ctx.listener().setProgress((float) i / centroids.size());
 
             double averageStructures = structure.count() * (centroid.size * centroid.size) / STRUCTURE_CHANCE_ADJUST;
             // compute the number of structures in this centroid using the Poisson distribution
