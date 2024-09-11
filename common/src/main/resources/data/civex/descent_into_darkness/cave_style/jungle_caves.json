@@ -93,7 +93,8 @@
           "type": "minecraft:matching_blocks",
           "blocks": [
             "minecraft:short_grass",
-            "minecraft:air"
+            "minecraft:air",
+            "minecraft:vine"
           ]
         }
       },

@@ -163,7 +163,7 @@
       "edges": [
         "floor"
       ],
-      "chance": 0.03,
+      "chance": 0.01,
       "spread_x": 16,
       "spread_z": 16,
       "can_place_on": [

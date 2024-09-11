@@ -65,18 +65,180 @@
       "height": 1000
     },
     "rails2": {
-      "count": 10,
-      "tries": 20,
+      "count": 50,
+      "tries": 60,
       "type": "descent_into_darkness:patch",
-      "block": "minecraft:rail",
+      "block": {
+        "type": "minecraft:simple_state_provider",
+        "state": {
+          "Name": "minecraft:rail",
+          "Properties": {
+            "shape": "north_south"
+          }
+        }
+      },
       "spread_x": 8,
       "spread_z": 8,
       "edges": [
         "floor"
       ],
-      "can_place_on": [
-        "minecraft:oak_planks"
-      ]
+      "can_place_on": {
+        "type": "minecraft:all_of", 
+        "predicates":[
+          {
+            "type": "minecraft:matching_blocks",
+            "blocks": "minecraft:oak_planks"
+          },
+          {
+            "type": "minecraft:matching_blocks",
+            "blocks": "minecraft:oak_planks",
+            "offset": [
+              -1,
+              0,
+              0
+            ]
+          },
+          {
+            "type": "minecraft:matching_blocks",
+            "blocks": "minecraft:oak_planks",
+            "offset": [
+              1,
+              0,
+              0
+            ]
+          },
+          {
+            "type": "minecraft:matching_blocks",
+            "blocks": "minecraft:oak_planks",
+            "offset": [
+              0,
+              0,
+              1
+            ]
+          },
+          {
+            "type": "minecraft:matching_blocks",
+            "blocks": "minecraft:oak_planks",
+            "offset": [
+              0,
+              0,
+              -1
+            ]
+          },
+          {
+            "type": "minecraft:not",
+            "predicate": {
+              "type": "minecraft:matching_blocks",
+              "blocks": "minecraft:oak_planks",
+              "offset": [
+                -2,
+                0,
+                0
+              ]
+            }
+          },
+          {
+            "type": "minecraft:not",
+            "predicate": {
+              "type": "minecraft:matching_blocks",
+              "blocks": "minecraft:oak_planks",
+              "offset": [
+                2,
+                0,
+                0
+              ]
+            }
+          }
+        ]
+      }
+    },
+    "rails3": {
+      "count": 50,
+      "tries": 60,
+      "type": "descent_into_darkness:patch",
+      "block": {
+        "type": "minecraft:simple_state_provider",
+        "state": {
+          "Name": "minecraft:rail",
+          "Properties": {
+            "shape": "east_west"
+          }
+        }
+      },
+      "spread_x": 8,
+      "spread_z": 8,
+      "edges": [
+        "floor"
+      ],
+      "can_place_on": {
+        "type": "minecraft:all_of", 
+        "predicates":[
+          {
+            "type": "minecraft:matching_blocks",
+            "blocks": "minecraft:oak_planks"
+          },
+          {
+            "type": "minecraft:matching_blocks",
+            "blocks": "minecraft:oak_planks",
+            "offset": [
+              -1,
+              0,
+              0
+            ]
+          },
+          {
+            "type": "minecraft:matching_blocks",
+            "blocks": "minecraft:oak_planks",
+            "offset": [
+              1,
+              0,
+              0
+            ]
+          },
+          {
+            "type": "minecraft:matching_blocks",
+            "blocks": "minecraft:oak_planks",
+            "offset": [
+              0,
+              0,
+              1
+            ]
+          },
+          {
+            "type": "minecraft:matching_blocks",
+            "blocks": "minecraft:oak_planks",
+            "offset": [
+              0,
+              0,
+              -1
+            ]
+          },
+          {
+            "type": "minecraft:not",
+            "predicate": {
+              "type": "minecraft:matching_blocks",
+              "blocks": "minecraft:oak_planks",
+              "offset": [
+                0,
+                0,
+                2
+              ]
+            }
+          },
+          {
+            "type": "minecraft:not",
+            "predicate": {
+              "type": "minecraft:matching_blocks",
+              "blocks": "minecraft:oak_planks",
+              "offset": [
+                0,
+                0,
+                2
+              ]
+            }
+          }
+        ]
+      }
     }
   }
 }

@@ -1,0 +1,66 @@
+{
+  "inherit": "civex:crevice",
+  "display_name": "therobber",
+  "base_block": "minecraft:dirt",
+  "biome": "minecraft:ocean",
+  "dimension": "minecraft:the_end",
+  "start_y": 220,
+  "lore": [
+    {
+      "text": "Difficulty: \u2606\u2606\u2606",
+      "color": "yellow"
+    }
+  ],
+  "structures": {
+    "stags": {
+      "block": "minecraft:cobblestone",
+      "type": "descent_into_darkness:stalagmite",
+      "edges": [
+        "wall"
+      ],
+      "floor_to_ceiling_search_range": 128,
+      "max_column_radius_to_cave_height_ratio": 1.0,
+      "has_stalactite": true,
+      "count": 0.4,
+      "column_radius": [
+        7,
+        9
+      ]
+    },
+    "crossbar": {
+      "chance": 0.1,
+      "type": "descent_into_darkness:vine_patch",
+      "vine": "minecraft:oak_planks",
+      "spread_x": 1,
+      "tries": 50,
+      "edges": [
+        "wall"
+      ],
+      "height": 1000
+    },
+    "pillars": {
+      "chance": 0.1,
+      "type": "descent_into_darkness:vine_patch",
+      "edges": [
+        "floor",
+        "ceiling"
+      ],
+      "vine": "minecraft:stone_bricks",
+      "first_block": "minecraft:stone_bricks",
+      "last_block": "minecraft:stone_bricks",
+      "spread_x": 1,
+      "spread_y": 1,
+      "spread_z": 1,
+      "tries": 50,
+      "height": 1024
+    }
+  },
+  "painter_steps": [
+    {
+      "type": "descent_into_darkness:replace_all",
+      "old": "minecraft:dirt",
+      "new": "minecraft:stone",
+      "chance": 0.5
+    }
+  ]
+}

@@ -1,0 +1,64 @@
+{
+  "base_block": "minecraft:dirt",
+  "painter_steps": [
+    {
+      "type": "descent_into_darkness:replace_floor",
+      "old": "minecraft:dirt",
+      "new": "minecraft:grass_block",
+      "chance": 0.3
+    },
+    {
+      "type": "descent_into_darkness:replace_all",
+      "old": "minecraft:dirt",
+      "new": {
+        "type": "minecraft:weighted_state_provider",
+        "entries": [
+          {
+            "weight": 5,
+            "data": {
+              "Name": "minecraft:stone"
+            }
+          },
+          {
+            "weight": 2,
+            "data": {
+              "Name": "minecraft:coarse_dirt"
+            }
+          },
+          {
+            "weight": 1,
+            "data": {
+              "Name": "minecraft:cobblestone"
+            }
+          }
+        ]
+      },
+      "chance": 0.8
+    }
+  ],
+  "structures": {
+    "pillar": {
+        "type": "descent_into_darkness:template",
+        "chance": 0.5,
+        "edges": "floor",
+        "can_replace": [
+          "minecraft:stone",
+          "minecraft:cobblestone",
+          "minecraft:grass_block",
+          "minecraft:dirt",
+          "minecraft:coarse_dirt",
+          "minecraft:air"
+        ],
+        "templates": [
+          {
+            "template": "descent_into_darkness:jackscave/quartz_pillar",
+            "origin": [
+              1,
+              0,
+              1
+            ]
+          }
+        ]
+    }
+  }
+}

@@ -1,0 +1,221 @@
+{
+  "inherit": [
+    "civex:crevice"
+  ],
+  "display_name": "Murky Abyss",
+  "lore": [
+    {
+      "text": "Difficulty: ☆☆☆☆",
+      "color": "yellow"
+    }
+  ],
+  "painter_steps": [
+    {
+      "type": "descent_into_darkness:replace_all",
+      "old": "minecraft:stone",
+      "new": "minecraft:end_stone",
+      "chance": 0.9
+    },
+    {
+      "type": "descent_into_darkness:replace_all",
+      "old": "minecraft:stone",
+      "new": "minecraft:obsidian",
+      "chance": 1.0
+    }
+  ],
+  "structures": {
+    "bricks": {
+      "type": "descent_into_darkness:vein",
+      "edges": [
+        "floor",
+        "ceiling",
+        "wall"
+      ],
+      "chance": 0.5,
+      "ore": "minecraft:end_stone_bricks"
+    },
+    "glowstone": {
+      "type": "descent_into_darkness:glowstone",
+      "edges": [
+        "ceiling"
+      ],
+      "block": {
+        "type": "minecraft:simple_state_provider",
+        "state": {
+          "Name": "minecraft:chorus_plant",
+          "Properties": {
+            "down": "true",
+            "east": "true",
+            "north": "true",
+            "south": "true",
+            "up": "true",
+            "west": "true"
+          }
+        }
+      },
+      "can_place_on": [
+        "minecraft:end_stone",
+        "minecraft:obsidian"
+      ],
+      "height": 12,
+      "density": 1000
+    },
+    "flower": {
+      "type": "descent_into_darkness:vein",
+      "edges": [
+        "ceiling"
+      ],
+      "chance": 0.25,
+      "ore": "minecraft:chorus_flower",
+      "radius": 4
+    },
+    "stals0": {
+      "type": "descent_into_darkness:template",
+      "origin_side": "up",
+      "edges": [
+        "floor",
+        "ceiling",
+        "wall"
+      ],
+      "chance": 0.4,
+      "can_place_on": [
+        "minecraft:end_stone"
+      ],
+      "can_replace": [
+        "minecraft:end_stone",
+        "minecraft:chorus_plant",
+        "minecraft:stone",
+        "minecraft:air",
+        "minecraft:obsidian"
+      ],
+      "templates": [
+        {
+          "template": "descent_into_darkness:end1/obig67",
+          "origin": [
+            2,
+            10,
+            4
+          ]
+        }
+      ]
+    },
+    "stals1": {
+      "type": "descent_into_darkness:template",
+      "origin_side": "up",
+      "edges": [
+        "floor",
+        "ceiling",
+        "wall"
+      ],
+      "chance": 0.4,
+      "can_place_on": [
+        "minecraft:end_stone"
+      ],
+      "can_replace": [
+        "minecraft:end_stone",
+        "minecraft:chorus_plant",
+        "minecraft:stone",
+        "minecraft:air",
+        "minecraft:obsidian"
+      ],
+      "templates": [
+        {
+          "template": "descent_into_darkness:end1/obig22",
+          "origin": [
+            2,
+            5,
+            6
+          ]
+        }
+      ]
+    },
+    "stals2": {
+      "type": "descent_into_darkness:template",
+      "origin_side": "up",
+      "edges": [
+        "floor",
+        "ceiling",
+        "wall"
+      ],
+      "chance": 0.4,
+      "can_place_on": [
+        "minecraft:end_stone"
+      ],
+      "can_replace": [
+        "minecraft:end_stone",
+        "minecraft:chorus_plant",
+        "minecraft:stone",
+        "minecraft:air",
+        "minecraft:obsidian"
+      ],
+      "templates": [
+        {
+          "template": "descent_into_darkness:end1/obig45",
+          "origin": [
+            2,
+            9,
+            7
+          ]
+        }
+      ]
+    },
+    "stals3": {
+      "type": "descent_into_darkness:template",
+      "origin_side": "up",
+      "edges": [
+        "floor",
+        "ceiling"
+      ],
+      "chance": 0.4,
+      "can_place_on": [
+        "minecraft:end_stone"
+      ],
+      "can_replace": [
+        "minecraft:end_stone",
+        "minecraft:chorus_plant",
+        "minecraft:stone",
+        "minecraft:air",
+        "minecraft:obsidian"
+      ],
+      "templates": [
+        {
+          "template": "descent_into_darkness:end1/obig90",
+          "origin": [
+            2,
+            12,
+            3
+          ]
+        }
+      ]
+    },
+    "stals4": {
+      "type": "descent_into_darkness:template",
+      "origin_side": "up",
+      "edges": [
+        "wall"
+      ],
+      "chance": 0.4,
+      "can_place_on": [
+        "minecraft:end_stone",
+        "minecraft:obsidian"
+      ],
+      "can_replace": [
+        "minecraft:end_stone",
+        "minecraft:chorus_plant",
+        "minecraft:stone",
+        "minecraft:air",
+        "minecraft:obsidian"
+      ],
+      "templates": [
+        {
+          "template": "descent_into_darkness:end1/obig0",
+          "origin": [
+            2,
+            3,
+            11
+          ]
+        }
+      ]
+    }
+  }
+}

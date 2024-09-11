@@ -3,7 +3,7 @@
   "centroid_vary_horizontal": 0,
   "centroid_vary_min_y": 1,
   "centroid_vary_max_y": 1,
-  "start_y": 30,
+  "start_y": 220,
   "grammar": {
     "A": {
       "c": 60
