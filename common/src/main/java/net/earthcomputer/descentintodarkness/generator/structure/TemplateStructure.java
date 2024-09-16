@@ -14,6 +14,7 @@ import net.minecraft.core.Direction;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.ExtraCodecs;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.levelgen.structure.templatesystem.BlockIgnoreProcessor;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructurePlaceSettings;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplate;
@@ -87,7 +88,11 @@ public final class TemplateStructure extends Structure {
         if (!force && !canPlace(ctx, template.get(), placeSettings, structurePos)) {
             return false;
         }
-        return template.get().placeInWorld(ctx.asLevel(), structurePos, structurePos, placeSettings, ctx.rand, Block.UPDATE_INVISIBLE);
+        boolean placed = template.get().placeInWorld(ctx.asLevel(), structurePos, structurePos, placeSettings, ctx.rand, Block.UPDATE_INVISIBLE);
+        if (placed && ctx.isDebug()) {
+            ctx.setBlock(pos, Blocks.LAPIS_BLOCK.defaultBlockState());
+        }
+        return placed;
     }
 
     private boolean canPlace(CaveGenContext ctx, StructureTemplate template, StructurePlaceSettings placeSettings, BlockPos structurePos) {
