@@ -90,7 +90,7 @@ public final class TemplateStructure extends Structure {
         }
         boolean placed = template.get().placeInWorld(ctx.asLevel(), structurePos, structurePos, placeSettings, ctx.rand, Block.UPDATE_INVISIBLE);
         if (placed && ctx.isDebug()) {
-            ctx.setBlock(pos, Blocks.LAPIS_BLOCK.defaultBlockState());
+            ctx.setBlock(pos, Blocks.DIAMOND_BLOCK.defaultBlockState());
         }
         return placed;
     }
