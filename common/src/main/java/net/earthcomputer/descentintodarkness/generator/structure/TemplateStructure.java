@@ -83,7 +83,7 @@ public final class TemplateStructure extends Structure {
             placeSettings.addProcessor(BlockIgnoreProcessor.AIR);
         }
 
-        BlockPos structurePos = pos.subtract(templateEntry.origin);
+        BlockPos structurePos = pos.relative(originPositionSide().getOpposite()).subtract(templateEntry.origin);
 
         if (!force && !canPlace(ctx, template.get(), placeSettings, structurePos)) {
             return false;
