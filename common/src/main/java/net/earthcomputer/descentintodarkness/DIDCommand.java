@@ -10,6 +10,7 @@ import net.earthcomputer.descentintodarkness.instancing.CaveTrackerManager;
 import net.earthcomputer.descentintodarkness.style.CaveStyle;
 import net.minecraft.commands.CommandBuildContext;
 import net.minecraft.commands.CommandSourceStack;
+import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
@@ -66,7 +67,15 @@ public final class DIDCommand {
                 destLevel.getChunkSource().removeRegionTicket(DIDChunkGenerator.DID_CAVE_GEN, ChunkPos.ZERO, 0, ChunkPos.ZERO);
                 listener.finish();
                 if (result != null && result.isSuccess()) {
-                    entity.teleportTo(destLevel, 0, 64, 0, Set.of(), 0, 0);
+                    BlockPos spawnPos;
+                    if (destLevel.getChunkSource().getGenerator() instanceof DIDChunkGenerator didGenerator) {
+                        spawnPos = didGenerator.getSpawnPos();
+                    } else {
+                        LOGGER.error("Dest level does not have a DID chunk generator, instead it had a {}", destLevel.getChunkSource().getGenerator().getClass().getName());
+                        spawnPos = new BlockPos(0, DIDConstants.DEFAULT_START_Y, 0);
+                    }
+
+                    entity.teleportTo(destLevel, spawnPos.getX() + 0.5, spawnPos.getY(), spawnPos.getZ() + 0.5, Set.of(), 0, 0);
                 } else {
                     if (throwable != null) {
                         LOGGER.error("Failed to generate cave chunk", throwable);

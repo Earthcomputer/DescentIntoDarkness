@@ -65,6 +65,7 @@ public final class DIDChunkGenerator extends ChunkGenerator {
     private final boolean debug;
     private final CaveGenProgressListener listener;
     private volatile boolean generatedCave = false;
+    private BlockPos spawnPos;
 
     private DIDChunkGenerator(BiomeSource biomeSource, Holder<CaveStyle> style, int size, long seed, boolean debug, CaveGenProgressListener listener) {
         super(biomeSource);
@@ -74,6 +75,7 @@ public final class DIDChunkGenerator extends ChunkGenerator {
         this.seed = seed;
         this.debug = debug;
         this.listener = listener;
+        this.spawnPos = new BlockPos(0, style.value().startY(), 0);
     }
 
     public DIDChunkGenerator(RegistryAccess registryAccess, Holder<CaveStyle> style, int size, long seed, boolean debug, CaveGenProgressListener listener) {
@@ -173,6 +175,9 @@ public final class DIDChunkGenerator extends ChunkGenerator {
                 if (!generatedCave) {
                     try (CaveGenContext ctx = new CaveGenContext(worldGenLevel, style, seed, blockStorage).setDebug(debug).setListener(listener)) {
                         CaveGenerator.generateCave(ctx, size);
+                        if (ctx.getSpawnPos() != null) {
+                            spawnPos = ctx.getSpawnPos();
+                        }
                     }
                     generatedCave = true;
                 }
@@ -197,5 +202,9 @@ public final class DIDChunkGenerator extends ChunkGenerator {
 
     @Override
     public void createReferences(WorldGenLevel worldGenLevel, StructureManager structureManager, ChunkAccess chunkAccess) {
+    }
+
+    public BlockPos getSpawnPos() {
+        return spawnPos;
     }
 }
