@@ -4,7 +4,7 @@ import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.earthcomputer.descentintodarkness.generator.CaveGenContext;
 import net.earthcomputer.descentintodarkness.generator.CaveGenerator;
-import net.earthcomputer.descentintodarkness.generator.Centroid;
+import net.earthcomputer.descentintodarkness.generator.RoomCarvingData;
 import net.earthcomputer.descentintodarkness.style.DIDCodecs;
 import net.minecraft.util.valueproviders.ConstantFloat;
 import net.minecraft.util.valueproviders.ConstantInt;
@@ -48,12 +48,12 @@ public final class BranchRoom extends Room<Object> {
     }
 
     @Override
-    public void addCentroids(CaveGenContext ctx, RoomData roomData, Object userData, List<Centroid> centroids) {
+    public void apply(RoomCarvingData carvingData, CaveGenContext ctx, RoomData roomData, Object userData) {
         int dir = ctx.rand.nextBoolean() ? 1 : -1;
         int newLength = branchLength.sample(ctx.rand);
         int sizeReduction = this.sizeReduction.sample(ctx.rand);
         Vec3 newDir = roomData.direction().yRot((float) Math.toRadians(angle.sample(ctx.rand) * dir));
-        CaveGenerator.generateBranch(ctx, roomData.caveRadius() - sizeReduction, roomData.location(), newLength, branchSymbol, false, newDir, roomData.roomLocations());
+        CaveGenerator.generateBranch(ctx, roomData.caveRadius() - sizeReduction, roomData.location(), newLength, branchSymbol, false, newDir);
     }
 
     @Override

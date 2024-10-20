@@ -33,9 +33,10 @@
   ],
   "painter_steps": [
     {
-      "type": "descent_into_darkness:replace_floor",
+      "type": "descent_into_darkness:replace",
       "old": "descent_into_darkness:gala_wood",
-      "new": "minecraft:grass_block"
+      "new": "minecraft:grass_block",
+      "edges": "floor"
     }
   ],
   "structures": {

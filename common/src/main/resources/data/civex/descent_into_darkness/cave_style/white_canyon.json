@@ -7,7 +7,7 @@
   "base_block": "minecraft:stone",
   "painter_steps": [
     {
-      "type": "descent_into_darkness:replace_all",
+      "type": "descent_into_darkness:replace",
       "old": "minecraft:stone",
       "new": "minecraft:dripstone_block"
     }

@@ -2,7 +2,7 @@
   "base_block": "minecraft:dirt",
   "painter_steps": [
     {
-      "type": "descent_into_darkness:replace_all",
+      "type": "descent_into_darkness:replace",
       "old": "minecraft:dirt",
       "new": "minecraft:coarse_dirt",
       "chance": 0.3

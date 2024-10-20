@@ -29,22 +29,24 @@
   ],
   "painter_steps": [
     {
-      "type": "descent_into_darkness:replace_all",
+      "type": "descent_into_darkness:replace",
       "old": "minecraft:red_nether_bricks",
       "new": "minecraft:nether_wart_block",
       "chance": 0.3
     },
     {
-      "type": "descent_into_darkness:replace_floor",
+      "type": "descent_into_darkness:replace",
       "old": "minecraft:red_nether_bricks",
       "new": "minecraft:magma_block",
-      "chance": 0.2
+      "chance": 0.2,
+      "edges": "floor"
     },
     {
-      "type": "descent_into_darkness:replace_floor",
+      "type": "descent_into_darkness:replace",
       "old": "minecraft:red_nether_bricks",
       "new": "minecraft:lava",
-      "chance": 0.05
+      "chance": 0.05,
+      "edges": "floor"
     }
   ],
   "structures": {

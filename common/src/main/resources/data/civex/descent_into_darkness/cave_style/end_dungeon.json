@@ -13,14 +13,20 @@
   "base_block": "minecraft:end_stone",
   "painter_steps": [
     {
-      "type": "descent_into_darkness:replace_all",
+      "type": "descent_into_darkness:replace",
       "old": "minecraft:end_stone",
       "new": "minecraft:end_stone_bricks",
       "chance": 1
     },
     {
-      "type": "descent_into_darkness:floor_layer",
-      "block": {
+      "type": "descent_into_darkness:replace",
+      "edges": "floor",
+      "depth": -1,
+      "old": [
+        "minecraft:end_stone_bricks"
+      ],
+      "old_depth": 0,
+      "new": {
         "type": "minecraft:weighted_state_provider",
         "entries": [
           {
@@ -42,14 +48,18 @@
             }
           }
         ]
-      },
-      "can_place_on": [
-        "minecraft:end_stone_bricks"
-      ]
+      }
     },
     {
-      "type": "descent_into_darkness:ceiling_layer",
-      "block": {
+      "type": "descent_into_darkness:replace",
+      "edges": "ceiling",
+      "depth": -1,
+      "old": [
+        "minecraft:end_stone_bricks",
+        "minecraft:mossy_cobblestone"
+      ],
+      "old_depth": 0,
+      "new": {
         "type": "minecraft:weighted_state_provider",
         "entries": [
           {
@@ -77,11 +87,7 @@
             }
           }
         ]
-      },
-      "can_place_on": [
-        "minecraft:end_stone_bricks",
-        "minecraft:mossy_cobblestone"
-      ]
+      }
     }
   ],
   "structures": {

@@ -3,7 +3,7 @@ package net.earthcomputer.descentintodarkness.generator.room;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.earthcomputer.descentintodarkness.generator.CaveGenContext;
-import net.earthcomputer.descentintodarkness.generator.Centroid;
+import net.earthcomputer.descentintodarkness.generator.RoomCarvingData;
 import net.minecraft.world.phys.Vec3;
 
 import java.util.List;
@@ -26,6 +26,6 @@ public final class NilRoom extends Room<Object> {
     }
 
     @Override
-    public void addCentroids(CaveGenContext ctx, RoomData roomData, Object userData, List<Centroid> centroids) {
+    public void apply(RoomCarvingData carvingData, CaveGenContext ctx, RoomData roomData, Object userData) {
     }
 }

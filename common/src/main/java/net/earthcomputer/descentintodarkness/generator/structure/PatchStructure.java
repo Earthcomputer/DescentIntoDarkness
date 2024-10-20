@@ -3,7 +3,6 @@ package net.earthcomputer.descentintodarkness.generator.structure;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.earthcomputer.descentintodarkness.generator.CaveGenContext;
-import net.earthcomputer.descentintodarkness.generator.Centroid;
 import net.earthcomputer.descentintodarkness.style.DIDCodecs;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
@@ -28,8 +27,8 @@ public final class PatchStructure extends AbstractPatchStructure {
     }
 
     @Override
-    protected boolean doPlace(CaveGenContext ctx, BlockPos pos, Centroid centroid) {
-        ctx.setBlock(pos, block, centroid);
+    protected boolean doPlace(CaveGenContext ctx, BlockPos pos, int roomIndex) {
+        ctx.setBlock(pos, block, roomIndex);
         return true;
     }
 }

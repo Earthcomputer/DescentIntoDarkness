@@ -1384,21 +1384,23 @@
       ]
     },
     {
-      "type": "descent_into_darkness:replace_ceiling",
+      "type": "descent_into_darkness:replace",
       "old": [
         "minecraft:light_blue_terracotta",
         "minecraft:blue_terracotta"
       ],
-      "new": "minecraft:blue_concrete_powder"
+      "new": "minecraft:blue_concrete_powder",
+      "edges": "ceiling"
     },
     {
-      "type": "descent_into_darkness:replace_floor",
+      "type": "descent_into_darkness:replace",
       "old": [
         "minecraft:light_blue_terracotta",
         "minecraft:blue_terracotta"
       ],
       "new": "minecraft:clay",
-      "chance": 0.8
+      "chance": 0.8,
+      "edges": "floor"
     }
   ],
   "structures": {

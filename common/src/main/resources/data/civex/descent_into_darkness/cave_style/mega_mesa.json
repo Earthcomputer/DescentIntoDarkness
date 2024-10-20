@@ -651,10 +651,11 @@
       ]
     },
     {
-      "type": "descent_into_darkness:replace_floor",
+      "type": "descent_into_darkness:replace",
       "old": "minecraft:terracotta",
       "new": "minecraft:red_sand",
-      "chance": 0.1
+      "chance": 0.1,
+      "edges": "floor"
     }
   ]
 }

@@ -28,13 +28,14 @@
   "base_block": "minecraft:andesite",
   "painter_steps": [
     {
-      "type": "descent_into_darkness:replace_floor",
+      "type": "descent_into_darkness:replace",
       "old": "minecraft:andesite",
       "new": "minecraft:grass_block",
-      "chance": 0.9
+      "chance": 0.9,
+      "edges": "floor"
     },
     {
-      "type": "descent_into_darkness:replace_all",
+      "type": "descent_into_darkness:replace",
       "old": "minecraft:andesite",
       "new": {
         "type": "minecraft:weighted_state_provider",

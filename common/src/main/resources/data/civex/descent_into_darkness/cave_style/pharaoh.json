@@ -6,7 +6,7 @@
   ],
   "painter_steps": [
     {
-      "type": "descent_into_darkness:replace_ceiling",
+      "type": "descent_into_darkness:replace",
       "old": "minecraft:cut_sandstone",
       "new": {
         "type": "descent_into_darkness:room_weighted",
@@ -24,16 +24,25 @@
             }
           }
         ]
-      }
+      },
+      "edges": "ceiling"
     },
     {
-      "type": "descent_into_darkness:floor_layer",
-      "block": "minecraft:cut_sandstone",
-      "can_place_on": "minecraft:cut_sandstone"
+      "type": "descent_into_darkness:replace",
+      "edges": "floor",
+      "depth": -1,
+      "old": "minecraft:cut_sandstone",
+      "old_depth": 0,
+      "new": "minecraft:cut_sandstone"
     },
     {
-      "type": "descent_into_darkness:ceiling_layer",
-      "block": {
+      "type": "descent_into_darkness:replace",
+      "edges": "ceiling",
+      "depth": -1,
+      "old": {
+        "type": "minecraft:true"
+      },
+      "new": {
         "type": "minecraft:simple_state_provider",
         "state": {
           "Name": "minecraft:cut_sandstone_slab",

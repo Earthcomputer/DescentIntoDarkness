@@ -5,7 +5,7 @@ import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.earthcomputer.descentintodarkness.DIDConstants;
 import net.earthcomputer.descentintodarkness.generator.CaveGenContext;
-import net.earthcomputer.descentintodarkness.generator.Centroid;
+import net.earthcomputer.descentintodarkness.generator.PlacementEdge;
 import net.earthcomputer.descentintodarkness.style.DIDCodecs;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -48,8 +48,8 @@ public final class WallPortalStructure extends Structure {
     }
 
     @Override
-    protected List<StructurePlacementEdge> getDefaultEdges() {
-        return List.of(StructurePlacementEdge.WALL);
+    protected List<PlacementEdge> getDefaultEdges() {
+        return List.of(PlacementEdge.WALL);
     }
 
     @Override
@@ -58,7 +58,7 @@ public final class WallPortalStructure extends Structure {
     }
 
     @Override
-    protected Direction getDefaultOriginSide(List<StructurePlacementEdge> edges) {
+    protected Direction getDefaultOriginSide(List<PlacementEdge> edges) {
         return Direction.SOUTH;
     }
 
@@ -83,7 +83,7 @@ public final class WallPortalStructure extends Structure {
     }
 
     @Override
-    public boolean place(CaveGenContext ctx, BlockPos pos, Centroid centroid, boolean force) {
+    public boolean place(CaveGenContext ctx, BlockPos pos, int roomIndex, boolean force) {
         int width = this.width.sample(ctx.rand);
         int height = this.height.sample(ctx.rand);
         int x = pos.getX() - width / 2;
@@ -148,10 +148,10 @@ public final class WallPortalStructure extends Structure {
             for (int j = -1; j <= height; j++) {
                 if (i == -1 || i == width || j == -1 || j == height) {
                     if (frameBlock.isPresent()) {
-                        ctx.setBlock(new BlockPos(x + i, y + j, z), frameBlock.get(), centroid);
+                        ctx.setBlock(new BlockPos(x + i, y + j, z), frameBlock.get(), roomIndex);
                     }
                 } else {
-                    ctx.setBlock(new BlockPos(x + i, y + j, z), portalBlock, centroid);
+                    ctx.setBlock(new BlockPos(x + i, y + j, z), portalBlock, roomIndex);
                 }
             }
         }

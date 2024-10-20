@@ -1354,17 +1354,19 @@
       ]
     },
     {
-      "type": "descent_into_darkness:replace_floor",
+      "type": "descent_into_darkness:replace",
       "old": "minecraft:blackstone",
-      "new": "minecraft:black_concrete_powder"
+      "new": "minecraft:black_concrete_powder",
+      "edges": "floor"
     },
     {
-      "type": "descent_into_darkness:replace_ceiling",
+      "type": "descent_into_darkness:replace",
       "old": [
         "minecraft:black_concrete",
         "minecraft:crying_obsidian"
       ],
-      "new": "minecraft:blackstone"
+      "new": "minecraft:blackstone",
+      "edges": "ceiling"
     }
   ],
   "base_block": "blackstone",

@@ -6,7 +6,6 @@ import com.mojang.serialization.Codec;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.earthcomputer.descentintodarkness.generator.CaveGenContext;
-import net.earthcomputer.descentintodarkness.generator.Centroid;
 import net.earthcomputer.descentintodarkness.style.DIDCodecs;
 import net.minecraft.Util;
 import net.minecraft.core.BlockPos;
@@ -60,7 +59,12 @@ public final class TemplateStructure extends Structure {
     }
 
     @Override
-    public boolean place(CaveGenContext ctx, BlockPos pos, Centroid centroid, boolean force) {
+    protected int getDefaultDepth() {
+        return -1;
+    }
+
+    @Override
+    public boolean place(CaveGenContext ctx, BlockPos pos, int roomIndex, boolean force) {
         TemplateEntry templateEntry = Util.getRandom(templates, ctx.rand);
         Optional<StructureTemplate> template = Objects.requireNonNull(ctx.asLevel().getServer()).getStructureManager().get(templateEntry.template);
         if (template.isEmpty()) {
@@ -83,7 +87,7 @@ public final class TemplateStructure extends Structure {
             placeSettings.addProcessor(BlockIgnoreProcessor.AIR);
         }
 
-        BlockPos structurePos = pos.relative(originPositionSide().getOpposite()).subtract(templateEntry.origin);
+        BlockPos structurePos = pos.subtract(templateEntry.origin);
 
         if (!force && !canPlace(ctx, template.get(), placeSettings, structurePos)) {
             return false;

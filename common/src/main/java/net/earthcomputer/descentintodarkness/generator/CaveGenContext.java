@@ -3,6 +3,7 @@ package net.earthcomputer.descentintodarkness.generator;
 import it.unimi.dsi.fastutil.longs.Long2ObjectMap;
 import it.unimi.dsi.fastutil.longs.Long2ObjectOpenHashMap;
 import net.earthcomputer.descentintodarkness.DIDConstants;
+import net.earthcomputer.descentintodarkness.generator.room.RoomData;
 import net.earthcomputer.descentintodarkness.style.CaveStyle;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
@@ -36,7 +37,7 @@ import java.util.List;
 
 public final class CaveGenContext implements AutoCloseable {
     private static final ThreadLocal<CaveGenContext> CURRENT = new ThreadLocal<>();
-    private static final ThreadLocal<Centroid> CURRENT_CENTROID = new ThreadLocal<>();
+    private static final ThreadLocal<Integer> CURRENT_ROOM = new ThreadLocal<>();
 
     private final WorldGenLevel asLevel;
     private final Holder<CaveStyle> style;
@@ -51,7 +52,8 @@ public final class CaveGenContext implements AutoCloseable {
     private final Deque<Transform> inverseLocationTransformStack = new LinkedList<>(List.of(Transform.IDENTITY));
     @Nullable
     private BlockPos spawnPos;
-    private final List<Centroid> centroids = new ArrayList<>();
+    private final List<RoomData> rooms = new ArrayList<>();
+    private final RoomCarvingData roomCarvingData = new RoomCarvingData();
 
     public CaveGenContext(WorldGenLevel level, Holder<CaveStyle> style, long caveSeed, PackedBlockStorage blockStorage) {
         this.asLevel = new AsWorldGenLevel(level);
@@ -103,8 +105,8 @@ public final class CaveGenContext implements AutoCloseable {
         return true;
     }
 
-    public boolean setBlock(BlockPos pos, BlockStateProvider provider, Centroid centroid) {
-        return setBlock(pos, getState(provider, pos, centroid));
+    public boolean setBlock(BlockPos pos, BlockStateProvider provider, int roomIndex) {
+        return setBlock(pos, getState(provider, pos, roomIndex));
     }
 
     public BlockState getBlock(BlockPos pos) {
@@ -179,27 +181,31 @@ public final class CaveGenContext implements AutoCloseable {
         this.spawnPos = spawnPos;
     }
 
-    public List<Centroid> centroids() {
-        return centroids;
+    public List<RoomData> rooms() {
+        return rooms;
+    }
+
+    public RoomCarvingData roomCarvingData() {
+        return roomCarvingData;
     }
 
     public WorldGenLevel asLevel() {
         return asLevel;
     }
 
-    public BlockState getState(BlockStateProvider provider, BlockPos pos, Centroid centroid) {
-        Centroid existingCentroid = CURRENT_CENTROID.get();
-        CURRENT_CENTROID.set(centroid);
+    public BlockState getState(BlockStateProvider provider, BlockPos pos, int roomIndex) {
+        Integer existingRoom = CURRENT_ROOM.get();
+        CURRENT_ROOM.set(roomIndex);
         try {
             return provider.getState(rand, pos);
         } finally {
-            CURRENT_CENTROID.set(existingCentroid);
+            CURRENT_ROOM.set(existingRoom);
         }
     }
 
     @Nullable
-    public static Centroid currentCentroid() {
-        return CURRENT_CENTROID.get();
+    public static Integer currentRoomIndex() {
+        return CURRENT_ROOM.get();
     }
 
     @Override

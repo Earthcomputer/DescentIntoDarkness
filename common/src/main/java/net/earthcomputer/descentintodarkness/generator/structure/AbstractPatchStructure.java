@@ -4,7 +4,6 @@ import com.mojang.serialization.Codec;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.earthcomputer.descentintodarkness.generator.CaveGenContext;
-import net.earthcomputer.descentintodarkness.generator.Centroid;
 import net.minecraft.core.BlockPos;
 import net.minecraft.util.ExtraCodecs;
 import net.minecraft.world.phys.Vec3;
@@ -26,8 +25,7 @@ public abstract class AbstractPatchStructure extends Structure {
     }
 
     @Override
-    public boolean place(CaveGenContext ctx, BlockPos pos, Centroid centroid, boolean force) {
-        BlockPos origin = pos.relative(originPositionSide().getOpposite());
+    public boolean place(CaveGenContext ctx, BlockPos pos, int roomIndex, boolean force) {
         BlockPos spread = new BlockPos(spreadX, spreadY, spreadZ);
         if (!spreadLocal) {
             spread = BlockPos.containing(ctx.getLocationTransform().transformDirection(Vec3.atLowerCornerOf(spread)).add(0.5, 0.5, 0.5));
@@ -35,14 +33,14 @@ public abstract class AbstractPatchStructure extends Structure {
         }
         boolean placed = false;
         for (int i = 0; i < tries; i++) {
-            BlockPos offsetPos = origin.offset(
+            BlockPos offsetPos = pos.offset(
                 ctx.rand.nextInt(spread.getX() + 1) - ctx.rand.nextInt(spread.getX() + 1),
                 ctx.rand.nextInt(spread.getY() + 1) - ctx.rand.nextInt(spread.getY() + 1),
                 ctx.rand.nextInt(spread.getZ() + 1) - ctx.rand.nextInt(spread.getZ() + 1)
             );
             if (canReplace(ctx, offsetPos)) {
                 if (canPlaceOn(ctx, offsetPos.relative(originPositionSide()))) {
-                    placed |= doPlace(ctx, offsetPos, centroid);
+                    placed |= doPlace(ctx, offsetPos, roomIndex);
                 }
             }
         }
@@ -50,7 +48,12 @@ public abstract class AbstractPatchStructure extends Structure {
         return placed;
     }
 
-    protected abstract boolean doPlace(CaveGenContext ctx, BlockPos pos, Centroid centroid);
+    @Override
+    protected int getDefaultDepth() {
+        return -1;
+    }
+
+    protected abstract boolean doPlace(CaveGenContext ctx, BlockPos pos, int roomIndex);
 
     protected record PatchProperties(
         int spreadX,

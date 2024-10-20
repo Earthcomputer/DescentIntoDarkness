@@ -2,13 +2,13 @@
   "base_block": "minecraft:granite",
   "painter_steps": [
     {
-      "type": "descent_into_darkness:replace_all",
+      "type": "descent_into_darkness:replace",
       "old": "minecraft:granite",
       "new": "minecraft:polished_granite",
       "chance": 0.5
     },
     {
-      "type": "descent_into_darkness:replace_all",
+      "type": "descent_into_darkness:replace",
       "old": "minecraft:granite",
       "new": "minecraft:smooth_red_sandstone",
       "chance": 0.3

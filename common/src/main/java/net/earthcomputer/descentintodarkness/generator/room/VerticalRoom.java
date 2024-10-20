@@ -3,7 +3,7 @@ package net.earthcomputer.descentintodarkness.generator.room;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.earthcomputer.descentintodarkness.generator.CaveGenContext;
-import net.earthcomputer.descentintodarkness.generator.Centroid;
+import net.earthcomputer.descentintodarkness.generator.RoomCarvingData;
 import net.earthcomputer.descentintodarkness.style.DIDCodecs;
 import net.minecraft.util.valueproviders.ConstantFloat;
 import net.minecraft.util.valueproviders.FloatProvider;
@@ -51,7 +51,7 @@ public final class VerticalRoom extends Room<VerticalRoom.VerticalData> {
     }
 
     @Override
-    public void addCentroids(CaveGenContext ctx, RoomData roomData, VerticalData userData, List<Centroid> centroids) {
+    public void apply(RoomCarvingData carvingData, CaveGenContext ctx, RoomData roomData, VerticalData userData) {
         double pitch = userData.pitch;
         int length = userData.length;
 
@@ -59,7 +59,7 @@ public final class VerticalRoom extends Room<VerticalRoom.VerticalData> {
             .add(0, roomData.caveRadius() * Math.sin(-pitch), 0);
         Vec3 pos = roomData.location();
         for (int i = 0; i < length; i++) {
-            centroids.add(new Centroid(pos, roomData.caveRadius(), roomData));
+            SimpleRoom.applySphere(carvingData, pos, roomData.caveRadius(), roomData.roomIndex());
             pos = pos.add(moveVec);
         }
     }

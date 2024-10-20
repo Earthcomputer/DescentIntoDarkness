@@ -4,8 +4,8 @@ import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.earthcomputer.descentintodarkness.DIDRegistries;
 import net.earthcomputer.descentintodarkness.generator.CaveGenContext;
-import net.earthcomputer.descentintodarkness.generator.Centroid;
 import net.earthcomputer.descentintodarkness.generator.ModuleGenerator;
+import net.earthcomputer.descentintodarkness.generator.RoomCarvingData;
 import net.earthcomputer.descentintodarkness.style.DIDCodecs;
 import net.minecraft.world.phys.Vec3;
 
@@ -44,7 +44,7 @@ public abstract class Room<D> {
         return ModuleGenerator.vary(ctx, roomData.location()).add(roomData.direction().scale(roomData.caveRadius()));
     }
 
-    public abstract void addCentroids(CaveGenContext ctx, RoomData roomData, D userData, List<Centroid> centroids);
+    public abstract void apply(RoomCarvingData carvingData, CaveGenContext ctx, RoomData roomData, D userData);
 
     public boolean isBranch() {
         return false;

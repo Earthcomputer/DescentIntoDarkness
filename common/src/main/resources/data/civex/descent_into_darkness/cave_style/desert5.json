@@ -668,9 +668,10 @@
       ]
     },
     {
-      "type": "descent_into_darkness:replace_floor",
+      "type": "descent_into_darkness:replace",
       "old": "minecraft:black_terracotta",
-      "new": "minecraft:end_stone"
+      "new": "minecraft:end_stone",
+      "edges": "floor"
     }
   ],
   "structures": {

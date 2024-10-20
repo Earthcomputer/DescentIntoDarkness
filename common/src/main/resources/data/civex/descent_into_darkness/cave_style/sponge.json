@@ -7,12 +7,13 @@
   "biome": "civex:white_forest",
   "painter_steps": [
     {
-      "type": "descent_into_darkness:replace_floor",
+      "type": "descent_into_darkness:replace",
       "old": "minecraft:wet_sponge",
-      "new": "minecraft:yellow_concrete_powder"
+      "new": "minecraft:yellow_concrete_powder",
+      "edges": "floor"
     },
     {
-      "type": "descent_into_darkness:replace_all",
+      "type": "descent_into_darkness:replace",
       "old": "minecraft:wet_sponge",
       "new": "minecraft:yellow_concrete",
       "chance": 0.5

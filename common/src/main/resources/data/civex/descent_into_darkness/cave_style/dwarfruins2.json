@@ -27,13 +27,13 @@
   ],
   "painter_steps": [
     {
-      "type": "descent_into_darkness:replace_all",
+      "type": "descent_into_darkness:replace",
       "old": "minecraft:diorite",
       "new": "minecraft:polished_diorite",
       "chance": 0.5
     },
     {
-      "type": "descent_into_darkness:replace_all",
+      "type": "descent_into_darkness:replace",
       "old": "minecraft:diorite",
       "new": "minecraft:smooth_quartz",
       "chance": 0.3

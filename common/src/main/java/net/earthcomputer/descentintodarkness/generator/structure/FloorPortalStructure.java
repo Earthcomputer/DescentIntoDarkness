@@ -2,9 +2,8 @@ package net.earthcomputer.descentintodarkness.generator.structure;
 
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
-import net.earthcomputer.descentintodarkness.DIDConstants;
 import net.earthcomputer.descentintodarkness.generator.CaveGenContext;
-import net.earthcomputer.descentintodarkness.generator.Centroid;
+import net.earthcomputer.descentintodarkness.generator.PlacementEdge;
 import net.earthcomputer.descentintodarkness.style.DIDCodecs;
 import net.minecraft.core.BlockPos;
 import net.minecraft.util.valueproviders.ConstantInt;
@@ -42,8 +41,8 @@ public final class FloorPortalStructure extends Structure {
     }
 
     @Override
-    protected List<StructurePlacementEdge> getDefaultEdges() {
-        return List.of(StructurePlacementEdge.FLOOR);
+    protected List<PlacementEdge> getDefaultEdges() {
+        return List.of(PlacementEdge.FLOOR);
     }
 
     @Override
@@ -62,7 +61,7 @@ public final class FloorPortalStructure extends Structure {
     }
 
     @Override
-    public boolean place(CaveGenContext ctx, BlockPos pos, Centroid centroid, boolean force) {
+    public boolean place(CaveGenContext ctx, BlockPos pos, int roomIndex, boolean force) {
         int width = this.width.sample(ctx.rand);
         int height = this.height.sample(ctx.rand);
         int x = pos.getX() - width / 2;
@@ -88,16 +87,16 @@ public final class FloorPortalStructure extends Structure {
             for (int j = 0; j <= height + 1; j++) {
                 offsetPos.set(x + i, pos.getY() + j, pos.getZ());
                 if (i == -1 || i == width || j == 0 || j == height + 1) {
-                    BlockState frameBlock = this.frameBlock.map(blockStateProvider -> ctx.getState(blockStateProvider, offsetPos, centroid)).orElseGet(() -> ctx.style().baseBlock());
+                    BlockState frameBlock = this.frameBlock.map(blockStateProvider -> ctx.getState(blockStateProvider, offsetPos, roomIndex)).orElseGet(() -> ctx.style().baseBlock());
                     ctx.setBlock(offsetPos, frameBlock);
                 } else {
-                    ctx.setBlock(offsetPos, portalBlock, centroid);
+                    ctx.setBlock(offsetPos, portalBlock, roomIndex);
                 }
             }
             for (int j : new int[]{-1, 1}) {
                 offsetPos.set(x + i, pos.getY(), pos.getZ() + j);
                 if (ctx.style().isTransparentBlock(ctx, offsetPos)) {
-                    BlockState floorBlock = this.floorBlock.map(blockStateProvider -> ctx.getState(blockStateProvider, offsetPos, centroid)).orElseGet(() -> ctx.style().baseBlock());
+                    BlockState floorBlock = this.floorBlock.map(blockStateProvider -> ctx.getState(blockStateProvider, offsetPos, roomIndex)).orElseGet(() -> ctx.style().baseBlock());
                     ctx.setBlock(offsetPos, floorBlock);
                 }
             }
@@ -121,7 +120,7 @@ public final class FloorPortalStructure extends Structure {
                 for (int dy = 1; dy <= height; dy++) {
                     for (int dz : new int[]{-1, 1}) {
                         offsetPos.setWithOffset(pos, dx, dy, dz);
-                        ctx.setBlock(offsetPos, ctx.style().getAirBlock(offsetPos.getY(), centroid, DIDConstants.MIN_Y, DIDConstants.MAX_Y), centroid);
+                        ctx.setBlock(offsetPos, ctx.style().getAirBlock(offsetPos.getY(), ctx.rooms().get(roomIndex).tags(), ctx.roomCarvingData().getMinRoomY(roomIndex), ctx.roomCarvingData().getMaxRoomY(roomIndex)), roomIndex);
                     }
                 }
             }

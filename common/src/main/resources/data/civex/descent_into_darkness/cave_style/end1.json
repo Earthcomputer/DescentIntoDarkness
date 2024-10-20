@@ -1,13 +1,13 @@
 {
   "painter_steps": [
     {
-      "type": "descent_into_darkness:replace_all",
+      "type": "descent_into_darkness:replace",
       "old": "minecraft:stone",
       "new": "minecraft:end_stone",
       "chance": 0.9
     },
     {
-      "type": "descent_into_darkness:replace_all",
+      "type": "descent_into_darkness:replace",
       "old": "minecraft:stone",
       "new": "minecraft:obsidian",
       "chance": 1.0

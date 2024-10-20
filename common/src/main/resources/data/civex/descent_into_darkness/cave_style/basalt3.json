@@ -12,7 +12,7 @@
   },
   "painter_steps": [
     {
-      "type": "descent_into_darkness:replace_all",
+      "type": "descent_into_darkness:replace",
       "old": {
         "type": "descent_into_darkness:matches_state",
         "name": "minecraft:basalt",
@@ -32,7 +32,7 @@
       "chance": 0.33
     },
     {
-      "type": "descent_into_darkness:replace_all",
+      "type": "descent_into_darkness:replace",
       "old": {
         "type": "descent_into_darkness:matches_state",
         "name": "minecraft:basalt",
@@ -52,10 +52,11 @@
       "chance": 0.5
     },
     {
-      "type": "descent_into_darkness:replace_floor",
+      "type": "descent_into_darkness:replace",
       "old": "minecraft:basalt",
       "new": "minecraft:gray_concrete_powder",
-      "chance": 1
+      "chance": 1,
+      "edges": "floor"
     }
   ],
   "structures": {

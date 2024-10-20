@@ -2,12 +2,13 @@
   "base_block": "minecraft:dirt",
   "painter_steps": [
     {
-      "type": "descent_into_darkness:replace_floor",
+      "type": "descent_into_darkness:replace",
       "old": "minecraft:dirt",
-      "new": "minecraft:mycelium"
+      "new": "minecraft:mycelium",
+      "edges": "floor"
     },
     {
-      "type": "descent_into_darkness:replace_all",
+      "type": "descent_into_darkness:replace",
       "old": "minecraft:dirt",
       "new": "minecraft:coarse_dirt",
       "chance": 0.1

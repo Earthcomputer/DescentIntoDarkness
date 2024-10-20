@@ -30,7 +30,7 @@
   "base_block": "minecraft:warped_hyphae",
   "painter_steps": [
     {
-      "type": "descent_into_darkness:replace_all",
+      "type": "descent_into_darkness:replace",
       "old": "minecraft:warped_hyphae",
       "new": {
         "type": "minecraft:simple_state_provider",
@@ -44,7 +44,7 @@
       "chance": 0.33
     },
     {
-      "type": "descent_into_darkness:replace_all",
+      "type": "descent_into_darkness:replace",
       "old": {
         "type": "descent_into_darkness:matches_state",
         "name": "minecraft:warped_hyphae",

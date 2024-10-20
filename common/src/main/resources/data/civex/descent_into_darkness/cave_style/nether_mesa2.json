@@ -1371,14 +1371,16 @@
       ]
     },
     {
-      "type": "descent_into_darkness:replace_floor",
+      "type": "descent_into_darkness:replace",
       "old": "minecraft:stripped_warped_hyphae",
-      "new": "minecraft:light_blue_concrete_powder"
+      "new": "minecraft:light_blue_concrete_powder",
+      "edges": "floor"
     },
     {
-      "type": "descent_into_darkness:replace_ceiling",
+      "type": "descent_into_darkness:replace",
       "old": "minecraft:blue_terracotta",
-      "new": "minecraft:stripped_warped_hyphae"
+      "new": "minecraft:stripped_warped_hyphae",
+      "edges": "ceiling"
     }
   ],
   "base_block": "stripped_warped_hyphae",

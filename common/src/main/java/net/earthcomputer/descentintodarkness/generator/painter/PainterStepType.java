@@ -7,11 +7,7 @@ import net.earthcomputer.descentintodarkness.DescentIntoDarkness;
 
 @FunctionalInterface
 public interface PainterStepType<PS extends PainterStep> {
-    RegistrySupplier<PainterStepType<ReplaceAllStep>> REPLACE_ALL = register("replace_all", ReplaceAllStep.CODEC);
-    RegistrySupplier<PainterStepType<ReplaceCeilingStep>> REPLACE_CEILING = register("replace_ceiling", ReplaceCeilingStep.CODEC);
-    RegistrySupplier<PainterStepType<ReplaceFloorStep>> REPLACE_FLOOR = register("replace_floor", ReplaceFloorStep.CODEC);
-    RegistrySupplier<PainterStepType<CeilingLayerStep>> CEILING_LAYER = register("ceiling_layer", CeilingLayerStep.CODEC);
-    RegistrySupplier<PainterStepType<FloorLayerStep>> FLOOR_LAYER = register("floor_layer", FloorLayerStep.CODEC);
+    RegistrySupplier<PainterStepType<ReplaceStep>> REPLACE = register("replace", ReplaceStep.CODEC);
     RegistrySupplier<PainterStepType<ReplaceMesaStep>> REPLACE_MESA = register("replace_mesa", ReplaceMesaStep.CODEC);
 
     MapCodec<PS> codec();

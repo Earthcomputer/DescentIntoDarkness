@@ -38,6 +38,8 @@ subprojects {
     dependencies {
         minecraft "net.minecraft:minecraft:$rootProject.minecraft_version"
         mappings loom.officialMojangMappings()
+
+        testImplementation "org.junit.jupiter:junit-jupiter:$rootProject.junit_version"
     }
 
     java {
@@ -52,6 +54,10 @@ subprojects {
 
     tasks.withType(JavaCompile).configureEach {
         it.options.release = 21
+    }
+
+    test {
+        useJUnitPlatform()
     }
 
     // Configure Maven publishing.

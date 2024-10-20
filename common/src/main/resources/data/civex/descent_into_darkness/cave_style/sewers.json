@@ -6,18 +6,18 @@
   "biome": "civex:sewers",
   "painter_steps": [
     {
-      "type": "descent_into_darkness:replace_all",
+      "type": "descent_into_darkness:replace",
       "old": "minecraft:stone",
       "new": "minecraft:stone_bricks"
     },
     {
-      "type": "descent_into_darkness:replace_all",
+      "type": "descent_into_darkness:replace",
       "old": "minecraft:stone_bricks",
       "new": "minecraft:mossy_stone_bricks",
       "chance": 0.2
     },
     {
-      "type": "descent_into_darkness:replace_all",
+      "type": "descent_into_darkness:replace",
       "old": "minecraft:stone_bricks",
       "new": "minecraft:cracked_stone_bricks",
       "chance": 0.1

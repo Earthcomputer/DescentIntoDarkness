@@ -3,7 +3,7 @@ package net.earthcomputer.descentintodarkness.generator.room;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.earthcomputer.descentintodarkness.generator.CaveGenContext;
-import net.earthcomputer.descentintodarkness.generator.Centroid;
+import net.earthcomputer.descentintodarkness.generator.RoomCarvingData;
 import net.earthcomputer.descentintodarkness.style.DIDCodecs;
 import net.minecraft.util.valueproviders.FloatProvider;
 import net.minecraft.world.phys.Vec3;
@@ -34,7 +34,7 @@ public final class TurnRoom extends Room<Object> {
     }
 
     @Override
-    public void addCentroids(CaveGenContext ctx, RoomData roomData, Object userData, List<Centroid> centroids) {
-        centroids.add(new Centroid(roomData.location(), roomData.caveRadius(), roomData));
+    public void apply(RoomCarvingData carvingData, CaveGenContext ctx, RoomData roomData, Object userData) {
+        SimpleRoom.applySphere(carvingData, roomData.location(), roomData.caveRadius(), roomData.roomIndex());
     }
 }

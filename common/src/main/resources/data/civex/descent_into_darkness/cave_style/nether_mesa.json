@@ -1371,17 +1371,19 @@
       ]
     },
     {
-      "type": "descent_into_darkness:replace_floor",
+      "type": "descent_into_darkness:replace",
       "old": "minecraft:netherrack",
-      "new": "minecraft:crimson_nylium"
+      "new": "minecraft:crimson_nylium",
+      "edges": "floor"
     },
     {
-      "type": "descent_into_darkness:replace_ceiling",
+      "type": "descent_into_darkness:replace",
       "old": [
         "minecraft:netherrack",
         "minecraft:red_nether_bricks"
       ],
-      "new": "minecraft:red_concrete_powder"
+      "new": "minecraft:red_concrete_powder",
+      "edges": "ceiling"
     }
   ],
   "base_block": "netherrack",

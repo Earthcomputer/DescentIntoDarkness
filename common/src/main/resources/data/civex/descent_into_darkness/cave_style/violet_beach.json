@@ -37,12 +37,13 @@
   ],
   "painter_steps": [
     {
-      "type": "descent_into_darkness:replace_floor",
+      "type": "descent_into_darkness:replace",
       "old": "minecraft:obsidian",
-      "new": "minecraft:black_concrete_powder"
+      "new": "minecraft:black_concrete_powder",
+      "edges": "floor"
     },
     {
-      "type": "descent_into_darkness:replace_all",
+      "type": "descent_into_darkness:replace",
       "old": "minecraft:obsidian",
       "new": "minecraft:crying_obsidian",
       "chance": 0.1

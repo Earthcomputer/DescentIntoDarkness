@@ -2,9 +2,10 @@
   "base_block": "gray_concrete",
   "painter_steps": [
     {
-      "type": "descent_into_darkness:replace_floor",
+      "type": "descent_into_darkness:replace",
       "old": "minecraft:gray_concrete",
-      "new": "minecraft:black_concrete_powder"
+      "new": "minecraft:black_concrete_powder",
+      "edges": "floor"
     }
   ],
   "dimension": "minecraft:the_nether",

@@ -7,7 +7,7 @@ import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.earthcomputer.descentintodarkness.DIDConstants;
 import net.earthcomputer.descentintodarkness.generator.CaveGenContext;
-import net.earthcomputer.descentintodarkness.generator.Centroid;
+import net.earthcomputer.descentintodarkness.generator.PlacementEdge;
 import net.earthcomputer.descentintodarkness.style.DIDCodecs;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -67,7 +67,7 @@ public final class TreeStructure extends Structure {
     }
 
     @Override
-    protected Direction getDefaultOriginSide(List<StructurePlacementEdge> edges) {
+    protected Direction getDefaultOriginSide(List<PlacementEdge> edges) {
         return Direction.DOWN;
     }
 
@@ -77,9 +77,12 @@ public final class TreeStructure extends Structure {
     }
 
     @Override
-    public boolean place(CaveGenContext ctx, BlockPos pos, Centroid centroid, boolean force) {
-        pos = pos.above();
+    protected int getDefaultDepth() {
+        return -1;
+    }
 
+    @Override
+    public boolean place(CaveGenContext ctx, BlockPos pos, int roomIndex, boolean force) {
         int trunkHeight = this.height.sample(ctx.rand);
 
         // check whether the tree can generate
@@ -115,9 +118,7 @@ public final class TreeStructure extends Structure {
             return false;
         }
 
-        if (dirt.isPresent()) {
-            ctx.setBlock(pos.below(), dirt.get(), centroid);
-        }
+        dirt.ifPresent(dirt -> ctx.setBlock(pos.below(), dirt, roomIndex));
 
         int leafHeight = this.leafProps.leafHeight.sample(ctx.rand);
 
@@ -135,7 +136,7 @@ public final class TreeStructure extends Structure {
                     if (Math.abs(dx) != leafRadius || Math.abs(dz) != leafRadius || ctx.rand.nextDouble() < leafProps.cornerLeafChance && yRelativeToTop != 0) {
                         leafPos.set(x, y, z);
                         if (canReplace(ctx, leafPos)) {
-                            ctx.setBlock(leafPos, leafProps.leaf, centroid);
+                            ctx.setBlock(leafPos, leafProps.leaf, roomIndex);
                             leafPositions.add(leafPos.immutable());
                         }
                     }
@@ -146,20 +147,20 @@ public final class TreeStructure extends Structure {
         // place trunk
         for (int dy = 0; dy < trunkHeight; dy++) {
             if (canReplace(ctx, pos.above(dy))) {
-                ctx.setBlock(pos.above(dy), this.log, centroid);
+                ctx.setBlock(pos.above(dy), this.log, roomIndex);
 
                 if (vineProps.trunkVine.isPresent() && dy > 0) {
                     if (ctx.rand.nextDouble() < vineProps.trunkVineChance && vinesCanReplace(ctx, pos.offset(-1, dy, 0))) {
-                        placeVine(ctx, pos.offset(-1, dy, 0), vineProps.trunkVine.get(), BlockStateProperties.EAST, centroid);
+                        placeVine(ctx, pos.offset(-1, dy, 0), vineProps.trunkVine.get(), BlockStateProperties.EAST, roomIndex);
                     }
                     if (ctx.rand.nextDouble() < vineProps.trunkVineChance && vinesCanReplace(ctx, pos.offset(1, dy, 0))) {
-                        placeVine(ctx, pos.offset(1, dy, 0), vineProps.trunkVine.get(), BlockStateProperties.WEST, centroid);
+                        placeVine(ctx, pos.offset(1, dy, 0), vineProps.trunkVine.get(), BlockStateProperties.WEST, roomIndex);
                     }
                     if (ctx.rand.nextDouble() < vineProps.trunkVineChance && vinesCanReplace(ctx, pos.offset(0, dy, -1))) {
-                        placeVine(ctx, pos.offset(0, dy, -1), vineProps.trunkVine.get(), BlockStateProperties.SOUTH, centroid);
+                        placeVine(ctx, pos.offset(0, dy, -1), vineProps.trunkVine.get(), BlockStateProperties.SOUTH, roomIndex);
                     }
                     if (ctx.rand.nextDouble() < vineProps.trunkVineChance && vinesCanReplace(ctx, pos.offset(0, dy, 1))) {
-                        placeVine(ctx, pos.offset(0, dy, 1), vineProps.trunkVine.get(), BlockStateProperties.NORTH, centroid);
+                        placeVine(ctx, pos.offset(0, dy, 1), vineProps.trunkVine.get(), BlockStateProperties.NORTH, roomIndex);
                     }
                 }
             }
@@ -182,16 +183,16 @@ public final class TreeStructure extends Structure {
                             BlockPos vinePosSouth = vinePos.south();
 
                             if (ctx.rand.nextDouble() < vineProps.hangingVineChance && vinesCanReplace(ctx, vinePosWest)) {
-                                placeHangingVine(ctx, vinePosWest, BlockStateProperties.EAST, centroid);
+                                placeHangingVine(ctx, vinePosWest, BlockStateProperties.EAST, roomIndex);
                             }
                             if (ctx.rand.nextDouble() < vineProps.hangingVineChance && vinesCanReplace(ctx, vinePosEast)) {
-                                placeHangingVine(ctx, vinePosEast, BlockStateProperties.WEST, centroid);
+                                placeHangingVine(ctx, vinePosEast, BlockStateProperties.WEST, roomIndex);
                             }
                             if (ctx.rand.nextDouble() < vineProps.hangingVineChance && vinesCanReplace(ctx, vinePosNorth)) {
-                                placeHangingVine(ctx, vinePosNorth, BlockStateProperties.SOUTH, centroid);
+                                placeHangingVine(ctx, vinePosNorth, BlockStateProperties.SOUTH, roomIndex);
                             }
                             if (ctx.rand.nextDouble() < vineProps.hangingVineChance && vinesCanReplace(ctx, vinePosSouth)) {
-                                placeHangingVine(ctx, vinePosSouth, BlockStateProperties.NORTH, centroid);
+                                placeHangingVine(ctx, vinePosSouth, BlockStateProperties.NORTH, roomIndex);
                             }
                         }
                     }
@@ -207,7 +208,7 @@ public final class TreeStructure extends Structure {
                         if (ctx.rand.nextInt(4 - cocoaDy) == 0) {
                             Direction cocoaAttachDir = dir.getOpposite();
                             BlockPos cocoaPos = pos.offset(cocoaAttachDir.getStepX(), trunkHeight - cocoaProps.minCocoaTreeHeight + cocoaDy + 1, cocoaAttachDir.getStepZ());
-                            placeCocoa(ctx, cocoaProps.cocoa.get(), cocoaPos, dir, centroid);
+                            placeCocoa(ctx, cocoaProps.cocoa.get(), cocoaPos, dir, roomIndex);
                         }
                     }
                 }
@@ -221,8 +222,8 @@ public final class TreeStructure extends Structure {
         return canReplace(ctx, pos) && vineProps.vinesCanReplace.test(ctx.asLevel(), pos);
     }
 
-    private void placeVine(CaveGenContext ctx, BlockPos pos, BlockStateProvider vine, Property<Boolean> attachProp, Centroid centroid) {
-        BlockState vineBlock = ctx.getState(vine, pos, centroid);
+    private void placeVine(CaveGenContext ctx, BlockPos pos, BlockStateProvider vine, Property<Boolean> attachProp, int roomIndex) {
+        BlockState vineBlock = ctx.getState(vine, pos, roomIndex);
         if (vineBlock.getProperties().contains(attachProp)) {
             ctx.setBlock(pos, vineBlock.setValue(attachProp, true));
         } else {
@@ -230,18 +231,18 @@ public final class TreeStructure extends Structure {
         }
     }
 
-    private void placeHangingVine(CaveGenContext ctx, BlockPos pos, Property<Boolean> attachProp, Centroid centroid) {
+    private void placeHangingVine(CaveGenContext ctx, BlockPos pos, Property<Boolean> attachProp, int roomIndex) {
         assert vineProps.hangingVine.isPresent();
-        placeVine(ctx, pos, vineProps.hangingVine.get(), attachProp, centroid);
+        placeVine(ctx, pos, vineProps.hangingVine.get(), attachProp, roomIndex);
         BlockPos vinePos = pos.below();
         for (int y = 4; vinesCanReplace(ctx, vinePos) && y > 0; y--) {
-            placeVine(ctx, vinePos, vineProps.hangingVine.get(), attachProp, centroid);
+            placeVine(ctx, vinePos, vineProps.hangingVine.get(), attachProp, roomIndex);
             vinePos = vinePos.below();
         }
     }
 
-    private void placeCocoa(CaveGenContext ctx, BlockStateProvider cocoa, BlockPos pos, Direction dir, Centroid centroid) {
-        BlockState cocoaBlock = ctx.getState(cocoa, pos, centroid);
+    private void placeCocoa(CaveGenContext ctx, BlockStateProvider cocoa, BlockPos pos, Direction dir, int roomIndex) {
+        BlockState cocoaBlock = ctx.getState(cocoa, pos, roomIndex);
         if (cocoaBlock.getProperties().contains(BlockStateProperties.FACING)) {
             cocoaBlock = cocoaBlock.setValue(BlockStateProperties.FACING, cocoaProps.invertCocoaFacing ? dir.getOpposite() : dir);
         }

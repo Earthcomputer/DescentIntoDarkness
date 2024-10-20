@@ -2,7 +2,7 @@
   "base_block": "minecraft:end_stone",
   "painter_steps": [
     {
-      "type": "descent_into_darkness:replace_all",
+      "type": "descent_into_darkness:replace",
       "old": "minecraft:end_stone",
       "new": "minecraft:obsidian",
       "chance": 0.01

@@ -4,9 +4,11 @@ import com.mojang.serialization.DataResult;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.earthcomputer.descentintodarkness.generator.CaveGenContext;
-import net.earthcomputer.descentintodarkness.generator.Centroid;
+import net.earthcomputer.descentintodarkness.generator.RoomCarvingData;
 import net.earthcomputer.descentintodarkness.style.DIDCodecs;
 import net.minecraft.Util;
+import net.minecraft.core.BlockPos;
+import net.minecraft.util.Mth;
 import net.minecraft.util.valueproviders.FloatProvider;
 import net.minecraft.util.valueproviders.IntProvider;
 import net.minecraft.util.valueproviders.UniformFloat;
@@ -90,25 +92,28 @@ public final class PitMineRoom extends Room<List<PitMineRoom.Step>> {
     }
 
     @Override
-    public void addCentroids(CaveGenContext ctx, RoomData roomData, List<Step> steps, List<Centroid> centroids) {
+    public void apply(RoomCarvingData carvingData, CaveGenContext ctx, RoomData roomData, List<Step> steps) {
+        BlockPos.MutableBlockPos pos = new BlockPos.MutableBlockPos();
+
         for (Step step : steps) {
-            int centroidWidth = Math.max(3, Math.min(10, Math.min(step.height, (int) Math.ceil(Math.min(step.rx,
-                step.rz)))));
-            int centroidRadius = (centroidWidth + 1) / 2;
-            double gap = centroidRadius * RavineRoom.GAP_FACTOR;
-            int numCentroidsVertically = (int) Math.ceil(step.height / gap);
-            int numCentroidRings = (int) Math.ceil(0.5 * (step.rx + step.rz) / gap);
-            for (int ring = 0; ring < numCentroidRings; ring++) {
-                double rx = gap * 0.5 + ring * step.rx / numCentroidRings;
-                double rz = gap * 0.5 + ring * step.rz / numCentroidRings;
-                int numCentroidsAround = (int) Math.ceil(Math.PI * (step.rx + step.rz) / gap);
-                for (int d = 0; d < numCentroidsAround; d++) {
-                    double angle = Math.PI * 2 / numCentroidsAround * d;
-                    Vec3 xzPos = step.center.add(new Vec3(rx * Math.cos(angle), 0, rz * Math.sin(angle)).yRot((float) step.angle));
-                    for (int y = 0; y < numCentroidsVertically; y++) {
-                        centroids.add(new Centroid(xzPos.add(0,
-                            gap * 0.5 + (double) y * step.height / numCentroidsVertically, 0), centroidRadius,
-                            roomData));
+            BlockPos centerBlockPos = BlockPos.containing(step.center);
+
+            double sinAngle = Math.sin(step.angle);
+            double cosAngle = Math.cos(step.angle);
+            int r = Mth.ceil(Math.max(step.rx, step.rz));
+
+            for (int tx = -r; tx <= r; tx++) {
+                double dx = step.center.x - (centerBlockPos.getX() + tx + 0.5);
+                for (int tz = -r; tz <= r; tz++) {
+                    double dz = step.center.z - (centerBlockPos.getZ() + tz + 0.5);
+
+                    double unrotatedDx = dx * cosAngle + dz * sinAngle;
+                    double unrotatedDz = -dx * sinAngle + dz * cosAngle;
+
+                    if ((unrotatedDx * unrotatedDx) / (step.rx * step.rx) + (unrotatedDz * unrotatedDz) / (step.rz * step.rz) <= 1) {
+                        for (int ty = 0; ty < step.height; ty++) {
+                            carvingData.setAir(roomData.roomIndex(), pos.setWithOffset(centerBlockPos, tx, ty, tz));
+                        }
                     }
                 }
             }

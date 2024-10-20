@@ -4,18 +4,19 @@
   "biome": "minecraft:warm_ocean",
   "painter_steps": [
     {
-      "type": "descent_into_darkness:replace_floor",
+      "type": "descent_into_darkness:replace",
       "old": "minecraft:prismarine",
-      "new": "minecraft:sand"
+      "new": "minecraft:sand",
+      "edges": "floor"
     },
     {
-      "type": "descent_into_darkness:replace_all",
+      "type": "descent_into_darkness:replace",
       "old": "minecraft:prismarine",
       "new": "prismarine_bricks",
       "chance": 0.5
     },
     {
-      "type": "descent_into_darkness:replace_all",
+      "type": "descent_into_darkness:replace",
       "old": "minecraft:prismarine",
       "new": "dark_prismarine",
       "chance": 0.1

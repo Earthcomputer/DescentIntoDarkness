@@ -7,7 +7,7 @@ import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.earthcomputer.descentintodarkness.DIDRegistries;
 import net.earthcomputer.descentintodarkness.generator.CaveGenContext;
-import net.earthcomputer.descentintodarkness.generator.Centroid;
+import net.earthcomputer.descentintodarkness.generator.PlacementEdge;
 import net.earthcomputer.descentintodarkness.generator.TagList;
 import net.earthcomputer.descentintodarkness.generator.Transform;
 import net.earthcomputer.descentintodarkness.style.DIDCodecs;
@@ -23,16 +23,17 @@ import java.util.function.Function;
 public abstract class Structure {
     public static final Codec<Structure> CODEC = Codec.lazyInitialized(() -> DIDRegistries.structureType().byNameCodec().dispatch(Structure::type, StructureType::codec));
 
-    private final List<StructurePlacementEdge> edges;
+    private final List<PlacementEdge> edges;
     private final double count;
     private final Optional<BlockPredicate> canPlaceOn;
     private final Optional<BlockPredicate> canReplace;
-    private final List<Direction> validDirections;
+    private final List<Direction> sides;
     private final boolean snapToAxis;
     private final Direction originSide;
     private final boolean shouldTransformBlocks;
     private final boolean shouldTransformPosition;
     private final boolean randomRotation;
+    private final int depth;
     private final TagList tagList;
 
     protected Structure(StructureProperties props) {
@@ -40,19 +41,20 @@ public abstract class Structure {
         this.count = props.count;
         this.canPlaceOn = props.canPlaceOn;
         this.canReplace = props.canReplace;
-        this.validDirections = this.edges.stream().flatMap(edge -> Arrays.stream(edge.directions())).toList();
+        this.sides = PlacementEdge.directions(this.edges);
         this.snapToAxis = props.snapToAxis.orElseGet(this::shouldSnapToAxisByDefault);
         this.originSide = props.originSide.orElseGet(() -> getDefaultOriginSide(this.edges));
         this.shouldTransformBlocks = props.shouldTransformBlocks.orElseGet(this::shouldTransformBlocksByDefault);
         this.shouldTransformPosition = props.shouldTransformPosition.orElseGet(this::shouldTransformPositionByDefault);
         this.randomRotation = props.randomRotation;
+        this.depth = props.depth.orElseGet(this::getDefaultDepth);
         this.tagList = props.tagList;
     }
 
     public abstract StructureType<?> type();
 
-    public final List<Direction> validDirections() {
-        return validDirections;
+    public final List<Direction> sides() {
+        return sides;
     }
 
     public final double count() {
@@ -63,8 +65,8 @@ public abstract class Structure {
         return canPlaceOn.map(canPlaceOn -> canPlaceOn.test(ctx.asLevel(), pos)).orElseGet(() -> !ctx.style().isTransparentBlock(ctx, pos));
     }
 
-    protected List<StructurePlacementEdge> getDefaultEdges() {
-        return Arrays.asList(StructurePlacementEdge.values());
+    protected List<PlacementEdge> getDefaultEdges() {
+        return Arrays.asList(PlacementEdge.values());
     }
 
     protected boolean shouldTransformBlocksByDefault() {
@@ -83,10 +85,10 @@ public abstract class Structure {
         return snapToAxis;
     }
 
-    protected Direction getDefaultOriginSide(List<StructurePlacementEdge> edges) {
-        if (edges.contains(StructurePlacementEdge.FLOOR)) {
+    protected Direction getDefaultOriginSide(List<PlacementEdge> edges) {
+        if (edges.contains(PlacementEdge.FLOOR)) {
             return Direction.DOWN;
-        } else if (edges.contains(StructurePlacementEdge.CEILING)) {
+        } else if (edges.contains(PlacementEdge.CEILING)) {
             return Direction.UP;
         } else {
             return Direction.SOUTH;
@@ -99,6 +101,14 @@ public abstract class Structure {
 
     public Direction originPositionSide() {
         return Direction.DOWN;
+    }
+
+    public final int depth() {
+        return depth;
+    }
+
+    protected int getDefaultDepth() {
+        return 0;
     }
 
     public final Transform getBlockTransform(double randomYRotation, BlockPos pos, Direction side) {
@@ -173,7 +183,7 @@ public abstract class Structure {
         return tagList;
     }
 
-    public abstract boolean place(CaveGenContext ctx, BlockPos pos, Centroid centroid, boolean force);
+    public abstract boolean place(CaveGenContext ctx, BlockPos pos, int roomIndex, boolean force);
 
     protected final boolean canReplace(CaveGenContext ctx, BlockPos pos) {
         return canReplace.map(canReplace -> canReplace.test(ctx.asLevel(), pos)).orElseGet(() -> defaultCanReplace(ctx, pos));
@@ -184,7 +194,7 @@ public abstract class Structure {
     }
 
     protected record StructureProperties(
-        List<StructurePlacementEdge> edges,
+        List<PlacementEdge> edges,
         double count,
         Optional<BlockPredicate> canPlaceOn,
         Optional<BlockPredicate> canReplace,
@@ -193,6 +203,7 @@ public abstract class Structure {
         Optional<Boolean> shouldTransformBlocks,
         Optional<Boolean> shouldTransformPosition,
         boolean randomRotation,
+        Optional<Integer> depth,
         TagList tagList
     ) {
         public StructureProperties(Structure structure) {
@@ -206,12 +217,13 @@ public abstract class Structure {
                 structure.shouldTransformBlocks == structure.shouldTransformBlocksByDefault() ? Optional.empty() : Optional.of(structure.shouldTransformBlocks),
                 structure.shouldTransformPosition == structure.shouldTransformPositionByDefault() ? Optional.empty() : Optional.of(structure.shouldTransformPosition),
                 structure.randomRotation,
+                structure.depth == structure.getDefaultDepth() ? Optional.empty() : Optional.of(structure.depth),
                 structure.tagList
             );
         }
 
         public static final MapCodec<StructureProperties> CODEC = RecordCodecBuilder.mapCodec(instance -> instance.group(
-            DIDCodecs.singleableList(StructurePlacementEdge.CODEC).optionalFieldOf("edges", List.of()).forGetter(StructureProperties::edges),
+            DIDCodecs.singleableList(PlacementEdge.CODEC).optionalFieldOf("edges", List.of()).forGetter(StructureProperties::edges),
             Codec.mapEither(
                 Codec.doubleRange(0, 1).validate(chance -> chance == 1 ? DataResult.error(() -> "Structure cannot have a chance of 1") : DataResult.success(chance)).fieldOf("chance"),
                 DIDCodecs.NON_NEGATIVE_DOUBLE.optionalFieldOf("count", 1.0)
@@ -228,6 +240,7 @@ public abstract class Structure {
             Codec.BOOL.optionalFieldOf("should_transform_blocks").forGetter(StructureProperties::shouldTransformBlocks),
             Codec.BOOL.optionalFieldOf("should_transform_position").forGetter(StructureProperties::shouldTransformPosition),
             Codec.BOOL.optionalFieldOf("random_rotation", true).forGetter(StructureProperties::randomRotation),
+            Codec.INT.optionalFieldOf("depth").forGetter(StructureProperties::depth),
             TagList.CODEC.forGetter(StructureProperties::tagList)
         ).apply(instance, StructureProperties::new));
     }

@@ -51,19 +51,19 @@
       ]
     },
     {
-      "type": "descent_into_darkness:replace_all",
+      "type": "descent_into_darkness:replace",
       "old": "minecraft:dead_brain_coral_block",
       "new": "minecraft:andesite",
       "chance": 0.2
     },
     {
-      "type": "descent_into_darkness:replace_all",
+      "type": "descent_into_darkness:replace",
       "old": "minecraft:terracotta",
       "new": "minecraft:dead_brain_coral_block",
       "chance": 0.6
     },
     {
-      "type": "descent_into_darkness:replace_all",
+      "type": "descent_into_darkness:replace",
       "old": "minecraft:terracotta",
       "new": "minecraft:ice",
       "chance": 1.0

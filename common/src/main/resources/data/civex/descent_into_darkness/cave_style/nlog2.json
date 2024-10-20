@@ -34,7 +34,7 @@
   ],
   "painter_steps": [
     {
-      "type": "descent_into_darkness:replace_all",
+      "type": "descent_into_darkness:replace",
       "old": {
         "type": "descent_into_darkness:matches_state",
         "name": "minecraft:warped_stem",
@@ -54,7 +54,7 @@
       "chance": 0.33
     },
     {
-      "type": "descent_into_darkness:replace_all",
+      "type": "descent_into_darkness:replace",
       "old": {
         "type": "descent_into_darkness:matches_state",
         "name": "minecraft:warped_stem",
@@ -74,9 +74,10 @@
       "chance": 0.5
     },
     {
-      "type": "descent_into_darkness:replace_floor",
+      "type": "descent_into_darkness:replace",
       "old": "minecraft:warped_stem",
-      "new": "minecraft:warped_nylium"
+      "new": "minecraft:warped_nylium",
+      "edges": "floor"
     }
   ],
   "structures": {

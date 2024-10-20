@@ -39,12 +39,13 @@
   ],
   "painter_steps": [
     {
-      "type": "descent_into_darkness:replace_floor",
+      "type": "descent_into_darkness:replace",
       "old": "minecraft:honeycomb_block",
-      "new": "descent_into_darkness:hardened_honeycomb_block"
+      "new": "descent_into_darkness:hardened_honeycomb_block",
+      "edges": "floor"
     },
     {
-      "type": "descent_into_darkness:replace_all",
+      "type": "descent_into_darkness:replace",
       "old": "minecraft:honeycomb_block",
       "new": "descent_into_darkness:hardened_honeycomb_block",
       "chance": 0.05

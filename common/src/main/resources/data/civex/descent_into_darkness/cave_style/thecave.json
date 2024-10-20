@@ -7,7 +7,7 @@
   "start_y": 220,
   "lore": [
     {
-      "text": "Difficulty: \u2606\u2606\u2606",
+      "text": "Difficulty: ☆☆☆",
       "color": "yellow"
     }
   ],
@@ -57,7 +57,7 @@
   },
   "painter_steps": [
     {
-      "type": "descent_into_darkness:replace_all",
+      "type": "descent_into_darkness:replace",
       "old": "minecraft:dirt",
       "new": "minecraft:stone",
       "chance": 0.5

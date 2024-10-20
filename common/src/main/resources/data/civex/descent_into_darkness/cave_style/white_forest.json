@@ -28,12 +28,13 @@
   "air_block": "minecraft:water",
   "painter_steps": [
     {
-      "type": "descent_into_darkness:replace_floor",
+      "type": "descent_into_darkness:replace",
       "old": "minecraft:dirt",
-      "new": "minecraft:grass_block"
+      "new": "minecraft:grass_block",
+      "edges": "floor"
     },
     {
-      "type": "descent_into_darkness:replace_all",
+      "type": "descent_into_darkness:replace",
       "old": "minecraft:dirt",
       "new": "minecraft:coarse_dirt",
       "chance": 0.2

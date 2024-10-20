@@ -28,25 +28,27 @@
   "base_block": "minecraft:birch_wood",
   "painter_steps": [
     {
-      "type": "descent_into_darkness:replace_floor",
+      "type": "descent_into_darkness:replace",
       "old": "minecraft:birch_wood",
       "new": "minecraft:coarse_dirt",
-      "chance": 0.5
+      "chance": 0.5,
+      "edges": "floor"
     },
     {
-      "type": "descent_into_darkness:replace_floor",
+      "type": "descent_into_darkness:replace",
       "old": "minecraft:birch_wood",
       "new": "minecraft:dirt",
-      "chance": 1.0
+      "chance": 1.0,
+      "edges": "floor"
     },
     {
-      "type": "descent_into_darkness:replace_all",
+      "type": "descent_into_darkness:replace",
       "old": "minecraft:birch_wood",
       "new": "minecraft:birch_wood",
       "chance": 0.5
     },
     {
-      "type": "descent_into_darkness:replace_all",
+      "type": "descent_into_darkness:replace",
       "old": "minecraft:birch_wood",
       "new": {
         "type": "minecraft:simple_state_provider",
@@ -60,7 +62,7 @@
       "chance": 0.25
     },
     {
-      "type": "descent_into_darkness:replace_all",
+      "type": "descent_into_darkness:replace",
       "old": "minecraft:birch_wood",
       "new": {
         "type": "minecraft:simple_state_provider",
@@ -74,7 +76,7 @@
       "chance": 0.33
     },
     {
-      "type": "descent_into_darkness:replace_all",
+      "type": "descent_into_darkness:replace",
       "old": "minecraft:birch_wood",
       "new": "minecraft:birch_log",
       "chance": 1.0

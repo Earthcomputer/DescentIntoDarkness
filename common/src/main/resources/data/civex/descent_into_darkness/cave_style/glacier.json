@@ -6,7 +6,7 @@
   ],
   "painter_steps": [
     {
-      "type": "descent_into_darkness:replace_all",
+      "type": "descent_into_darkness:replace",
       "old": "minecraft:blue_ice",
       "new": "minecraft:packed_ice",
       "chance": 0.06

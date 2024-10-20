@@ -5,7 +5,7 @@
   ],
   "painter_steps": [
     {
-      "type": "descent_into_darkness:replace_floor",
+      "type": "descent_into_darkness:replace",
       "old": "minecraft:stone",
       "new": {
         "type": "minecraft:weighted_state_provider",
@@ -67,10 +67,11 @@
           }
         ]
       },
-      "chance": 1
+      "chance": 1,
+      "edges": "floor"
     },
     {
-      "type": "descent_into_darkness:replace_ceiling",
+      "type": "descent_into_darkness:replace",
       "old": "minecraft:stone",
       "new": {
         "type": "minecraft:weighted_state_provider",
@@ -136,10 +137,11 @@
           }
         ]
       },
-      "chance": 1
+      "chance": 1,
+      "edges": "ceiling"
     },
     {
-      "type": "descent_into_darkness:replace_all",
+      "type": "descent_into_darkness:replace",
       "old": "minecraft:stone",
       "new": {
         "type": "minecraft:weighted_state_provider",

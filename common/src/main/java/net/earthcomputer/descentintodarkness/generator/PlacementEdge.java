@@ -1,10 +1,14 @@
-package net.earthcomputer.descentintodarkness.generator.structure;
+package net.earthcomputer.descentintodarkness.generator;
 
 import com.mojang.serialization.Codec;
+import net.earthcomputer.descentintodarkness.DIDUtil;
 import net.minecraft.core.Direction;
 import net.minecraft.util.StringRepresentable;
 
-public enum StructurePlacementEdge implements StringRepresentable {
+import java.util.Arrays;
+import java.util.List;
+
+public enum PlacementEdge implements StringRepresentable {
     FLOOR("floor", Direction.DOWN),
     CEILING("ceiling", Direction.UP),
     WALL("wall", Direction.NORTH, Direction.SOUTH, Direction.WEST, Direction.EAST),
@@ -14,12 +18,12 @@ public enum StructurePlacementEdge implements StringRepresentable {
     EAST("east", Direction.EAST),
     ;
 
-    public static final Codec<StructurePlacementEdge> CODEC = StringRepresentable.fromEnum(StructurePlacementEdge::values);
+    public static final Codec<PlacementEdge> CODEC = StringRepresentable.fromEnum(PlacementEdge::values);
 
     private final String name;
     private final Direction[] directions;
 
-    StructurePlacementEdge(String name, Direction... directions) {
+    PlacementEdge(String name, Direction... directions) {
         this.name = name;
         this.directions = directions;
     }
@@ -29,7 +33,11 @@ public enum StructurePlacementEdge implements StringRepresentable {
         return name;
     }
 
-    public Direction[] directions() {
-        return directions;
+    public static List<Direction> directions(List<PlacementEdge> edges) {
+        if (edges.isEmpty()) {
+            return List.of(DIDUtil.DIRECTIONS);
+        }
+
+        return edges.stream().flatMap(edge -> Arrays.stream(edge.directions)).distinct().toList();
     }
 }

@@ -5,7 +5,7 @@ import com.mojang.serialization.DataResult;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.earthcomputer.descentintodarkness.generator.CaveGenContext;
-import net.earthcomputer.descentintodarkness.generator.Centroid;
+import net.earthcomputer.descentintodarkness.generator.PlacementEdge;
 import net.earthcomputer.descentintodarkness.style.DIDCodecs;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -79,7 +79,7 @@ public final class StalagmiteStructure extends Structure {
     }
 
     @Override
-    protected Direction getDefaultOriginSide(List<StructurePlacementEdge> edges) {
+    protected Direction getDefaultOriginSide(List<PlacementEdge> edges) {
         return Direction.DOWN;
     }
 
@@ -89,9 +89,12 @@ public final class StalagmiteStructure extends Structure {
     }
 
     @Override
-    public boolean place(CaveGenContext ctx, BlockPos pos, Centroid centroid, boolean force) {
-        pos = pos.above();
+    protected int getDefaultDepth() {
+        return -1;
+    }
 
+    @Override
+    public boolean place(CaveGenContext ctx, BlockPos pos, int roomIndex, boolean force) {
         if (!force && !canReplace(ctx, pos)) {
             return false;
         }
@@ -147,11 +150,11 @@ public final class StalagmiteStructure extends Structure {
         boolean placed = false;
         if ((force || roomForStalagmite) && hasStalactite) {
             placed = true;
-            stalagmiteGenerator.generate(ctx, centroid, windModifier);
+            stalagmiteGenerator.generate(ctx, roomIndex, windModifier);
         }
         if (force || roomForStalactite) {
             placed = true;
-            stalactiteGenerator.generate(ctx, centroid, windModifier);
+            stalactiteGenerator.generate(ctx, roomIndex, windModifier);
         }
 
         return placed;
@@ -253,7 +256,7 @@ public final class StalagmiteStructure extends Structure {
             return (int) getHeightFromHDistance(hDistance, this.radius, this.heightScale, this.bluntness);
         }
 
-        private void generate(CaveGenContext ctx, Centroid centroid, WindModifier wind) {
+        private void generate(CaveGenContext ctx, int roomIndex, WindModifier wind) {
             for (int x = -this.radius; x <= this.radius; x++) {
                 for (int z = -this.radius; z <= this.radius; z++) {
                     float hDistance = (float)Math.sqrt(x * x + z * z);
@@ -269,7 +272,7 @@ public final class StalagmiteStructure extends Structure {
                                 BlockPos windModifiedPos = wind.modify(pos);
                                 if (canReplace(ctx, windModifiedPos)) {
                                     placedBlock = true;
-                                    ctx.setBlock(windModifiedPos, block, centroid);
+                                    ctx.setBlock(windModifiedPos, block, roomIndex);
                                 } else if (placedBlock && !canReplace(ctx, windModifiedPos)) {
                                     break;
                                 }

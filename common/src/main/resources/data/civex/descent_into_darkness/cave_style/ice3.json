@@ -90,24 +90,25 @@
   "base_block": "minecraft:stone",
   "painter_steps": [
     {
-      "type": "descent_into_darkness:replace_floor",
+      "type": "descent_into_darkness:replace",
       "old": "minecraft:stone",
-      "new": "minecraft:packed_ice"
+      "new": "minecraft:packed_ice",
+      "edges": "floor"
     },
     {
-      "type": "descent_into_darkness:replace_all",
+      "type": "descent_into_darkness:replace",
       "old": "minecraft:stone",
       "new": "minecraft:ice",
       "chance": 0.6
     },
     {
-      "type": "descent_into_darkness:replace_all",
+      "type": "descent_into_darkness:replace",
       "old": "minecraft:stone",
       "new": "minecraft:packed_ice",
       "chance": 0.9
     },
     {
-      "type": "descent_into_darkness:replace_all",
+      "type": "descent_into_darkness:replace",
       "old": "minecraft:stone",
       "new": "minecraft:blue_ice",
       "chance": 1.0

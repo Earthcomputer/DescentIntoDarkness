@@ -20,25 +20,25 @@
   "base_block": "minecraft:stone",
   "painter_steps": [
     {
-      "type": "descent_into_darkness:replace_all",
+      "type": "descent_into_darkness:replace",
       "old": "minecraft:stone",
       "new": "minecraft:dead_tube_coral_block",
       "chance": 0.25
     },
     {
-      "type": "descent_into_darkness:replace_all",
+      "type": "descent_into_darkness:replace",
       "old": "minecraft:stone",
       "new": "minecraft:dead_fire_coral_block",
       "chance": 0.33
     },
     {
-      "type": "descent_into_darkness:replace_all",
+      "type": "descent_into_darkness:replace",
       "old": "minecraft:stone",
       "new": "minecraft:dead_bubble_coral_block",
       "chance": 0.5
     },
     {
-      "type": "descent_into_darkness:replace_all",
+      "type": "descent_into_darkness:replace",
       "old": "minecraft:stone",
       "new": "minecraft:dead_horn_coral_block",
       "chance": 1.0

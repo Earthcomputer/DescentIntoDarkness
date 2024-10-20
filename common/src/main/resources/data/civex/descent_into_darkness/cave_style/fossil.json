@@ -11,21 +11,23 @@
   "base_block": "minecraft:ancient_debris",
   "painter_steps": [
     {
-      "type": "descent_into_darkness:replace_floor",
+      "type": "descent_into_darkness:replace",
       "old": "minecraft:ancient_debris",
-      "new": "minecraft:brown_concrete_powder"
+      "new": "minecraft:brown_concrete_powder",
+      "edges": "floor"
     },
     {
-      "type": "descent_into_darkness:replace_all",
+      "type": "descent_into_darkness:replace",
       "old": "minecraft:ancient_debris",
       "new": "minecraft:brown_concrete_powder",
       "chance": 0.05
     },
     {
-      "type": "descent_into_darkness:replace_floor",
+      "type": "descent_into_darkness:replace",
       "old": "minecraft:brown_concrete_powder",
       "new": "minecraft:dirt",
-      "chance": 0.3
+      "chance": 0.3,
+      "edges": "floor"
     }
   ],
   "structures": {

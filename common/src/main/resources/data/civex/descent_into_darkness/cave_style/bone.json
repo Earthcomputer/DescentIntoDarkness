@@ -17,13 +17,14 @@
   ],
   "painter_steps": [
     {
-      "type": "descent_into_darkness:replace_floor",
+      "type": "descent_into_darkness:replace",
       "old": "minecraft:bone_block",
       "new": "minecraft:white_concrete_powder",
-      "chance": 1.0
+      "chance": 1.0,
+      "edges": "floor"
     },
     {
-      "type": "descent_into_darkness:replace_all",
+      "type": "descent_into_darkness:replace",
       "old": {
         "type": "descent_into_darkness:matches_state",
         "name": "minecraft:bone_block",
@@ -43,7 +44,7 @@
       "chance": 0.33
     },
     {
-      "type": "descent_into_darkness:replace_all",
+      "type": "descent_into_darkness:replace",
       "old": {
         "type": "descent_into_darkness:matches_state",
         "name": "minecraft:bone_block",

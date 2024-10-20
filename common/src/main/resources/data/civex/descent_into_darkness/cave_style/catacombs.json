@@ -26,19 +26,19 @@
   "base_block": "minecraft:stone_bricks",
   "painter_steps": [
     {
-      "type": "descent_into_darkness:replace_all",
+      "type": "descent_into_darkness:replace",
       "old": "minecraft:stone_bricks",
       "new": "minecraft:cracked_stone_bricks",
       "chance": 0.1
     },
     {
-      "type": "descent_into_darkness:replace_all",
+      "type": "descent_into_darkness:replace",
       "old": "minecraft:stone_bricks",
       "new": "minecraft:chiseled_stone_bricks",
       "chance": 0.1
     },
     {
-      "type": "descent_into_darkness:replace_all",
+      "type": "descent_into_darkness:replace",
       "old": "minecraft:stone_bricks",
       "new": "minecraft:mossy_stone_bricks",
       "chance": 0.2

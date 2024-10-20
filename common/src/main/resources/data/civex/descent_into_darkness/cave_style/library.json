@@ -6,7 +6,7 @@
   "base_block": "minecraft:bookshelf",
   "painter_steps": [
     {
-      "type": "descent_into_darkness:replace_floor",
+      "type": "descent_into_darkness:replace",
       "old": "minecraft:bookshelf",
       "new": {
         "type": "minecraft:weighted_state_provider",
@@ -30,12 +30,14 @@
             }
           }
         ]
-      }
+      },
+      "edges": "floor"
     },
     {
-      "type": "descent_into_darkness:replace_ceiling",
+      "type": "descent_into_darkness:replace",
       "old": "minecraft:bookshelf",
-      "new": "minecraft:oak_planks"
+      "new": "minecraft:oak_planks",
+      "edges": "ceiling"
     }
   ],
   "structures": {

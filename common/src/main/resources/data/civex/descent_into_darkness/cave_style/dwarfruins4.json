@@ -4,13 +4,13 @@
   "biome": "minecraft:basalt_deltas",
   "painter_steps": [
     {
-      "type": "descent_into_darkness:replace_all",
+      "type": "descent_into_darkness:replace",
       "old": "minecraft:blackstone",
       "new": "minecraft:polished_blackstone",
       "chance": 0.2
     },
     {
-      "type": "descent_into_darkness:replace_all",
+      "type": "descent_into_darkness:replace",
       "old": "minecraft:blackstone",
       "new": "minecraft:obsidian",
       "chance": 0.05

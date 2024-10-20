@@ -34,7 +34,7 @@
   "natural_pollution_increase": 0.10000000149011612,
   "painter_steps": [
     {
-      "type": "descent_into_darkness:replace_floor",
+      "type": "descent_into_darkness:replace",
       "old": "minecraft:dirt",
       "new": {
         "type": "minecraft:simple_state_provider",
@@ -44,24 +44,28 @@
             "snowy": "true"
           }
         }
-      }
+      },
+      "edges": "floor"
     },
     {
-      "type": "descent_into_darkness:replace_all",
+      "type": "descent_into_darkness:replace",
       "old": "minecraft:dirt",
       "new": "minecraft:coarse_dirt",
       "chance": 0.1
     },
     {
-      "type": "descent_into_darkness:floor_layer",
-      "block": "minecraft:snow",
-      "can_place_on": {
+      "type": "descent_into_darkness:replace",
+      "edges": "floor",
+      "depth": -1,
+      "old": {
         "type": "minecraft:not",
         "predicate": {
           "type": "minecraft:matching_blocks",
           "blocks": "minecraft:snow"
         }
-      }
+      },
+      "old_depth": 0,
+      "new": "minecraft:snow"
     }
   ],
   "structures": {

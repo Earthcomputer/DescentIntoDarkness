@@ -27,12 +27,13 @@
   "base_block": "minecraft:diorite",
   "painter_steps": [
     {
-      "type": "descent_into_darkness:replace_floor",
+      "type": "descent_into_darkness:replace",
       "old": "minecraft:diorite",
-      "new": "minecraft:white_concrete_powder"
+      "new": "minecraft:white_concrete_powder",
+      "edges": "floor"
     },
     {
-      "type": "descent_into_darkness:replace_all",
+      "type": "descent_into_darkness:replace",
       "old": "minecraft:diorite",
       "new": "minecraft:polished_diorite",
       "chance": 0.2

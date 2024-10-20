@@ -5,7 +5,7 @@
   ],
   "painter_steps": [
     {
-      "type": "descent_into_darkness:replace_floor",
+      "type": "descent_into_darkness:replace",
       "old": "minecraft:dirt",
       "new": {
         "type": "minecraft:weighted_state_provider",
@@ -32,7 +32,8 @@
             }
           }
         ]
-      }
+      },
+      "edges": "floor"
     }
   ]
 }

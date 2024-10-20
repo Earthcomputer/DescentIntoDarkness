@@ -30,15 +30,16 @@
   "base_block": "minecraft:snow_block",
   "painter_steps": [
     {
-      "type": "descent_into_darkness:replace_all",
+      "type": "descent_into_darkness:replace",
       "old": "minecraft:snow_block",
       "new": "minecraft:ice",
       "chance": 0.1
     },
     {
-      "type": "descent_into_darkness:replace_floor",
+      "type": "descent_into_darkness:replace",
       "old": "minecraft:ice",
-      "new": "minecraft:snow_block"
+      "new": "minecraft:snow_block",
+      "edges": "floor"
     }
   ],
   "structures": {

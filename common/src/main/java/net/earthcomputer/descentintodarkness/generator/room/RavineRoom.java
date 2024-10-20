@@ -4,9 +4,10 @@ import com.mojang.serialization.Codec;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.earthcomputer.descentintodarkness.generator.CaveGenContext;
-import net.earthcomputer.descentintodarkness.generator.Centroid;
 import net.earthcomputer.descentintodarkness.generator.ModuleGenerator;
+import net.earthcomputer.descentintodarkness.generator.RoomCarvingData;
 import net.earthcomputer.descentintodarkness.style.DIDCodecs;
+import net.minecraft.core.BlockPos;
 import net.minecraft.util.Mth;
 import net.minecraft.util.valueproviders.FloatProvider;
 import net.minecraft.util.valueproviders.IntProvider;
@@ -17,11 +18,6 @@ import net.minecraft.world.phys.Vec3;
 import java.util.List;
 
 public final class RavineRoom extends Room<RavineRoom.RavineData> {
-    /**
-     * The maximum distance unit spheres can be apart to leave no gaps, if they are arranged in an axis-aligned grid.
-     */
-    public static final double GAP_FACTOR = 2 / Math.sqrt(3);
-
     public static final MapCodec<RavineRoom> CODEC = RecordCodecBuilder.mapCodec(instance -> instance.group(
         tagsCodec(),
         DIDCodecs.POSITIVE_INT_PROVIDER.optionalFieldOf("length", UniformInt.of(70, 100)).forGetter(room -> room.length),
@@ -75,48 +71,48 @@ public final class RavineRoom extends Room<RavineRoom.RavineData> {
     }
 
     @Override
-    public void addCentroids(CaveGenContext ctx, RoomData roomData, RavineData userData, List<Centroid> centroids) {
+    public void apply(RoomCarvingData carvingData, CaveGenContext ctx, RoomData roomData, RavineData userData) {
         int length = userData.length;
         int height = userData.height;
         int width = userData.width;
         double turn = userData.turn;
         Vec3 origin = userData.origin;
 
-        float turnPerBlock = (float) Math.toRadians(turn / length);
+        // get the length of the ravine on the long side (assuming it's the max width all the time and doesn't get thinner on each side)
+        // circumference = length * 360/turn
+        // radius = circumference/2pi
+        // longRadius = radius + width/2
+        // longCircumference = longRadius*2pi
+        // longLength = longCircumference * turn/360
+        // = longRadius*2pi * turn/360
+        // = (radius + width/2)*2pi * turn/360
+        // = (circumference/2pi + width/2)*2pi * turn/360
+        // = ((length * 360/turn)/2pi + width/2)*2pi * turn/360
+        // = length + (width/2)*2pi*turn/360
+        // = length + width*pi*turn/360
+        double longLength = length + width * (Math.PI / 360) * Math.abs(turn);
+
+        float turnPerStep = (float) Math.toRadians(turn / longLength);
+        double stepLength = length / longLength;
         for (int dir : new int[]{-1, 1}) {
             Vec3 localPosition = origin;
             Vec3 localDirection = roomData.direction().yRot(Mth.HALF_PI * dir);
-            int distanceSinceCentroids = dir == -1 ? Integer.MAX_VALUE - 1 : 0;
 
-            for (int distance = 0; distance < length / 2; distance++) {
-                double localWidth = width * Math.cos((double) distance / length * Math.PI);
-                int centroidWidth = Math.max(Math.min((int) Math.ceil(localWidth), 10), 3);
-                int centroidRadius = (centroidWidth + 1) / 2;
-                double gap = centroidRadius * GAP_FACTOR;
-                int numCentroidsAcross = (int) Math.ceil(localWidth / gap);
-                int numCentroidsVertically = (int) Math.ceil(height / gap);
-
-                // don't spawn centroids too frequently
-                distanceSinceCentroids++;
-                if (distanceSinceCentroids > (centroidRadius - 1) * GAP_FACTOR) {
-                    distanceSinceCentroids = 0;
-
-                    Vec3 horizontalVector = localDirection.yRot(Mth.HALF_PI);
-                    for (int y = 0; y < numCentroidsVertically; y++) {
-                        for (int x = 0; x < numCentroidsAcross; x++) {
-                            Vec3 centroidPos = localPosition.add(
-                                horizontalVector.scale(-localWidth * 0.5 + gap * 0.5 + x * localWidth / numCentroidsAcross)
-                            ).add(0, gap * 0.5 + (double) y * height / numCentroidsVertically, 0);
-                            centroids.add(new Centroid(centroidPos, centroidRadius, roomData));
-                        }
+            for (int distance = 0; distance < longLength / 2; distance++) {
+                double localWidth = width * Math.cos((double) distance / longLength * Math.PI);
+                Vec3 horizontalVector = localDirection.yRot(Mth.HALF_PI);
+                for (int y = 0; y < height; y++) {
+                    for (int x = 0; x < localWidth; x++) {
+                        Vec3 centroidPos = localPosition.add(horizontalVector.scale(-localWidth * 0.5 + x)).add(0, y, 0);
+                        carvingData.setAir(roomData.roomIndex(), BlockPos.containing(centroidPos));
                     }
                 }
 
-                localPosition = localPosition.add(localDirection);
+                localPosition = localPosition.add(localDirection.scale(stepLength));
                 if (ctx.rand.nextDouble() < heightVaryChance) {
                     localPosition = ModuleGenerator.vary(ctx, localPosition);
                 }
-                localDirection = localDirection.yRot(turnPerBlock * dir);
+                localDirection = localDirection.yRot(turnPerStep * dir);
             }
         }
     }

@@ -1,9 +1,10 @@
 {
   "painter_steps": [
     {
-      "type": "descent_into_darkness:replace_floor",
+      "type": "descent_into_darkness:replace",
       "old": "minecraft:stone",
-      "new": "minecraft:gravel"
+      "new": "minecraft:gravel",
+      "edges": "floor"
     }
   ],
   "continuation_symbol": "",

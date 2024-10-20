@@ -12,7 +12,7 @@
   },
   "painter_steps": [
     {
-      "type": "descent_into_darkness:replace_all",
+      "type": "descent_into_darkness:replace",
       "old": "minecraft:red_mushroom_block",
       "new": {
         "type": "minecraft:simple_state_provider",
@@ -30,7 +30,7 @@
       }
     },
     {
-      "type": "descent_into_darkness:replace_floor",
+      "type": "descent_into_darkness:replace",
       "old": "minecraft:red_mushroom_block",
       "new": {
         "type": "minecraft:weighted_state_provider",
@@ -63,7 +63,8 @@
             }
           }
         ]
-      }
+      },
+      "edges": "floor"
     }
   ]
 }

@@ -4,7 +4,6 @@ import com.mojang.serialization.Codec;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.earthcomputer.descentintodarkness.generator.CaveGenContext;
-import net.earthcomputer.descentintodarkness.generator.Centroid;
 import net.earthcomputer.descentintodarkness.generator.Transform;
 import net.earthcomputer.descentintodarkness.style.DIDCodecs;
 import net.minecraft.core.BlockPos;
@@ -52,7 +51,7 @@ public final class VinePatchStructure extends AbstractPatchStructure {
     }
 
     @Override
-    protected boolean doPlace(CaveGenContext ctx, BlockPos pos, Centroid centroid) {
+    protected boolean doPlace(CaveGenContext ctx, BlockPos pos, int roomIndex) {
         int height = this.height.sample(ctx.rand);
         int angle = vineRandomRotation ? ctx.rand.nextInt(4) * 90 : 0;
         Transform transform = Transform.rotateY(Math.toRadians(angle));
@@ -63,13 +62,13 @@ public final class VinePatchStructure extends AbstractPatchStructure {
         BlockPos offsetPos = pos;
         boolean placed = false;
         for (int i = 0; i < height && canReplace(ctx, offsetPos); i++) {
-            ctx.setBlock(offsetPos, transform.transform(i == 0 ? ctx.getState(firstBlock, offsetPos, centroid) : ctx.getState(vine, offsetPos, centroid)));
+            ctx.setBlock(offsetPos, transform.transform(i == 0 ? ctx.getState(firstBlock, offsetPos, roomIndex) : ctx.getState(vine, offsetPos, roomIndex)));
             placed = true;
             offsetPos = offsetPos.below();
         }
         offsetPos = offsetPos.above();
         if (placed) {
-            ctx.setBlock(offsetPos, transform.transform(ctx.getState(lastBlock, offsetPos, centroid)));
+            ctx.setBlock(offsetPos, transform.transform(ctx.getState(lastBlock, offsetPos, roomIndex)));
         }
 
         return placed;

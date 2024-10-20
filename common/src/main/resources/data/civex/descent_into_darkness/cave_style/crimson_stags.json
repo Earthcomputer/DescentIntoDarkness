@@ -30,9 +30,10 @@
   "base_block": "minecraft:netherrack",
   "painter_steps": [
     {
-      "type": "descent_into_darkness:replace_floor",
+      "type": "descent_into_darkness:replace",
       "old": "minecraft:netherrack",
-      "new": "minecraft:crimson_nylium"
+      "new": "minecraft:crimson_nylium",
+      "edges": "floor"
     }
   ],
   "structures": {

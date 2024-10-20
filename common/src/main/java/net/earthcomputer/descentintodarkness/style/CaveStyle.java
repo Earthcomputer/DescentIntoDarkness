@@ -15,7 +15,6 @@ import net.earthcomputer.descentintodarkness.DIDConstants;
 import net.earthcomputer.descentintodarkness.DIDRegistries;
 import net.earthcomputer.descentintodarkness.DescentIntoDarkness;
 import net.earthcomputer.descentintodarkness.generator.CaveGenContext;
-import net.earthcomputer.descentintodarkness.generator.Centroid;
 import net.earthcomputer.descentintodarkness.generator.GrammarGraph;
 import net.earthcomputer.descentintodarkness.generator.painter.PainterStep;
 import net.earthcomputer.descentintodarkness.generator.room.Room;
@@ -40,7 +39,6 @@ import net.minecraft.server.packs.resources.Resource;
 import net.minecraft.server.packs.resources.ResourceManager;
 import net.minecraft.util.ExtraCodecs;
 import net.minecraft.util.GsonHelper;
-import net.minecraft.util.Mth;
 import net.minecraft.util.valueproviders.ConstantInt;
 import net.minecraft.util.valueproviders.IntProvider;
 import net.minecraft.util.valueproviders.UniformInt;
@@ -325,12 +323,11 @@ public final class CaveStyle {
         return meta.lifetime;
     }
 
-    public BlockStateProvider getAirBlock(int y, Centroid currentCentroid, int minRoomY, int maxRoomY) {
-        double yInCentroid = (double) (y - Mth.floor(currentCentroid.pos.y) + currentCentroid.size) / (currentCentroid.size + currentCentroid.size);
-        for (String tag : currentCentroid.tags) {
-            BlockTypeRange<Double> range = block.tagAirBlocks.get(tag);
+    public BlockStateProvider getAirBlock(int y, List<String> roomTags, int minRoomY, int maxRoomY) {
+        for (String tag : roomTags) {
+            BlockTypeRange<Integer> range = block.tagAirBlocks.get(tag);
             if (range != null) {
-                BlockStateProvider block = range.get(yInCentroid);
+                BlockStateProvider block = range.get(y);
                 if (block != null) {
                     return block;
                 }
@@ -338,7 +335,7 @@ public final class CaveStyle {
         }
 
         double yInRoom = (double) (y - minRoomY) / (maxRoomY - minRoomY);
-        for (String tag : currentCentroid.tags) {
+        for (String tag : roomTags) {
             BlockTypeRange<Double> range = block.roomAirBlocks.get(tag);
             if (range != null) {
                 BlockStateProvider block = range.get(yInRoom);
@@ -469,27 +466,30 @@ public final class CaveStyle {
     private record BlockProperties(
         BlockTypeRange<Integer> airBlock,
         Map<String, BlockTypeRange<Double>> roomAirBlocks,
-        Map<String, BlockTypeRange<Double>> tagAirBlocks,
+        Map<String, BlockTypeRange<Integer>> tagAirBlocks,
         BlockState baseBlock,
         BlockPredicate transparentBlocks,
         HolderSet<Item> cannotPlace
     ) {
-        private static final Codec<Map<String, BlockTypeRange<Double>>> AIR_BLOCKS_BY_KEY_CODEC = Codec.unboundedMap(Codec.STRING, BlockTypeRange.INCOMPLETE_DOUBLE_CODEC).xmap(
-            combinedMap -> combinedMap.entrySet().stream().flatMap(entry -> Arrays.stream(entry.getKey().split(" ")).map(key -> Map.entry(key, entry.getValue()))).collect(Util.toMap()),
-            uncombinedMap -> uncombinedMap.entrySet().stream()
-                .collect(Collectors.groupingBy(Map.Entry::getValue))
-                .entrySet().stream()
-                .map(entry -> Map.entry(entry.getValue().stream().map(Map.Entry::getKey).collect(Collectors.joining(" ")), entry.getKey()))
-                .collect(Util.toMap())
-        );
         static final MapCodec<BlockProperties> CODEC = RecordCodecBuilder.mapCodec(instance -> instance.group(
             BlockTypeRange.INT_CODEC.optionalFieldOf("air_block", BlockTypeRange.simpleInt(BlockStateProvider.simple(Blocks.AIR))).forGetter(BlockProperties::airBlock),
-            AIR_BLOCKS_BY_KEY_CODEC.optionalFieldOf("room_air_blocks", Map.of()).forGetter(BlockProperties::roomAirBlocks),
-            AIR_BLOCKS_BY_KEY_CODEC.optionalFieldOf("tag_air_blocks", Map.of()).forGetter(BlockProperties::tagAirBlocks),
+            airBlocksByKeyCodec(BlockTypeRange.INCOMPLETE_DOUBLE_CODEC).optionalFieldOf("room_air_blocks", Map.of()).forGetter(BlockProperties::roomAirBlocks),
+            airBlocksByKeyCodec(BlockTypeRange.INCOMPLETE_INT_CODEC).optionalFieldOf("tag_air_blocks", Map.of()).forGetter(BlockProperties::tagAirBlocks),
             DIDCodecs.BLOCK_STATE.optionalFieldOf("base_block", Blocks.STONE.defaultBlockState()).forGetter(BlockProperties::baseBlock),
             DIDCodecs.BLOCK_PREDICATE.optionalFieldOf("transparent_blocks", BlockPredicate.not(BlockPredicate.alwaysTrue())).forGetter(BlockProperties::transparentBlocks),
             RegistryCodecs.homogeneousList(Registries.ITEM).optionalFieldOf("cannot_place", HolderSet.empty()).forGetter(BlockProperties::cannotPlace)
         ).apply(instance, BlockProperties::new));
+
+        private static <T extends Comparable<T>> Codec<Map<String, BlockTypeRange<T>>> airBlocksByKeyCodec(Codec<BlockTypeRange<T>> incompleteCodec) {
+            return Codec.unboundedMap(Codec.STRING, incompleteCodec).xmap(
+                combinedMap -> combinedMap.entrySet().stream().flatMap(entry -> Arrays.stream(entry.getKey().split(" ")).map(key -> Map.entry(key, entry.getValue()))).collect(Util.toMap()),
+                uncombinedMap -> uncombinedMap.entrySet().stream()
+                    .collect(Collectors.groupingBy(Map.Entry::getValue))
+                    .entrySet().stream()
+                    .map(entry -> Map.entry(entry.getValue().stream().map(Map.Entry::getKey).collect(Collectors.joining(" ")), entry.getKey()))
+                    .collect(Util.toMap())
+            );
+        }
     }
 
     private record SpawningProperties(

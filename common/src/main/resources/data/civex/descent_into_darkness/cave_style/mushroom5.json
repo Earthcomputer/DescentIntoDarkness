@@ -16,12 +16,13 @@
   ],
   "painter_steps": [
     {
-      "type": "descent_into_darkness:replace_floor",
+      "type": "descent_into_darkness:replace",
       "old": "minecraft:smooth_quartz",
-      "new": "minecraft:clay"
+      "new": "minecraft:clay",
+      "edges": "floor"
     },
     {
-      "type": "descent_into_darkness:replace_all",
+      "type": "descent_into_darkness:replace",
       "old": "minecraft:smooth_quartz",
       "new": "minecraft:quartz_block",
       "chance": 0.3

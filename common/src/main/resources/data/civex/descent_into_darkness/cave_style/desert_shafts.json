@@ -22,7 +22,7 @@
   "base_block": "minecraft:smooth_sandstone",
   "painter_steps": [
     {
-      "type": "descent_into_darkness:replace_all",
+      "type": "descent_into_darkness:replace",
       "old": "minecraft:smooth_sandstone",
       "new": {
         "type": "minecraft:weighted_state_provider",

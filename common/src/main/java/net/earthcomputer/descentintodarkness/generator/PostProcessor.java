@@ -1,171 +1,146 @@
 package net.earthcomputer.descentintodarkness.generator;
 
-import net.earthcomputer.descentintodarkness.DIDConstants;
+import it.unimi.dsi.fastutil.longs.Long2IntMap;
+import it.unimi.dsi.fastutil.longs.Long2IntOpenHashMap;
+import it.unimi.dsi.fastutil.longs.LongOpenHashSet;
+import it.unimi.dsi.fastutil.longs.LongSet;
+import net.earthcomputer.descentintodarkness.DIDUtil;
 import net.earthcomputer.descentintodarkness.generator.painter.PainterStep;
+import net.earthcomputer.descentintodarkness.generator.room.RoomData;
 import net.earthcomputer.descentintodarkness.generator.structure.Structure;
 import net.minecraft.Util;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.network.chat.Component;
-import net.minecraft.util.Mth;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.phys.Vec3;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 public final class PostProcessor {
-    private static final int STRUCTURE_CHANCE_ADJUST = 6 * 6;
+    private static final double SMOOTHING_CHANCE = 0.95;
+    private static final int SMOOTHING_THRESHOLD = 5;
 
-    public static void postProcess(CaveGenContext ctx, List<List<Vec3>> roomLocations) {
-        List<Centroid> centroids = ctx.centroids();
-        ctx.listener().setProgress((float) CaveGenerator.STEP_SMOOTHING / CaveGenerator.TOTAL_STEPS);
-        ctx.listener().pushProgress(Component.translatable("descent_into_darkness.generating.smoothing", centroids.size()));
-        int smoothedCentroidCount = 0;
-        int roomStart = 0;
-        while (roomStart < centroids.size()) {
-            int roomIndex = centroids.get(roomStart).roomIndex;
-            int roomEnd;
-            roomEnd = roomStart;
-            while (roomEnd < centroids.size() && centroids.get(roomEnd).roomIndex == roomIndex) {
-                roomEnd++;
-            }
-
-            List<Centroid> roomCentroids = centroids.subList(roomStart, roomEnd);
-            int minRoomY = roomCentroids.stream().mapToInt(centroid -> Mth.floor(centroid.pos.y) - centroid.size).min().orElse(DIDConstants.MIN_Y);
-            int maxRoomY = roomCentroids.stream().mapToInt(centroid -> Mth.floor(centroid.pos.y) + centroid.size).max().orElse(DIDConstants.MAX_Y);
-            for (Centroid centroid : roomCentroids) {
-                ctx.listener().setProgress((float) smoothedCentroidCount++ / centroids.size());
-                smooth(ctx, centroid, minRoomY, maxRoomY);
-            }
-
-            roomStart = roomEnd;
-        }
-        ctx.listener().popProgress();
-
-        ctx.listener().setProgress((float) CaveGenerator.STEP_PAINTING / CaveGenerator.TOTAL_STEPS);
-        ctx.listener().pushProgress(Component.translatable("descent_into_darkness.generating.painting", centroids.size()));
-        Set<BlockPos> paintedBlocks = new HashSet<>();
-        List<BlockPos> paintedBlocksThisCentroid = new ArrayList<>();
-        for (int i = 0; i < centroids.size(); i++) {
-            Centroid centroid = centroids.get(i);
-            ctx.listener().setProgress((float) i / centroids.size());
-            for (PainterStep painterStep : ctx.style().painterSteps()) {
-                if (painterStep.tags().matches(centroid.tags)) {
-                    painterStep.apply(ctx, centroid, pos -> {
-                        if (paintedBlocks.contains(pos)) {
-                            return false;
-                        }
-                        paintedBlocksThisCentroid.add(pos);
-                        return true;
-                    });
-                }
-            }
-            paintedBlocks.addAll(paintedBlocksThisCentroid);
-            paintedBlocksThisCentroid.clear();
-        }
-        ctx.listener().popProgress();
+    public static void postProcess(CaveGenContext ctx) {
+        smooth(ctx);
+        ctx.roomCarvingData().carve(ctx);
+        paint(ctx);
 
         ctx.listener().setProgress((float) CaveGenerator.STEP_GENERATING_STRUCTURES / CaveGenerator.TOTAL_STEPS);
         ctx.listener().pushProgress(Component.translatable("descent_into_darkness.generating.structures", ctx.style().structures().size()));
         int generatedStructures = 0;
         for (var structureEntry : ctx.style().structures().entrySet()) {
             ctx.listener().setProgress((float) generatedStructures++ / ctx.style().structures().size());
-            ctx.listener().pushProgress(Component.translatable("descent_into_darkness.generating.structure", structureEntry.getKey(), ctx.centroids().size()));
-            generateStructure(ctx, centroids, structureEntry.getValue());
+            ctx.listener().pushProgress(Component.translatable("descent_into_darkness.generating.structure", structureEntry.getKey(), ctx.rooms().size()));
+            generateStructure(ctx, structureEntry.getValue());
             ctx.listener().popProgress();
         }
         ctx.listener().popProgress();
 
-        if (!centroids.isEmpty()) {
-            generatePortal(ctx, centroids.getFirst());
-        }
+        generatePortal(ctx);
 
         if (ctx.isDebug()) {
-            for (List<Vec3> tunnel : roomLocations) {
-                for (int i = 1; i < tunnel.size(); i++) {
-                    Vec3 startPos = tunnel.get(i - 1);
-                    Vec3 endPos = tunnel.get(i);
-                    Vec3 direction = startPos.equals(endPos) ? Vec3.ZERO : endPos.subtract(startPos).normalize();
-                    double maxDist = startPos.distanceTo(endPos);
+            for (int roomIndex = 1; roomIndex < ctx.rooms().size(); roomIndex++) {
+                RoomData prevRoom = ctx.rooms().get(roomIndex - 1);
+                RoomData room = ctx.rooms().get(roomIndex);
+                if (!prevRoom.isBranchEnd()) {
+                    Vec3 direction = prevRoom.location().equals(room.location()) ? Vec3.ZERO : room.location().subtract(prevRoom.location()).normalize();
+                    double maxDist = prevRoom.location().distanceTo(room.location());
                     for (int dist = 0; dist < maxDist; dist++) {
-                        ctx.setBlock(BlockPos.containing(startPos.add(direction.scale(dist))), Blocks.GREEN_STAINED_GLASS.defaultBlockState());
+                        ctx.setBlock(BlockPos.containing(prevRoom.location().add(direction.scale(dist))), Blocks.GREEN_STAINED_GLASS.defaultBlockState());
                     }
                 }
             }
-            for (Centroid centroid : centroids) {
-                ctx.setBlock(BlockPos.containing(centroid.pos), Blocks.EMERALD_BLOCK.defaultBlockState());
-            }
-            for (List<Vec3> tunnel : roomLocations) {
-                for (Vec3 roomCenter : tunnel) {
-                    ctx.setBlock(BlockPos.containing(roomCenter), Blocks.REDSTONE_BLOCK.defaultBlockState());
-                }
+            for (RoomData room : ctx.rooms()) {
+                ctx.setBlock(BlockPos.containing(room.location()), Blocks.EMERALD_BLOCK.defaultBlockState());
             }
         }
     }
 
-    public static void smooth(CaveGenContext ctx, Centroid centroid, int minRoomY, int maxRoomY) {
-        int x = Mth.floor(centroid.pos.x);
-        int y = Mth.floor(centroid.pos.y);
-        int z = Mth.floor(centroid.pos.z);
-        int r = centroid.size + 2;
-
-        for(int tx = -r; tx <= r; tx++){
-            for(int ty = -r; ty <= r; ty++){
-                for(int tz = -r; tz <= r; tz++){
-                    if(tx * tx  +  ty * ty  +  tz * tz <= r * r){
-                        BlockPos pos = new BlockPos(tx+x, ty+y, tz+z);
-
-                        if(ctx.style().baseBlock() == ctx.getBlock(pos)) {
-                            int amt = countTransparent(ctx, pos);
-                            if(amt >= 13) {
-                                if(ctx.rand.nextInt(100) < 95) {
-                                    ctx.setBlock(pos, ctx.style().getAirBlock(pos.getY(), centroid, minRoomY, maxRoomY), centroid);
+    private static void paint(CaveGenContext ctx) {
+        ctx.listener().setProgress((float) CaveGenerator.STEP_PAINTING / CaveGenerator.TOTAL_STEPS);
+        List<PainterStep> painterSteps = ctx.style().painterSteps();
+        ctx.listener().pushProgress(Component.translatable("descent_into_darkness.generating.painting", painterSteps.size()));
+        LongSet paintedBlocks = new LongOpenHashSet();
+        for (int painterStepIndex = 0; painterStepIndex < painterSteps.size(); painterStepIndex++) {
+            ctx.listener().setProgress((float) painterStepIndex / painterSteps.size());
+            PainterStep painterStep = painterSteps.get(painterStepIndex);
+            ctx.listener().pushProgress(Component.translatable("descent_into_darkness.generating.painting.step", ctx.rooms().size()));
+            for (int roomIndex = 0; roomIndex < ctx.rooms().size(); roomIndex++) {
+                ctx.listener().setProgress((float) roomIndex / ctx.rooms().size());
+                int roomIndex_f = roomIndex;
+                RoomData room = ctx.rooms().get(roomIndex);
+                if (painterStep.tags().matches(room.tags())) {
+                    for (Direction side : painterStep.sides()) {
+                        ctx.roomCarvingData().forEachWallInRoom(roomIndex, side, wallPos -> {
+                            if (ctx.rand.nextDouble() < painterStep.chance()) {
+                                BlockPos posToPaint = wallPos.relative(side, painterStep.depth());
+                                if (paintedBlocks.add(posToPaint.asLong())) {
+                                    painterStep.apply(ctx, posToPaint, side, roomIndex_f);
                                 }
                             }
+                        });
+                    }
+                }
+            }
+            ctx.listener().popProgress();
+        }
+        ctx.listener().popProgress();
+    }
+
+    private static void smooth(CaveGenContext ctx) {
+        ctx.listener().setProgress((float) CaveGenerator.STEP_SMOOTHING_CALCULATING / CaveGenerator.TOTAL_STEPS);
+        ctx.listener().pushProgress(Component.translatable("descent_into_darkness.generating.smoothing_calculating", ctx.rooms().size()));
+        LongSet alreadySmoothed = new LongOpenHashSet();
+        Long2IntMap blocksToSetToAir = new Long2IntOpenHashMap();
+        for (RoomData room : ctx.rooms()) {
+            ctx.listener().setProgress((float) room.roomIndex() / ctx.rooms().size());
+            for (Direction side : DIDUtil.DIRECTIONS) {
+                ctx.roomCarvingData().forEachWallInRoom(room.roomIndex(), side, wallPos -> {
+                    if (alreadySmoothed.add(wallPos.asLong())) {
+                        int neighborAirCount = 0;
+                        for (Direction dir : DIDUtil.DIRECTIONS) {
+                            if (ctx.roomCarvingData().isAir(wallPos.relative(dir))) {
+                                neighborAirCount++;
+                            }
+                        }
+                        if (neighborAirCount >= SMOOTHING_THRESHOLD && ctx.rand.nextDouble() < SMOOTHING_CHANCE) {
+                            blocksToSetToAir.put(wallPos.asLong(), room.roomIndex());
                         }
                     }
-                }
+                });
             }
         }
-    }
+        ctx.listener().popProgress();
 
-    public static int countTransparent(CaveGenContext ctx, BlockPos loc) {
-        final int r = 1;
-        int count = 0;
-        for (int tx = -r; tx <= r; tx++) {
-            for (int ty = -r; ty <= r; ty++) {
-                for (int tz = -r; tz <= r; tz++) {
-                    BlockPos pos = loc.offset(tx, ty, tz);
-                    if (ctx.style().isTransparentBlock(ctx, pos)) {
-                        count++;
-                    }
-                }
-            }
+        ctx.listener().setProgress((float) CaveGenerator.STEP_SMOOTHING_APPLYING / CaveGenerator.TOTAL_STEPS);
+        ctx.listener().pushProgress(Component.translatable("descent_into_darkness.generating.smoothing_applying", blocksToSetToAir.size()));
+        BlockPos.MutableBlockPos pos = new BlockPos.MutableBlockPos();
+        int appliedBlocks = 0;
+        for (Long2IntMap.Entry entry : blocksToSetToAir.long2IntEntrySet()) {
+            ctx.listener().setProgress((float) appliedBlocks++ / blocksToSetToAir.size());
+            long blockLong = entry.getLongKey();
+            int roomIndex = entry.getIntValue();
+            pos.set(BlockPos.getX(blockLong), BlockPos.getY(blockLong), BlockPos.getZ(blockLong));
+            ctx.roomCarvingData().setAir(roomIndex, pos);
         }
-        return count;
+        ctx.listener().popProgress();
     }
 
 
-
-    public static void generateStructure(CaveGenContext ctx, List<Centroid> centroids, Structure structure) {
-        if (structure.validDirections().isEmpty()) {
+    public static void generateStructure(CaveGenContext ctx, Structure structure) {
+        if (structure.sides().isEmpty()) {
             return;
         }
-        for (int i = 0; i < centroids.size(); i++) {
-            Centroid centroid = centroids.get(i);
-            if (centroid.size <= 0) {
-                continue;
-            }
-            ctx.listener().setProgress((float) i / centroids.size());
+        for (int roomIndex = 0; roomIndex < ctx.rooms().size(); roomIndex++) {
+            ctx.listener().setProgress((float) roomIndex / ctx.rooms().size());
+            RoomData room = ctx.rooms().get(roomIndex);
 
-            double averageStructures = structure.count() * (centroid.size * centroid.size) / STRUCTURE_CHANCE_ADJUST;
             // compute the number of structures in this centroid using the Poisson distribution
             // https://stackoverflow.com/questions/9832919/generate-poisson-arrival-in-java
-            double L = Math.exp(-averageStructures);
+            double L = Math.exp(-structure.count());
             int numStructures = -1;
             double p = 1;
             do {
@@ -174,65 +149,58 @@ public final class PostProcessor {
             } while (p > L);
 
             for (int j = 0; j < numStructures; j++) {
-                if (structure.tags().matches(centroid.tags)) {
-                    placeStructure(ctx, structure, centroid, false);
+                if (structure.tags().matches(room.tags())) {
+                    placeStructure(ctx, structure, roomIndex, false);
                 }
             }
         }
     }
 
     @Nullable
-    private static BlockPos placeStructure(CaveGenContext ctx, Structure structure, Centroid centroid, boolean force) {
-        List<Direction> validDirections = structure.validDirections();
-        if (validDirections.isEmpty()) {
-            return null;
-        }
-
-        Vec3 vector;
-        Direction dir;
+    private static BlockPos placeStructure(CaveGenContext ctx, Structure structure, int roomIndex, boolean force) {
+        BlockPos wallPos;
+        Direction side;
         if (structure.shouldSnapToAxis()) {
-            dir = validDirections.get(ctx.rand.nextInt(validDirections.size()));
-            vector = Vec3.atLowerCornerOf(dir.getNormal().multiply(centroid.size));
+            side = Util.getRandom(structure.sides(), ctx.rand);
+            BlockPos pos = BlockPos.containing(ctx.rooms().get(roomIndex).location());
+            for (int i = 0; i < 256; i++) {
+                if (structure.canPlaceOn(ctx, pos)) {
+                    break;
+                }
+                pos = pos.relative(side);
+            }
+            wallPos = pos;
         } else {
-            // pick a random point on the unit sphere until it's a valid direction
-            do {
-                vector = new Vec3(ctx.rand.nextGaussian(), ctx.rand.nextGaussian(), ctx.rand.nextGaussian()).normalize().scale(centroid.size);
-                dir = Direction.getNearest(vector);
-            } while (!validDirections.contains(dir));
-        }
-        double distanceToWall = Vec3.atLowerCornerOf(dir.getNormal()).dot(vector);
-        Vec3 orthogonal = vector.subtract(Vec3.atLowerCornerOf(dir.getNormal()).scale(distanceToWall));
-        BlockPos origin = BlockPos.containing(centroid.pos.add(orthogonal));
-
-        BlockPos pos;
-        if (dir == Direction.DOWN) {
-            pos = PostProcessor.getFloor(ctx, origin, (int) Math.ceil(distanceToWall) + 2);
-        } else if (dir == Direction.UP) {
-            pos = PostProcessor.getCeiling(ctx, origin, (int) Math.ceil(distanceToWall) + 2);
-        } else {
-            pos = PostProcessor.getWall(ctx, origin, (int) Math.ceil(distanceToWall) + 2, dir);
+            RoomCarvingData.Wall wall = ctx.roomCarvingData().getRandomWall(roomIndex, ctx.rand, structure.sides());
+            if (wall == null) {
+                return null;
+            }
+            wallPos = wall.pos();
+            side = wall.side();
         }
 
-        if (!force && !structure.canPlaceOn(ctx, pos)) {
+        if (!force && !structure.canPlaceOn(ctx, wallPos)) {
             return null;
         }
+
+        BlockPos pos = wallPos.relative(side, structure.depth());
 
         double randomYRotation = ctx.rand.nextInt(4) * (Math.PI / 2);
-        ctx.pushTransform(structure.getBlockTransform(randomYRotation, pos, dir), structure.getPositionTransform(randomYRotation, pos, dir));
-        boolean placed = structure.place(ctx, pos, centroid, force);
+        ctx.pushTransform(structure.getBlockTransform(randomYRotation, pos, side), structure.getPositionTransform(randomYRotation, pos, side));
+        boolean placed = structure.place(ctx, pos, roomIndex, force);
         ctx.popTransform();
         return placed ? pos : null;
     }
 
-    private static void generatePortal(CaveGenContext ctx, Centroid firstCentroid) {
-        if (ctx.style().portals().isEmpty()) {
+    private static void generatePortal(CaveGenContext ctx) {
+        if (ctx.style().portals().isEmpty() || ctx.rooms().isEmpty()) {
             return;
         }
         List<Structure> portals = new ArrayList<>(ctx.style().portals().values());
         // 100 attempts to place a portal without force (in a nice location)
         for (int i = 0; i < 100; i++) {
             Structure portal = Util.getRandom(portals, ctx.rand);
-            BlockPos portalPos = placeStructure(ctx, portal, firstCentroid, false);
+            BlockPos portalPos = placeStructure(ctx, portal, 0, false);
             if (portalPos != null) {
                 ctx.setSpawnPos(findSpawnPos(ctx, portalPos));
                 return;
@@ -240,7 +208,7 @@ public final class PostProcessor {
         }
         // if we can't place a portal, try again with force
         Structure portal = Util.getRandom(portals, ctx.rand);
-        BlockPos portalPos = placeStructure(ctx, portal, firstCentroid, true);
+        BlockPos portalPos = placeStructure(ctx, portal, 0, true);
         ctx.setSpawnPos(findSpawnPos(ctx, portalPos));
     }
 
@@ -269,51 +237,5 @@ public final class PostProcessor {
         int minYDistance_f = minYDistance;
         appropriateSpawnPositions.removeIf(spawnPos -> Math.abs(spawnPos.getY() - startPos.getY()) > minYDistance_f);
         return Util.getRandom(appropriateSpawnPositions, ctx.rand);
-    }
-
-    public static boolean isFloor(CaveGenContext ctx, BlockPos pos) {
-        return isSolid(ctx, pos) && isSolid(ctx, pos.below()) && !isSolid(ctx, pos.above());
-    }
-
-    public static boolean isRoof(CaveGenContext ctx, BlockPos pos) {
-        return isSolid(ctx, pos) && !isSolid(ctx, pos.below()) && isSolid(ctx, pos.above());
-    }
-
-    public static boolean isSolid(CaveGenContext ctx, BlockPos pos) {
-        return !ctx.style().isTransparentBlock(ctx, pos);
-    }
-
-    public static BlockPos getWall(CaveGenContext ctx, BlockPos loc, int r, Direction direction) {
-        r= (int) (r *1.8);
-        BlockPos ret = new BlockPos.MutableBlockPos().set(loc);
-        for(int i = 0; i < r; i++) {
-            ret = ret.relative(direction);
-            if (!ctx.style().isTransparentBlock(ctx, ret)) {
-                return ret;
-            }
-        }
-        return ret;
-    }
-
-    public static BlockPos getCeiling(CaveGenContext ctx, BlockPos loc, int r) {
-        BlockPos ret = loc;
-        for(int i = 0; i < r+2; i++) {
-            ret = ret.above();
-            if (!ctx.style().isTransparentBlock(ctx, ret)) {
-                return ret;
-            }
-        }
-        return ret;
-    }
-
-    public static BlockPos getFloor(CaveGenContext ctx, BlockPos loc, int r) {
-        BlockPos ret = loc;
-        for(int i = 0; i < r+2; i++) {
-            ret = ret.below();
-            if (!ctx.style().isTransparentBlock(ctx, ret)) {
-                return ret;
-            }
-        }
-        return ret;
     }
 }

@@ -13,14 +13,21 @@
   "base_block": "minecraft:stone_bricks",
   "painter_steps": [
     {
-      "type": "descent_into_darkness:replace_all",
+      "type": "descent_into_darkness:replace",
       "old": "minecraft:stone_bricks",
       "new": "minecraft:mossy_stone_bricks",
       "chance": 0.5
     },
     {
-      "type": "descent_into_darkness:floor_layer",
-      "block": {
+      "type": "descent_into_darkness:replace",
+      "edges": "floor",
+      "depth": -1,
+      "old": [
+        "minecraft:stone_bricks",
+        "minecraft:mossy_stone_bricks"
+      ],
+      "old_depth": 0,
+      "new": {
         "type": "minecraft:weighted_state_provider",
         "entries": [
           {
@@ -42,15 +49,18 @@
             }
           }
         ]
-      },
-      "can_place_on": [
-        "minecraft:stone_bricks",
-        "minecraft:mossy_stone_bricks"
-      ]
+      }
     },
     {
-      "type": "descent_into_darkness:ceiling_layer",
-      "block": {
+      "type": "descent_into_darkness:replace",
+      "edges": "ceiling",
+      "depth": -1,
+      "old": [
+        "minecraft:stone_bricks",
+        "minecraft:mossy_stone_bricks"
+      ],
+      "old_depth": 0,
+      "new": {
         "type": "minecraft:weighted_state_provider",
         "entries": [
           {
@@ -72,11 +82,7 @@
             }
           }
         ]
-      },
-      "can_place_on": [
-        "minecraft:stone_bricks",
-        "minecraft:mossy_stone_bricks"
-      ]
+      }
     }
   ],
   "structures": {

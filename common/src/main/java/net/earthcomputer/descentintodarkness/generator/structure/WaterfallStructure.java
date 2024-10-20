@@ -7,8 +7,8 @@ import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import it.unimi.dsi.fastutil.longs.Long2IntMap;
 import it.unimi.dsi.fastutil.longs.Long2IntOpenHashMap;
+import net.earthcomputer.descentintodarkness.DIDUtil;
 import net.earthcomputer.descentintodarkness.generator.CaveGenContext;
-import net.earthcomputer.descentintodarkness.generator.Centroid;
 import net.earthcomputer.descentintodarkness.style.DIDCodecs;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -71,10 +71,10 @@ public final class WaterfallStructure extends Structure {
     }
 
     @Override
-    public boolean place(CaveGenContext ctx, BlockPos pos, Centroid centroid, boolean force) {
+    public boolean place(CaveGenContext ctx, BlockPos pos, int roomIndex, boolean force) {
         if (!force) {
             int wallCount = 0;
-            for (Direction dir : Direction.values()) {
+            for (Direction dir : DIDUtil.DIRECTIONS) {
                 if (canPlaceOn(ctx, pos.relative(dir))) {
                     wallCount++;
                 }
@@ -84,16 +84,16 @@ public final class WaterfallStructure extends Structure {
             }
         }
 
-        if (ctx.setBlock(pos, fluidType.getBlockProvider(this.block), centroid)) {
+        if (ctx.setBlock(pos, fluidType.getBlockProvider(this.block), roomIndex)) {
             Long2IntOpenHashMap blockLevels = new Long2IntOpenHashMap();
             blockLevels.defaultReturnValue(-1);
-            simulateFluidTick(ctx, centroid, pos, blockLevels);
+            simulateFluidTick(ctx, roomIndex, pos, blockLevels);
         }
 
         return true;
     }
 
-    private void simulateFluidTick(CaveGenContext ctx, Centroid centroid, BlockPos pos, Long2IntMap blockLevels) {
+    private void simulateFluidTick(CaveGenContext ctx, int roomIndex, BlockPos pos, Long2IntMap blockLevels) {
         BlockState state = ctx.getBlock(pos);
         int level = getLevel(ctx,pos, state, blockLevels);
         int levelDecrease = fluidType == FluidType.LAVA ? 2 : 1;
@@ -144,8 +144,8 @@ public final class WaterfallStructure extends Structure {
                 if (newLevel < 0) {
                     ctx.setBlock(pos, Blocks.AIR.defaultBlockState());
                 } else {
-                    if (setLevel(ctx, centroid, pos, newLevel, blockLevels)) {
-                        simulateFluidTick(ctx, centroid, pos, blockLevels);
+                    if (setLevel(ctx, roomIndex, pos, newLevel, blockLevels)) {
+                        simulateFluidTick(ctx, roomIndex, pos, blockLevels);
                     }
                 }
             }
@@ -157,9 +157,9 @@ public final class WaterfallStructure extends Structure {
             // skipped: trigger mix effects
 
             if (level >= flowDistance) {
-                tryFlowInto(ctx, centroid, posBelow, blockBelow, level, blockLevels);
+                tryFlowInto(ctx, roomIndex, posBelow, blockBelow, level, blockLevels);
             } else {
-                tryFlowInto(ctx, centroid, posBelow, blockBelow, level + flowDistance, blockLevels);
+                tryFlowInto(ctx, roomIndex, posBelow, blockBelow, level + flowDistance, blockLevels);
             }
         } else if (level >= 0 && (level == 0 || isBlocked(ctx, posBelow))) {
             Set<Direction> flowDirs = getPossibleFlowDirections(ctx, pos, level, blockLevels);
@@ -172,7 +172,7 @@ public final class WaterfallStructure extends Structure {
             }
             for (Direction flowDir : flowDirs) {
                 BlockPos offsetPos = pos.relative(flowDir);
-                tryFlowInto(ctx, centroid, offsetPos, ctx.getBlock(offsetPos), newLevel, blockLevels);
+                tryFlowInto(ctx, roomIndex, offsetPos, ctx.getBlock(offsetPos), newLevel, blockLevels);
             }
         }
     }
@@ -194,9 +194,9 @@ public final class WaterfallStructure extends Structure {
         }
     }
 
-    private boolean setLevel(CaveGenContext ctx, Centroid centroid, BlockPos pos, int level, Long2IntMap blockLevels) {
+    private boolean setLevel(CaveGenContext ctx, int roomIndex, BlockPos pos, int level, Long2IntMap blockLevels) {
         if (fluidType == FluidType.BLOCK) {
-            return blockLevels.put(pos.asLong(), level) != level | ctx.setBlock(pos, fluidType.getBlockProvider(block), centroid);
+            return blockLevels.put(pos.asLong(), level) != level | ctx.setBlock(pos, fluidType.getBlockProvider(block), roomIndex);
         } else if (fluidType == FluidType.SNOW_LAYER) {
             BlockPos posBelow = pos.below();
             if (ctx.getBlock(posBelow).is(Blocks.SNOW)) {
@@ -220,14 +220,14 @@ public final class WaterfallStructure extends Structure {
         return !this.fluidType.getBlockPredicate(this.blockPredicate).test(ctx.asLevel(), pos) && !block.is(Blocks.LAVA) && !isBlocked(ctx, pos);
     }
 
-    private void tryFlowInto(CaveGenContext ctx, Centroid centroid, BlockPos pos, BlockState block, int level, Long2IntMap blockLevels) {
+    private void tryFlowInto(CaveGenContext ctx, int roomIndex, BlockPos pos, BlockState block, int level, Long2IntMap blockLevels) {
         if (!canFlowInto(ctx, pos, block)) {
             return;
         }
 
         // skipped: trigger mix effects and block dropping
-        if (setLevel(ctx, centroid, pos, level, blockLevels)) {
-            simulateFluidTick(ctx, centroid, pos, blockLevels);
+        if (setLevel(ctx, roomIndex, pos, level, blockLevels)) {
+            simulateFluidTick(ctx, roomIndex, pos, blockLevels);
         }
     }
 

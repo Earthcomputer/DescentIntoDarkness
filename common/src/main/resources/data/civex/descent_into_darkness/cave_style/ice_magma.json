@@ -5,9 +5,10 @@
   "biome": "civex:ice_magma",
   "painter_steps": [
     {
-      "type": "descent_into_darkness:replace_floor",
+      "type": "descent_into_darkness:replace",
       "old": "descent_into_darkness:ice_magma",
-      "new": "minecraft:light_blue_concrete_powder"
+      "new": "minecraft:light_blue_concrete_powder",
+      "edges": "floor"
     }
   ],
   "inherit": [

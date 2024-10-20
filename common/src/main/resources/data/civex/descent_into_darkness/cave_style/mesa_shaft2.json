@@ -674,10 +674,11 @@
       ]
     },
     {
-      "type": "descent_into_darkness:replace_floor",
+      "type": "descent_into_darkness:replace",
       "old": "minecraft:black_terracotta",
       "new": "minecraft:black_concrete_powder",
-      "chance": 1
+      "chance": 1,
+      "edges": "floor"
     }
   ],
   "structures": {

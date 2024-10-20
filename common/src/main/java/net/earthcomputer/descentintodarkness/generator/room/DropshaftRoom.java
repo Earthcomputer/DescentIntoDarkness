@@ -3,8 +3,8 @@ package net.earthcomputer.descentintodarkness.generator.room;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.earthcomputer.descentintodarkness.generator.CaveGenContext;
-import net.earthcomputer.descentintodarkness.generator.Centroid;
 import net.earthcomputer.descentintodarkness.generator.ModuleGenerator;
+import net.earthcomputer.descentintodarkness.generator.RoomCarvingData;
 import net.earthcomputer.descentintodarkness.style.DIDCodecs;
 import net.minecraft.util.valueproviders.IntProvider;
 import net.minecraft.util.valueproviders.UniformInt;
@@ -49,13 +49,13 @@ public final class DropshaftRoom extends Room<DropshaftRoom.DropshaftData> {
     }
 
     @Override
-    public void addCentroids(CaveGenContext ctx, RoomData roomData, DropshaftData userData, List<Centroid> centroids) {
+    public void apply(RoomCarvingData carvingData, CaveGenContext ctx, RoomData roomData, DropshaftData userData) {
         int depth = userData.depth;
         int i = 0;
         int radius = roomData.caveRadius() >= 4 ? roomData.caveRadius() - 1 : roomData.caveRadius();
         Vec3 loc = roomData.location();
         while (i < depth) {
-            centroids.add(new Centroid(loc, radius, roomData));
+            SimpleRoom.applySphere(carvingData, loc, radius, roomData.roomIndex());
             loc = ModuleGenerator.vary(ctx, loc);
             int step = this.step.sample(ctx.rand);
             loc = loc.add(0, -step, 0);

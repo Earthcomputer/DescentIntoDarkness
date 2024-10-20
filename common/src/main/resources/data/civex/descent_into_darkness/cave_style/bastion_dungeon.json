@@ -13,7 +13,7 @@
   "base_block": "minecraft:blackstone",
   "painter_steps": [
     {
-      "type": "descent_into_darkness:replace_floor",
+      "type": "descent_into_darkness:replace",
       "old": "minecraft:blackstone",
       "new": {
         "type": "minecraft:weighted_state_provider",
@@ -50,10 +50,11 @@
           }
         ]
       },
-      "chance": 1
+      "chance": 1,
+      "edges": "floor"
     },
     {
-      "type": "descent_into_darkness:replace_ceiling",
+      "type": "descent_into_darkness:replace",
       "old": "minecraft:blackstone",
       "new": {
         "type": "minecraft:weighted_state_provider",
@@ -84,11 +85,17 @@
           }
         ]
       },
-      "chance": 1
+      "chance": 1,
+      "edges": "ceiling"
     },
     {
-      "type": "descent_into_darkness:floor_layer",
-      "block": {
+      "type": "descent_into_darkness:replace",
+      "edges": "floor",
+      "depth": -1,
+      "old": {
+        "type": "minecraft:true"
+      },
+      "new": {
         "type": "minecraft:weighted_state_provider",
         "entries": [
           {
@@ -113,8 +120,13 @@
       }
     },
     {
-      "type": "descent_into_darkness:ceiling_layer",
-      "block": {
+      "type": "descent_into_darkness:replace",
+      "edges": "ceiling",
+      "depth": -1,
+      "old": {
+        "type": "minecraft:true"
+      },
+      "new": {
         "type": "minecraft:weighted_state_provider",
         "entries": [
           {

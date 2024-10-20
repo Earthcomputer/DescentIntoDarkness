@@ -2,13 +2,14 @@
   "base_block": "minecraft:dirt",
   "painter_steps": [
     {
-      "type": "descent_into_darkness:replace_floor",
+      "type": "descent_into_darkness:replace",
       "old": "minecraft:dirt",
       "new": "minecraft:grass_block",
-      "chance": 0.3
+      "chance": 0.3,
+      "edges": "floor"
     },
     {
-      "type": "descent_into_darkness:replace_all",
+      "type": "descent_into_darkness:replace",
       "old": "minecraft:dirt",
       "new": {
         "type": "minecraft:weighted_state_provider",
@@ -38,27 +39,27 @@
   ],
   "structures": {
     "pillar": {
-        "type": "descent_into_darkness:template",
-        "chance": 0.5,
-        "edges": "floor",
-        "can_replace": [
-          "minecraft:stone",
-          "minecraft:cobblestone",
-          "minecraft:grass_block",
-          "minecraft:dirt",
-          "minecraft:coarse_dirt",
-          "minecraft:air"
-        ],
-        "templates": [
-          {
-            "template": "descent_into_darkness:jackscave/quartz_pillar",
-            "origin": [
-              1,
-              0,
-              1
-            ]
-          }
-        ]
+      "type": "descent_into_darkness:template",
+      "chance": 0.5,
+      "edges": "floor",
+      "can_replace": [
+        "minecraft:stone",
+        "minecraft:cobblestone",
+        "minecraft:grass_block",
+        "minecraft:dirt",
+        "minecraft:coarse_dirt",
+        "minecraft:air"
+      ],
+      "templates": [
+        {
+          "template": "descent_into_darkness:jackscave/quartz_pillar",
+          "origin": [
+            1,
+            0,
+            1
+          ]
+        }
+      ]
     }
   }
 }

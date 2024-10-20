@@ -6,7 +6,7 @@ import com.mojang.serialization.DataResult;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.earthcomputer.descentintodarkness.generator.CaveGenContext;
-import net.earthcomputer.descentintodarkness.generator.Centroid;
+import net.earthcomputer.descentintodarkness.generator.PlacementEdge;
 import net.earthcomputer.descentintodarkness.style.DIDCodecs;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -85,7 +85,7 @@ public final class ChorusPlantStructure extends Structure {
     }
 
     @Override
-    protected Direction getDefaultOriginSide(List<StructurePlacementEdge> edges) {
+    protected Direction getDefaultOriginSide(List<PlacementEdge> edges) {
         return Direction.DOWN;
     }
 
@@ -138,8 +138,12 @@ public final class ChorusPlantStructure extends Structure {
     }
 
     @Override
-    public boolean place(CaveGenContext ctx, BlockPos pos, Centroid centroid, boolean force) {
-        pos = pos.above();
+    protected int getDefaultDepth() {
+        return -1;
+    }
+
+    @Override
+    public boolean place(CaveGenContext ctx, BlockPos pos, int roomIndex, boolean force) {
         if (!canReplace(ctx, pos)
             || !canReplace(ctx, pos.above())
             || !isSurroundedByAir(ctx, pos.above(), null)
@@ -147,14 +151,14 @@ public final class ChorusPlantStructure extends Structure {
             return false;
         }
 
-        ctx.setBlock(pos, withConnectionProperties(ctx, pos, ctx.getState(stemBlock, pos, centroid)));
+        ctx.setBlock(pos, withConnectionProperties(ctx, pos, ctx.getState(stemBlock, pos, roomIndex)));
         int radius = this.radius.sample(ctx.rand);
         int numLayers = this.numLayers.sample(ctx.rand);
-        generate(ctx, centroid, pos, pos, radius, 0, numLayers, force);
+        generate(ctx, roomIndex, pos, pos, radius, 0, numLayers, force);
         return true;
     }
 
-    private void generate(CaveGenContext ctx, Centroid centroid, BlockPos pos, BlockPos rootPos, int radius, int layer, int numLayers, boolean force) {
+    private void generate(CaveGenContext ctx, int roomIndex, BlockPos pos, BlockPos rootPos, int radius, int layer, int numLayers, boolean force) {
         int length = vLength.sample(ctx.rand);
         if (layer == 0) {
             length += initialHeightBoost.sample(ctx.rand);
@@ -163,11 +167,11 @@ public final class ChorusPlantStructure extends Structure {
         for (int i = 0; i < length; i++) {
             BlockPos offsetPos = pos.above(i + 1);
             if (!force && (!canReplace(ctx, offsetPos) || !isSurroundedByAir(ctx, offsetPos, null))) {
-                ctx.setBlock(pos.above(i), flowerBlock, centroid);
+                ctx.setBlock(pos.above(i), flowerBlock, roomIndex);
                 return;
             }
 
-            ctx.setBlock(offsetPos, withConnectionProperties(ctx, offsetPos, ctx.getState(stemBlock, offsetPos, centroid)));
+            ctx.setBlock(offsetPos, withConnectionProperties(ctx, offsetPos, ctx.getState(stemBlock, offsetPos, roomIndex)));
             BlockPos posBelow = offsetPos.below();
             ctx.setBlock(posBelow, withConnectionProperties(ctx, posBelow, ctx.getBlock(posBelow)));
         }
@@ -191,15 +195,15 @@ public final class ChorusPlantStructure extends Structure {
                             && canReplace(ctx, offsetPos.below())
                             && isSurroundedByAir(ctx, offsetPos, direction)) {
                             extended = true;
-                            ctx.setBlock(offsetPos, withConnectionProperties(ctx, offsetPos, ctx.getState(stemBlock, offsetPos, centroid)));
+                            ctx.setBlock(offsetPos, withConnectionProperties(ctx, offsetPos, ctx.getState(stemBlock, offsetPos, roomIndex)));
                             BlockPos posBehind = offsetPos.relative(direction.getOpposite());
                             ctx.setBlock(posBehind, withConnectionProperties(ctx, posBehind, ctx.getBlock(posBehind)));
                             if (j == hLength - 1) {
-                                generate(ctx, centroid, offsetPos, rootPos, radius, layer + 1, numLayers, force);
+                                generate(ctx, roomIndex, offsetPos, rootPos, radius, layer + 1, numLayers, force);
                             }
                         } else {
                             if (j != 1) {
-                                ctx.setBlock(offsetPos.relative(direction.getOpposite()), flowerBlock, centroid);
+                                ctx.setBlock(offsetPos.relative(direction.getOpposite()), flowerBlock, roomIndex);
                             }
                             break;
                         }
@@ -209,7 +213,7 @@ public final class ChorusPlantStructure extends Structure {
         }
 
         if (!extended) {
-            ctx.setBlock(pos.above(length), flowerBlock, centroid);
+            ctx.setBlock(pos.above(length), flowerBlock, roomIndex);
         }
 
     }

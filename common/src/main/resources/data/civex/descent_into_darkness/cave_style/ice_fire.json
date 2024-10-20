@@ -29,7 +29,7 @@
   "dimension": "minecraft:the_nether",
   "painter_steps": [
     {
-      "type": "descent_into_darkness:replace_all",
+      "type": "descent_into_darkness:replace",
       "old": "minecraft:blue_ice",
       "new": {
         "type": "minecraft:weighted_state_provider",
@@ -51,16 +51,18 @@
       "chance": 0.3
     },
     {
-      "type": "descent_into_darkness:replace_floor",
+      "type": "descent_into_darkness:replace",
       "old": "minecraft:warped_wart_block",
       "new": "descent_into_darkness:ice_magma",
-      "chance": 1
+      "chance": 1,
+      "edges": "floor"
     },
     {
-      "type": "descent_into_darkness:replace_floor",
+      "type": "descent_into_darkness:replace",
       "old": "minecraft:blue_ice",
       "new": "minecraft:water",
-      "chance": 0.03
+      "chance": 0.03,
+      "edges": "floor"
     }
   ],
   "structures": {
